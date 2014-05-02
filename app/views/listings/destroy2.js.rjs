@@ -1,0 +1,1 @@
+page.replace_html("second_image", :partial => "empty2")

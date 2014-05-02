@@ -1,0 +1,121 @@
+8
+
+dir
+242
+https://svn.codespaces.com/rihhi/larp/rihhi/vendor/plugins/attachment_fu
+https://svn.codespaces.com/rihhi/larp
+
+
+
+2009-08-28T16:50:11.771932Z
+53
+blondkatze!
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ce245bec-e5c3-47c4-86f5-a6cae0350485
+
+.gitignore
+file
+
+
+
+
+2010-10-18T15:52:52.383000Z
+0554644462a476495b7e60d51ab9cf14
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+CHANGELOG
+file
+
+
+
+
+2010-10-18T15:52:52.893000Z
+cc8d5173be40db496276bd3324a5b4b9
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+README
+file
+
+
+
+
+2010-10-18T15:52:52.904000Z
+5f9eccce51f10c3a5e4e08ebef9db02c
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+Rakefile
+file
+
+
+
+
+2010-10-18T15:52:52.379000Z
+2b5d21984a0cf5acef583ddc9c365e9d
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+amazon_s3.yml.tpl
+file
+
+
+
+
+2010-10-18T15:52:52.896000Z
+80f423a9336d489fa6b4fd7be664100d
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+init.rb
+file
+
+
+
+
+2010-10-18T15:52:52.383000Z
+febf5e5cc8bf713fa448b607c87bccb7
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+install.rb
+file
+
+
+
+
+2010-10-18T15:52:52.900000Z
+7b5133949c890137baf7b78284918712
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+lib
+dir
+
+test
+dir
+
+vendor
+dir
+

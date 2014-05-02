@@ -1,0 +1,82 @@
+8
+
+dir
+242
+https://svn.codespaces.com/rihhi/larp/rihhi/vendor/plugins/lightbox
+https://svn.codespaces.com/rihhi/larp
+
+
+
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ce245bec-e5c3-47c4-86f5-a6cae0350485
+
+LICENSE
+file
+
+
+
+
+2010-10-18T15:52:49.212000Z
+60d084affe74956fd4de83549c4bfad9
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+README
+file
+
+
+
+
+2010-10-18T15:52:49.249000Z
+c8336a78c528ea2c1ecc65931857f552
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+init.rb
+file
+
+
+
+
+2010-10-18T15:52:49.216000Z
+1e093e335e42b406b91b37e38b920444
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+install.rb
+file
+
+
+
+
+2010-10-18T15:52:49.233000Z
+3b40007030ac97360c321848577bcea1
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+lib
+dir
+
+public
+dir
+

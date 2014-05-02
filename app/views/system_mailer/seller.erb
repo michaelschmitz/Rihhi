@@ -1,0 +1,34 @@
+<%= t("views.smailer.seller.s1")%>. 
+
+<%= t("views.smailer.seller.s2")%>
+<%= t("views.smailer.seller.s3")%>
+
+<%= t("views.smailer.seller.s4")%>:
+
+<%= t("views.smailer.seller.s5")%>:		<%= @seller.full_name %>
+<%= t("views.smailer.seller.s6")%>:		<%= @seller.street %>
+<%= t("views.smailer.seller.s7")%>:	<%= @seller.post_code %>
+<%= t("views.smailer.seller.s8")%>:		<%= @seller.city %>
+<%= t("views.smailer.seller.s9")%>:	<%= t(@seller.country) %>
+
+<% if @seller.electronic_direct_debit == "Yes" %>
+<%= t("views.smailer.seller.s10")%>.
+
+<%= t("views.smailer.seller.s11")%>: <%= @seller.account_holder_name %>
+<%= t("views.smailer.seller.s12")%>: <%= @seller.account_number  %>
+<%= t("views.smailer.seller.s13")%>: <%= @seller.bank_identifier %>
+
+<%= t("views.smailer.seller.s14")%>.
+<% else %>
+<%= t("views.smailer.seller.s15")%>.
+<% end %>
+<%= t("views.smailer.seller.s16")%>:
+A) <%= t("views.smailer.seller.s17")%>.
+B) <%= t("views.smailer.seller.s18")%>.
+
+<%= t("views.smailer.seller.s22")%>.
+
+<%= t("views.smailer.seller.s19")%>.  
+
+<%= render :partial => "shared/imprint" %>
+ 

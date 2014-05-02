@@ -1,0 +1,8 @@
+			<table style="width: 100%" class="align_left">
+					<tr><td class="bold"><%= t('views.listings.empty1.s1') %></td></tr>
+					
+					<tr><td style="width: 240px; height: 324px; text-align: center;  border: 1px solid grey;" class="bold"><p> <%= t('views.listings.empty1.s2') %><br><span style="font-weight: normal;"><%= t('views.listings.empty1.s3') %></span></p></td></tr>			
+					<% fields_for :p1 do |pi|%>
+						<tr><td><%= pi.file_field :uploaded_data, :tabindex => 1 %></td></tr>
+					<% end %>
+			</table>

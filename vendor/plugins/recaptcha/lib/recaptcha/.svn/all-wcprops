@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/lib/recaptcha
+END
+rails.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/lib/recaptcha/rails.rb
+END
+client_helper.rb
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/lib/recaptcha/client_helper.rb
+END
+merb.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/lib/recaptcha/merb.rb
+END
+verify.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/lib/recaptcha/verify.rb
+END

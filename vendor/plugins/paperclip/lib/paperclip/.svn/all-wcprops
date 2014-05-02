@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/rihhi/larp/!svn/ver/121/rihhi/vendor/plugins/paperclip/lib/paperclip
+END
+geometry.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/rihhi/larp/!svn/ver/121/rihhi/vendor/plugins/paperclip/lib/paperclip/geometry.rb
+END
+attachment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 83
+/rihhi/larp/!svn/ver/121/rihhi/vendor/plugins/paperclip/lib/paperclip/attachment.rb
+END
+style.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/rihhi/larp/!svn/ver/121/rihhi/vendor/plugins/paperclip/lib/paperclip/style.rb
+END
+interpolations.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/rihhi/larp/!svn/ver/121/rihhi/vendor/plugins/paperclip/lib/paperclip/interpolations.rb
+END
+callback_compatability.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/rihhi/larp/!svn/ver/121/rihhi/vendor/plugins/paperclip/lib/paperclip/callback_compatability.rb
+END
+matchers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/rihhi/larp/!svn/ver/121/rihhi/vendor/plugins/paperclip/lib/paperclip/matchers.rb
+END
+processor.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/rihhi/larp/!svn/ver/121/rihhi/vendor/plugins/paperclip/lib/paperclip/processor.rb
+END
+upfile.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/rihhi/larp/!svn/ver/121/rihhi/vendor/plugins/paperclip/lib/paperclip/upfile.rb
+END
+storage.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/rihhi/larp/!svn/ver/121/rihhi/vendor/plugins/paperclip/lib/paperclip/storage.rb
+END
+thumbnail.rb
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/rihhi/larp/!svn/ver/121/rihhi/vendor/plugins/paperclip/lib/paperclip/thumbnail.rb
+END
+iostream.rb
+K 25
+svn:wc:ra_dav:version-url
+V 81
+/rihhi/larp/!svn/ver/121/rihhi/vendor/plugins/paperclip/lib/paperclip/iostream.rb
+END

@@ -1,0 +1,58 @@
+<% @onpage = 2 %>
+<%= render :partial => "newticket", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <h2 class="text_green">Confirmation</h2>
+    <ul style="margin-bottom: 10px;">
+        <li>
+            You have ordered <%= @ticketorder.nr_of_tickets %> tickets from <%= @ticketorder.vendor_id %>.
+        </li>
+		
+		<li>
+          Your order becomes valid once <%= @ticketorder.vendor_id %> confirms receiving your payment.
+        </li>
+    </ul>
+<table style="text-align: left;">
+        <tr>
+            <td colspan="2">
+                Please pay the seller via Bank transfer as soon as possible. Transfer to: 
+            </td>
+        </tr>
+		   <tr>
+            <td colspan="2">
+                <br> 
+            </td>
+        </tr>
+        <tr>
+        	<td style="width: 120px;" class="bold">Account holder:</td><td> <%= @seller.account_holder_name %></td>
+			  </tr>
+        <tr>
+				<td class="bold">IBAN:</td><td><%= @seller.account_number %></td>
+			  </tr>
+        <tr>
+        		<td class="bold">BIC:</td><td> <%= @seller.bank_identifier %></td>
+			  </tr>
+        <tr>
+        		<td class="bold">Reference:</td><td>Ticket: <%= @ticketorder.id %></td>
+			  </tr>
+			  	   <tr>
+			  	   	        <tr>
+        		<td class="bold">Amount:</td><td><%= @ticketorder.total_price %> Euro</td>
+			  </tr>
+
+            <td colspan="2">
+                <br> 
+            </td>
+        </tr>
+       
+        <tr>
+            <td colspan="2">
+                You ordered on <%= @ticketorder.created_at.strftime('%A, %d. %B,  %Y')%>. 
+            </td>
+			</tr>
+        <tr>
+			<td colspan="2">
+				 The seller can cancel your order if he does not receive payment within 5 days.
+			</td>
+        </tr>
+    </table>
+</div>

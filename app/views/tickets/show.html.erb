@@ -1,0 +1,13 @@
+<div class="left">
+<!-- LEFT COLUMN -->
+     <%= render :partial => "leftcolumn", :object => @ticket %>
+<!-- RIGHT COLUMN -->
+     <%= render :partial => "rightcolumn", :object => @ticket %>            
+
+<!-- Other tickets-->
+<div class="left">
+	<h2 class="text_green"><%= t("views.tickets.show.s12")%></h2>
+
+	<%= render :partial => "old_tickets", :object => @ticket %>    
+</div>
+</div>

@@ -1,0 +1,289 @@
+<h2 class="text_green"><%= t("views.site.tos.s1")%></h2>
+
+<h3 class="text_green"><%= t("views.site.tos.s2")%>:</h3>
+<div style="text-align: left;">
+<p><%= t("views.site.tos.s3")%>.</p>
+
+<p><%= t("views.site.tos.s4")%>. <br>
+<%= t("views.site.tos.s5")%> <br>
+<%= t("views.site.tos.s6")%>. <br>
+<%= t("views.site.tos.s7")%></p>
+
+<h3 class="text_green"><%= t("views.site.tos.s7a")%></h3>
+<p><%= t("views.site.tos.s8")%></p>
+
+<p><%= t("views.site.tos.s9")%>.
+ <%= t("views.site.tos.s10")%>
+ <%= t("views.site.tos.s11")%> 
+ <%= t("views.site.tos.s12")%></p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s13a")%></h3>
+
+<p><%= t("views.site.tos.s13")%>.
+ <%= t("views.site.tos.s14")%>.
+ <%= t("views.site.tos.s15")%>.
+ <%= t("views.site.tos.s16")%>.</p>
+
+<p><%= t("views.site.tos.s17")%>.
+ <%= t("views.site.tos.s18")%>.
+ <%= t("views.site.tos.s19")%>.
+ <%= t("views.site.tos.s20")%>.  </p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s21")%></h3>
+
+<p><%= t("views.site.tos.s22")%>.
+<%= t("views.site.tos.s23")%></p>
+ 
+<p><%= t("views.site.tos.s24")%>.
+<%= t("views.site.tos.s25")%>.
+<%= t("views.site.tos.s26")%>.
+<%= t("views.site.tos.s27")%>.
+<%= t("views.site.tos.s28")%>.
+<%= t("views.site.tos.s29")%>.
+<%= t("views.site.tos.s30")%>.  </p>
+
+<p><%= t("views.site.tos.s31")%>.
+<%= t("views.site.tos.s32")%>.</p>
+
+<p><%= t("views.site.tos.s33")%>.</p>
+
+<p><%= t("views.site.tos.s34")%>.</p>
+
+<p><%= t("views.site.tos.s35")%>. 
+ <%= t("views.site.tos.s36")%>.
+ <%= t("views.site.tos.s37")%>. 
+ <%= t("views.site.tos.s38")%>.</p>
+
+<p><%= t("views.site.tos.s39")%>.
+ <%= t("views.site.tos.s40")%>
+ <%= t("views.site.tos.s41")%>.</p>
+
+<p><%= t("views.site.tos.s42")%>. 
+ <%= t("views.site.tos.s43")%>.
+ <%= t("views.site.tos.s44")%>.</p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s45")%></h3>
+
+<p><%= t("views.site.tos.s46")%>.  
+ <%= t("views.site.tos.s47")%>.
+ <%= t("views.site.tos.s48")%>. 
+ <%= t("views.site.tos.s49")%>.</p>
+
+<p><%= t("views.site.tos.s50")%>.</p>
+
+<p><%= t("views.site.tos.s51")%>.
+ <%= t("views.site.tos.s52")%>.<br>
+ <%= t("views.site.tos.s53")%>.</p>
+
+<p><%= t("views.site.tos.s54")%>. 
+ <%= t("views.site.tos.s55")%>.
+ <%= t("views.site.tos.s56")%>.
+ <%= t("views.site.tos.s57")%>.</p>
+
+<p><%= t("views.site.tos.s58")%>.</p>
+
+<p><%= t("views.site.tos.s59")%>.</p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s60")%></h3>
+
+<p><%= t("views.site.tos.s61")%>.
+ <%= t("views.site.tos.s62")%>. 
+ <%= t("views.site.tos.s63")%>.</p>
+
+<p><%= t("views.site.tos.s64")%>. 
+ <%= t("views.site.tos.s65")%>:<br>
+
+ <%= t("views.site.tos.s66")%>.<br>
+ <%= t("views.site.tos.s67")%>.<br>
+ <%= t("views.site.tos.s68")%>.<br>
+ <%= t("views.site.tos.s69")%>.<br>
+<br>
+ <%= t("views.site.tos.s70")%>. </p>
+
+<p><%= t("views.site.tos.s71")%>. 
+<%= t("views.site.tos.s72")%>.</p>
+
+<p><%= t("views.site.tos.s73")%>.</p>
+
+<p><%= t("views.site.tos.s74")%>.
+ <%= t("views.site.tos.s75")%>.</p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s76")%></h3>
+
+<p><%= t("views.site.tos.s77")%>. 
+ <%= t("views.site.tos.s78")%> 
+ <%= t("views.site.tos.s79")%>.
+ <%= t("views.site.tos.s80")%>. </p>
+
+<p><%= t("views.site.tos.s81")%>
+ <%= t("views.site.tos.s82")%>.
+ <%= t("views.site.tos.s83")%>.
+ <%= t("views.site.tos.s84")%>.</p>
+
+<p><%= t("views.site.tos.s85")%>.
+ <%= t("views.site.tos.s86")%>.</p>
+
+<p><%= t("views.site.tos.s87")%>.
+  <%= t("views.site.tos.s88")%>.
+  <%= t("views.site.tos.s89")%>.
+  <%= t("views.site.tos.s90")%>.
+  <%= t("views.site.tos.s91")%>.</p>
+
+<p><%= t("views.site.tos.s92")%>.
+ <%= t("views.site.tos.s93")%>. </p>
+
+<p><%= t("views.site.tos.s94")%>.
+ <%= t("views.site.tos.s95")%>.</p>
+
+<p><%= t("views.site.tos.s96")%>.</p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s97")%></h3>
+
+<p><%= t("views.site.tos.s98")%>.
+<%= t("views.site.tos.s99")%>.</p>
+
+<p><%= t("views.site.tos.s100")%>.
+ <%= t("views.site.tos.s101")%>.
+ <%= t("views.site.tos.s102")%></p>
+
+<p><%= t("views.site.tos.s103")%>.
+ <%= t("views.site.tos.s104")%>. 
+ <%= t("views.site.tos.s105")%>.
+ <%= t("views.site.tos.s106")%>.</p>
+
+<p><%= t("views.site.tos.s107")%>.
+ <%= t("views.site.tos.s108")%>.</p>
+
+<p><%= t("views.site.tos.s109")%>.
+ <%= t("views.site.tos.s110")%>.
+ <%= t("views.site.tos.s111")%>.</p>
+<p><%= t("views.site.tos.s112")%>.</p>
+
+<p><%= t("views.site.tos.s113")%>.
+ <%= t("views.site.tos.s114")%>.
+ <%= t("views.site.tos.s115")%>.</p>
+
+<p><%= t("views.site.tos.s116")%>.
+ <%= t("views.site.tos.s117")%>.
+ <%= t("views.site.tos.s118")%>.
+ <%= t("views.site.tos.s119")%>.</p>
+<p><%= t("views.site.tos.s120")%>.</p>
+
+<p><%= t("views.site.tos.s121")%>.</p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s122")%></h3>
+
+<p><%= t("views.site.tos.s123")%>.
+ <%= t("views.site.tos.s124")%>. 
+ <%= t("views.site.tos.s125")%>.
+ <%= t("views.site.tos.s126")%>.</p>
+
+<p><%= t("views.site.tos.s127")%>.</p>
+
+<p><%= t("views.site.tos.s128")%>.
+ <%= t("views.site.tos.s129")%>.</p>
+
+<p><%= t("views.site.tos.s130")%>.</p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s131")%></h3>
+
+<p><%= t("views.site.tos.s132")%>.
+<%= t("views.site.tos.s133")%> .</p>
+
+<p><%= t("views.site.tos.s134")%>.
+ <%= t("views.site.tos.s135")%>.</p>
+
+<p><%= t("views.site.tos.s136")%>. 
+ <%= t("views.site.tos.s137")%>.</p>
+
+<p><%= t("views.site.tos.s138")%>.
+ <%= t("views.site.tos.s139")%>.</p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s140")%></h3>
+
+<p><%= t("views.site.tos.s141")%>. 
+ <%= t("views.site.tos.s142")%>.</p>
+
+<p><%= t("views.site.tos.s143")%>:<br>
+<br>
+<%= t("views.site.tos.s144")%>. </p>
+
+<p><%= t("views.site.tos.s145")%>.
+  <%= t("views.site.tos.s146")%>.
+  <%= t("views.site.tos.s147")%>. </p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s148")%></h3>
+
+<p><%= t("views.site.tos.s149")%>
+ <%= t("views.site.tos.s150")%>.</p>
+
+<p><%= t("views.site.tos.s151")%>.</p>
+
+<p><%= t("views.site.tos.s152")%>.</p>
+
+<p><%= t("views.site.tos.s153")%>. </p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s154")%></h3>
+
+<p><%= t("views.site.tos.s155")%></p>
+
+<p><%= t("views.site.tos.s156")%>.
+ <%= t("views.site.tos.s157")%>.</p>
+
+<p><%= t("views.site.tos.s158")%>.
+ <%= t("views.site.tos.s159")%>.
+ <%= t("views.site.tos.s160")%>.</p>
+
+<p><%= t("views.site.tos.s161")%>.
+ <%= t("views.site.tos.s162")%>.
+ <%= t("views.site.tos.s163")%>.</p>
+
+<p><%= t("views.site.tos.s164")%>.
+ <%= t("views.site.tos.s165")%>.
+ <%= t("views.site.tos.s166")%>.
+ <%= t("views.site.tos.s167")%>.</p>
+
+<p><%= t("views.site.tos.s168")%>.
+ <%= t("views.site.tos.s169")%>.
+ <%= t("views.site.tos.s170")%>.
+ <%= t("views.site.tos.s171")%>.
+ <%= t("views.site.tos.s172")%>.
+  <%= t("views.site.tos.s173")%>.</p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s174")%></h3>
+
+<p><%= t("views.site.tos.s175")%>.
+ <%= t("views.site.tos.s176")%>.</p>
+
+
+<h3 class="text_green"><%= t("views.site.tos.s177")%></h3>
+
+<p><%= t("views.site.tos.s178")%>. 
+<%= t("views.site.tos.s179")%>.</p>
+
+<p><%= t("views.site.tos.s180")%>.</p>
+
+<p><%= t("views.site.tos.s181")%>.
+ <%= t("views.site.tos.s182")%>.</p>
+
+<h3 class="text_green"><%= t("views.site.tos.s183")%></h3>
+
+<p><%= t("views.site.tos.s184")%>.
+ <%= t("views.site.tos.s185")%>.
+ <%= t("views.site.tos.s186")%>.</p>
+
+<p><%= t("views.site.tos.s187")%></p>
+
+</div>

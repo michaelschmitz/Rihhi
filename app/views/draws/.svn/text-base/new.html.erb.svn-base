@@ -1,0 +1,40 @@
+<div class="left" style="width: 100%;">
+  <h2 style="color: blue; margin-bottom: 0px; padding-bottom: 0px;">New Draws</h2>
+  <hr style="border: 1px solid blue;">
+
+<table>
+  <tr>
+  	<th>Nr</th>
+    <th>List</th>
+    <th>Seller</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Account holder</th>
+    <th>Iban</th>
+    <th>Bic</th>
+    <th>Balance at draw</th>
+  </tr>
+
+<% x = 0 %>
+<% @draws.each do |draw| %>
+<% x += 1 %>
+  <tr>
+  	<td><%= x %></td>
+    <td><%=h draw.list %></td>
+    <td><%=h draw.seller_id %></td>
+    <td><%=h draw.login_name %></td>
+    <td><%=h draw.name %></td>
+    <td><%=h draw.account_holder %></td>
+    <td><%=h draw.iban %></td>
+    <td><%=h draw.bic %></td>
+    <td><%=h draw.balance_now %></td>
+	<td><%=h draw.created_at.strftime('%D %M %Y') %></td>
+    <td><%= link_to 'Show', draw %></td>
+    <td><%= link_to 'Edit', edit_draw_path(draw) %></td>
+    <td><%= link_to 'Destroy', draw, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<%= link_to 'All draws', draws_path %>
+</div>

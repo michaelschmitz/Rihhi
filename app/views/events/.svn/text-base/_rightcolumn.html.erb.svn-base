@@ -1,0 +1,358 @@
+<div class="left" style="float: left; clear: right; width: 350px; margin-top: 20px; ">
+    <div style="margin-bottom: 15px;">
+        <table style="padding-left: 10px;">
+            <% if @event.tickets.length == 0 %>
+            <tr>
+                <td>
+                    <% form_for(:ticket, :url => { :controller => "tickets", :action => "new"}) do |f| %>
+                    <%= f.hidden_field(:event_id, :value => @event.id) %>
+                    <%= f.submit "Add a ticket", :class => "submit_b_neutral" %>
+                    <% end %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold align_center">
+                    <%= t("views.events.show.s32")%>.
+                </td>
+            </tr>
+            <% else %>
+            <% if logged_in? %>
+            <% if @event.user_id == self.current_user.id %>
+            <tr>
+                <td class="left">
+                    <%= button_to  t("views.events.show.s33"), edit_event_path(@event), :method => :get, :class => "submit_b_neutral" %>
+                </td>
+            </tr>
+            <tr>
+                <td class="left">
+                    <%= button_to t("views.events.show.s34"), new_ticket_path(:event_id => @event_id), :method => :get, :class => "submit_b_neutral" %>
+                </td>
+            </tr>
+			   </table>
+            <% end %>
+            <% end %>
+			
+		</div>	
+			<div class="corner_u_left">
+    </div>
+    <div class="background_grey" style="width: 330px; height: 10px; float: left; position: relative;">
+    </div>
+    <div class="corner_u_right">
+    </div>
+	
+    <div class="align_left background_grey" style="float: left; clear:right; height: 400px; width: 350px; padding-bottom: 10px; border: 1px solid red;">
+            <table style="padding-left: 10px;">
+			<tr>
+                <td class="bold">
+                    <%=h @event.event_status %>
+                </td>
+            </tr>
+            <% if @event.max_sc >= 0 %>
+            <tr>
+                <td>
+                    <%=h @event.available_sc %> / <%=h @event.max_sc %> <%= t("views.events.show.s35")%> 
+                </td>
+            </tr>
+            <% end %>
+            <% if @event.max_nsc >= 0 %>
+            <tr>
+                <td>
+                    <%=h @event.available_nsc %> / <%=h @event.max_nsc %> <%= t("views.events.show.s36")%>
+                </td>
+            </tr>
+            <% end %>
+            <% if @event.ticket_deadline != "" %>
+            <tr>
+                <td>
+                    <%= t("views.events.show.s37")%> <%=h @event.ticket_deadline %>
+                </td>
+            </tr>
+            <% end %>
+            <tr>
+                <td>
+                    <a href="#tickets"><%= t("views.events.show.s38")%></a>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+    </div>	
+    <div class="corner_l_left">
+    </div>
+    <div class="background_grey" style="width: 330px; height: 10px; float: left; position: relative;">
+    </div>
+    <div class="corner_l_right">
+    </div
+	
+    <div class="align_left" style="float: left; clear:right; padding-bottom: 10px; margin-top: 10px; border-top: 1px solid #bbb; ">
+	      <table class="align_left" style="width: 350px; border-bottom: 1px solid #bbb;">
+	      	<tr>
+                <td class="bold" style="width: 120px;">
+                    <%= t("views.events.show.s39")%>:
+                </td>
+			 </tr>	
+            <tr>
+                <td style="width: 100px;">
+                    <%= link_to(image_tag("schmied.jpeg", :size => "100x100"), :controller => "shops", :action => "show", :id => @event.user.seller.id) %>
+                </td>
+                <td>
+                    <table class="align_left" >
+                        <tr>
+                            <td>
+                                <%= link_to @event.user.login, user_path(@event.user.id) %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%= link_to  t("views.listings.show.s40"), {:controller => "messages", :action => "new", :to_id => @event.user.id} %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%= link_to  t("views.listings.show.s41"), :controller => "shops", :action => "show", :id => @event.user.seller.id %>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+			 </table>
+        <% if @event.orga_name != "" %>
+        <div class="align_left" style="float: right; width: 350px;">
+            <table style="border-bottom: 1px solid #bbb; width:  350px;">
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s42")%>
+                    </td>
+            
+                
+                    <td>
+                        <%=h @event.orga_name %>
+                    </td>
+                </tr>
+                <% if @event.orga_website != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s43")%>
+                    </td>
+                    <td>
+                        <%=h @event.orga_website %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.orga_email != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s44")%>
+                    </td>
+                    <td>
+                        <%=h @event.orga_email %>
+                    </td>
+                </tr>
+                <% end %>
+               
+            </table>
+        </div>
+        <% end %>
+    </div>
+    <div class="align_left" style="float: left; clear:right; padding-bottom: 10px;">
+        <% if @event.name_of_contact1 != "" %>
+        <div class="align_left" style="float: left; clear:right; padding-bottom: 10px; border-bottom: 1px solid #bbb; width: 350px;">
+            <table style="width: 100%;">
+                <tr>
+                    <th colspan="2">
+                        <%= t("views.events.show.s45")%>
+                    </th>
+                </tr>
+                <% if @event.name_of_contact1 != "" %>
+                <tr>
+                    <td class="bold" style="width: 120px;">
+                        <%= t("views.events.show.s46")%>
+                    </td>
+                    <td>
+                        <%=h @event.name_of_contact1 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.street_of_contact1 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s47")%>
+                    </td>
+                    <td>
+                        <%=h @event.street_of_contact1 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.area_code_of_contact1 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s48")%>
+                    </td>
+                    <td>
+                        <%=h @event.area_code_of_contact1 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.city_of_contact1 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s49")%>
+                    </td>
+                    <td>
+                        <%=h @event.city_of_contact1 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.tel1_of_contact1 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s50")%>
+                    </td>
+                    <td>
+                        <%=h @event.tel1_of_contact1 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.tel2_of_contact1 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s51")%>
+                    </td>
+                    <td>
+                        <%=h @event.tel2_of_contact1 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.description_of_contact1_availability != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s52")%>
+                    </td>
+                    <td>
+                        <%=(h @event.description_of_contact1_availability).gsub("\n", "<br />") %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.fax_of_contact1 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s53")%>
+                    </td>
+                    <td>
+                        <%=h @event.fax_of_contact1 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.email_of_contact1 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s44")%>
+                    </td>
+                    <td>
+                        <%=h @event.email_of_contact1 %>
+                    </td>
+                </tr>
+                <% end %>
+            </table>
+            <% end %>
+        </div>
+        <% if @event.name_of_contact2 != "" %>
+        <div class="align_left" style="float: right; width: 350px;">
+            <table style="border-bottom: 1px solid #bbb; width: 100%;">
+                <tr>
+                    <th colspan="2">
+                        <%= t("views.events.show.s54")%>
+                    </th>
+                </tr>
+                <tr>
+                    <td class="bold" style="width: 120px;">
+                        <%= t("views.events.show.s46")%>
+                    </td>
+                    <td>
+                        <%=h @event.name_of_contact2 %>
+                    </td>
+                </tr>
+                <% if @event.street_of_contact2 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s47")%>
+                    </td>
+                    <td>
+                        <%=h @event.street_of_contact2 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.area_code_of_contact2 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s48")%>
+                    </td>
+                    <td>
+                        <%=h @event.area_code_of_contact2 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.city_of_contact2 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s49")%>
+                    </td>
+                    <td>
+                        <%=h @event.city_of_contact2 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.tel1_of_contact2 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s50")%>
+                    </td>
+                    <td>
+                        <%=h @event.tel1_of_contact2 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.tel2_of_contact2 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s51")%>
+                    </td>
+                    <td>
+                        <%=h @event.tel2_of_contact2 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.description_of_contact2_availability != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s52")%>
+                    </td>
+                    <td>
+                        <%=(h @event.description_of_contact2_availability).gsub("\n", "<br />") %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.fax_of_contact2 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s53")%>
+                    </td>
+                    <td>
+                        <%=h @event.fax_of_contact2 %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @event.email_of_contact2 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.events.show.s44")%>
+                    </td>
+                    <td>
+                        <%=h @event.email_of_contact2 %>
+                    </td>
+                </tr>
+                <% end %>
+            </table>
+        </div>
+        <% end %>
+    </div>
+</div>

@@ -1,0 +1,70 @@
+  <div class="left" style="width: 100%; text-align: left; padding-bottom: 5px;">
+<h2 class="text_green"><%= t("views.ratings.index.s1") %></h2>
+
+
+<% if @ratings != nil%>
+<p><%= t("views.ratings.index.s2") %> <%= @ratings.length.to_i %> <%= t("views.ratings.index.s3") %>.</p>
+
+<% else %>
+<%= t("views.ratings.index.s4") %> .
+<% end %>
+
+</div>
+<table style="text-align: left;">
+
+<tr style="font-weight: bold;">
+	<td style="width: 40px; padding-left: 5px;"><%= t("views.ratings.index.s5") %> </td>
+	<td style="width: 150px; padding-left: 5px;"><%= t("views.ratings.index.s6") %> </td>
+	<td style="width: 40px; padding-left: 5px;"><%= t("views.ratings.index.s7") %> </td>
+	<td style="width: 269px; padding-left: 5px;"><%= t("views.ratings.index.s8") %> </td>
+	<td style="width: 269px; padding-left: 5px;"><%= t("views.ratings.index.s9") %> </td>
+	<td style="width: 150px; padding-left: 5px;"><%= t("views.ratings.index.s10") %> </td>				
+</tr>
+</table>
+<% x = 0%>
+<% if @ratings.length >= 1 %>
+	<% for rating in @ratings %>
+	<% x += 1 %>
+	<table style="text-align: left;">
+	 <tr class="<%= cycle("tr1_s", "tr2_s") -%>">
+		        	 <td style="width: 40px; padding: 0px 0px 0px 5px;">
+		                 <%= x %>
+		            </td>
+					<td style="width: 150px; padding-left: 5px;">
+						<%= link_to (h rating.seller.user.login), shop_path(rating.seller.id) %>
+					</td>
+					<td style="width: 40px; padding-left: 5px;">
+						<%= link_to rating.order_id, order_path(rating.order_id), :target => "blank"%>	
+					</td>
+					<td style="width: 269px; padding-left: 5px;">
+						<% if rating.userrating == 1 %>
+						<span style="color: red;"><%= t("views.ratings.index.s11") %>.</span><br>
+						<% else %>
+						<%= t("views.ratings.index.s12") %>.<br>
+						<% end %>
+						<%= h rating.usertext %>
+					</td>
+		   			<td style="width: 269px; padding-left: 5px;">
+						<%= h rating.sellertext %>
+					</td>
+					<td style="width: 150px; padding-left: 5px;">
+						<%=h rating.created_at.strftime('%A, ' '%d ' '%B' ' %Y')%>
+					</td>
+		        </tr>
+		    </table>
+	
+	
+	
+	 
+	<% end %>
+	<%= will_paginate @ratings%>
+<% end %>
+<br>
+
+<% if logged_in? %>
+		<%= link_to t("views.ratings.index.s13"), profile_path %><br>
+	<% if self.current_user.is_seller? %>
+		<%= link_to t("views.ratings.index.s14"), sales_path %>
+	<% end %>
+<% end %>
+

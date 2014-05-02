@@ -1,0 +1,265 @@
+<div class="left" style="width: 210px; height: 800px; margin-left: 20px; margin-top: 20px; border: 1px solid green;">
+    <% if @shop.avatar? %>
+    <span class="img-shadow"><%= image_tag(@shop.avatar.url(:medium)) %></span>
+    <% else %>
+    <span class="img-shadow"><%= image_tag("schmied.jpeg", :size => "200x200") %></span>
+    <% end %>
+    <%= link_to  t("views.listings.show.send_message"), {:controller => "messages", :action => "new", :to_id => @shop.seller.user.id} %>
+    <br>
+    <%= link_to  t("views.shops.show.s1"), user_path(@shop.seller.user.id) %>
+    <% if logged_in? %>
+    <% if self.current_user.is_seller? %>
+    <% if @shop.seller_id == self.current_user.seller.id %>
+    <br>
+    <br>
+    <%= link_to t("views.shops.show.s2"), edit_shop_path(@shop) %>
+    <br>
+    <%= link_to  t("views.shops.show.s19"), new_seller_listing_path(@shop.seller.id) %>
+    <% end %>
+    <% end %>
+    <% end %>
+</div>
+
+<div class="left" style="width: 600px; margin-left: 20px; margin-top: 10px; border: 1px solid red;">
+    <h2 class="text_green"><%= @seller.user.login %><%= t("views.shops.show.s3") %></h2>
+    <% if @shop.about_my_shop == nil or @shop.about_my_shop == "" %>
+    <p style="text-align: left;">
+        <%= t("views.shops.show.s4") %>
+    </p>
+    <% else %>
+    <p style="text-align: left;">
+        <%= (h @shop.about_my_shop).gsub("\n", "<br />") %>
+    </p>
+    <% end %>
+    <h3 class="text_green" style="background-color: white; padding-left: 0px;"><%= t("views.shops.show.s5") %></h3>
+    <table style="margin-left: 0px; text-align: left;">
+        <tr>
+            <td>
+                <%= t("views.shops.show.s6") %>:
+            </td>
+            <td>
+                <%= @shop.seller.city %>, <%= t(@shop.seller.country) %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= t("views.shops.show.s7") %>:
+            </td>
+            <td>
+                <%= (distance_of_time_in_words(Time.now, (@shop.seller.user.created_at.to_s).first(10))) %><%= t("views.listings.show.ago") %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= t("views.shops.show.s8") %>:
+            </td>
+            <td>
+                <%= link_to number_to_percentage(@shop.seller.rating, :precision => 2) + ' Karma', rating_path(@shop.seller) %>(<%= @shop.seller.number_of_ratings %><%= t("views.shops.show.s10") %>)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= t("views.shops.show.s9") %>
+            </td>
+            <td>
+                <%= @all_listings.length %>
+            </td>
+        </tr>
+        <% if @g_events_enabled == 1 %>
+        <tr>
+            <td>
+                Events 
+            </td>
+            <td>
+                <%= @all_events.length %>
+            </td>
+        </tr>
+        <% end %>
+        <% if @g_tickets_enabled == 1 %>
+        <tr>
+            <td>
+                Tickets 
+            </td>
+            <td>
+                <%= @all_tickets.length %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+    <% if @shop.shop_tos != "" %>
+    <h3 class="text_green" style="background-color: white; padding-left: 0px;"><%= t("views.shops.show.s11") %></h3>
+    <p style="text-align: left; cursor: pointer;" onclick="Effect.toggle('tos', 'slide'); return false;">
+        <%= t("views.shops.show.s12") %>.
+    </p>
+    <div id="tos" style="display: none; width: 600px; border: 1px solid grey;">
+        <p style="text-align: left; padding-left: 5px;">
+            <%= (h @shop.shop_tos).gsub("\n", "<br />") %>
+        </p>
+    </div>
+    <% end %>
+    <h3 class="text_green" style="background-color: white; padding-left: 0px;"><%= t("views.shops.show.s13") %></h3>
+    <table style="width: 500px" class="align_left">
+        <tr>
+            <td style="width: 150px;">
+                -<%=h t(@shop.country1) %>
+            </td>
+            <td>
+                <%= t("views.listings.show.for") %><%=h number_to_currency(@shop.country1_shipping, :unit => "") %>€ 
+            </td>
+            <td>
+                <span class="text_darkgrey">(<%= number_to_currency(@shop.country1_shipping_with_another_item, :unit => "") %> € <%= t("views.listings.show.with_another_item") %>)</span>
+            </td>
+            <td>
+                <%= t("views.listings.show.in") %><%= @shop.country1_deliverytime %><%= t("views.listings.show.days") %>.
+            </td>
+        </tr>
+        <% if @shop.country2 != "-------" %>
+        <tr>
+            <td style="width: 150px;">
+                -<%=h t(@shop.country2) %>
+            </td>
+            <td>
+                <%= t("views.listings.show.for") %><%=h number_to_currency(@shop.country2_shipping, :unit => "") %>€ 
+            </td>
+            <td>
+                <span class="text_darkgrey">(<%= number_to_currency(@shop.country2_shipping_with_another_item, :unit => "") %> € <%= t("views.listings.show.with_another_item") %>)</span>
+            </td>
+            <td>
+                <%= t("views.listings.show.in") %><%= @shop.country2_deliverytime %><%= t("views.listings.show.days") %>.
+            </td>
+        </tr>
+        <% end %>
+        <% if @shop.country3 != "-------" %>
+        <tr>
+            <td style="width: 150px;">
+                -<%=h t(@shop.country3) %>
+            </td>
+            <td>
+                <%= t("views.listings.show.for") %><%=h number_to_currency(@shop.country3_shipping, :unit => "") %>€ 
+            </td>
+            <td>
+                <span class="text_darkgrey">(<%= number_to_currency(@shop.country3_shipping_with_another_item, :unit => "") %> € <%= t("views.listings.show.with_another_item") %>)</span>
+            </td>
+            <td>
+                <%= t("views.listings.show.in") %><%= @shop.country3_deliverytime %><%= t("views.listings.show.days") %>.
+            </td>
+        </tr>
+        <% end %>
+        <% if @shop.country4 != "-------" %>
+        <tr>
+            <td style="width: 150px;">
+                -<%=h t(@shop.country4) %>
+            </td>
+            <td>
+                <%= t("views.listings.show.for") %><%=h number_to_currency(@shop.country4_shipping, :unit => "") %>€ 
+            </td>
+            <td>
+                <span class="text_darkgrey">(<%= number_to_currency(@shop.country4_shipping_with_another_item, :unit => "") %> € <%= t("views.listings.show.with_another_item") %>)</span>
+            </td>
+            <td>
+                <%= t("views.listings.show.in") %><%= @shop.country4_deliverytime %><%= t("views.listings.show.days") %>.
+            </td>
+        </tr>
+        <% end %>
+        <% if @shop.country5 != "-------" %>
+        <tr>
+            <td style="width: 150px;">
+                -<%=h t(@shop.country5) %>
+            </td>
+            <td>
+                <%= t("views.listings.show.for") %><%=h number_to_currency(@shop.country5_shipping, :unit => "") %>€ 
+            </td>
+            <td>
+                <span class="text_darkgrey">(<%= number_to_currency(@shop.country5_shipping_with_another_item, :unit => "") %> € <%= t("views.listings.show.with_another_item") %>)</span>
+            </td>
+            <td>
+                <%= t("views.listings.show.in") %><%= @shop.country5_deliverytime %><%= t("views.listings.show.days") %>.
+            </td>
+        </tr>
+        <% end %>
+    </table>
+    <% if @shop.shipping_comments != nil %>
+    <p style="text-align: left;">
+        <%= t("views.shops.show.s14") %>: <%= (h @shop.shipping_comments).gsub("\n", "<br />") %>
+    </p>
+    <% end %>
+    <h3 class="text_green" style="background-color: white; padding-left: 0px;"><%= t("views.shops.show.s17") %></h3>
+    <table style="width: 100%" class="align_left">
+        <% if @shop.allow_paypal == "Yes" %>
+        <tr>
+            <td style="width: 150px;">
+                Paypal 
+            </td>
+            <td>
+            </td>
+        </tr>
+        <% end %>
+        <% if @shop.allow_bank_transfer == "Yes" %>
+        <tr>
+            <td>
+                <%= t("views.listings.show.bank_transfer") %>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <% end %>
+        <% if @shop.allow_cheque == "Yes" %>
+        <tr>
+            <td>
+                <%= t("views.listings.show.cheque") %>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <% end %>
+        <% if @shop.allow_cash_on_delivery == "Yes" %>
+        <tr>
+            <td>
+                <%= t("views.listings.show.cash_on_delivery") %>
+            </td>
+            <td>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+</div>
+
+<div class="left" style="width: 780px; margin-left: 10px; margin-top: 10px; border: 1px solid red;">
+    <h2 class="text_green" style="background-color: white; padding-left: 0px;"><%= @seller.user.login %><%= t("views.shops.show.s15") %></h2>
+    <% if @listings.length >= 1 %>
+    	<%= render :partial => "shared/overview" %>
+    <% else %>
+	    <p style="text-align: left;">
+	        <%= t("views.shops.show.s16") %>.
+	    </p>
+    <% end %>
+</div>
+
+
+
+<% if @g_events_enabled == 1 %>
+<% if @events.length != 0 %>
+<div class="left" style="margin-left: 210px;margin-top: 10px;">
+    <h3 class="text_green" style="background-color: white; padding-left: 0px;"><%= @seller.user.login %>'s events</h3>
+    <%= render :partial => "shared/events" %>
+</div>
+<% else %>
+<h3 class="text_green" style="background-color: white; padding-left: 0px;"><%= @seller.user.login %>'s events</h3>
+<p>
+    No events registered.
+</p>
+<% end %>
+<% end %>
+<% if @g_tickets_enabled == 1 %>
+<% if @tickets.length != 0 %>
+<div class="left" style="margin-left: 210px; margin-top: 10px;">
+    <h3 class="text_green" style="background-color: white; padding-left: 0px;"><%= @seller.user.login %>'s tickets</h3>
+    <%= render :partial => "shared/tickets" %>
+</div>
+<% else %>
+<h3 class="text_green" style="background-color: white; padding-left: 0px;"><%= @seller.user.login %>'s events</h3>
+<p>
+    No tickets registered.
+</p>
+<% end %>
+<% end %>

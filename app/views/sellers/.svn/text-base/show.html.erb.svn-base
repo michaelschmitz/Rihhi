@@ -1,0 +1,110 @@
+<h2 class="text_green">Seller settings</h2>
+<div style="float: left; width: 540px;">
+    <div class="corner_u_left">
+    </div>
+    <div class="background_grey" style="width: 520px; height: 10px; float: left; position: relative;">
+    </div>
+    <div class="corner_u_right">
+    </div>
+    <div class="item_leftcolumn background_grey" style="width: 540px;">
+        <h3 class="background_grey">Address information</h3>
+        <table style="width: 100%; padding-left: 10px;" class="align_left">
+            <tr>
+                <td style="width: 150px;">
+                    Full Name:
+                </td>
+                <td>
+                    <%= @seller.full_name %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Street:
+                </td>
+                <td>
+                    <%= @seller.street %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Post Code:
+                </td>
+                <td>
+                    <%= @seller.post_code %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    City:
+                </td>
+                <td>
+                    <%= @seller.city %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Country:
+                </td>
+                <td>
+                    <%= @seller.country %>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="corner_l_left">
+    </div>
+    <div class="background_grey" style="width: 520px; height: 10px; float: left; position: relative;">
+    </div>
+    <div class="corner_l_right">
+    </div>
+</div>
+<div style="float: left; width: 540px; margin-top: 10px;">
+    <div class="corner_u_left">
+    </div>
+    <div class="background_grey" style="width: 520px; height: 10px; float: left; position: relative;">
+    </div>
+    <div class="corner_u_right">
+    </div>
+    <div class="item_leftcolumn background_grey" style="width: 540px;">
+        <h3 class="background_grey">Your payment information</h3>
+        <table style="width: 100%; padding-left: 10px;" class="align_left">
+            <tr>
+                <td>
+                    Account holder
+                </td>
+                <td>
+                    <%= @seller.account_holder_name %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Account number
+                </td>
+                <td>
+                    <%= @seller.account_number %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Bank Identifier
+                </td>
+                <td>
+                    <%= @seller.bank_identifier %>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="corner_l_left">
+    </div>
+    <div class="background_grey" style="width: 520px; height: 10px; float: left; position: relative;">
+    </div>
+    <div class="corner_l_right">
+    </div>
+	
+    <div class="left" style="margin-top: 10px;">
+        <%= link_to 'Back to My Account', profile_path %>
+    </div>
+    <div class="right" style="margin-top: 10px;">
+        <%= button_to 'List a new item', new_seller_listing_path(@seller.id), :method => :get, :class => "submit_b" %>
+    </div>
+</div>

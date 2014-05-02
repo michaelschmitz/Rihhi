@@ -1,0 +1,13 @@
+<%= t("views.smailer.movement1.s1")%> <%= @order.id %>.
+
+<%= t("views.smailer.movement1.s2")%> <%= @order.total_cost_of_order.to_s %> EUR.
+
+<%= t("views.smailer.movement1.s3")%> <%= ((@order.total_cost_of_order*0.03).round_with_precision(2)).to_s  %> EUR.
+
+<%= t("views.smailer.movement1.s4")%>:
+<%= t("views.smailer.movement1.s5")%>: <%= @seller.turnover %> EUR
+<%= t("views.smailer.movement1.s6")%>: <%= @seller.account_balance %> EUR
+
+
+<%= render :partial => "shared/imprint" %>
+ 

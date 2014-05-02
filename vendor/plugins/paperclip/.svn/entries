@@ -1,0 +1,118 @@
+8
+
+dir
+242
+https://svn.codespaces.com/rihhi/larp/rihhi/vendor/plugins/paperclip
+https://svn.codespaces.com/rihhi/larp
+
+
+
+2010-07-15T16:20:45.425068Z
+156
+blaukatze!
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ce245bec-e5c3-47c4-86f5-a6cae0350485
+
+.gitignore
+file
+
+
+
+
+2010-10-18T15:52:48.351000Z
+05dbce42002a40300621298949b50133
+2010-03-21T15:44:49.398889Z
+121
+blaukatze!
+
+LICENSE
+file
+
+
+
+
+2010-10-18T15:52:48.315000Z
+2af95e5ae3a192f2a7b5bf557419a5f2
+2010-03-21T15:44:49.398889Z
+121
+blaukatze!
+
+README.rdoc
+file
+
+
+
+
+2010-10-18T15:52:48.322000Z
+f8ad2095fbaa537b24ebcaddf4edb94e
+2010-03-21T15:44:49.398889Z
+121
+blaukatze!
+
+Rakefile
+file
+
+
+
+
+2010-10-18T15:52:48.319000Z
+113fe0d2213b54d9931d79b05b2185aa
+2010-03-21T15:44:49.398889Z
+121
+blaukatze!
+
+cucumber
+dir
+
+generators
+dir
+
+init.rb
+file
+
+
+
+
+2010-10-18T15:52:48.382000Z
+c37561b62d59b8a58accf0341ec1f9b1
+2010-03-21T15:44:49.398889Z
+121
+blaukatze!
+
+lib
+dir
+
+paperclip.gemspec
+file
+
+
+
+
+2010-10-18T15:52:48.311000Z
+77b9c807886cb88c83ae2df15f81ea8d
+2010-03-21T15:44:49.398889Z
+121
+blaukatze!
+
+shoulda_macros
+dir
+
+tasks
+dir
+
+test
+dir
+

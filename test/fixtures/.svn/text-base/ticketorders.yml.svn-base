@@ -1,0 +1,161 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  ticket_id: 1
+  user_id: 1
+  email: MyString
+  nr_of_tickets: 1
+  t1_first_name: MyString
+  t1_last_name: MyString
+  t1_age: 1
+  t1_accomodation: MyString
+  t1_remark: MyString
+  t1_vegetarian: 
+  t1_sani: false
+  t2_first_name: MyString
+  t2_last_name: MyString
+  t2_age: 1
+  t2_accomodation: MyString
+  t2_remark: MyString
+  t2_vegetarian: 
+  t2_sani: 
+  t3_first_name: MyString
+  t3_last_name: MyString
+  t3_age: 1
+  t3_accomodation: MyString
+  t3_remark: MyString
+  t3_vegetarian: 
+  t3_sani: 
+  t4_first_name: MyString
+  t4_last_name: MyString
+  t4_age: 1
+  t4_accomodation: MyString
+  t4_remark: MyString
+  t4_vegetarian: 
+  t4_sani: 
+  t5_first_name: MyString
+  t5_last_name: MyString
+  t5_age: 1
+  t5_accomodation: MyString
+  t5_remark: MyString
+  t5_vegetarian: 
+  t5_sani: 
+  t6_first_name: MyString
+  t6_last_name: MyString
+  t6_age: 1
+  t6_accomodation: MyString
+  t6_remark: MyString
+  t6_vegetarian: 
+  t6_sani: 
+  t7_first_name: MyString
+  t7_last_name: MyString
+  t7_age: 1
+  t7_accomodation: MyString
+  t7_remark: MyString
+  t7_vegetarian: 
+  t7_sani: 
+  t8_first_name: MyString
+  t8_last_name: MyString
+  t8_age: 1
+  t8_accomodation: MyString
+  t8_remark: MyString
+  t8_vegetarian: 
+  t8_sani: 
+  t9_first_name: MyString
+  t9_last_name: MyString
+  t9_age: 1
+  t9_accomodation: MyString
+  t9_remark: MyString
+  t9_vegetarian: 
+  t9_sani: 
+  t10_first_name: MyString
+  t10_last_name: MyString
+  t10_age: 1
+  t10_accomodation: MyString
+  t10_remark: MyString
+  t10_vegetarian: 
+  t10_sani: 
+  arrival_on: 2009-10-09
+  terms_and_conditions: 
+  additional_remarks: MyText
+  status: MyString
+
+two:
+  ticket_id: 1
+  user_id: 1
+  email: MyString
+  nr_of_tickets: 1
+  t1_first_name: MyString
+  t1_last_name: MyString
+  t1_age: 1
+  t1_accomodation: MyString
+  t1_remark: MyString
+  t1_vegetarian: 
+  t1_sani: false
+  t2_first_name: MyString
+  t2_last_name: MyString
+  t2_age: 1
+  t2_accomodation: MyString
+  t2_remark: MyString
+  t2_vegetarian: 
+  t2_sani: 
+  t3_first_name: MyString
+  t3_last_name: MyString
+  t3_age: 1
+  t3_accomodation: MyString
+  t3_remark: MyString
+  t3_vegetarian: 
+  t3_sani: 
+  t4_first_name: MyString
+  t4_last_name: MyString
+  t4_age: 1
+  t4_accomodation: MyString
+  t4_remark: MyString
+  t4_vegetarian: 
+  t4_sani: 
+  t5_first_name: MyString
+  t5_last_name: MyString
+  t5_age: 1
+  t5_accomodation: MyString
+  t5_remark: MyString
+  t5_vegetarian: 
+  t5_sani: 
+  t6_first_name: MyString
+  t6_last_name: MyString
+  t6_age: 1
+  t6_accomodation: MyString
+  t6_remark: MyString
+  t6_vegetarian: 
+  t6_sani: 
+  t7_first_name: MyString
+  t7_last_name: MyString
+  t7_age: 1
+  t7_accomodation: MyString
+  t7_remark: MyString
+  t7_vegetarian: 
+  t7_sani: 
+  t8_first_name: MyString
+  t8_last_name: MyString
+  t8_age: 1
+  t8_accomodation: MyString
+  t8_remark: MyString
+  t8_vegetarian: 
+  t8_sani: 
+  t9_first_name: MyString
+  t9_last_name: MyString
+  t9_age: 1
+  t9_accomodation: MyString
+  t9_remark: MyString
+  t9_vegetarian: 
+  t9_sani: 
+  t10_first_name: MyString
+  t10_last_name: MyString
+  t10_age: 1
+  t10_accomodation: MyString
+  t10_remark: MyString
+  t10_vegetarian: 
+  t10_sani: 
+  arrival_on: 2009-10-09
+  terms_and_conditions: 
+  additional_remarks: MyText
+  status: MyString

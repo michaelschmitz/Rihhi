@@ -1,0 +1,45 @@
+
+<% if @bids.length == 0 %>
+  
+<% else %>
+
+<table style="width: 900px;">
+  <tr>
+    <th style="width: 200px;">Request</th>
+  <th style="width: 50px;">Quantity</th>
+  <th style="width: 100px;">wanted by</th>
+    <th style="width: 150px;">Final cost <br>(incl. shipping)</th>
+  <th style="width: 150px;">Preparation time <br>(incl. shipping)</th>
+  <th style="width: 100px;">Bid status</th>
+
+  </tr>
+
+<% for b in @bids %>
+  <tr style="height: 30px;">
+    <td style="width: 200px;"><%=h b.request.title %></td>
+  <td style="width: 50px;"><%=h b.request.quantity %></td>
+  <td><%=h b.request.user.login %></td>
+    <td><%=h b.final_cost %></td>
+    <td><%=h b.preparation_time %></td>
+  <td><%=h b.bid_status %></td> 
+  
+  <% if (b.bid_status == "accepted") %>
+    <td colspan="3" style="text-align: left;"><%= link_to 'Show', b %></td>     
+  <% elsif (b.bid_status == "open") %>
+    <td style="text-align: left;"><%= link_to 'Show', b %></td>
+  <td style="text-align: right;"><%= link_to 'Edit', edit_bid_path(b) %></td>
+  <td style="text-align: right;"><%= link_to 'Delete', b, :confirm => 'Are you sure?', :method => :delete %></td>
+  <% else %>
+    <td style="text-align: left;"><%= link_to 'Show', b %></td>    
+    <td colspan="2" style="text-align: right;"><%= link_to 'Delete', b, :confirm => 'Are you sure?', :method => :delete %></td>
+  <% end %>
+
+  </tr>
+ 
+<% end %>
+</table>
+<% end %>
+<br />
+
+<%= link_to 'See all requests', requests_path %> |
+<%= link_to 'Back to My Account', profile_path %>

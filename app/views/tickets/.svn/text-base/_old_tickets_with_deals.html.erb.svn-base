@@ -1,0 +1,242 @@
+ <% @tickets = Ticket.find(	:all,
+							:conditions => ["event_id = ?", @event],
+							:order => "position")
+							 %>
+<% count = 0 %>
+
+<% for ticket in @tickets %>
+<% @ticket = ticket %>
+<% count += 1 %>
+
+<div class="left">
+
+<div class="left form_top" style="width: 750px;">
+</div>
+<div class="left form_area background_grey" style="width: 730px;">
+	<div class="left" style="width: 50px;  height: 140px;">
+	
+		<table class="align_left">    	
+        <tr>
+            
+			<td style="width: 100px;">
+				<% if ticket.sc_or_nsc == "PC - Player character" %>
+			 <div class="info">
+                        <%= image_tag("icon_pc.png", :size=> "40x40", :alt => "Player Character ticket") %>
+						<span>
+                            <ul style="list-style: none;">
+                                <li>
+                                   This is a Player character (PC) ticket.
+                                </li>                              
+                            </ul>
+                        </span>
+                    </div>
+				<% else %>
+				 <div class="info">
+                       <%= image_tag("icon_nsc.png", :size=> "40x40") %>
+						<span>
+                            <ul style="list-style: none;">
+                                <li>
+                                   This is a Non-player character (NPC) ticket.
+                                </li>                              
+                            </ul>
+                        </span>
+                    </div>
+				
+				<% end %>
+			
+			
+                <% if ticket.has_deal? %> 
+				<div class="info">
+                       <%= image_tag("icon_deal.png", :size=> "40x40") %>
+						<span>
+                            <ul style="list-style: none;">
+                                <li>
+                                   This ticket includes a deal for equipment.
+                                </li>                              
+                            </ul>
+                        </span>
+                    </div>
+				
+				<% end %>
+				 
+      			<% if ticket.ticket_available_on_rihhi? %> 
+						<div class="info">
+                       <%= image_tag("icon_rihhi.png", :size=> "40x40") %>
+						<span>
+                            <ul style="list-style: none;">
+                                <li>
+                                   This ticket is available online on Rihhi.
+                                </li>                              
+                            </ul>
+                        </span>
+                    </div>
+				<% else %>
+					<div class="info">
+                       <%= image_tag("icon_orga.png", :size=> "40x40") %>
+						<span>
+                            <ul style="list-style: none;">
+                                <li>
+                                   This ticket is available from the Orga directly - you can not buy this ticket on Rihhi.
+                                </li>                              
+                            </ul>
+                        </span>
+                    </div>
+				<% end %>
+
+            </td>
+			</tr>
+			</table>
+		
+	</div>
+	<div class="left" style="width: 450px; height: 140px;">
+    	<table class="align_left">
+				<td style="width: 330px;">
+                	<h2><%=h ticket.name %></h2>
+            	</td>
+			
+				<td class="bold" style="width: 120px;">
+                (<%=(ticket.nr_of_tickets_available_online || 0) - (ticket.nr_of_tickets_sold || 0) %> of <%= (ticket.nr_of_tickets_available_online || 0 ) %> tickets left)
+            	</td>
+			</tr>
+			<tr>
+            	<td class="text_darkgrey" colspan="2">
+                	Ticket valid from <%=h ticket.valid_from %> until <%=h ticket.valid_until %>
+            	</td>			
+        	</tr>
+        	<tr>
+            	<td colspan="2">
+                	<%=h ticket.description %>
+            	</td>
+        	</tr>
+    	</table>
+	</div>
+	<div class="left" style="height: 140px;">
+	<% #Check for todays date. Then add all relevant prices & dates to two arrays.%>
+	<% @relevant_prices = [] %>
+	<% @relevant_deadlines = [] %>
+	<% if ticket.price1? and ticket.price1_deadline >= Date.today  %>
+		<% 	@relevant_prices << ticket.price1 %>
+		<% 	@relevant_deadlines << ticket.price1_deadline %>
+	<% end %>
+	<% if ticket.price2? and ticket.price2_deadline >= Date.today  %>
+		<% 	@relevant_prices << ticket.price2 %>
+		<% 	@relevant_deadlines << ticket.price2_deadline %>
+	<% end %>
+	<% if ticket.price3? and ticket.price3_deadline >= Date.today  %>
+		<% 	@relevant_prices << ticket.price3 %>
+		<% 	@relevant_deadlines << ticket.price3_deadline %>
+	<% end %>
+	<% if ticket.price4? and ticket.price4_deadline >= Date.today  %>
+		<% 	@relevant_prices << ticket.price4 %>
+		<% 	@relevant_deadlines << ticket.price4_deadline %>
+	<% end %>
+	<% if ticket.price5? and ticket.price5_deadline >= Date.today  %>
+		<% 	@relevant_prices << ticket.price5 %>
+		<% 	@relevant_deadlines << ticket.price5_deadline %>
+	<% end %>
+	
+	
+	
+	<% #Check for todays date. Then add all relevant prices & dates to two arrays.%>
+    	<table class="align_left">
+        <tr>
+            <td class="bold" style="width: 120px;">
+               <h2> Buy now:</h2>
+            </td>
+			<td>
+				<h2 class="text_green"><%=h @relevant_prices[0] %>,- € </h2>
+			</td>  
+        </tr>
+		<% if @relevant_deadlines[1] != nil %>
+          <tr>
+            <td>
+               after <%= h @relevant_deadlines[1] %>:
+            </td>
+			<td>
+				<%=h @relevant_prices[1] %>,- € 
+			</td>           
+        </tr>
+		<% end %>
+		<% if @relevant_deadlines[2] != nil %>
+		        <tr>
+            <td>
+               after <%= h @relevant_deadlines[2] %>:
+            </td>
+			<td>
+				<%=h @relevant_prices[2] %>,- € 
+			</td>           
+        </tr>
+		<% end %>
+		<% if @relevant_deadlines[3] != nil %>
+		        <tr>
+            <td>
+               after <%= h @relevant_deadlines[3] %>:
+            </td>
+			<td>
+				<%=h @relevant_prices[3] %>,- € 
+			</td>           
+        </tr>
+		<% end %>
+		<% if @relevant_deadlines[4] != nil %>
+
+		        <tr>
+            <td>
+               after <%= h @relevant_deadlines[4] %>:
+            </td>
+			<td>
+				<%=h @relevant_prices[4] %>,- € 
+			</td>           
+        </tr>
+			<% end %>
+    	</table>
+	</div>
+	
+	
+	<div class="left">
+		<div class="left" style="width: 50px;  height: 140px;">
+		deal img.
+		</div>
+		<div class="left" style="width: 750px;">
+           Create a new listing for the deal.<%= render :partial => "events/old_tlisting", :object => @ticket %>
+        </div>
+		<div class="left" style="width: 750px;">
+           <%= render :partial => "events/new_tlisting", :object => @ticket %>
+        </div>
+
+   </div>
+	
+	<div id="<%= "t" + count.to_s %>"  style="display:none; float:left; position: absolute; margin-left: -50px; margin-top: -1 50px; z-index: 50000; border: none;">
+		<Div>
+			<p>........</p>
+		</Div>
+	</div>
+</div>
+<div class="left form_top form_bottom" style="width: 750px;">
+</div>
+<div class="right" style="margin-bottom: 20px;">
+	 	<table>
+	 		<tr>
+	 			<td>
+	 				<%@string = "Element.appear('t" + count.to_s + "')"	%>
+                <%= link_to_remote 'Edit this ticket',
+									:url => {:controller => "tickets", :action => "remote_edit_with_deals", :id => ticket.id, :field_id => "t" + count.to_s },									
+									:update => "t" + count.to_s,
+									:before => @string
+									
+  				%>				| 	
+	 			</td>
+				<td>
+            	<%@string = "Element.appear('t" + count.to_s + "')"	%>
+                <%= link_to_remote 'Add a deal item',
+									:url => {:controller => "tlistings", :action => "remote_create", :id => ticket.id, :field_id => "t" + count.to_s },									
+									:update => "t" + count.to_s,
+									:before => @string
+									
+  				%>
+            </td>       
+			</tr>
+	 	</table>
+		</div>
+</div>
+<% end %>
+k.

@@ -1,0 +1,216 @@
+<div class="left">
+	    <div class="right" style="clear: both; margin-top: 20px;">
+        
+		<% form_for(:order, @order, :url => { :controller => "ticketorders", :action => "new"}) do |f| %>
+            <%= f.hidden_field(:ticket_id, :value => @ticket.id) %>
+     		<%= f.submit  t("views.tickets.show.s11"), :class => "submit_b" %>
+		<% end %>
+		</div>
+		<div class="right" style="clear: both; margin-top: 5px;">
+		 <% if logged_in? %>
+            <% if @ticket.event.user.id == self.current_user.seller.id %>
+          
+                    <%= button_to t("views.tickets.show.s13"), edit_ticket_path(@ticket), :method => :get, :class => "submit_b_neutral" %>
+            
+            <% end %>
+            <% end %>
+		
+    </div>
+	</div>
+
+<div class="left" style="float: left; clear: right; width: 350px; margin-top: 10px; ">
+    <div class="corner_u_left">
+    </div>
+    <div class="background_grey" style="width: 330px; height: 10px; float: left; position: relative;">
+    </div>
+    <div class="corner_u_right">
+    </div>
+    <div class="align_left" style="float: left; clear:right; width: 350px; border-bottom: 1px solid #bbb; padding-bottom: 10px; background-color: #bbb;">
+        <table style="padding-left: 10px;">
+           
+            <tr>
+                <td class="bold">                	
+                    <%=h @ticket.nr_of_tickets_sold || "0" %> <%= t("views.tickets.show.s14")%>.
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    <%= t("views.tickets.show.s15")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= link_to(h(@ticket.event.title), event_path(@ticket.event.id)) %>
+                </td>
+            </tr>
+         
+            <% if @ticket.event.ticket_deadline != "" %>
+            <tr>
+                <td>
+                    <%= t("views.tickets.show.s16")%> <%=h @ticket.event.ticket_deadline %>
+                </td>
+            </tr>
+            <% end %>
+            <tr>
+                <td>
+                    <a href="#tickets"><%= t("views.tickets.show.s17")%> </a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="corner_l_left">
+    </div>
+    <div class="background_grey" style="width: 330px; height: 10px; float: left; position: relative;">
+    </div>
+    <div class="corner_l_right">
+    </div>
+	
+	
+    <div class="left" style="float: left; clear: right; width: 350px; margin-top: 10px; ">
+        <div class="corner_u_left">
+        </div>
+        <div class="background_grey" style="width: 330px; height: 10px; float: left; position: relative;">
+        </div>
+        <div class="corner_u_right">
+        </div>
+        <div class="align_left" style="float: left; clear:right; width: 350px; border-bottom: 1px solid #bbb; padding-bottom: 10px; background-color: #bbb;">
+            <table style="padding-left: 10px;">
+                <tr><td class="bold" colspan="4">
+                    <%=h @ticket.event.title %>
+                </td>
+				</tr>
+                <tr>
+                    <td colspan="4">
+                        <%=h @ticket.event.event_status %>
+                    </td>
+                </tr>
+                <% if @ticket.event.max_sc >= 0 %>
+                <tr>
+                    <td>
+                        <%=h @ticket.event.available_sc %>
+                    </td>
+                    <td>
+                        / 
+                    </td>
+                    <td>
+                        <%=h @ticket.event.max_sc %>
+                    </td>
+                    <td>
+                        <%= t("views.tickets.show.s18")%> 
+                    </td>
+                </tr>
+                <% end %>
+                <% if @ticket.event.max_nsc >= 0 %>
+                <tr>
+                    <td>
+                        <%=h @ticket.event.available_nsc %>
+                    </td>
+                    <td>
+                        / 
+                    </td>
+                    <td>
+                        <%=h @ticket.event.max_nsc %>
+                    </td>
+                    <td>
+                        <%= t("views.tickets.show.s19")%> 
+                    </td>
+                </tr>
+                <% end %>
+            </table>
+			<hr>
+            <table style="padding-left: 10px; padding-top: 5px;">
+                <tr>
+                    <td>
+                        <% if @ticket.event.startdate == @ticket.event.enddate %>
+                        <%=h @ticket.event.enddate.strftime(' %d. %B,  %Y') %>
+                        <% else %>
+                        <%=h @ticket.event.startdate.strftime(' %d. %B,  %Y') %> <%= t("views.tickets.show.s2")%> <%=h @ticket.event.enddate.strftime(' %d. %B,  %Y') %>
+                        <% end %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%=h @ticket.event.area_code %> <%=h @ticket.event.city %>, <%= I18n.t (h @ticket.event.country) %> (<a href=""><%= t("views.tickets.show.s20")%></a>)
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="corner_l_left">
+        </div>
+        <div class="background_grey" style="width: 330px; height: 10px; float: left; position: relative;">
+        </div>
+        <div class="corner_l_right">
+        </div
+    </div>
+	
+	
+	<div class="left" style="float: left; clear: right; width: 350px; margin-top: 10px; ">
+        <div class="corner_u_left">
+        </div>
+        <div class="background_grey" style="width: 330px; height: 10px; float: left; position: relative;">
+        </div>
+        <div class="corner_u_right">
+        </div>
+        <div class="align_left" style="float: left; clear:right; width: 350px; border-bottom: 1px solid #bbb; padding-bottom: 10px; background-color: #bbb;">
+            <table style="border-bottom: 1px solid #bbb;  padding-left: 10px;">
+   
+            <tr>
+                <td class="bold" style="width: 100px;">
+                    <%= t("views.tickets.show.s21")%><br>&nbsp;
+                </td>
+                <td>
+                    <%=h @ticket.event.user.login %><br>(<%= link_to  t("views.tickets.show.s22"), {:controller => "messages", :action => "new", :to_id => @ticket.event.user.id} %>)
+                </td>
+            </tr>
+        </table>
+        <% if @ticket.event.orga_name != "" %>
+       
+            <table style="border-bottom: 1px solid #bbb; width: 100%;  padding-left: 10px;">
+                <tr>
+                    <th>
+                        <%= t("views.tickets.show.s23")%>
+                    </th>
+                </tr>
+                <tr>
+                    <td class="bold" style="width: 100px;">
+                        <%= t("views.tickets.show.s24")%>
+                    </td>
+                    <td>
+                        <%=h @ticket.event.orga_name %>
+                    </td>
+                </tr>
+                <% if @ticket.event.street_of_contact2 != "" %>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.tickets.show.s25")%>
+                    </td>
+                    <td>
+                        <%=h @ticket.event.orga_website %>
+                    </td>
+                </tr>
+                <% end %>
+                <% if @ticket.event.orga_email != "" %>
+                <tr>
+                    <td class="bold">
+                      <%= t("views.tickets.show.s26")%>    
+                    </td>
+                    <td>
+                        <%=h @ticket.event.orga_email %>
+                    </td>
+                </tr>
+                <% end %>
+              
+            </table>
+    
+        <% end %>
+    </div>
+	    </div>
+        <div class="corner_l_left">
+        </div>
+        <div class="background_grey" style="width: 330px; height: 10px; float: left; position: relative;">
+        </div>
+        <div class="corner_l_right">
+        </div
+    </div>
+	
+   

@@ -1,0 +1,207 @@
+
+<div class="left" style="width: 100%;">
+	   <h2 class="text_green" style="margin-bottom: 0px; padding-bottom: 0px;"><%= t("views.orders.index3.s2") %></h2>
+	   <table style="text-align: left;">
+	       <tr class="bold" style="height: 30px; vertical-align: center;">
+			 <td style="width: 30px; padding: 0px 0px 0px 3px;">
+	                <%= t("views.orders.index3.s3") %>
+	            </td>
+	            <td style="width: 150px; padding: 0px 0px 0px 5px;">
+	                <%= t("views.orders.index3.s4") %>
+	            </td>
+	            <td style="width: 120px; padding: 0px 0px 0px 5px;">
+	                <%= t("views.orders.index3.s5") %>
+	                <br>
+	                <%= t("views.orders.index3.s6") %>
+	            </td>
+	            <td style="width: 120px; padding: 0px 0px 0px 5px;">
+	                <%= t("views.orders.index3.s7") %> 
+	                <br>
+	                <%= t("views.orders.index3.s8") %>
+	            </td>
+	            <td style="width: 120px; padding: 0px 0px 0px 5px;">
+	                <%= t("views.orders.index3.s9") %> 
+	                <br>
+	                <%= t("views.orders.index3.s10") %>
+	            </td>
+	            <td style="width: 120px; padding: 0px 0px 0px 5px;">
+	                <%= t("views.orders.index3.s11") %>
+	                <br>
+	                <%= t("views.orders.index3.s12") %>
+					</td>
+	            <td style="width: 120px; padding: 0px 0px 0px 5px;">
+	                <%= t("views.orders.index3.s13") %>
+	                <br>
+	                <%= t("views.orders.index3.s14") %>
+	            </td>
+	            <td style="width: 120px; padding: 0px 0px 0px 5px;">
+	                <%= t("views.orders.index3.s15") %>
+	                <br>
+	                <%= t("views.orders.index3.s16") %>
+	            </td>
+	        </tr>
+	    </table>
+	</div>
+	
+	<% x = 0 %>
+	<% @all_sales.each do |order| %>
+
+
+
+	<% x += 1 %>
+	<div class="left" style="width: 100%;" id="d<%= order.id.to_s %>">
+	    <table id="order<%= x %>" style="text-align: left;">
+	        <tr class="<%= cycle("tr1", "tr2") -%>" >
+	        	 <td style="width: 30px; padding: 0px 0px 0px 3px;">
+	                 <%= order.id %>
+	            </td>
+	            <td style="width: 150px; padding: 0px 0px 0px 5px;" onclick="Effect.toggle('<%= x%>', 'slide'); return false;">
+	               <%= order.user.login %> (<a href=""><%= t("views.orders.index3.s17") %></a>)
+	            </td>				
+	            <td style="width: 120px;  padding-left: 5px;">
+	                <% if order.step.to_s == "step1"  or order.step.to_s == "step2" or order.step.to_s == "step3" %>                
+		                <%= t("views.orders.index3.s18") %>
+	                <% end %>
+	            </td>
+				
+	            <td style="width: 120px;  padding-left: 5px;">
+	                <% if order.status.to_s == "ordered" %>
+	                	<%= link_to t("views.orders.index3.s19"), { :action => "sales1_payment_arrived", :id => order.id, :do => "confirm"} ,:method => :post %>
+	                <% end %>
+	            </td>
+	            <td style="width: 120px;  padding-left: 5px;">
+	                <% if order.status.to_s == "shipped" or order.status.to_s == "buyerfeedback_received" or order.status.to_s == "sellerfeedback_received" or order.status.to_s == "closed" %>
+	                <% elsif order.status.to_s == "payment_arrived" %>
+	                <%= link_to t("views.orders.index3.s20"), { :action => "sales2_shipping_confirmed", :id => order.id}, :method => :post %>
+	                <% else %>
+	                <% end %>
+	            </td>
+	            <td style="width: 120px; padding-left: 5px;">
+	                <% if order.status.to_s == "buyerfeedback_received" or order.status.to_s == "sellerfeedback_received" or order.status.to_s == "closed" %>
+	                <% elsif order.status.to_s == "shipped" %>
+	                <%= t("views.orders.index3.s21") %>
+	                <% else %>
+	                <% end %>
+	            </td>
+	            <td style="width: 120px; padding-left: 5px;">
+	                <% if order.status.to_s == "sellerfeedback_received" or order.status.to_s == "closed" %>
+	                <% elsif order.status.to_s == "buyerfeedback_received" %>
+					<% @rating = Rating.find(:first, :conditions => ["order_id = ?", order.id ], :order => 'id DESC') %>
+					<% #Workaround due to dp.populate already creating entries - so there are multiple entries in db with order_id = 3%>
+	                <%= link_to t("views.orders.index3.s22"), edit_rating_path(:id => @rating.id) %>
+	                <% else %>
+	                <% end %>
+	            </td>
+	            <td style="width: 120px; padding-left: 5px;"  onclick="Effect.toggle('<%= x%>', 'slide'); return false;">
+	                <% if order.status.to_s == "closed" %>
+	                	<a href=""> <%= t("views.orders.index3.s23") %></a>
+					<% elsif order.status.to_s == "cancelled" %>
+   						<a href="" > <%= t("views.orders.index3.s24") %></a>	
+					<% else %>
+	                	<a href=""> <%= t("views.orders.index3.s25") %></a>
+	                <% end %>
+	            </td>
+	        </tr>
+	    </table>
+	</div>
+	<div id="<%= x %>" style="display: none; border-bottom: 1px solid #ccc; border-left: 1px solid #ccc; border-right: 1px solid #ccc; width: 950px; margin-left: 2px;" class="left">
+	    <div class="left">
+	        <div class="left">
+	            <% @order = Order.find(order) %>
+				<% @this_order = @order %>	
+	            <%= render :partial => "order", :object => order %>
+	        </div>
+		    
+			
+			<div class="left align_left" style="margin-left: 10px; padding-top: 8px; padding-left: 10px; width: 450px;">
+			<h3 class="text_green"><%= t("views.orders.index3.s26") %>:</h3>
+			<table>
+				<tr><td style="text-align: right;"><%= order.created_at.strftime('%A, ' '%d ' '%B' ' %Y')  %></td><td style="padding-left: 10px;">Order given</td></tr>		
+				<% if order.date_payment_arrived != nil %>
+				<tr><td style="text-align: right;"><%= order.date_payment_arrived.strftime('%A, ' '%d ' '%B' ' %Y')  %></td>
+				<% else %>
+				<tr><td style="text-align: right;"><%= t("views.orders.index3.s27") %></td>
+				<% end %>
+				<td style="padding-left: 10px;"><%= t("views.orders.index3.s28") %></td></tr>		
+				<% if order.date_shipped != nil %>
+				<tr><td style="text-align: right;"><%= order.date_shipped.strftime('%A, ' '%d ' '%B' ' %Y')  %></td>
+				<% else %>
+				<tr><td style="text-align: right;"><%= t("views.orders.index3.s29") %></td>
+				<% end %>
+				<td style="padding-left: 10px;"><%= t("views.orders.index3.s30") %></td></tr>			
+				<% if order.date_buyerfeedback_received != nil %>
+				<tr><td style="text-align: right;"><%= order.date_buyerfeedback_received.strftime('%A, ' '%d ' '%B' ' %Y')  %></td>
+				<% else %>
+				<tr><td style="text-align: right;"><%= t("views.orders.index3.s31") %></td>
+				<% end %>
+				<td style="padding-left: 10px;"><%= t("views.orders.index3.s32") %></td></tr>		
+				<% if order.date_sellerfeedback_received != nil %>
+				<tr><td style="text-align: right;"><%= order.date_sellerfeedback_received.strftime('%A, ' '%d ' '%B' ' %Y')  %></td>
+				<% else %>
+				<tr><td style="text-align: right;"><%= t("views.orders.index3.s31") %>Open</td>				
+				<% end %>
+				<td style="padding-left: 10px;"><%= t("views.orders.index3.s33") %>.</td></tr>
+				<% if order.date_closed != nil %>
+				<tr><td style="text-align: right;"><%= order.date_closed.strftime('%A, ' '%d ' '%B' ' %Y')  %></td>
+				<% else %>
+				<tr><td style="text-align: right;"><%= t("views.orders.index3.s34") %></td>						
+				<% end %>		
+				<td style="padding-left: 10px;"><%= t("views.orders.index3.s35") %></td></tr>		
+			</table> 
+			
+			<h3 class="text_green"><%= t("views.orders.index3.s36") %>:</h3>				
+	            <% if order.payment_chosen == "paypal" %>
+	            <%= render :partial => "paypal_info_c", :object => @this_order %>
+	            <% end %>
+	            <% if order.payment_chosen == "cheque" %>
+	            <%= render :partial => "cheque_info_c", :object => @this_order %>
+	            <% end %>
+	            <% if order.payment_chosen == "bank" %>			
+	            <%= render :partial => "bank_transfer_info_c", :object => @this_order %>
+	            <% end %>
+	            <% if order.payment_chosen == "cod" %>
+	            <%= render :partial => "cod_info_c", :object => @this_order %>
+	            <% end %>
+				
+				<h3 class="text_green"><%= t("views.orders.index3.s37") %>: </h3>
+					<table>
+						<tr><td><%= t("views.orders.index3.s38") %>:</td></tr>
+						</table>
+									    <ul>
+				        <li>
+				            <%= h @this_order.user_fullname %>
+				        </li>
+				        <li>
+				            <%= h @this_order.user_address %>
+				        </li>
+				        <li>
+				            <%= h @this_order.user_areacode %> <%= h @this_order.user_city %>
+				        </li>			   
+				        </li>
+				        <li>
+				            <%= h t(@this_order.user_country) %>
+				        </li>
+				    </ul>	
+				<h3 class="text_green"><%= t("views.orders.index3.s39") %> </h3>
+				<% if order.status == "cancelled" %>
+				<p>	<%= t("views.orders.index.s43") %>.</p>				
+				<b><%= t("views.orders.index.s44") %>: </b><%= h @this_order.cancel_reason %></p>
+				<% elsif order.status == "closed" %>
+				<%= t("views.orders.index3.s42") %>.
+				<% end %>
+				<br>
+				<br>
+	        </div>
+	    </div>
+	</div>
+	<% end %>
+	</table>
+	<%= will_paginate @all_sales%>
+	<br>
+	<%= link_to t("views.orders.index3.s45"), orders_path %><br>
+	<%= link_to t("views.orders.index3.s46"), sales_path %><br>
+</div>
+
+
+
+

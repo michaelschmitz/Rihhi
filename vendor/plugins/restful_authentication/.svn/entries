@@ -1,0 +1,70 @@
+8
+
+dir
+242
+https://svn.codespaces.com/rihhi/larp/rihhi/vendor/plugins/restful_authentication
+https://svn.codespaces.com/rihhi/larp
+
+
+
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ce245bec-e5c3-47c4-86f5-a6cae0350485
+
+README
+file
+
+
+
+
+2010-10-18T15:52:54.004000Z
+55b3f6d8c8e815aaad6c508f9d3540e2
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+Rakefile
+file
+
+
+
+
+2010-10-18T15:52:53.705000Z
+ebfd713e05e35c55392c1999bf3bfb44
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+generators
+dir
+
+install.rb
+file
+
+
+
+
+2010-10-18T15:52:53.753000Z
+3773dce53854a282602d79a631a1ff8a
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+lib
+dir
+

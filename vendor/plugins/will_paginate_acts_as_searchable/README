@@ -1,0 +1,16 @@
+Will Paginate Acts As Searchable
+==========
+Integrate will_paginate with acts_as_searchable
+
+will_paginate -- github.com/mislav/will_paginate/wikis
+acts_as_searchable -- http://pragmatig.wordpress.com/2008/05/06/getting-started-with-acts_as_searchable-on-ubuntu/
+
+Example
+=======
+Movie.paginate_by_fulltext_search(params[:q],:page=>params[:page],:per_page=>10)
+
+Install
+=======
+script/plugin install http://small-plugins.googlecode.com/svn/trunk/will_paginate_acts_as_searchable/
+
+Copyright (c) 2008 Michael Grosser, released under the MIT license

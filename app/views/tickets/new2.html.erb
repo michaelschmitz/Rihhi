@@ -1,0 +1,37 @@
+<% @onpage = 5 %>
+<%= render :partial => "newevent", :object => @onpage %>
+<div style="width: 750px; float:left; margin-bottom: 500px;">
+    <h2 class="text_green">5 - Deals</h2>
+    <ul style="margin-bottom: 10px;">
+        <li>
+            You can skip this step if you do not include deals with your tickets.
+        </li>
+        <li>
+            Deals can be added by typing the ID or Title of the item into the search box below.
+        </li>
+        <li>
+            This requires that you have already added these items to Rihhi.
+        </li>
+        <li>
+            If you have not done so, simply finish setting up this event and add the deals later.
+        </li>
+    </ul>
+    <% @tickets = Ticket.find(	:all,
+    							:conditions => ["event_id = ?", @event],
+    							:order => "position") %>
+	<h2 class="text_green">Available ticket types</h2>
+    <p class="align_left">There are <%= @tickets.length %> ticket types available for this event. </p>
+    
+	<div class="left" id="tickets">
+        <%= render :partial => "events/old_tickets_with_deals", :object => @tickets %>
+    </div>
+	
+	
+	
+    <div class="right" style="clear: both; margin-top: 20px; margin-bottom: 0px;">
+        <% form_for(:event, :url => new_event6_path(@event.id), :html => { :multipart => false }) do |f| %>
+        <%= f.submit "Click to continue", :class => "submit_b" %>
+        <% end %>
+    </div>
+</div>
+</div>

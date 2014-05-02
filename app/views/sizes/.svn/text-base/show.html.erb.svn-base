@@ -1,0 +1,48 @@
+<p>
+  <b>Listing:</b>
+  <%=h @sizes.listing_id %>
+</p>
+
+<p>
+  <b>Xxs:</b>
+  <%=h @sizes.xxs %>
+</p>
+
+<p>
+  <b>Xs:</b>
+  <%=h @sizes.xs %>
+</p>
+
+<p>
+  <b>S:</b>
+  <%=h @sizes.s %>
+</p>
+
+<p>
+  <b>M:</b>
+  <%=h @sizes.m %>
+</p>
+
+<p>
+  <b>L:</b>
+  <%=h @sizes.l %>
+</p>
+
+<p>
+  <b>Xl:</b>
+  <%=h @sizes.xl %>
+</p>
+
+<p>
+  <b>Xxl:</b>
+  <%=h @sizes.xxl %>
+</p>
+
+<p>
+  <b>Xxxl:</b>
+  <%=h @sizes.xxxl %>
+</p>
+
+
+<%= link_to 'Edit', edit_sizes_path(@sizes) %> |
+<%= link_to 'Back', sizes_path %>

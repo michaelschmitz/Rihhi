@@ -1,0 +1,33 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  titel: MyString
+  description: MyString
+  ideal_price: 1.5
+  quantity: 1
+  tags: MyString
+  materials: MyString
+  user_id: 1
+  deadline: MyString
+  full_name: MyString
+  street: MyString
+  city: MyString
+  state: MyString
+  zip_code: MyString
+  country: MyString
+
+two:
+  titel: MyString
+  description: MyString
+  ideal_price: 1.5
+  quantity: 1
+  tags: MyString
+  materials: MyString
+  user_id: 1
+  deadline: MyString
+  full_name: MyString
+  street: MyString
+  city: MyString
+  state: MyString
+  zip_code: MyString
+  country: MyString

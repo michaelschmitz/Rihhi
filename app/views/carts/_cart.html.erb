@@ -1,0 +1,142 @@
+<% if flash[:cart_notice] %>
+<%= render :partial => "carts/cart_notice" %>
+<% end %>
+<% @onpage = 1 %>
+<%= render :partial => "orders/neworder", :object => @onpage %><!-- add edit to newlisting, make a second copy-->
+<div class="left" style="width: 750px; margin-left: 0px; padding: 10px 10px 10px 10px;">
+    <h2 class="text_green"><%= t("views.carts.cart.s1") %></h2>
+    <div style="margin-bottom: 10px;">
+        <ul>
+            <li>
+                <%= t("views.carts.cart.s2") %>
+            </li>
+            <li>
+                <%= t("views.carts.cart.s3") %>
+            </li>
+        </ul>
+        <div>
+            <% if @cart.cart_items.length > 0 %>
+            <% @cart.cart_items.sort! { |a,b| a.listing.seller_id <=> b.listing.seller_id } %>
+            <% list_of_ids = [] %>
+           
+		    <% @cart.cart_items.each do |item| %>
+            <% if item.listing.removed == "1" %>
+			<% flash[:notice_bad] = t("views.carts.cart.s4") %>
+            <% item.destroy %>
+            <% else %>
+            <% list_of_ids << item.listing.seller_id %>
+            <% end %>
+            <% end %>
+            <% list_of_ids.uniq! %>
+			
+            <div style="float: left; width: 750px; margin-top: 20px;">
+                <!-- Show the items and the checkout form --><% list_of_ids.each do |x| %>
+                <div style="float: left; width: 750px;">
+                    <hr><% slr = Seller.find(x) %>
+                    <h3 class="text_green" style="background-color: white; font-size: larger;"><%= t("views.carts.cart.s5") %> <%= slr.user.login %></h3>
+                    <% total = 0 %>
+                    <% @cart.cart_items.each do |item| %>
+                    <% if item.listing.seller_id == x %>
+                    <!-- Show the item info and everything needed for checkout -->
+                    <table style="text-align: left;">
+                        <tr>
+                            <td style="width: 180px; padding-left: 5px;">
+                                <% if item.listing.pic1.exists? %>
+                                <span class="img-shadow"><%= link_to(image_tag(item.listing.pic1.url(:thumb)), listing_path(item.listing.id)) %></span>
+                                <% else %>
+                                <span class="img-shadow"><%= image_tag("../pic1s/medium/missing.png", :width => "125") %></span>
+                                <% end %>
+                            </td>
+                            <td style="width: 240px;">
+                                <h4><%= link_to (h(item.listing.title)), listing_path(item.listing.id) %>
+                                    <br>
+                                    <span class="text_darkgrey" style="font-weight: normal;">Size <%= I18n.t(h(item.size)) %>
+                                        <br>
+                                        Color <%= I18n.t(h(item.color)) %>
+                                    </span>
+                                    </td>
+                                    <td style="width: 50px; text-align: right; ">
+                                        <%= h item.listing.price.to_s %>€
+                                        <br>
+                                        &nbsp;
+                                        <br>
+                                        &nbsp;
+                                    </td>
+                                    <td style="width: 80px; text-align: right; padding-right: 5px;">
+                                        <span class="text_darkgrey"><%= t("views.carts.cart.s6") %>: </span>
+                                        <%= h item.amount %>
+                                        <br>
+                                        &nbsp;
+                                        <br>
+                                        &nbsp;
+                                    </td>
+                                    <td style="width: 80px; text-align: left; ">
+									<!-- check availabilty-->
+									<% if item.listing.nr_of_items_in_stock >= 1 %>
+                                        <%= link_to t("views.carts.cart.s7"), {:action => "add" , 			:id => @cart.id, :listing_id => item.listing.id, :size => item.size, :color => item.color  }, {:method => :post} %>
+										<% end %>
+                                        <br>
+                                        <%= link_to t("views.carts.cart.s8"), {:action => "remove" , 	:id => @cart.id, :listing_id => item.listing.id, :size => item.size, :color => item.color  }, {:method => :post} %>
+                                        <br>
+                                        &nbsp;
+                                    </td>
+                                    <td style="width: 150px; text-align: right; font-weight: bold; ">
+                                        <br>
+                                        &nbsp;
+                                        <br>
+                                        &nbsp;<%=h item.amount * item.listing.price.to_f %>€
+                                    </td>
+                                </tr>
+                                <% total += item.amount * item.listing.price.to_f %>
+                                <% end %>
+                                <% end %>
+                                <tr>
+                                    <td colspan="6" style="text-align: right" class="bold">
+                                        <%= t("views.carts.cart.s9") %>: <%=h total.to_f %>€
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="6" style="text-align: right; color: black; font-size: normal;">
+                                        <%= t("views.carts.cart.s10") %>
+                                    </td>
+                                </tr>
+                                </table>
+                            </div>
+                            <div style="float:right; width: 200px; margin-top: 20px; margin-bottom: 20px;">
+                                <% form_for(:order, @order, :url => { :controller => "orders", :action => "new" }) do |f| %>
+                                <%= f.hidden_field(:seller_id, :value => x) %>
+                                <div>
+                                    <%= f.submit t("views.carts.cart.s11"), :class => "submit_b" %>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <ul>
+                                        <li>
+                                           <%= t("views.carts.cart.s12") %> 
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <% end %>
+                            <% end %>
+                            </div>
+                            
+                        </div><!-- Closing the single-item div -->
+                        <% else %>
+                        <p class="bold" style="text-align: left;">
+                            <%= t("views.carts.cart.s14") %>
+                        </p>
+                        <% end %>
+                        </div>
+						<hr>
+						<p style="text-align: left;">
+                        	<%= link_to t("views.carts.cart.s13"), clear_cart_path(@cart) %>
+                        </p>
+                        <p style="text-align: left;">
+                            <%= link_to t("views.carts.cart.s15"), orders_path() %>
+                        </p>
+                        <p style="text-align: left;">
+                            <%= link_to t("views.carts.cart.s16"), profile_path() %>
+                        </p>
+                    </div>
+                </div>

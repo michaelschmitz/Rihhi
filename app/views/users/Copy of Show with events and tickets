@@ -1,0 +1,359 @@
+<div class="left" style="width: 230px; height: 800px; margin-left: 20px; margin-top: 20px;">
+    <div class="left" style="width: 200px; height:auto;">
+        <% if @userpage.avatar? %>
+        <span class="img-shadow"><%= image_tag(@userpage.avatar.url(:medium)) %></span>
+        <% else %>
+        <span class="img-shadow"><%= image_tag("treant.jpeg", :size => "200x200") %></span>
+        <% end %>
+    </div>
+    <div class="left" style="width: 200px; height:90px; text-align: center;">
+        <p>
+        	<%= t("views.listings.show.joined") %>: <%= distance_of_time_in_words_to_now(@user.created_at) %> <%= t("views.listings.show.ago") %>
+			<br><br>
+            <%= link_to  t("views.listings.show.send_message"), {:controller => "messages", :action => "new", :to_id => @user.id} %>
+            <% if @user.is_seller? %>
+            <br>
+            <%= link_to t("views.users.show.s1") + @user.login + t("views.users.show.s2"), shop_path(@user.seller.id) %>
+            <% end %>
+            <% if logged_in? %>
+            <% if @user.id == self.current_user.id %>
+            <br>
+            <%= link_to t("views.users.show.s3"), edit_userpage_path(self.current_user) %>
+            <% end %>
+            <% end %>
+        </p>
+    </div>
+	<% if logged_in? and @user.id != self.current_user.id and @already != 1 %>
+	<div class="left" style="clear: left; width: 200px; height:50px; margin-left: -40px;">
+	    <% form_for(@friend) do |f| %>
+	    <%= f.hidden_field :user_id, :value => self.current_user.id %>
+	    <%= f.hidden_field :friend_id, :value => @user.id %>
+	    <%= f.submit t("views.users.show.s4"), :class => "submit_b_neutral" %>
+	    <% end %>
+	</div>
+	<% end %>
+	
+	<% if logged_in? and @user.id == self.current_user.id %>
+	<% if @friend_request.length >= 1 %>
+	    <div class="left" style="width: 200px; margin-left: 0px; margin-top: 10px;">
+	        <h3 class="text_red"><%= t("views.users.show.s5") %></h3>
+	        <% @friend_request.each do |f| %>
+	        <% user = User.find(:first, :conditions => ["id = ?", f.user_id]) %>
+	        <% userpage = Userpage.find(:first, :conditions => ["user_id = ?", user.id]) %>
+	        <div class="left" style="width: 200px; height: 110px; margin-left: -90px; margin-top: 10px;">
+	            <% if userpage.avatar? %>
+	            	<span class="img-shadow"><%= image_tag(userpage.avatar.url(:thumb)) %></span>
+	            <% else %>
+	            	<span class="img-shadow"><%= image_tag("treant.jpeg", :size => "100x100") %></span>
+	            <% end %>
+	        </div>
+	        <div class="left" style="padding-top: 3px; margin-left: 10px; clear: both;">
+	            <%= link_to user.login, user_path(user.id) %>
+	            <br>
+	            <%= link_to t("views.users.show.s6"), { :controller => "friends", :action => "update1", :id => f.id} ,:method => :post, :confirm => t("views.users.show.s8") %>
+	            <br>
+	            <%= link_to t("views.users.show.s7"), { :controller => "friends", :action => "update2", :id => f.id} ,:method => :post,  :confirm => t("views.users.show.s8") %>
+	            <br>
+	        </div>
+	        <% end %>
+	    </div>
+	<% end %>
+	<% end %>
+	
+	
+	<!-- Are friends visible ?-->
+<% if @user.friends_visible == "Yes" %>
+	<!-- Then just show them! -->
+    <% if @friends_i_asked.length >= 1 or @friends_who_asked_me.length >= 1 %>
+    <div class="clear_left" style="width: 200px; text-align: center;">
+        <h3 class="text_green"><%= t("views.users.show.s9") %> (<%= @friends_i_asked.length + @friends_who_asked_me.length %>)</h3>
+    
+    <% end %>
+    <% if @friends_i_asked.length >= 1 %>
+    
+        <% @friends_i_asked.each do |f| %>
+			<% @friend = f.friend_id%>
+    		<%= render :partial => "shared/afriend", :object => @friend %>
+        <% end %>
+    
+    <% end %>
+    <% if @friends_who_asked_me.length >= 1 %>
+    
+        <% @friends_who_asked_me.each do |f| %>
+			<% @friend = f.user_id%>
+    		<%= render :partial => "shared/afriend", :object => @friend %>
+        <% end %>
+    </div>
+    <% end %>
+    <div class="clear_left" style="width: 100px; margin-top: 10px; text-align: left;">
+        <%= link_to t("views.users.show.s10"), friend_path(:id => @user.id) %>
+    </div>
+<% end %>
+
+
+<!-- open Invisble part-->	
+<% if @user.friends_visible == "No" %>	
+
+<!-- if we are friends -->	
+<% if logged_in? %>
+<% if @already != 1 %>
+	    <% if @friends_i_asked.length >= 1 or @friends_who_asked_me.length >= 1 %>
+	    <div class="clear_left" style="width: 200px; text-align: center;">
+	        <h3 class="text_green"><%= t("views.users.show.s11")%> (<%= @friends_i_asked.length + @friends_who_asked_me.length %>)</h3>
+	    
+	    <% end %>
+	    <% if @friends_i_asked.length >= 1 %>
+	    
+	        <% @friends_i_asked.each do |f| %>
+				<% @friend = f.friend_id%>
+        		<%= render :partial => "shared/afriend", :object => @friend %>
+	        <% end %>
+	    
+	    <% end %>
+	    <% if @friends_who_asked_me.length >= 1 %>
+	    
+	        <% @friends_who_asked_me.each do |f| %>
+				<% @friend = f.user_id%>
+        		<%= render :partial => "shared/afriend", :object => @friend %>
+	        <% end %>
+	    </div>
+	    <% end %>
+	    <div class="clear_left" style="width: 100px; margin-top: 10px; text-align: left;">
+	        <p><%= link_to t("views.users.show.s12"), friend_path(:id => @user.id) %></p>
+	    </div>
+<% end %>
+<% end %>
+	
+<!-- If I am a) Logged in, and the b) User id == My ID, then show it-->
+<% if logged_in? %>
+<% if @user.id == self.current_user.id %>
+    <% if @friends_i_asked.length >= 1 or @friends_who_asked_me.length >= 1 %>
+    <div class="clear_left" style="width: 200px; text-align: center;">
+        <h3 class="text_green"><%= t("views.users.show.s13") %> (<%= @friends_i_asked.length + @friends_who_asked_me.length %>)</h3>
+    
+    <% end %>
+    <% if @friends_i_asked.length >= 1 %>
+    
+        <% @friends_i_asked.each do |f| %>
+			<% @friend = f.friend_id%>
+        	<%= render :partial => "shared/afriend", :object => @friend %>
+        <% end %>
+    
+    <% end %>
+    <% if @friends_who_asked_me.length >= 1 %>
+    
+        <% @friends_who_asked_me.each do |f| %>
+			<% @friend = f.user_id%>
+			<%= render :partial => "shared/afriend", :object => @friend %>
+        <% end %>
+    </div>
+    <% end %>
+    <div class="clear_left" style="width: 100px; margin-top: 10px; text-align: left;">
+        <%= link_to t("views.users.show.s14"), friend_path(:id => @user.id) %>
+    </div>
+<% end %>
+<% end %>
+<!-- close lowest package -->
+
+
+<% end %>
+<!-- Closed the not visible part-->
+
+</div>
+<!--End of left column-->
+</div>
+
+<div id="middle" class="left">
+    <div id="text" class="left" style="width: 600px; margin-top: 0px; margin-left: 30px; text-align: left;">
+        <h2 style="padding-left: 5px;" class="text_green"><%= @user.login %></h2>
+        <% if @userpage.about_me != "" %>
+        <p style="text-align: left;">
+            <%= (h @userpage.about_me).gsub("\n", "<br />") %>
+        </p>
+        <% else %>
+        <p style="text-align: left;">
+            <%= t("views.users.show.s15") %>
+        </p>
+        <% end %>
+    </div>
+    <!-- if current user is not on my friends list -->
+    <div id="text" class="left" style="width: 600px; height: 300px; margin-top: 0px; margin-left: 30px; text-align: left;">
+        <% if @userpage.status != "" and @userpage.status_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s15a") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.status).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+		<% if @userpage.what_if_ten_days_left != "" and @userpage.what_if_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s34") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.what_if_ten_days_left).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+		<% if @userpage.real_name != "" and @userpage.real_name_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s16") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.real_name).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+		<% if @userpage.homepage != "" and @userpage.homepage_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s32") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.homepage).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+		<% if @userpage.region != "" and @userpage.region_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s18") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.region).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+        <% if @userpage.larp_philosophy != "" and @userpage.larp_philosophy_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s17") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.larp_philosophy).gsub("\n", "<br />") %>
+        </p>
+        <% end %>		
+        <% if @userpage.larp_setting != "" and @userpage.larp_setting_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s19") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.larp_setting).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+		<% if @userpage.favorite_characters != "" and @userpage.favorite_characters_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s28") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.favorite_characters).gsub("\n", "<br />") %>
+        </p>
+        <% end %>		
+		<% if @userpage.player_group != "" and @userpage.player_group_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s26") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.player_group).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+		<% if @userpage.homepage_of_group != "" and @userpage.homepage_of_group_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s27") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.homepage_of_group).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+        <% if @userpage.relationship != "" and @userpage.relationship_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s25") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.relationship).gsub("\n", "<br />") %>
+        </p>
+        <% end %>		
+        <% if @userpage.looking_for != "" and @userpage.looking_for_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s24") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.looking_for).gsub("\n", "<br />") %>
+        </p>
+        <% end %>		
+        <% if @userpage.contact_me != "" and @userpage.contact_me_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s23") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.contact_me).gsub("\n", "<br />") %>
+        </p>
+        <% end %>		
+        <% if @userpage.future_cons != "" and @userpage.future_const_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s22") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.future_cons).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+        <% if @userpage.last_cons != "" and @userpage.last_cons_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s21") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.last_cons).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+        <% if @userpage.ask_me_about != "" and @userpage.ask_me_about_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s20") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.ask_me_about).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+		<% if @userpage.music != "" and @userpage.music_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s31") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.music).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+		<% if @userpage.books != "" and @userpage.books_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s30") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.books).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+        <% if @userpage.movies != "" and @userpage.movies_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s29") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.movies).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+		<% if @userpage.other_hobbies != "" and @userpage.other_hobbies_p == "No" %>
+        <h3 style="padding-left: 5px;" class="text_green"><%= t("views.users.show.s33") %></h3>
+        <p style="text-align: left;">
+            <%= (h @userpage.other_hobbies).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+
+     
+    </div>
+</div>
+</div>
+
+<!-- Disabled features -->
+<% if @g_events_enabled == 1 %>
+<div id="text" class="left" style="border-bottom: 1px solid #ccc; width: 600px; margin-top: 20px; ">
+    <h3>Wasseravatar hat sich zu den folgenden Cons angemeldet:</h3>
+    <table>
+        <tr>
+            <td style="width: 120px;">
+                23. Juni 2010
+            </td>
+            <td>
+                <a href="">Epic Battle 4 - Rückkehr der Grauorks</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                05. August 2010
+            </td>
+            <td>
+                <a href="">Wunderlarp Nettetal E.V.</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<div id="text" class="left" style="border-bottom: 1px solid #ccc; width: 600px; margin-top: 20px;">
+    <h3>Frühere Cons:</h3>
+    <table>
+        <tr>
+            <td style="width: 120px;">
+                23. Juni 2010
+            </td>
+            <td>
+                <a href="">Epic Battle 3 - Der Pass Herkss' Fels</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                08. August 2006
+            </td>
+            <td>
+                <a href="">Conquest of Mythodea 2006</a>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                07. August 2005
+            </td>
+            <td>
+                <a href="">Conquest of Mythodea 2005</a>
+            </td>
+        </tr>
+    </table>
+</div>
+<% end %>

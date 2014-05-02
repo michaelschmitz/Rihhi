@@ -1,0 +1,33 @@
+	<div id="item_button">
+	<% if logged_in? %>
+				<% if self.current_user.is_seller? %>
+					<% if self.current_user.seller.id == @listing.seller_id %>
+						<p><%= t("views.listings.show.s54") %> <%= @listing.v.to_s %> <%= t("views.listings.show.s55") %>.</p>
+					<% else %>
+			        	<% if @listing.nr_of_items_in_stock >= 1 %>
+			            <div>
+			                <%= link_to(image_tag("http://s3.amazonaws.com/img.rihhi.com/system/cart_" + (session[:locale] || "en") + ".png", :size => "130x42"), { :controller => "carts", :action => "add" , :listing_id => @listing.id, :size => @size, :color => @color } , {:method => :post}) %>
+			            </div>
+						<% else %>
+						<p>		<%= t("views.listings.show.out_of_stock") %></p>
+						<% end %>
+					<% end %>
+				<% else %>
+			    		<% if @listing.nr_of_items_in_stock >= 1 %>
+			            <div>
+			                <%= link_to(image_tag("http://s3.amazonaws.com/img.rihhi.com/system/cart_" + (session[:locale] || "en") + ".png", :size => "130x42"), { :controller => "carts", :action => "add" , :listing_id => @listing.id, :size => @size, :color => @color } , {:method => :post}) %>
+			            </div>
+						<% else %>
+						<p>		<%= t("views.listings.show.out_of_stock") %></p>
+						<% end %>
+				<% end %>
+			<% else %>
+				<% if @listing.nr_of_items_in_stock >= 1 %>
+		            <div>
+		                <%= link_to(image_tag("http://s3.amazonaws.com/img.rihhi.com/system/cart_" + (session[:locale] || "en") + ".png", :size => "130x42"), { :controller => "carts", :action => "add" , :listing_id => @listing.id, :size => @size, :color => @color } , {:method => :post}) %>
+		            </div>
+				<% else %>
+					<p>		<%= t("views.listings.show.out_of_stock") %></p>
+				<% end %>
+			<% end %>
+	</div>	

@@ -1,0 +1,44 @@
+<h2 class="text_green" id="ticket_overview">Event Calendar</h2>
+
+   <%= render :partial => "searchbox"  %>            
+								
+<p class="align_left"><%= link_to 'New event', new_event_path %></p>
+<div class="left" style="width: 100%;">
+<div class="left" style="width: 750px;">
+    <table style="border-spacing: 0px; width: 750px;">
+        <% for event in @events %>
+			<% @link =  "http://localhost:3000/events/" + event.id.to_s %>
+        <tr class="<%= cycle("tr1", "tr2") -%>" style="height: 60px; width: 750px;" onClick="location.href='<%= @link.to_s -%>'"  >
+           
+        
+            
+            <td>
+                
+                    <% if event.startdate == event.enddate %>
+                    <%=h event.enddate.strftime('%d. %b  %Y') %>
+                    <% else %>
+                    <%=h event.startdate.strftime('%d. %b ') %> - <%=h event.enddate.strftime('%d. %b  %Y') %>
+                    <% end %>
+               
+            </td>
+			    <td class="align_left">
+                <%=h event.title %>
+			
+            </td>
+            <td>
+             <%=h event.event_status %>
+            </td>
+
+        </tr>
+        <tr>
+            <td style="border-bottom: 1px inset #9A9B9B; padding: 0 0 0 0;" colspan="70">
+            </td>
+        </tr>
+		<% end %>
+    </table>
+</div>
+
+</div>
+
+
+

@@ -1,0 +1,135 @@
+<% @onpage = 1 %>
+<%= render :partial => "shared/edit_settings", :object => @onpage %><!-- add edit to newlisting, make a second copy-->
+<div style="width: 750px; float:left;">
+   <% form_for :shop, @shop, :url => { :action => "shop_update5", :id => @shop.id} do |f| %>
+	  
+    <h2 class="text_green"><%= t("views.shops.payment_options.s1") %></h2>
+    <ul style="margin-bottom: 10px;">
+        <li>
+            <%= t("views.shops.payment_options.s2") %>
+        </li>
+		<li>
+			<%= error_message_on(:shop, :allow_paypal) %>
+		</li>
+    </ul>
+   
+       
+    <div class="form_top" style="margin-top: 20px;">
+    </div>
+    <div class="form_area background_grey">
+        <h3><%= t("views.shops.payment_options.s3") %></h3>
+        <table style="width: 100%" class="align_left">
+            <tr>
+                <td style="width: 150px;">
+                    <%= t("views.shops.payment_options.s4") %>:
+                </td>
+                <td>
+                    <%= f.radio_button :allow_paypal, 'Yes', :tabindex => 32 %><%= t("views.shops.payment_options.s7") %> <%= f.radio_button :allow_paypal, "No", :tabindex => 33 %><%= t("views.shops.payment_options.s8") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.payment_options.s5") %>:
+                </td>
+                <td>
+                    <%= f.text_field :paypal_account, :size => 47, :tabindex => 33 %>
+					<%= error_message_on(:shop, :paypal_account) %>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 10px;">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.payment_options.s6") %>:
+                </td>
+                <td>
+                    <%= f.radio_button :allow_bank_transfer, 'Yes', :tabindex => 34 %><%= t("views.shops.payment_options.s7") %> <%= f.radio_button :allow_bank_transfer, 'No', :tabindex => 35 %><%= t("views.shops.payment_options.s8") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.payment_options.s9") %>
+                </td>
+                <td>
+                	<% if @seller.account_holder_name != "" %>
+					<%= f.text_field :bank_account_holder, :size => 47, :value => @seller.account_holder_name, :tabindex => 36 %>
+					<% else %>
+					<%= f.text_field :bank_account_holder, :size => 47, :tabindex => 36 %>
+					<% end %>
+                    
+					<%= error_message_on(:shop, :bank_account_holder) %>
+                </td>
+            </tr>
+			         <tr>
+                <td>
+                    <%= t("views.shops.payment_options.s11") %>
+                </td>
+                <td>
+                	<% if @seller.account_number != "" %>
+                    <%= f.text_field :bank_iban, :size => 47, :value => @seller.account_number , :tabindex => 38 %>
+					<% else %>
+					<%= f.text_field :bank_iban, :size => 47, :tabindex => 38 %>
+					<% end %>
+						<%= error_message_on(:shop, :bank_iban) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.payment_options.s10") %>
+                </td>
+                <td>
+                	<% if @seller.bank_identifier != "" %>
+                    <%= f.text_field :bank_bic, :size => 47, :value => @seller.bank_identifier, :tabindex => 37 %>
+					<% else %>
+					<%= f.text_field :bank_bic, :size => 47, :tabindex => 37 %>
+					<% end %>
+					<%= error_message_on(:shop, :bank_bic) %>
+                </td>
+            </tr>
+   
+            <tr>
+                <td style="height: 10px;">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.payment_options.s12") %>:
+                </td>
+                <td>
+                    <%= f.radio_button :allow_cheque, 'Yes', :tabindex => 39 %><%= t("views.shops.payment_options.s7") %> <%= f.radio_button :allow_cheque, 'No', :tabindex => 40 %><%= t("views.shops.payment_options.s8") %>
+                </td>
+            </tr>
+            <tr>
+                <td style="height: 10px;">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.payment_options.s13") %>:
+                </td>
+                <td>
+                    <%= f.radio_button :allow_cash_on_delivery, 'Yes',:tabindex => 41 %><%= t("views.shops.payment_options.s7") %> <%= f.radio_button :allow_cash_on_delivery, 'No', :tabindex => 42 %><%= t("views.shops.payment_options.s8") %>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <% if !@shop.shop_has_been_setup? %>
+        <%= f.hidden_field :shop_has_been_setup, :value => "Yes", :type => "hidden" %>
+        <% end %>
+     
+    </div>
+
+    <div class="form_top form_bottom">
+    </div>
+	<div style="float: left; clear: none; margin-top: 10px; margin-left: 10px;">
+        <%= link_to t("views.shops.payment_options.s14"), shop_path(@shop) %>
+    </div>
+	 <div style="float: right; clear: none; margin-top: 10px; margin-right: 10px;">
+            <%= f.submit t("views.shops.payment_options.s15"), :class => "submit_b" %>
+        </div>
+		    <% end %>
+</div>
+
+<%= render :partial => "shared/links" %>

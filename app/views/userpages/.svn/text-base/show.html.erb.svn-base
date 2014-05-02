@@ -1,0 +1,228 @@
+<p>
+  <b>Friends visible:</b>
+  <%=h @userpage.friends_visible %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @userpage.name %>
+</p>
+
+<p>
+  <b>Name p:</b>
+  <%=h @userpage.name_p %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%=h @userpage.status %>
+</p>
+
+<p>
+  <b>Status p:</b>
+  <%=h @userpage.status_p %>
+</p>
+
+<p>
+  <b>Real name:</b>
+  <%=h @userpage.real_name %>
+</p>
+
+<p>
+  <b>Real name p:</b>
+  <%=h @userpage.real_name_p %>
+</p>
+
+<p>
+  <b>Homepage:</b>
+  <%=h @userpage.homepage %>
+</p>
+
+<p>
+  <b>Homepage p:</b>
+  <%=h @userpage.homepage_p %>
+</p>
+
+<p>
+  <b>Region:</b>
+  <%=h @userpage.region %>
+</p>
+
+<p>
+  <b>Region p:</b>
+  <%=h @userpage.region_p %>
+</p>
+
+<p>
+  <b>Larp setting:</b>
+  <%=h @userpage.larp_setting %>
+</p>
+
+<p>
+  <b>Larp setting p:</b>
+  <%=h @userpage.larp_setting_p %>
+</p>
+
+<p>
+  <b>Larp philosophy:</b>
+  <%=h @userpage.larp_philosophy %>
+</p>
+
+<p>
+  <b>Larp philosophy p:</b>
+  <%=h @userpage.larp_philosophy_p %>
+</p>
+
+<p>
+  <b>Favorite characters:</b>
+  <%=h @userpage.favorite_characters %>
+</p>
+
+<p>
+  <b>Favorite characters p:</b>
+  <%=h @userpage.favorite_characters_p %>
+</p>
+
+<p>
+  <b>Player group:</b>
+  <%=h @userpage.player_group %>
+</p>
+
+<p>
+  <b>Player group p:</b>
+  <%=h @userpage.player_group_p %>
+</p>
+
+<p>
+  <b>Homepage of group:</b>
+  <%=h @userpage.homepage_of_group %>
+</p>
+
+<p>
+  <b>Homepage of group p:</b>
+  <%=h @userpage.homepage_of_group_p %>
+</p>
+
+<p>
+  <b>Relationship:</b>
+  <%=h @userpage.relationship %>
+</p>
+
+<p>
+  <b>Relationship p:</b>
+  <%=h @userpage.relationship_p %>
+</p>
+
+<p>
+  <b>About me:</b>
+  <%=h @userpage.about_me %>
+</p>
+
+<p>
+  <b>About me p:</b>
+  <%=h @userpage.about_me_p %>
+</p>
+
+<p>
+  <b>Looking for:</b>
+  <%=h @userpage.looking_for %>
+</p>
+
+<p>
+  <b>Looking for p:</b>
+  <%=h @userpage.looking_for_p %>
+</p>
+
+<p>
+  <b>Contact me:</b>
+  <%=h @userpage.contact_me %>
+</p>
+
+<p>
+  <b>Contact me p:</b>
+  <%=h @userpage.contact_me_p %>
+</p>
+
+<p>
+  <b>Future cons:</b>
+  <%=h @userpage.future_cons %>
+</p>
+
+<p>
+  <b>Future const p:</b>
+  <%=h @userpage.future_const_p %>
+</p>
+
+<p>
+  <b>Last cons:</b>
+  <%=h @userpage.last_cons %>
+</p>
+
+<p>
+  <b>Last cons p:</b>
+  <%=h @userpage.last_cons_p %>
+</p>
+
+<p>
+  <b>Ask me about:</b>
+  <%=h @userpage.ask_me_about %>
+</p>
+
+<p>
+  <b>Ask me about p:</b>
+  <%=h @userpage.ask_me_about_p %>
+</p>
+
+<p>
+  <b>Music:</b>
+  <%=h @userpage.music %>
+</p>
+
+<p>
+  <b>Music p:</b>
+  <%=h @userpage.music_p %>
+</p>
+
+<p>
+  <b>Books:</b>
+  <%=h @userpage.books %>
+</p>
+
+<p>
+  <b>Books p:</b>
+  <%=h @userpage.books_p %>
+</p>
+
+<p>
+  <b>Movies:</b>
+  <%=h @userpage.movies %>
+</p>
+
+<p>
+  <b>Movies p:</b>
+  <%=h @userpage.movies_p %>
+</p>
+
+<p>
+  <b>Other hobbies:</b>
+  <%=h @userpage.other_hobbies %>
+</p>
+
+<p>
+  <b>Other hobbies p:</b>
+  <%=h @userpage.other_hobbies_p %>
+</p>
+
+<p>
+  <b>What if ten days left:</b>
+  <%=h @userpage.what_if_ten_days_left %>
+</p>
+
+<p>
+  <b>What if p:</b>
+  <%=h @userpage.what_if_p %>
+</p>
+
+
+<%= link_to 'Edit', edit_userpage_path(@userpage) %> |
+<%= link_to 'Back', userpages_path %>

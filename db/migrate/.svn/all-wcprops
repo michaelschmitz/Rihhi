@@ -1,0 +1,269 @@
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/rihhi/larp/!svn/ver/235/rihhi/db/migrate
+END
+20090308210426_add_is_seller_to_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 80
+/rihhi/larp/!svn/ver/2/rihhi/db/migrate/20090308210426_add_is_seller_to_users.rb
+END
+20090620211304_create_lastcategories.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/rihhi/larp/!svn/ver/2/rihhi/db/migrate/20090620211304_create_lastcategories.rb
+END
+20090320215638_create_carts.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/rihhi/larp/!svn/ver/2/rihhi/db/migrate/20090320215638_create_carts.rb
+END
+20090728130158_create_sizes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/rihhi/larp/!svn/ver/16/rihhi/db/migrate/20090728130158_create_sizes.rb
+END
+20090718133114_create_hearteds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/rihhi/larp/!svn/ver/2/rihhi/db/migrate/20090718133114_create_hearteds.rb
+END
+20090904095928_create_events.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/rihhi/larp/!svn/ver/174/rihhi/db/migrate/20090904095928_create_events.rb
+END
+20090606142147_create_categories.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/rihhi/larp/!svn/ver/2/rihhi/db/migrate/20090606142147_create_categories.rb
+END
+20090728073054_create_colors.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/rihhi/larp/!svn/ver/12/rihhi/db/migrate/20090728073054_create_colors.rb
+END
+20090813231452_create_messages.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/rihhi/larp/!svn/ver/35/rihhi/db/migrate/20090813231452_create_messages.rb
+END
+20090418183756_create_shops.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/rihhi/larp/!svn/ver/167/rihhi/db/migrate/20090418183756_create_shops.rb
+END
+20090308211318_create_sellers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/rihhi/larp/!svn/ver/221/rihhi/db/migrate/20090308211318_create_sellers.rb
+END
+20100721225314_add_attachments_avatar_to_userpage.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/rihhi/larp/!svn/ver/167/rihhi/db/migrate/20100721225314_add_attachments_avatar_to_userpage.rb
+END
+20100715100033_create_draws.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/rihhi/larp/!svn/ver/156/rihhi/db/migrate/20100715100033_create_draws.rb
+END
+20090320220121_create_cart_items.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/rihhi/larp/!svn/ver/12/rihhi/db/migrate/20090320220121_create_cart_items.rb
+END
+20100401115902_add_attachments_pic1_to_events.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/rihhi/larp/!svn/ver/126/rihhi/db/migrate/20100401115902_add_attachments_pic1_to_events.rb
+END
+20100321161742_add_attachments__to_requests.rb
+K 25
+svn:wc:ra_dav:version-url
+V 88
+/rihhi/larp/!svn/ver/122/rihhi/db/migrate/20100321161742_add_attachments__to_requests.rb
+END
+20090905101631_create_tickets.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/rihhi/larp/!svn/ver/65/rihhi/db/migrate/20090905101631_create_tickets.rb
+END
+20100816203623_add_renting_column_to_listings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/rihhi/larp/!svn/ver/235/rihhi/db/migrate/20100816203623_add_renting_column_to_listings.rb
+END
+20090715173256_create_orders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/rihhi/larp/!svn/ver/202/rihhi/db/migrate/20090715173256_create_orders.rb
+END
+20090920183655_create_searches.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/rihhi/larp/!svn/ver/120/rihhi/db/migrate/20090920183655_create_searches.rb
+END
+20090324193908_create_lists.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/rihhi/larp/!svn/ver/2/rihhi/db/migrate/20090324193908_create_lists.rb
+END
+20091009161751_create_ticketorders.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/rihhi/larp/!svn/ver/98/rihhi/db/migrate/20091009161751_create_ticketorders.rb
+END
+20100713184651_create_movements.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/rihhi/larp/!svn/ver/156/rihhi/db/migrate/20100713184651_create_movements.rb
+END
+20100406130000_add_attachments_pic1_to_deliverable.rb
+K 25
+svn:wc:ra_dav:version-url
+V 95
+/rihhi/larp/!svn/ver/127/rihhi/db/migrate/20100406130000_add_attachments_pic1_to_deliverable.rb
+END
+20100721231636_create_friends.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/rihhi/larp/!svn/ver/168/rihhi/db/migrate/20100721231636_create_friends.rb
+END
+20100721203522_create_userpages.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/rihhi/larp/!svn/ver/235/rihhi/db/migrate/20100721203522_create_userpages.rb
+END
+20090325213108_create_listings_lists.rb
+K 25
+svn:wc:ra_dav:version-url
+V 79
+/rihhi/larp/!svn/ver/2/rihhi/db/migrate/20090325213108_create_listings_lists.rb
+END
+20090306080753_create_users.rb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/rihhi/larp/!svn/ver/202/rihhi/db/migrate/20090306080753_create_users.rb
+END
+20090716170105_create_deliverables.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/rihhi/larp/!svn/ver/16/rihhi/db/migrate/20090716170105_create_deliverables.rb
+END
+20090607183804_create_subcategories.rb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/rihhi/larp/!svn/ver/2/rihhi/db/migrate/20090607183804_create_subcategories.rb
+END
+20100419133406_add_attachments_attachment_to_bids.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/rihhi/larp/!svn/ver/137/rihhi/db/migrate/20100419133406_add_attachments_attachment_to_bids.rb
+END
+20090722161235_create_bids.rb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/rihhi/larp/!svn/ver/92/rihhi/db/migrate/20090722161235_create_bids.rb
+END
+20100321165420_add_attachments_pic1_pic2_pic3_and_pic4_to_listings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/rihhi/larp/!svn/ver/122/rihhi/db/migrate/20100321165420_add_attachments_pic1_pic2_pic3_and_pic4_to_listings.rb
+END
+20090324195658_create_list_listing.rb
+K 25
+svn:wc:ra_dav:version-url
+V 77
+/rihhi/larp/!svn/ver/2/rihhi/db/migrate/20090324195658_create_list_listing.rb
+END
+20090905104854_create_tlistings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/rihhi/larp/!svn/ver/60/rihhi/db/migrate/20090905104854_create_tlistings.rb
+END
+20090308225456_create_listings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/rihhi/larp/!svn/ver/221/rihhi/db/migrate/20090308225456_create_listings.rb
+END
+20090720103155_create_flaggeds.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/rihhi/larp/!svn/ver/2/rihhi/db/migrate/20090720103155_create_flaggeds.rb
+END
+20090822133713_create_ratings.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/rihhi/larp/!svn/ver/165/rihhi/db/migrate/20090822133713_create_ratings.rb
+END
+20090722160833_create_requests.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/rihhi/larp/!svn/ver/94/rihhi/db/migrate/20090722160833_create_requests.rb
+END
+20100816182914_add_preferred_language_to_userpage.rb
+K 25
+svn:wc:ra_dav:version-url
+V 94
+/rihhi/larp/!svn/ver/235/rihhi/db/migrate/20100816182914_add_preferred_language_to_userpage.rb
+END
+20090716124105_create_favorites.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/rihhi/larp/!svn/ver/2/rihhi/db/migrate/20090716124105_create_favorites.rb
+END
+20090704130425_create_feedbacks.rb
+K 25
+svn:wc:ra_dav:version-url
+V 76
+/rihhi/larp/!svn/ver/226/rihhi/db/migrate/20090704130425_create_feedbacks.rb
+END
+20090715174522_create_items.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/rihhi/larp/!svn/ver/12/rihhi/db/migrate/20090715174522_create_items.rb
+END
+20100321122731_add_avatar_columns_to_shops.rb
+K 25
+svn:wc:ra_dav:version-url
+V 87
+/rihhi/larp/!svn/ver/122/rihhi/db/migrate/20100321122731_add_avatar_columns_to_shops.rb
+END

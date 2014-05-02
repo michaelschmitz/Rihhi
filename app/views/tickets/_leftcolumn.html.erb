@@ -1,0 +1,165 @@
+<div class="left" style="width: 600px; ">
+    <div style="float: left; clear:left; width: 600px; height: 30px;">
+        <h2 class="text_green">Ticket: <%=h @ticket.name %></h2>
+    </div>
+    <div class="align_left" style="float: left; clear:left; width: 600px; margin-top: -10px;">
+        <h2 class="text_darkgrey"><%=h @ticket.event.title %></h2>
+    </div>
+    <div class="align_left" style="float: left; clear:left; width: 600px; margin-top: 10px;">
+        <table style="width: 100%;">
+            <tr>
+                <td class="bold" style="width: 120px;">
+                     <%= t("views.tickets.show.s1")%>:
+                </td>
+                <td>
+                    <% if @ticket.valid_from == @ticket.valid_until %>
+                    <%=h @ticket.valid_from.strftime('%A, %d. %B,  %Y') %>
+                    <% else %>
+                    <%=h @ticket.valid_from.strftime('%A, %d. %B,  %Y') %> <%= t("views.tickets.show.s2")%> <%=h @ticket.valid_until.strftime('%A, %d. %B,  %Y') %>
+                    <% end %>
+                </td>
+            </tr>
+        </table>
+    </div>
+	
+	
+	<div class="left" style="float: left; clear: right; width: 540px; margin-top: 10px; ">
+    <div class="corner_u_left">
+    </div>
+    <div class="background_grey" style="width: 520px; height: 10px; float: left; position: relative;">
+    </div>
+    <div class="corner_u_right">
+    </div>
+    <div class="align_left background_grey" style="float: left; clear:left; width: 520px; padding: 10px 10px 10px 10px;">
+        <%= (h @ticket.description).gsub("\n", "<br />") %>
+    </div>
+	 <div class="corner_l_left">
+        </div>
+        <div class="background_grey" style="width: 520px; height: 10px; float: left; position: relative;">
+        </div>
+        <div class="corner_l_right">
+        </div>
+	 </div>
+	 
+    <div class="left" style="margin-top: 10px; margin-bottom: 10px;width: 540px;">
+	       <table class="align_left" style="border-spacing: 0px;">
+	 <tr>
+                <td class="bold" style="width: 120px;">
+                    <%= t("views.tickets.show.s3")%>: 
+                </td>
+                <td>
+                   	<%=h @ticket.event.accomodation %> <%=h @ticket.event.accomodation_description %>
+                </td>
+            </tr>
+				 <tr>
+                <td class="bold" style="width: 120px;">
+                    <%= t("views.tickets.show.s4")%>: 
+                </td>
+                <td>
+                   <%=h @ticket.event.catering %> <%=h @ticket.event.catering_description %>
+                </td>
+            </tr>
+		</table>	
+		
+	 </div>
+	 
+    <div class="left" style="border-bottom: 1px solid #bbb; border-top: 1px solid #bbb; width: 540px;">	
+        <table class="align_left" style="border-spacing: 0px;">
+            <tr style="text-align: center;">
+                <td class="bold align_left" style="width: 120px;">
+                    <%= t("views.tickets.show.s5")%>: 
+                </td>
+                <td style="border-left: 1px solid #bbb; width: 80px;">
+                    <%=h @ticket.price1_deadline.strftime('%d. %b,  %Y') %>
+                </td>
+                <td style="border-left: 1px solid #bbb; width: 80px;">
+                    <%=h @ticket.price2_deadline.strftime('%d. %b,  %Y') %>
+                </td>
+                <td style="border-left: 1px solid #bbb; width: 80px;">
+                    <%=h @ticket.price3_deadline.strftime('%d. %b,  %Y') %>
+                </td>
+                <td style="border-left: 1px solid #bbb; width: 80px;">
+                    <%=h @ticket.price4_deadline.strftime('%d. %b,  %Y') %>
+                </td>
+                <td style="border-left: 1px solid #bbb; border-right: 1px solid #bbb; width: 80px;">
+                    <%=h @ticket.price5_deadline.strftime('%d. %b,  %Y') %>
+                </td>
+            </tr>
+            <tr style="text-align: center;" >
+                <td class="bold align_left">
+                    <%= t("views.tickets.show.s6")%>:
+                </td>
+                <td style="border-left: 1px solid #bbb;">
+                    <%=h @ticket.price1 %> EUR
+                </td>
+                <td style="border-left: 1px solid #bbb;">
+                    <%=h @ticket.price2 %> EUR
+                </td>
+                <td style="border-left: 1px solid #bbb;">
+                    <%=h @ticket.price3 %> EUR
+                </td>
+                <td style="border-left: 1px solid #bbb;">
+                    <%=h @ticket.price4 %> EUR
+                </td>
+                <td style="border-left: 1px solid #bbb ; border-right: 1px solid #bbb; ">
+                    <%=h @ticket.price5 %> EUR
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="left" style="border-bottom: 1px solid #bbb;  margin-top: 10px; width: 540px;">
+        <table class="align_left">
+            <tr>
+                <td class="bold" style="width: 120px;">
+                    <%= t("views.tickets.show.s7")%>: 
+                </td>
+                <td>
+                    <a href=""><%=h @ticket.event.url_to_invitation %></a>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    <%= t("views.tickets.show.s8")%>: 
+                </td>
+                <td>
+                    <a href=""><%=h @ticket.event.link_to_forum_discussion %></a>
+                </td>
+            </tr>
+        </table>
+    </div>
+	
+	<div class="left align_left" name="attending" style="margin-top: 30px; border: 1px solid #bbb; height: 130px; width: 540px;">
+	<div class="left" style="width: 540px; padding-top: 5px; padding-left: 5px;"><span class="bold"><%= t("views.tickets.show.s9")%></span> (<a href=""><%= t("views.tickets.show.s10")%></a>)</div>
+		<!-- Partial for attendance -->
+		<div class="left" style="margin-left: 5px; margin-top: 5px; width: 80px; height: 80px; border: 1px solid grey;">
+		<a href=""><%= image_tag("users/ninja.jpeg", :size => "80x80") %></a>
+		<a href=""><%= truncate(h("Jukihiro_Matsuo"), :length => 12) %></a>
+		</div>
+		
+		<div class="left" style="margin-left: 5px; margin-top: 5px; width: 80px; height: 80px; border: 1px solid grey;">
+		<a href=""><%= image_tag("users/1.jpg", :size => "80x80") %></a>
+		<a href=""><%= truncate(h("KL33t"), :length => 10) %></a>
+		</div>
+		
+		<div class="left" style="margin-left: 5px; margin-top: 5px; width: 80px; height: 80px; border: 1px solid grey;">
+		<a href=""><%= image_tag("users/2.jpg", :size => "80x80") %></a>
+		<a href=""><%= truncate(h("SolensängerX2"), :length => 12) %></a>
+		</div>
+		
+		<div class="left" style="margin-left: 5px; margin-top: 5px; width: 80px; height: 80px; border: 1px solid grey;">
+		<a href=""><%= image_tag("users/3.jpg", :size => "80x80") %></a>
+		<a href=""><%= truncate(h("SporadischDa."), :length => 12) %></a>
+		</div>
+		
+		<div class="left" style="margin-left: 5px; margin-top: 5px; width: 80px; height: 80px; border: 1px solid grey;">
+		<a href=""><%= image_tag("users/4.jpg", :size => "80x80") %></a>
+		<a href=""><%= truncate(h("Felix43."), :length => 12) %></a>
+		</div>
+		
+		<div class="left" style="margin-left: 5px; margin-top: 5px; width: 80px; height: 80px; border: 1px solid grey;">
+		<a href=""><%= image_tag("users/5.jpg", :size => "80x80") %></a>
+		<a href=""><%= truncate(h("Pater_FRVR."), :length => 12) %></a>
+		</div>
+	</div>
+	
+</div>

@@ -1,0 +1,108 @@
+<h1>Listing userpages</h1>
+
+<table>
+  <tr>
+    <th>Friends visible</th>
+    <th>Name</th>
+    <th>Name p</th>
+    <th>Status</th>
+    <th>Status p</th>
+    <th>Real name</th>
+    <th>Real name p</th>
+    <th>Homepage</th>
+    <th>Homepage p</th>
+    <th>Region</th>
+    <th>Region p</th>
+    <th>Larp setting</th>
+    <th>Larp setting p</th>
+    <th>Larp philosophy</th>
+    <th>Larp philosophy p</th>
+    <th>Favorite characters</th>
+    <th>Favorite characters p</th>
+    <th>Player group</th>
+    <th>Player group p</th>
+    <th>Homepage of group</th>
+    <th>Homepage of group p</th>
+    <th>Relationship</th>
+    <th>Relationship p</th>
+    <th>About me</th>
+    <th>About me p</th>
+    <th>Looking for</th>
+    <th>Looking for p</th>
+    <th>Contact me</th>
+    <th>Contact me p</th>
+    <th>Future cons</th>
+    <th>Future const p</th>
+    <th>Last cons</th>
+    <th>Last cons p</th>
+    <th>Ask me about</th>
+    <th>Ask me about p</th>
+    <th>Music</th>
+    <th>Music p</th>
+    <th>Books</th>
+    <th>Books p</th>
+    <th>Movies</th>
+    <th>Movies p</th>
+    <th>Other hobbies</th>
+    <th>Other hobbies p</th>
+    <th>What if ten days left</th>
+    <th>What if p</th>
+  </tr>
+
+<% @userpages.each do |userpage| %>
+  <tr>
+    <td><%=h userpage.friends_visible %></td>
+    <td><%=h userpage.name %></td>
+    <td><%=h userpage.name_p %></td>
+    <td><%=h userpage.status %></td>
+    <td><%=h userpage.status_p %></td>
+    <td><%=h userpage.real_name %></td>
+    <td><%=h userpage.real_name_p %></td>
+    <td><%=h userpage.homepage %></td>
+    <td><%=h userpage.homepage_p %></td>
+    <td><%=h userpage.region %></td>
+    <td><%=h userpage.region_p %></td>
+    <td><%=h userpage.larp_setting %></td>
+    <td><%=h userpage.larp_setting_p %></td>
+    <td><%=h userpage.larp_philosophy %></td>
+    <td><%=h userpage.larp_philosophy_p %></td>
+    <td><%=h userpage.favorite_characters %></td>
+    <td><%=h userpage.favorite_characters_p %></td>
+    <td><%=h userpage.player_group %></td>
+    <td><%=h userpage.player_group_p %></td>
+    <td><%=h userpage.homepage_of_group %></td>
+    <td><%=h userpage.homepage_of_group_p %></td>
+    <td><%=h userpage.relationship %></td>
+    <td><%=h userpage.relationship_p %></td>
+    <td><%=h userpage.about_me %></td>
+    <td><%=h userpage.about_me_p %></td>
+    <td><%=h userpage.looking_for %></td>
+    <td><%=h userpage.looking_for_p %></td>
+    <td><%=h userpage.contact_me %></td>
+    <td><%=h userpage.contact_me_p %></td>
+    <td><%=h userpage.future_cons %></td>
+    <td><%=h userpage.future_const_p %></td>
+    <td><%=h userpage.last_cons %></td>
+    <td><%=h userpage.last_cons_p %></td>
+    <td><%=h userpage.ask_me_about %></td>
+    <td><%=h userpage.ask_me_about_p %></td>
+    <td><%=h userpage.music %></td>
+    <td><%=h userpage.music_p %></td>
+    <td><%=h userpage.books %></td>
+    <td><%=h userpage.books_p %></td>
+    <td><%=h userpage.movies %></td>
+    <td><%=h userpage.movies_p %></td>
+    <td><%=h userpage.other_hobbies %></td>
+    <td><%=h userpage.other_hobbies_p %></td>
+    <td><%=h userpage.what_if_ten_days_left %></td>
+    <td><%=h userpage.what_if_p %></td>
+    <td><%= link_to 'Show', userpage %></td>
+    <td><%= link_to 'Edit', edit_userpage_path(userpage) %></td>
+    <td><%= link_to 'Destroy', userpage, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New userpage', new_userpage_path %>

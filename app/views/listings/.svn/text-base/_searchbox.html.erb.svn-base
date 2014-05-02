@@ -1,0 +1,42 @@
+<% if @nosearch == 0 %>
+<div class="left" style="width: 750px; border: 1px solid #eaeaea; margin-bottom: 10px; display: block;" id="searchbox">
+<% else %>
+<div class="left" style="width: 750px; border: 1px solid #eaeaea; margin-bottom: 10px; display: none;" id="searchbox">
+<% end%>
+
+   <% form_for :search, { :url => { :action => "index3" }, :html => { :method => "get"} } do |f| %>
+   <table class="align_left">
+   	<tr>
+   		<td style="width: 100px; padding-left: 10px;" class="bold"><%= t('views.listings.searchbox.s1') %></td>		<td><%= f.text_field :name, :size => 30, :tabindex => 1 %></td>
+   		<td style="width: 100px; padding-left: 10px;" class="bold"><%= t('views.listings.searchbox.s2') %></td>		<td><%= f.text_field :seller, :size => 30, :tabindex => 2 %></td>
+		</tr><tr>
+  		<td style="width: 100px; padding-left: 10px;" class="bold"><%= t('views.listings.searchbox.s3') %></td>		<td><%= f.text_field :description, :size => 30, :tabindex => 3 %></td>
+  		<td style="width: 100px; padding-left: 10px;" class="bold"><%= t('views.listings.searchbox.s4') %></td>		<td><%= f.text_field :min_price, :size => 30, :tabindex => 3 %></td>
+				</tr><tr>
+  		<td style="width: 100px; padding-left: 10px;" class="bold"><%= t('views.listings.searchbox.s5') %></td>		<td><%= f.text_field :max_price, :size => 30, :tabindex => 3 %></td>
+  		<td style="width: 100px; padding-left: 10px;" class="bold"><%= t('views.listings.searchbox.s6') %></td>		<td><%= f.text_field :material_tags, :size => 30, :tabindex => 3 %></td>		
+		</tr><tr>
+		
+  		<td style="width: 100px; padding-left: 10px;" class="bold"><%= t('views.listings.searchbox.s7') %></td>		<td><%= f.text_field :other_tags, :size => 30, :tabindex => 4 %></td>
+		<% @categories = Category.all %>
+     	<%   @categories.each do |s|%>
+  			<%  s.name = t(s.name)  %>
+  		<%  end   %>
+		
+		<td style="width: 100px; padding-left: 10px;" class="bold"><%= t('views.listings.searchbox.s8') %></td>	<td> <%= collection_select(:search, :category_id, @categories , :id, :name, options ={:tabindex => 7}) %></td></tr>   	<tr>
+
+		
+		
+		</tr> 	<tr>
+   	</tr>
+   </table>
+ 
+      
+<div class="left" style="margin-left: 10px; margin-bottom: 5px;">
+         <%= submit_tag t('views.listings.searchbox.s9'), :name => nil %>
+</div>
+    <% end %>
+
+
+   
+</div>

@@ -1,0 +1,41 @@
+<% if @events.length == 0%>
+<p style="text-align: left;">No events registered.</p>
+<% else %>
+<div class="left">	 
+
+            <table style="border-spacing: 0px; width: 750px;" class="align_left">
+                <tr style="height: 30px; background-color: #bbb;">
+                    <th style="width: 130px; " >	   </th>
+                    <th style="width: 200px; " >Date   </th>
+                    <th style="width: 200px; " >Event  </th>
+                    <th style="width: 150px; " >Tickets </th>
+                </tr>
+                <% for event in @events %>
+                <% @event = event %>
+                
+                <tr class="<%= cycle("tr1", "tr2") -%>" style="height: 60px; width: 750px;" onClick="window.location.href = '<%= url_for :controller => 'events', :action => 'show', :id => event %>'">
+                    <td style="width: 130px;">
+                        <% #Genre Partial %>
+                        <% #Accomodation partial? %>
+                        <%= render :partial => "events/accomodation", :object => @event %>
+                        <% #Catering Partial %>
+                    </td
+                    <td class=" align_left" style="padding-left: 10px;">
+						<%= h eventdate(event.startdate , event.enddate) %>
+				    </td>
+                    <td class="bold align_left">
+                        <%=h event.title %>
+                    </td>
+                    <td class="bold align_left">
+                        <%=h event.event_status %>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px inset #9A9B9B; padding: 0 0 0 0;" colspan="70">
+                    </td>
+                </tr>
+                <% end %>
+            </table>
+            <%= will_paginate(@events,:param_name => 'events_page') %>
+</div>
+<% end %>

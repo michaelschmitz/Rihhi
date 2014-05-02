@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 53
+/rihhi/larp/!svn/ver/126/rihhi/app/views/ticketorders
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/rihhi/larp/!svn/ver/126/rihhi/app/views/ticketorders/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/rihhi/larp/!svn/ver/126/rihhi/app/views/ticketorders/show.html.erb
+END
+_newticket.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 72
+/rihhi/larp/!svn/ver/98/rihhi/app/views/ticketorders/_newticket.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/rihhi/larp/!svn/ver/98/rihhi/app/views/ticketorders/edit.html.erb
+END
+new2.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/rihhi/larp/!svn/ver/98/rihhi/app/views/ticketorders/new2.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/rihhi/larp/!svn/ver/98/rihhi/app/views/ticketorders/index.html.erb
+END

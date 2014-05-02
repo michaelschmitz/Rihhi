@@ -1,0 +1,54 @@
+<% @onpage = 1 %>
+<%= render :partial => "shared/edit_settings", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <h2 class="text_green"><%= t("views.users.edit.s1")%> </h2>
+    <% form_for(@user) do |f| %>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+        <h3><%= t("views.users.edit.s2")%></h3>
+        <table style="width: 100%" class="align_left">
+            <tr>
+                <td style="width: 150px;">
+                    <%= t("views.users.edit.s3")%>:
+                </td>
+                <td>
+                    <%= f.text_field :email %> <%= error_message_on(:user, :email) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.users.edit.s4")%>:
+                </td>
+                <td>
+                    <%= f.password_field :password, :value => "***************" %> <%= error_message_on(:user, :password) %>
+                </td>
+            </tr>   
+			            <tr>
+                <td>
+                    <%= t("views.users.edit.s5")%>:
+                </td>
+                <td>
+                    <%= f.password_field :password_confirmation, :value => "***************" %> <%= error_message_on(:user, :password) %>
+                </td>
+            </tr>  
+			         <tr>
+                <td>
+                    <%= t("views.users.edit.s6")%>?
+                </td>
+                <td>
+                    <%= f.radio_button :friends_visible, 'Yes' %><%= t("views.users.edit.s7")%> <%= f.radio_button :friends_visible, 'No' %><%= t("views.users.edit.s8")%>
+                </td>
+            </tr> 				            
+        </table>
+		
+        
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+	<div style="float: right; clear: none; margin-top: 10px;  margin-right: 10px;">
+            <%= f.submit t("views.users.edit.s9"), :class => "submit_b" %>
+        </div>
+    <% end %>
+</div>
+<%= render :partial => "shared/links" %>

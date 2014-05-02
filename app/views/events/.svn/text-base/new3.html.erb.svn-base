@@ -1,0 +1,133 @@
+<% @onpage = 3 %>
+<%= render :partial => "newevent", :object => @onpage %>
+<div style="width: 750px; float:left;">
+<h2 class="text_green">3 - Orga</h2>
+<ul style="margin-bottom: 10px;">
+	<li></li>		
+	</ul>
+<div class="form_top">
+    </div>
+<div class="form_area background_grey">
+
+<% form_for(:event, :url => new_event4_path(@event.id), :html => { :multipart => false }) do |f| %>
+
+<div style="text-align: right; float: right;">
+            <%= image_tag("important.png") %> = required field
+        </div>
+<table class="align_left">
+	<tr>
+		<td colspan="2" class="bold">Organised by <%= image_tag("important.png") %><%= error_message_on(:event, :orga_name) %></td>		
+	</tr>
+	
+	<tr>
+		<td colspan="2"> <%= f.text_field :orga_name , :size => 70 , :tabindex => 1 %><%= set_focus_to_id("event_orga_name") %></td>		
+	</tr>
+		<tr>
+		<td colspan="2" class="bold">Orga website</td>		
+	</tr>
+	<tr>
+		<td colspan="2"> <%= f.text_field :orga_website , :size => 70 , :tabindex => 1 %></td>		
+	</tr>	
+		<tr>
+		<td colspan="2" class="bold">Orga email <%= image_tag("important.png") %><%= error_message_on(:event, :orga_email) %></td>		
+	</tr>
+	<tr>
+		<td colspan="2"> <%= f.text_field :orga_email , :size => 70 , :tabindex => 2 %></td>		
+	</tr>	
+	<tr>
+		<td colspan="2" class="bold">URL to invitation  </td>		
+	</tr>
+				<tr>  
+                <td>
+                    <%= f.text_field :url_to_invitation, :size => 70, :tabindex => 3 %>
+                </td>
+            </tr>
+	</table>
+	<table class="align_left">
+	<tr>
+		<td class="bold" style="width: 150px;">Main contact person <%= image_tag("important.png") %><%= error_message_on(:event, :name_of_contact1) %> </td>		<td > <%= f.text_field :name_of_contact1, :size => 44 , :tabindex => 4 %></td>		
+	</tr>
+	<tr>
+		<td class="bold" style="width: 150px;">Street </td>		<td > <%= f.text_field :street_of_contact1, :size => 44, :tabindex => 5   %></td>		
+	</tr>
+	<tr>
+		<td class="bold" style="width: 150px;">Area Code </td>		<td > <%= f.text_field :area_code_of_contact1, :size => 44 , :tabindex => 6  %></td>		
+	</tr>
+	<tr>
+		<td class="bold" style="width: 150px;">City </td>		<td > <%= f.text_field :city_of_contact1, :size => 44  , :tabindex => 7 %></td>		
+	</tr>
+	<tr>
+		<td class="bold" style="width: 150px;">Country </td>		<td > <%= f.country_select :country_of_contact1, {}, {}, :tabindex => 8 %></td>		
+	</tr>
+		<tr>
+		<td class="bold" style="width: 150px;">Telephone 1 </td>		<td > <%= f.text_field :tel1_of_contact1, :size => 44 , :tabindex => 9  %></td>		
+	</tr>
+		<tr>
+		<td class="bold" style="width: 150px;">Telephone 2 </td>		<td > <%= f.text_field :tel2_of_contact1, :size => 44  , :tabindex => 10 %></td>		
+	</tr>
+		<tr>
+		<td class="bold" style="width: 150px;">Times available </td>		<td > <%= f.text_field :description_of_contact1_availability, :size => 44 , :tabindex => 11  %></td>		
+	</tr>
+		<tr>
+		<td class="bold" style="width: 150px;">Fax </td>		<td > <%= f.text_field :fax_of_contact1, :size => 44  , :tabindex => 12 %></td>		
+	</tr>
+			<tr>
+		<td class="bold" style="width: 150px;">Email </td>		<td > <%= f.text_field :email_of_contact1, :size => 44 , :tabindex => 13  %></td>		
+	</tr>
+	</table>
+	<div class="left" id="click_to_add">
+	<a href="#" onclick="$('second_contact').appear();$('click_to_add').hide();$('click_to_hide').appear();return false;">Add another contact person</a>
+	</div>
+	<div class="left" id="click_to_hide" style="display: none;">
+	<a href="#" onclick="$('click_to_add').appear();$('click_to_hide').hide();$('second_contact').hide();return false;">Fold the form again (does not delete entries!)</a>
+	</div>
+<div style="display: none" id="second_contact">
+	<br>
+		<table class="align_left">
+	<tr>
+		<td class="bold" style="width: 150px;">Second contact person: </td>		<td > <%= f.text_field :name_of_contact2, :size => 44 , :tabindex => 14 %></td>		
+	</tr>
+	<tr>
+		<td class="bold" style="width: 150px;">Street </td>		<td > <%= f.text_field :street_of_contact2, :size => 44  , :tabindex => 15 %></td>		
+	</tr>
+	<tr>
+		<td class="bold" style="width: 150px;">Area Code </td>		<td > <%= f.text_field :area_code_of_contact2, :size => 44 , :tabindex => 16  %></td>		
+	</tr>
+	<tr>
+		<td class="bold" style="width: 150px;">City </td>		<td > <%= f.text_field :city_of_contact2, :size => 44 , :tabindex => 17  %></td>		
+	</tr>
+	<tr>
+		<td class="bold" style="width: 150px;">Country </td>		<td > <%= f.country_select :country_of_contact2, {}, {},:tabindex => 18 %></td>		
+	</tr>
+		<tr>
+		<td class="bold" style="width: 150px;">Telephone 1 </td>		<td > <%= f.text_field :tel1_of_contact2, :size => 44 , :tabindex => 19  %></td>		
+	</tr>
+		<tr>
+		<td class="bold" style="width: 150px;">Telephone 2 </td>		<td > <%= f.text_field :tel2_of_contact2, :size => 44 , :tabindex => 20  %></td>		
+	</tr>
+		<tr>
+		<td class="bold" style="width: 150px;">Times available </td>		<td > <%= f.text_field :description_of_contact2_availability, :size => 44, :tabindex => 21   %></td>		
+	</tr>
+		<tr>
+		<td class="bold" style="width: 150px;">Fax </td>		<td > <%= f.text_field :fax_of_contact2, :size => 44  , :tabindex => 22 %></td>		
+	</tr>
+			<tr>
+		<td class="bold" style="width: 150px;">Email </td>		<td > <%= f.text_field :email_of_contact2, :size => 44  , :tabindex => 23 %></td>		
+	</tr>
+	</table>
+
+	</div>
+		<br>
+   </div>
+    <div class="form_top form_bottom">
+    </div>
+	<div class="left" style="clear: left; margin-top: 30px; margin-left: 10px;">
+        <%= link_to 'Back', new_event2_path() %>
+    </div>
+    <div class="right" style="clear: both; margin-top: 20px;">
+        <%= f.submit "Click to continue", :class => "submit_b", :tabindex => 24  %>
+    </div>
+
+<% end %>
+
+  </div>

@@ -1,0 +1,162 @@
+<script language="javascript" type="text/javascript">
+    function limitText(limitField, limitCount, limitNum){
+        if (limitField.value.length > limitNum) {
+            limitField.value = limitField.value.substring(0, limitNum);
+        }
+        else {
+            limitCount.value = limitNum - limitField.value.length;
+        }
+    }
+</script>
+
+<div class="left" style="width: 100%;">
+<h2 class="text_green"><%= t("views.ratings.new.s1") %> <%= @order.seller.user.login %></h2>
+</div>
+
+<div class="left" style="width: 250px; margin-right: 10px;">
+  <h3 class="text_green"><%= t("views.ratings.new.s2") %>  </h3>
+  <% form_for(@rating) do |f| %>  
+  <p>
+   <b><%= t("views.ratings.new.s1") %> <%= @order.seller.user.login %></b><br />
+    <%= select( "rating", "userrating", {  t("views.ratings.new.s3") => "1", t("views.ratings.new.s4") => "2"}, {:include_blank => true}) %>
+	
+  </p>
+  <div style="width: 200px; padding-left: 50px;">
+  <%= error_message_on(:rating, :userrating) %>
+  </div>
+  <p>
+  	  <b><%= t("views.ratings.new.s5") %></b><br />
+    <%= f.text_area :usertext,
+    {:cols => 20, :rows => 4, :onKeyDown => "limitText(this.form.rating_usertext,this.form.countdown,200);" ,
+    :onKeyUp => "limitText(this.form.limitedtextarea,this.form.countdown,200);" } %>
+	<br>
+	<font size="1">
+      <%= t("views.ratings.new.s6") %>: <input readonly type="text" name="countdown" size="2" value="200">
+    </font>
+  </p>
+  <br>
+  <%= f.hidden_field :order_id %>
+  <%= f.hidden_field :user_id  %>
+  <%= f.hidden_field :seller_id %>
+  
+  <div class="left" style="width: 200px;">
+   <%= f.submit t("views.ratings.new.s7"), :class => "submit_b" %>
+   </div>
+<% end %>
+
+</div>
+
+<div class="left" style="width: 700px;">
+	<h3 class="text_green"><%= t("views.ratings.new.s8") %></h3>
+	<table style="text-align: left;">
+			
+	<% @order.deliverables.each do |d| %>
+	<% total = 0 %>
+	       <td style="width: 100px; padding-left: 5px;">
+		           
+		        </td>
+		        <td style="width: 240px;">
+		            <h4><%= link_to (h d.title), listing_path(d.listing.id) %>
+		            <br>
+		            <span class="text_darkgrey" style="font-weight: normal;"><%= t("views.ratings.new.s9") %> <%= t(h(d.size)) %>
+		                <br>
+		                <%= t("views.ratings.new.s10") %> <%= t(h(d.color)) %>
+		            </span>
+		            </td>
+		            <td style="width: 50px; text-align: right; ">
+		                <%= h d.price.to_s %>€
+						<br>
+		                &nbsp;
+		                <br>
+		                &nbsp;
+		            </td>
+		            <td style="width: 80px; text-align: right;">
+		                <span class="text_darkgrey"><%= t("views.ratings.new.s11") %>: </span>
+		                <%= h d.amount %>
+						<br>
+		                &nbsp;
+		                <br>
+		                &nbsp;   
+		            </td>      
+	            <td style="width: 100px; text-align: right;">
+	              <%=h number_to_currency((d.amount * d.price.to_f), :unit => "") %>€
+	                           <br>
+		                &nbsp;
+		                <br>
+		                &nbsp;            
+	            </td>
+	        </tr>
+		
+	    <% total += d.amount * d.price.to_f %>
+	    <% end %>
+		
+		    <tr style="text-align: right;">
+	            <td colspan="4">
+	                <%= t("views.ratings.new.s12") %>
+	            </td>
+	            <td>
+	                <%= number_to_currency(@order.price_of_all_deliverables, :unit => "") %>€
+	            </td>
+	        </tr>
+	        <tr style="text-align: right;">
+	            <td colspan="4">
+	                <%= t("views.ratings.new.s13") %>
+	            </td>
+	            <td>
+	                + <%= number_to_currency(@order.cost_of_shipping, :unit => "") %>€
+	            </td>
+	        </tr>
+	        <tr class="bold" style="text-align: right;">
+	            <td colspan="4">
+	                <%= t("views.ratings.new.s14") %>
+	            </td>
+	            <td>
+	                <%= number_to_currency(@order.total_cost_of_order, :unit => "") %>€
+	            </td>
+	        </tr>
+	</table>
+	
+	 <h3 class="text_green"><%= t("views.ratings.new.s15") %>:</h3>
+	 
+			<table style="text-align: left;">
+				<tr><td style="text-align: right;"><%= @order.created_at.strftime('%A, ' '%d ' '%B' ' %Y')  %></td><td style="padding-left: 10px;">Order given</td></tr>
+				
+				<% if @order.date_payment_arrived != nil %>
+				<tr><td style="text-align: right;"><%= @order.date_payment_arrived.strftime('%A, ' '%d ' '%B' ' %Y')  %></td>
+				<% else %>
+				<tr><td style="text-align: right;"><%= t("views.ratings.new.s16") %></td>
+				<% end %>
+				<td style="padding-left: 10px;"><%= t("views.ratings.new.s17") %></td></tr>
+				
+				<% if @order.date_shipped != nil %>
+				<tr><td style="text-align: right;"><%= @order.date_shipped.strftime('%A, ' '%d ' '%B' ' %Y')  %></td>
+				<% else %>
+				<tr><td style="text-align: right;"><%= t("views.ratings.new.s18") %></td>
+				<% end %>
+				<td style="padding-left: 10px;"><%= t("views.ratings.new.s19") %></td></tr>
+				
+				
+				<% if @order.date_buyerfeedback_received != nil %>
+				<tr><td style="text-align: right;"><%= @order.date_buyerfeedback_received.strftime('%A, ' '%d ' '%B' ' %Y')  %></td>
+				<% else %>
+				<tr><td style="text-align: right;"><%= t("views.ratings.new.s20") %></td>
+				<% end %>
+				<td style="padding-left: 10px;"><%= t("views.ratings.new.s21") %>.</td></tr>
+				
+				
+				<% if @order.date_sellerfeedback_received != nil %>
+				<tr><td style="text-align: right;"><%= @order.date_sellerfeedback_received.strftime('%A, ' '%d ' '%B' ' %Y')  %></td>
+				<% else %>
+				<tr><td style="text-align: right;"><%= t("views.ratings.new.s22") %></td>				
+				<% end %>
+				<td style="padding-left: 10px;"><%= t("views.ratings.new.s23") %></td></tr>
+				
+				
+				<% if @order.date_closed != nil %>
+				<tr><td style="text-align: right;"><%= @order.date_closed.strftime('%A, ' '%d ' '%B' ' %Y')  %></td>
+				<% else %>
+				<tr><td style="text-align: right;"><%= t("views.ratings.new.s24") %></td>						
+				<% end %>		
+				<td style="padding-left: 10px;"><%= t("views.ratings.new.s25") %></td></tr>		
+			</table>
+</div>

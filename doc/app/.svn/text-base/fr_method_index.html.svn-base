@@ -1,0 +1,107 @@
+
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html 
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!--
+
+    Methods
+
+  -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>Methods</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <link rel="stylesheet" href="rdoc-style.css" type="text/css" />
+  <base target="docwin" />
+</head>
+<body>
+<div id="index">
+  <h1 class="section-bar">Methods</h1>
+  <div id="index-entries">
+    <a href="classes/PhotosController.html#M000055">_find_album (PhotosController)</a><br />
+    <a href="classes/SiteController.html#M000051">about (SiteController)</a><br />
+    <a href="classes/AuthenticatedSystem.html#M000075">access_denied (AuthenticatedSystem)</a><br />
+    <a href="classes/Cart.html#M000002">add (Cart)</a><br />
+    <a href="classes/CartsController.html#M000056">add (CartsController)</a><br />
+    <a href="classes/User.html#M000016">authenticate (User)</a><br />
+    <a href="classes/User.html#M000019">authenticated? (User)</a><br />
+    <a href="classes/AuthenticatedTestHelper.html#M000069">authorize_as (AuthenticatedTestHelper)</a><br />
+    <a href="classes/AuthenticatedSystem.html#M000073">authorized? (AuthenticatedSystem)</a><br />
+    <a href="classes/CartsController.html#M000058">clear (CartsController)</a><br />
+    <a href="classes/SellersController.html#M000063">create (SellersController)</a><br />
+    <a href="classes/AlbumsController.html#M000010">create (AlbumsController)</a><br />
+    <a href="classes/ListsListingsController.html#M000005">create (ListsListingsController)</a><br />
+    <a href="classes/SessionsController.html#M000014">create (SessionsController)</a><br />
+    <a href="classes/PhotosController.html#M000053">create (PhotosController)</a><br />
+    <a href="classes/ListingsController.html#M000039">create (ListingsController)</a><br />
+    <a href="classes/UsersController.html#M000030">create (UsersController)</a><br />
+    <a href="classes/ListsController.html#M000047">create (ListsController)</a><br />
+    <a href="classes/AuthenticatedSystem.html#M000071">current_user (AuthenticatedSystem)</a><br />
+    <a href="classes/AuthenticatedSystem.html#M000072">current_user= (AuthenticatedSystem)</a><br />
+    <a href="classes/UsersController.html#M000033">destroy (UsersController)</a><br />
+    <a href="classes/ListsController.html#M000049">destroy (ListsController)</a><br />
+    <a href="classes/SessionsController.html#M000015">destroy (SessionsController)</a><br />
+    <a href="classes/AlbumsController.html#M000012">destroy (AlbumsController)</a><br />
+    <a href="classes/PhotosController.html#M000054">destroy (PhotosController)</a><br />
+    <a href="classes/ListingsController.html#M000041">destroy (ListingsController)</a><br />
+    <a href="classes/SellersController.html#M000065">destroy (SellersController)</a><br />
+    <a href="classes/ListsController.html#M000046">edit (ListsController)</a><br />
+    <a href="classes/ListingsController.html#M000038">edit (ListingsController)</a><br />
+    <a href="classes/AlbumsController.html#M000009">edit (AlbumsController)</a><br />
+    <a href="classes/UsersController.html#M000031">edit (UsersController)</a><br />
+    <a href="classes/SellersController.html#M000062">edit (SellersController)</a><br />
+    <a href="classes/User.html#M000018">encrypt (User)</a><br />
+    <a href="classes/User.html#M000017">encrypt (User)</a><br />
+    <a href="classes/User.html#M000026">encrypt_password (User)</a><br />
+    <a href="classes/User.html#M000024">forget_me (User)</a><br />
+    <a href="classes/SiteController.html#M000052">help (SiteController)</a><br />
+    <a href="classes/AuthenticatedSystem.html#M000078">included (AuthenticatedSystem)</a><br />
+    <a href="classes/SellersController.html#M000059">index (SellersController)</a><br />
+    <a href="classes/AlbumsController.html#M000006">index (AlbumsController)</a><br />
+    <a href="classes/SiteController.html#M000050">index (SiteController)</a><br />
+    <a href="classes/ListingsController.html#M000035">index (ListingsController)</a><br />
+    <a href="classes/ListsController.html#M000043">index (ListsController)</a><br />
+    <a href="classes/ProfilesController.html#M000066">index (ProfilesController)</a><br />
+    <a href="classes/AuthenticatedSystem.html#M000070">logged_in? (AuthenticatedSystem)</a><br />
+    <a href="classes/AuthenticatedTestHelper.html#M000068">login_as (AuthenticatedTestHelper)</a><br />
+    <a href="classes/AuthenticatedSystem.html#M000080">login_from_basic_auth (AuthenticatedSystem)</a><br />
+    <a href="classes/AuthenticatedSystem.html#M000081">login_from_cookie (AuthenticatedSystem)</a><br />
+    <a href="classes/AuthenticatedSystem.html#M000079">login_from_session (AuthenticatedSystem)</a><br />
+    <a href="classes/AuthenticatedSystem.html#M000074">login_required (AuthenticatedSystem)</a><br />
+    <a href="classes/ListsController.html#M000045">new (ListsController)</a><br />
+    <a href="classes/SessionsController.html#M000013">new (SessionsController)</a><br />
+    <a href="classes/ListingsController.html#M000037">new (ListingsController)</a><br />
+    <a href="classes/AlbumsController.html#M000007">new (AlbumsController)</a><br />
+    <a href="classes/ListsListingsController.html#M000004">new (ListsListingsController)</a><br />
+    <a href="classes/UsersController.html#M000029">new (UsersController)</a><br />
+    <a href="classes/SellersController.html#M000061">new (SellersController)</a><br />
+    <a href="classes/User.html#M000027">password_required? (User)</a><br />
+    <a href="classes/User.html#M000025">recently_activated? (User)</a><br />
+    <a href="classes/AuthenticatedSystem.html#M000077">redirect_back_or_default (AuthenticatedSystem)</a><br />
+    <a href="classes/User.html#M000021">remember_me (User)</a><br />
+    <a href="classes/User.html#M000022">remember_me_for (User)</a><br />
+    <a href="classes/User.html#M000023">remember_me_until (User)</a><br />
+    <a href="classes/User.html#M000020">remember_token? (User)</a><br />
+    <a href="classes/CartsController.html#M000057">remove (CartsController)</a><br />
+    <a href="classes/Cart.html#M000003">remove (Cart)</a><br />
+    <a href="classes/Listing.html#M000028">search (Listing)</a><br />
+    <a href="classes/ListingsController.html#M000042">search (ListingsController)</a><br />
+    <a href="classes/ListingsController.html#M000036">show (ListingsController)</a><br />
+    <a href="classes/ProfilesController.html#M000067">show (ProfilesController)</a><br />
+    <a href="classes/AlbumsController.html#M000008">show (AlbumsController)</a><br />
+    <a href="classes/SellersController.html#M000060">show (SellersController)</a><br />
+    <a href="classes/UsersController.html#M000034">show (UsersController)</a><br />
+    <a href="classes/ListsController.html#M000044">show (ListsController)</a><br />
+    <a href="classes/AuthenticatedSystem.html#M000076">store_location (AuthenticatedSystem)</a><br />
+    <a href="classes/Cart.html#M000001">total (Cart)</a><br />
+    <a href="classes/AlbumsController.html#M000011">update (AlbumsController)</a><br />
+    <a href="classes/ListsController.html#M000048">update (ListsController)</a><br />
+    <a href="classes/SellersController.html#M000064">update (SellersController)</a><br />
+    <a href="classes/UsersController.html#M000032">update (UsersController)</a><br />
+    <a href="classes/ListingsController.html#M000040">update (ListingsController)</a><br />
+  </div>
+</div>
+</body>
+</html>

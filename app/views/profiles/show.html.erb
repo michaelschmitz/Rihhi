@@ -1,0 +1,524 @@
+<div class="left" style="width: 960px; margin-left: 0px; margin-bottom: 20px;">
+    <% if self.current_user.is_seller? %>
+    <% if self.current_user.seller.seller_status == "1" %>
+    <div style="width: 960; height: 100px; border: 1px solid red;">
+        <h2 class="text_red" style="width: 960px; text-align: center;"><%= t("views.profiles.show.s1") %></h2>
+        <p>
+            <%= t("views.profiles.show.s2") %>
+        </p>
+        <p>
+            <%= t("views.profiles.show.s3") %>.
+        </p>
+    </div>
+    <% end %>
+    <% end %>
+    <h2 class="text_green" style="margin-left: 10px;"><%= self.current_user.login %><%= t("views.profiles.show.s4") %></h2>
+    <div class="left" style="width: 780px; margin-left: 0px;">
+        <div style="width: 780x; float: left;">
+            <h2 class="text_green" style="width: 770px; float: left; margin-left: 10px; margin-top: 30px;"><%= t("views.profiles.show.s5") %></h2>
+            <% if self.current_user.is_seller? %>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s6") %></h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to t("views.profiles.show.s7"), cart_path(@cart) %>
+                        </td>
+                        <td>
+                            <%= link_to @cart.cart_items.count.to_s, cart_path(@cart) %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to t("views.profiles.show.s8"), orders_path() %>
+                        </td>
+                        <td>
+                            <%= link_to @orders.length, orders_path() %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to t("views.profiles.show.s9"), sales_path() %>
+                        </td>
+                        <td>
+                            <%= link_to @sales.length, sales_path() %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <% else %>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s10") %></h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to t("views.profiles.show.s11"), cart_path(@cart) %>
+                        </td>
+                        <td>
+                            <%= link_to @cart.cart_items.count.to_s, cart_path(@cart) %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to t("views.profiles.show.s12"), orders_path() %>
+                        </td>
+                        <td>
+                            <%= link_to @orders_status_ordered.length, orders_path() %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <% end %>
+            <% if self.current_user.is_seller? %>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s13") %></h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td style="width: 120px; padding-left: 10px;">
+                            <%= link_to t("views.profiles.show.s14"), ratings_path %>
+                        </td>
+                        <td>
+                            <%= link_to @buyer_ratings.length.to_s, ratings_path %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 120px; padding-left: 10px;">
+                            <%= link_to t("views.profiles.show.s15"), rating_path(:id => self.current_user.seller.id) %>
+                        </td>
+                        <td>
+                            <%= link_to @ratings.length.to_s, rating_path(:id => self.current_user.seller.id) %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <% else %>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s16") %></h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to t("views.profiles.show.s17"), ratings_path %>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <% end %>
+            <% if self.current_user.is_seller? %>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s18") %></h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td style="width: 120px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s19"), completed_orders_path() %>
+                        </td>
+                        <td>
+                            <%= link_to @orders_status_complete.length, completed_orders_path() %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 120px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s20"), completed_sales_path() %>
+                        </td>
+                        <td>
+                            <%= link_to @sales_status_complete.length, completed_sales_path() %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <% else %>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s21") %></h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <a href="">
+                            <%= link_to  t("views.profiles.show.s22"), completed_orders_path() %>
+                        </td>
+                        <td>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <% end %>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s23") %></h3>
+                <table class="align_left">
+                    <tr>
+                        <td style="width: 80px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s24"), new_message_path() %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=" padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s25"), messages_path() %>
+                        </td>
+                        <td>
+                            <%= link_to @unreadmessages.length.to_s + ' / ', messages_path() %><%= link_to @messages.length, messages_path() %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style=" padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s26"), sentmail_path() %>
+                        </td>
+                        <td>
+                            <%= link_to @sentmail.length, sentmail_path() %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <!-- Row 2--><% if self.current_user.is_seller? %>
+            <h2 class="text_green" style="width: 770px; float: left; margin-left: 10px; margin-top: 30px;"><%= t("views.profiles.show.s27") %></h2>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s28") %></h3>
+                <table style="width: 100%;" class="align_left ">
+                    <tr>
+                        <td colspan="2" style="width: 100px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s29"), new_seller_listing_path(@user.seller.id) %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s30"),  seller_listings_path(@user.seller.id) %>
+                        </td>
+                        <td>
+                            <%= link_to @listings.length, seller_listings_path(@user.seller.id) %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to t("views.profiles.show.s31"), out_of_stock_path(@user.seller.id) %>
+                        </td>
+                        <td>
+                            <%= link_to @out_of_stock.length, out_of_stock_path(@user.seller.id) %>
+                        </td>
+                    </tr>
+                    <% if @flaggeds.length >= 1 %>
+                    <tr>
+                        <td>
+                            <%= link_to t("views.profiles.show.s32"), flaggeds_path() %>
+                        </td>
+                        <td>
+                            <%= link_to @flaggeds.length, flaggeds_path() %>
+                        </td>
+                    </tr>
+                    <% end %>
+                </table>
+            </div>
+       
+       
+            <% end %>
+            <% if @g_bids_enabled == 1 %>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s33") %></h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s34"), bids_path() %>
+                        </td>
+                        <td>
+                            <% if @bids.length >=1 %>
+                            <%= link_to @bids.length, bids_path() %>
+                            <% else %>
+                            <%= link_to "0", bids_path() %>
+                            <% end %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <a href="">X Accepted:</a>
+                        </td>
+                        <td>
+                            <%= link_to @bids_accepted.length.to_s, bids_path %>
+                        </td>
+                    </tr>
+                    <tr>
+                    <td style="width: 100px; padding-left: 10px;">
+                        <a href="">X Refused:</a>
+                    </td>
+                    <td>
+                        <a href="">0</a>
+                    </td>
+                    </td>
+                </tr>
+                </table>
+            </div>
+            <% end %>
+            <% if @g_events_enabled == 1 %>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green">Events </h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td colspan="2" style="width: 100px; padding-left: 10px;">
+                            <a href="">X New</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <a href="">X Listed:</a>
+                        </td>
+                        <td>
+                            <a href="">0</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <a href="">X Archived:</a>
+                        </td>
+                        <td>
+                            <a href="">0</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <% end %>
+            <% if @g_tickets_enabled == 1 %>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green">Tickets </h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td colspan="2" style="width: 100px; padding-left: 10px;">
+                            <a href="">X New</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <a href="">X Listed:</a>
+                        </td>
+                        <td>
+                            <a href="">0</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <a href="">X Out of stock:</a>
+                        </td>
+                        <td>
+                            <a href="">0</a>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <a href="">X Archived:</a>
+                        </td>
+                        <td>
+                            <a href="">0</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <% end %>
+            
+            <!-- Row: #Others --><h2 class="text_green" style="width: 770px; float: left; margin-left: 10px; margin-top: 30px;"><%= t("views.profiles.show.s60") %></h2>
+            <% if @g_bids_enabled == 1 %>
+            <div style="width: 180px; float: left; margin-left: 10px; margin-bottom: 30px;">
+                <h3 class="text_green">Requests </h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td colspan="2" style="width: 100px; padding-left: 10px;">
+                            <%= link_to 'new', new_request_path %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to 'listed:', my_requests_path() %>
+                        </td>
+                        <td>
+                            <% if @open_requests.length >=1 %>
+                            <%= link_to @open_requests.length, my_requests_path() %>
+                            <% else %>
+                            <%= link_to "0", my_requests_path() %>
+                            <% end %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to 'closed:', closed_requests_path() %>
+                        </td>
+                        <td>
+                            <% if @closed_requests.length >=1 %>
+                            <%= link_to @closed_requests.length, closed_requests_path() %>
+                            <% else %>
+                            <%= link_to "0", closed_requests_path() %>
+                            <% end %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <% end %>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s35") %></h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s36"), favorites_path() %>
+                        </td>
+                        <td>
+                            <% if @favorites.length >= 1 %>
+                            <%= link_to @favorites.length, favorites_path() %>
+                            <% else %>
+                            <%= link_to "0", favorites_path() %>
+                            <% end %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to t("views.profiles.show.s37"), hearteds_path() %>
+                        </td>
+                        <td>
+                            <% if @hearteds.length >= 1 %>
+                            <%= link_to @hearteds.length, hearteds_path() %>
+                            <% else %>
+                            <%= link_to "0", hearteds_path() %>
+                            <% end %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s43") %></h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td style="width: 150px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s38"), edit_user_path(self.current_user) %>
+                        </td>
+                    </tr>
+                    <% if self.current_user.is_seller? %>
+                    <tr>
+                        <td style="width: 150px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s39"), sellersettings_path %>
+                        </td>
+                    </tr>
+                    <% end %>
+                </table>
+            </div>
+            <% if self.current_user.is_seller? %>
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s48a") %></h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td style="width: 150px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s40"), shopsettings_path %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 150px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s41"), shippingpresets_path %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 150px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s42"), paymentoptions_path %>
+                        </td>
+                    </tr>
+                    <tr>
+                    <td style="width: 150px; padding-left: 10px;">
+                        <%= link_to t("views.profiles.show.s49"), shop_path(self.current_user.seller.id) %>
+                    </td>
+                </table>
+            </div>
+            <% end %>
+			
+            <div style="width: 180px; float: left; margin-left: 10px;">
+                <h3 class="text_green"><%= t("views.profiles.show.s45") %></h3>
+                <table style="width: 100%;" class="align_left">
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to  t("views.profiles.show.s46"), user_path(self.current_user.id) %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to t("views.profiles.show.s47"), edit_userpage_path(self.current_user.id) %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100px; padding-left: 10px;">
+                            <%= link_to t("views.profiles.show.s48"), friend_path(self.current_user) %>
+                        </td>
+                    </tr>
+					   <% if @friend_request.length >= 1 %>
+					   <tr>
+					   	
+                        <td style="width: 100px; padding-left: 10px; background-color: #e8e8e8;">
+                            <%= link_to t("views.profiles.show.s59") + @friend_request.length.to_s, user_path(self.current_user) %>
+                        </td>
+                    </tr>
+					<% end %>
+                </table>
+            </div>
+			
+			<% if !self.current_user.is_seller? %>
+				<div style="width: 180px; float: left; margin-left: 0px;">
+        	        <%= button_to t("views.profiles.show.s50"), new_seller_path(), :class => "submit_b_neutral" %>
+    	        </div>
+			<% end %>
+			
+        </div>
+    </div>
+    <!--Close main box -->
+	<% if self.current_user.is_seller? %>
+    <div class="right" style="width: 160px; margin-left: 0px; margin-top: 65px;">
+        <h3 class="text_green"><%= t("views.profiles.show.s51") %></h3>
+		<ul>
+			<li style="font-size: smaller; width: 130px; padding-left: 10px;"><%= t('views.movements.index.s2')%></li>
+			<li><h2 style="width: 130px; text-align: center;" ><%= number_with_precision(@total_turnover, :precision => 2) %> EUR</h2></li>
+			
+			<li style="font-size: smaller; width: 130px; padding-left: 10px;"><%= t('views.movements.index.s3')%></li>
+			<% if @user.seller.account_balance <= 0 %>
+			<li><h2 style="width: 130px; text-align: center;" class="text_green"><%=  number_with_precision(@user.seller.account_balance, :precision => 2) %> EUR</h2></li>
+			<% else %>
+			<li><h2 style="width: 130px; text-align: center;" ><%=  number_with_precision(@user.seller.account_balance, :precision => 2) %> EUR</h2></li>
+			<% end %>
+			
+			<li style="padding-left: 10px;"><%= link_to t("views.profiles.show.s52"), movements_path %></li>
+		</ul>
+        
+        
+        <p style="text-align: left; margin-top: -10px;">
+            
+        </p>
+    </div>
+    <% if @g_advertising_enabled == 1 %>
+    <div style="width: 160px; float: left;">
+        <h3 class="text_green"><%= t("views.profiles.show.s53") %></h3>
+        <table style="width: 100%;" class="align_left">
+            <tr>
+                <td style="width: 100px; padding-left: 10px;">
+                    <a href=""><%= t("views.profiles.show.s54") %></a>
+                </td>
+                <td>
+                    <a href="">0</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; padding-left: 10px;">
+                    <a href=""><%= t("views.profiles.show.s55") %></a>
+                </td>
+                <td>
+                    <a href="">0</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; padding-left: 10px;">
+                    <a href=""><%= t("views.profiles.show.s56") %></a>
+                </td>
+                <td>
+                    <a href="">0</a>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 100px; padding-left: 10px;">
+                    <a href=""><%= t("views.profiles.show.s57") %></a>
+                </td>
+                <td>
+                    <a href="">0</a>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <% end %>
+</div>
+<% end %>
+</div>

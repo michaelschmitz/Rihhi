@@ -1,0 +1,108 @@
+<% @onpage = 4 %>
+<%= render :partial => "newevent", :object => @onpage %>
+<div style="width: 750px; float:left; margin-bottom: 500px;">
+    <h2 class="text_green">4 - Status</h2>
+    <ul style="margin-bottom: 10px;">
+        <li>
+            Define the status of the event and the number of places available.
+        </li>
+    </ul>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+        <% form_for(:event, :url => new_event5_path(@event.id), :html => { :multipart => true }) do |f| %>
+    
+        <div style="text-align: right; float: right;">
+            <%= image_tag("important.png") %> required field
+        </div>
+        <table class="align_left">
+            <tr>
+                <td class="bold" colspan="2">
+                    Event Status
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <% @g = ["Unknown", "SC and NSC places available", "Only SC tickets available", "Only NSC tickets available", "No tickets available",  "Contact us for tickets", "Event cancelled"] %>
+                    <%= f.select("status", @g, {}, { :style => "width:434px;", :tabindex => 1 } ) %>
+                </td>
+            </tr>
+			    <tr>
+                <td class="bold" colspan="2">
+                    Ticket sale closes on
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                     <%= f.date_select :ticket_deadline, {}, { :tabindex => "2" } %>
+                    
+                </td>
+            </tr>
+			
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    PC places currently available <%= image_tag("important.png") %><%= error_message_on(:event, :available_sc) %>
+                </td>
+                <td class="bold">
+                    Total PC places <%= image_tag("important.png") %><%= error_message_on(:event, :max_sc) %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= f.text_field :available_sc,  :tabindex => 3 %>
+                </td>
+                <td>
+                    <%= f.text_field :max_sc,  :tabindex => 4 %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    NPC places currently available <%= image_tag("important.png") %><%= error_message_on(:event, :available_nsc) %>
+                </td>
+                <td class="bold">
+                    Total NPC places <%= image_tag("important.png") %><%= error_message_on(:event, :max_nsc) %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= f.text_field :available_nsc,  :tabindex => 5 %>
+                </td>
+                <td>
+                    <%= f.text_field :max_nsc, :tabindex => 6 %>
+                </td>
+            </tr>
+  			
+        </table>
+		
+		<div style="display: none;">
+		<br>
+		
+		<br>
+		<% fields_for :p1 do |pi| %>
+        <table style="width: 100%" class="align_left">
+        	 <tr>
+                <td class="bold" style="width: 150px;">
+                    Upload an image for this event
+                </td>
+			   </tr>	
+            <tr>
+                <td>
+                    <%= pi.file_field :uploaded_data, :tabindex => 7 %>
+                </td>
+            </tr>
+        </table>
+		<% end %>
+		</div>
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+    <div class="left" style="clear: left; margin-top: 30px; margin-left: 10px;">
+        <%= link_to 'Back', new_event3_path() %>
+		 </div>
+        <div class="right" style="clear: none; margin-top: 20px; margin-bottom: 0px;">
+            <%= f.submit "Click to continue", :class => "submit_b", :tabindex => 8 %>
+            <% end %>
+        </div>
+   
+</div>
+<%= set_focus_to_id("event_status") %>

@@ -1,0 +1,16 @@
+<% @tlisting = Tlisting.new%>
+<% form_for(@tlisting) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :ticket_id %><br />
+    <%= f.text_field :ticket_id, :value => @ticket.id  %>
+  </p>
+  <p>
+    <%= f.label :listing_id %><br />
+    <%= f.text_field :listing_id %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>

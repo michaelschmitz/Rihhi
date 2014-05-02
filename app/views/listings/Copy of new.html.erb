@@ -1,0 +1,201 @@
+<h2 class="text_green">List a new item</h2>
+ 
+<% form_for(:listing, :url => seller_listings_path(params[:seller_id]), :html => { :multipart => true }) do |f| %>
+<%= f.error_messages %>
+  
+<% fields_for :listing do |l|%>
+ 	<div class="profile_leftcolumn background_grey">
+	  	<h3>Title and Price </h3>
+		<table style="width: 100%" class="align_left">
+			<tr><td style="width: 150px;">Title:</td><td><%= l.text_field :title, :tabindex => 1 %></td></tr>
+			<tr><td>Price:</td><td><%= l.text_field :price, :size => 4, :tabindex => 2 %> €</td></tr>
+			<!--<tr><td>Internal Item Number:</td><td><%= l.text_field :sellerspecific_id, :size => 30, :tabindex => 18  %></td></tr>-->
+		</table>
+			<br>
+		<h3>Description </h3>
+		<p> <%= f.text_area :description , :cols => 46, :rows => 10, :tabindex => 3%></p>
+<% end %>
+
+<!--	Upload pictures here. Make each picture his own fields for -->
+	<% fields_for :p1 do |pi|%>
+	<h3>Pictures </h3>
+
+	<table style="width: 100%" class="align_left">
+	<tr><td style="width: 150px;">Main picture: </td><td><%= pi.file_field :uploaded_data, :tabindex => 4 %></td></tr>
+	<% end %>
+	<% fields_for :p2 do |pii|%>
+	<tr><td >Additional picture: </td><td><%= pii.file_field :uploaded_data, :tabindex => 5 %></td></tr>
+	<% end %>
+	<% fields_for :p3 do |piii|%>
+	<tr><td>Additional picture: </td><td><%= piii.file_field :uploaded_data, :tabindex => 6 %></td></tr>
+	<% end %>
+	<% fields_for :p4 do |piiii|%>
+	<tr><td>Additional picture: </td><td><%= piiii.file_field :uploaded_data, :tabindex => 7 %></td></tr>
+	<% end %>
+	</table>
+<!-- Close the pictures section.-->
+
+<% fields_for :listing do |l|%>
+	<h3>In Stock</h3>
+	<table style="width: 100%" class="align_left">
+		<tr><td style="width: 150px;">Amount in stock:</td><td><%= l.text_field :nr_of_items_in_stock, :tabindex => 8,  :size => 4, :value => "1" %></td></tr>
+		<tr><td>Relist (Automatically):</td><td> <%= l.radio_button :autoset_items_to_one, "Yes", :tabindex => 9 %>Yes <%= l.radio_button :autoset_items_to_one, "No", :checked => true, :tabindex => 10  %>No</td>	</tr>
+	</table>
+	<h3> Tags </h3>	
+	<table class="align_left">
+		<tr><td style="width: 150px;">Category tags:</td><td><%= l.text_field :category_tag, :size => 30, :tabindex => 11 %></td></tr>
+		<tr><td>Material tags:</td><td><%= l.text_field :material_tag, :size => 30, :tabindex => 12 %></td></tr>
+	</table>
+	 <p class="align_center">
+      <%= f.submit "Create", :tabindex => 13 %>
+  <h3 class="text_darkred"> Additional information </h3>
+  <h3>Dimensions & Design</h3>
+  	<table style="width: 100%" class="align_left">
+		<tr><td style="width: 150px;">Length (x):</td><td><%= l.text_field :item_length, :size => 4, :tabindex => 14  %> cm</td></tr>
+		<tr><td>Width (y):</td><td><%= l.text_field :item_width, :size => 4, :tabindex => 15  %> cm</td></tr>
+		<tr><td>Height (z):</td><td><%= l.text_field :item_height, :size => 4, :tabindex => 16 %> cm</td></tr>
+		<tr><td>Weight:</td><td><%= l.text_field :item_weight, :size => 4, :tabindex => 17  %> g</td></tr>	
+		<tr><td>Designed for larp:</td><td> <%= l.radio_button :safe_for_larp, "Yes", :tabindex => 18  %>Yes <%= l.radio_button :safe_for_larp, "No", :checked => true, :tabindex => 19  %>No</td></tr>
+		<tr><td>Designed for reenactment:</td><td> <%= l.radio_button :safe_for_reenactment, "Yes", :tabindex => 19  %>Yes <%= l.radio_button :safe_for_reenactment, "No", :checked => true, :tabindex => 20  %>No</td></tr>
+	</table>
+	
+<h3>Shipping and handling options </h3>	
+	<div class="align_left">
+	<table style="width: 100%" class="align_left">
+	<tr><td class="bold" style="width: 150px;">1. Pre-set for:</td><td colspan="2"><%= l.country_select :country1, [@shop.country1, "No Preset","Europe", "Everywhere else"] %></td></tr>
+	</table>
+	<table>
+	<tr><td style="width: 150px;">Shipping alone:</td><td><%= l.text_field :country1_shipping, :size => 6, :value => @shop.country1_shipping, :tabindex => 12 %> € </td></tr>
+	<tr><td>With another item:</td><td><%= l.text_field :country1_shipping_with_another_item, :size => 6, :value => @shop.country1_shipping_with_another_item, :tabindex => 13 %> € </td></tr>
+	<tr><td>Delivery time:</td><td><%= l.text_field :country1_deliverytime, :size => 6, :value => @shop.country1_deliverytime, :tabindex => 14 %> days</td></tr>
+	</table>
+	<table>
+	<tr><td class="bold" style="width: 150px;">2. Pre-set for:</td><td colspan="2"><%= l.country_select :country2, [@shop.country2,"No Preset","Europe", "Everywhere else"] %></td></tr>
+	</table>
+	<table>
+	<tr><td style="width: 150px;">Shipping alone</td><td><%= l.text_field :country2_shipping, :size => 8, :value => @shop.country2_shipping, :tabindex => 12 %> € </td></tr>
+	<tr><td>With another item</td><td><%= l.text_field :country2_shipping_with_another_item, :size => 8, :value => @shop.country2_shipping_with_another_item, :tabindex => 13 %> € </td></tr>
+	<tr><td>Delivery time</td><td><%= l.text_field :country2_deliverytime, :size => 8, :value => @shop.country2_deliverytime, :tabindex => 14 %> days</td></tr>
+	</table>
+	<table style="width: 100%" class="align_left">
+	<tr><td class="bold" style="width: 150px;">3. Pre-set for:</td><td colspan="2"><%= l.country_select :country3, [@shop.country3,"No Preset","Europe", "Everywhere else"] %></td></tr>
+	</table>
+	<table>
+	<tr><td style="width: 150px;">Shipping alone</td><td><%= l.text_field :country3_shipping, :size => 8, :value => @shop.country3_shipping, :tabindex => 12 %> € </td></tr>
+	<tr><td>With another item</td><td><%= l.text_field :country3_shipping_with_another_item, :size => 8, :value => @shop.country3_shipping_with_another_item, :tabindex => 13 %> € </td></tr>
+	<tr><td>Delivery time</td><td><%= l.text_field :country3_deliverytime, :size => 8, :value => @shop.country3_deliverytime, :tabindex => 14 %> days</td></tr>
+	</table>
+	<table style="width: 100%" class="align_left">
+	<tr><td class="bold" style="width: 150px;">4. Pre-set for:</td><td colspan="2"><%= l.country_select :country4, [@shop.country4,"No Preset","Europe", "Everywhere else"]%></td></tr>
+	</table>
+	<table>
+	<tr><td style="width: 150px;">Shipping alone</td><td><%= l.text_field :country4_shipping, :size => 8, :value => @shop.country4_shipping, :tabindex => 12 %> € </td></tr>
+	<tr><td>With another item</td><td><%= l.text_field :country4_shipping_with_another_item, :size => 8, :value => @shop.country4_shipping_with_another_item, :tabindex => 13 %> € </td></tr>
+	<tr><td>Delivery time</td><td><%= l.text_field :country4_deliverytime, :size => 8, :value => @shop.country4_deliverytime, :tabindex => 14 %> days</td></tr>
+	</table>
+		<table style="width: 100%" class="align_left">
+	<tr><td class="bold" style="width: 150px;">5. Pre-set for:</td><td colspan="2"><%= l.country_select :country5, [@shop.country5,"No Preset","Europe", "Everywhere else"] %></td></tr>
+	</table>
+	<table>
+	<tr><td style="width: 150px;">Shipping alone</td><td><%= l.text_field :country5_shipping, :size => 8, :value => @shop.country5_shipping, :tabindex => 12 %> € </td></tr>
+	<tr><td>With another item</td><td><%= l.text_field :country5_shipping_with_another_item, :size => 8, :value => @shop.country5_shipping_with_another_item, :tabindex => 13 %> € </td></tr>
+	<tr><td>Delivery time</td><td><%= l.text_field :country5_deliverytime, :size => 8, :value => @shop.country5_deliverytime, :tabindex => 14 %> days</td></tr>
+	</table>
+	</div>
+	
+	<table>
+	<tr><td class="bold">Additional comments:</td></tr>
+	<tr><td colspan="2"><%= l.text_area :shipping_comments , :cols => 46, :rows => 5, :tabindex => 31%></td></tr>
+	</table>
+<% end %>
+
+
+
+<!-- Paypal logos can be internationalised to show the proper payment methods!-->
+<h3> You accept the following payment methods:</h3>	
+	<table class="align_left">
+		<% if @shop == nil %>
+		<p>Please set up your shop before continuing here.</p>
+		<% end %>
+
+		<% if @shop.allow_paypal == "Yes" && @shop.paypal_account != "" %>
+		<tr><td class="bold align_left" style="width: 150px;"><ul style="list-style-type: disc; padding-left: 20px;"><li>Paypal</li></ul></td>
+		<td>
+			<!-- PayPal Logo -->
+			<a href="#" onclick="javascript:window.open('https://www.paypal.com/cgi-bin/webscr?cmd=xpt/Marketing/popup/OLCWhatIsPayPal-outside','olcwhatispaypal','toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=yes, resizable=yes, width=400, height=350');"><img  src="https://www.paypal.com/en_US/i/bnr/horizontal_solution_PPeCheck.gif" border="0" alt="Solution Graphics"></a>
+			<!-- PayPal Logo -->
+		</td></tr>		
+		<% end %>
+		<% if @shop.allow_bank_transfer == "Yes"%>
+			<tr><td class="bold align_left" style="width: 150px;"><ul style="list-style-type: disc; padding-left: 20px;"><li>Bank transfer</li></ul></td>
+				<td>A buyer will see your bank account details once he orders.</td></tr>	
+		<% end %>
+		<% if @shop.allow_cheque == "Yes" %>
+			<tr><td class="bold align_left" style="width: 150px;"><ul style="list-style-type: disc; padding-left: 20px;"><li>Cheques</li></ul></td>
+				<td>A buyer will see your address details once he orders.</td></tr>		
+		<% end %>
+		<% if @shop.allow_cash_on_delivery == "Yes"%>
+			<tr><td class="bold align_left" style="width: 150px;"><ul style="list-style-type: disc; padding-left: 20px;"><li>Cash on delivery</li></ul></td>
+				<td>You accept cash on delivery for your items.</td></tr>		
+		<% end %>
+	    	
+	</table>
+	 <p class="align_center">
+      <%= f.submit "Create" %><br>
+  </p>
+
+</div>
+<% end %>
+</div>
+<!-- The description & support column-->
+<div class="left" style="width: 330px; margin-left: 10px;">	<!-- The title of the product, then below the big picture of the product, below that the description and sales info.-->	
+	<div style="margin-top: 25px;">
+		<ul class="dotted_list">
+		<li>A clear and descriptive title identifies your item better.</li>
+		<li>Feel free to choose a funky title to get attention.</li>
+		</ul>
+	</div>
+	<div style="margin-top: 15px;">
+		<ul class="dotted_list">
+		<li>The price should reflect your opinion about the value of this item.</li>
+		<li>Read our <%= link_to "Guide to pricing", account_path %></li>
+		</ul>
+	</div>
+	<div style="margin-top: 40px;">
+	<ul class="dotted_list">
+		<li>Provide a good description and some background about the item here.</li>
+		<li>Use simple language to reach the broadest audience possible.</li>
+		<li>If you want to write both in english and in other languages, put the english version at the top.</li>
+	</ul>	
+	</div>
+	<div style="margin-top: 142px;">
+	<ul class="dotted_list">
+		<li>The weight system used depends on the user.</li>
+		<li>Length (x), Width (y) and Height (z) are useful descriptors - don't overlook them.</li>
+		<li>Weight: Can I put it on my glass table? Carry it around all day? </li>
+	</ul>	
+	</div>
+	<div style="margin-top: 40px;">
+	<ul class="dotted_list">
+		<li>The item is available from you until?</li>
+		<li>Commercial seller only: % VAT included in the final price?</li>
+	</ul>	
+	</div>
+	<div style="margin-top: 40px;">
+	<ul class="dotted_list">
+		<li>Do you suggest using this item during a LARP?</li>
+		<li>Do you suggest using this item for Reenactment?</li>
+		<li>Weapon/armor only - is this safe for Reenactment battle?</li>
+	</ul>	
+	</div>
+	<div style="margin-top: 160px;">
+	<ul class="dotted_list">
+		<li>If your item has an internal tracking number, you can enter it here.</li>
+		
+	</ul>	
+	</div>
+
+</div>
+	 <!-- Submit the stuff!-->
+
+</div>

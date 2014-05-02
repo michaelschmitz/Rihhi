@@ -1,0 +1,12 @@
+<div class="menu">
+	<h3>LARP Calendar</h3>
+	 <ul style="padding-left: 10px;">
+	<li><a href=""><%= @number_of_events_total %> Events registered</a></li>
+	<li><a href=""><%= @number_of_events_today %> Events today</a></li>
+ 	<li><a href="">24 Events this weekend</a></li>
+    <li><a href="">4003 Events this year</a></li>
+	
+	 	<li><a href=""><%= Time.now.to_s(:short)%></a></li>
+
+  </ul>
+</div>

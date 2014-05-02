@@ -1,0 +1,285 @@
+<% @onpage = 4 %>
+<%= render :partial => "newlisting", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <% form_for(@listing, :url => images_path(@listing.seller_id, @listing.id), :html => { :method => :put }) do |f| %>
+    <h2 class="text_green"><%= t('views.listings.shipping.s1') %></h2>
+    <div class="form_top">
+    </div>
+
+    <div class="form_area background_grey" style="text-align: left;">
+	<div style="text-align: right; float: right;"><%= image_tag("important.png")%>  = <%= t('views.listings.shipping.s2') %></div>
+			<table>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t('views.listings.shipping.s3') %>  <%= image_tag("important.png")%>
+                </td>
+                <td>
+                    <%= f.text_field :preparation_time, :size => 8, :tabindex => 1, :value => "0" %>
+                </td>
+                <td>
+                    <%= t('views.listings.shipping.s4') %><%= error_message_on(:listing, :preparation_time) %>
+                </td>
+            </tr>
+        </table>
+		<br>
+        <table>
+            
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t('views.listings.shipping.s5') %><%= image_tag("important.png")%>
+                </td>
+                <td colspan="2">
+                	 	
+                    <%= select( "listing", "country1", country_list(1), :tabindex => 1 ) %>
+                </td>
+            </tr>
+         </table>
+        <%= set_focus_to_id("listing_country1") %>
+	    <table>
+            <tr>
+                <td style="width: 150px;">
+                    <%= t('views.listings.shipping.s6') %><%= image_tag("important.png")%>
+                </td>
+                <td>
+                    <%= f.text_field :country1_shipping, :size => 8, :value => @shop.country1_shipping, :tabindex => 2 %>
+                </td>
+                <td>
+                    €<%= error_message_on(:listing, :country1_shipping) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t('views.listings.shipping.s7') %><%= image_tag("important.png")%>
+                </td>
+                <td>
+                    <%= f.text_field :country1_shipping_with_another_item, :size => 8, :value => @shop.country1_shipping_with_another_item, :tabindex => 3 %>
+                </td>
+                <td>
+                    € <%= error_message_on(:listing, :country1_shipping_with_another_item) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t('views.listings.shipping.s8') %><%= image_tag("important.png")%>
+                </td>
+                <td>
+                    <%= f.text_field :country1_deliverytime, :size => 8, :value => @shop.country1_deliverytime, :tabindex => 4 %>
+                </td>
+                <td>
+                    <%= t('views.listings.shipping.s9') %><%= error_message_on(:listing, :country1_deliverytime) %>
+                </td>
+            </tr>
+        </table>
+        <hr style="border:1px solid white;">
+        <table>
+           
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t('views.listings.shipping.s10') %>
+                </td>
+                <td colspan="2">
+                  <%= select( "listing", "country2", country_list(1), :tabindex => 1 ) %>
+                </td>
+            </tr>
+      
+        </table>
+        <table>
+            <tr>
+                <td style="width: 150px;">
+                    <%= t('views.listings.shipping.s11') %>
+                </td>
+                <td>
+                    <%= f.text_field :country2_shipping, :separator => ",", :size => 8, :value => @shop.country2_shipping, :tabindex => 6 %>
+                </td>
+                <td>
+                    € <%= error_message_on(:listing, :country2_shipping) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t('views.listings.shipping.s12') %>
+                </td>
+                <td>
+                    <%= f.text_field :country2_shipping_with_another_item, :separator => ",", :size => 8, :value => @shop.country2_shipping_with_another_item, :tabindex => 7 %>
+                </td>
+                <td>
+                    €  <%= error_message_on(:listing, :country2_shipping_with_another_item) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t('views.listings.shipping.s13') %> 
+                </td>
+                <td>
+                    <%= f.text_field :country2_deliverytime, :size => 8, :value => @shop.country2_deliverytime, :tabindex => 8 %>
+                </td>
+                <td>
+                    <%= t('views.listings.shipping.s14') %><%= error_message_on(:listing, :country2_deliverytime) %>
+                </td>
+            </tr>
+        </table>
+        <table>
+           
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t('views.listings.shipping.s15') %>
+                </td>
+                <td colspan="2">
+                  <%= select( "listing", "country3", country_list(1), :tabindex => 1 ) %>
+                </td>
+            </tr>
+         
+        </table>
+        <table>
+            <tr>
+                <td style="width: 150px;">
+                    <%= t('views.listings.shipping.s16') %>
+                </td>
+                <td>
+                    <%= f.text_field :country3_shipping, :separator => ",", :size => 8, :value => @shop.country3_shipping, :tabindex => 10 %>
+                </td>
+                <td>
+                    €  <%= error_message_on(:listing, :country3_shipping) %> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t('views.listings.shipping.s17') %>
+                </td>
+                <td>
+                    <%= f.text_field :country3_shipping_with_another_item, :separator => ",", :size => 8, :value => @shop.country3_shipping_with_another_item, :tabindex => 11 %>
+                </td>
+                <td>
+                    € <%= error_message_on(:listing, :country3_shipping_with_another_item) %> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t('views.listings.shipping.s18') %>
+                </td>
+                <td>
+                    <%= f.text_field :country3_deliverytime, :size => 8, :value => @shop.country3_deliverytime, :tabindex => 12 %>
+                </td>
+                <td>
+                    <%= t('views.listings.shipping.s19') %><%= error_message_on(:listing, :country3_deliverytime) %>
+                </td>
+            </tr>
+        </table>
+        <table>
+         
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t('views.listings.shipping.s20') %>
+                </td>
+                <td colspan="2">
+                    <%= select( "listing", "country4", country_list(1), :tabindex => 13 ) %>
+                </td>
+            </tr>
+      
+        </table>
+        <table>
+            <tr>
+                <td style="width: 150px;">
+                    <%= t('views.listings.shipping.s21') %>
+                </td>
+                <td>
+                    <%= f.text_field :country4_shipping, :separator => ",", :size => 8, :value => @shop.country4_shipping, :tabindex => 14 %>
+                </td>
+                <td>
+                    € <%= error_message_on(:listing, :country4_shipping) %> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t('views.listings.shipping.s22') %>
+                </td>
+                <td>
+                    <%= f.text_field :country4_shipping_with_another_item, :separator => ",", :size => 8, :value => @shop.country4_shipping_with_another_item, :tabindex => 15 %>
+                </td>
+                <td>
+                    € <%= error_message_on(:listing, :country4_shipping_with_another_item) %> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t('views.listings.shipping.s23') %>
+                </td>
+                <td>
+                    <%= f.text_field :country4_deliverytime, :size => 8, :value => @shop.country4_deliverytime, :tabindex => 16 %>
+                </td>
+                <td>
+                    <%= t('views.listings.shipping.s24') %><%= error_message_on(:listing, :country4_deliverytime) %>
+                </td>
+            </tr>
+        </table>
+        <table>
+          
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t('views.listings.shipping.s25') %>
+                </td>
+                <td colspan="2">
+                    <%= select( "listing", "country5", country_list(1), :tabindex => 17 ) %>
+                </td>
+            </tr>
+      
+        </table>
+        <table>
+            <tr>
+                <td style="width: 150px;">
+                    <%= t('views.listings.shipping.s26') %>
+                </td>
+                <td>
+                    <%= f.text_field :country5_shipping, :separator => ",", :size => 8, :value => @shop.country5_shipping, :tabindex => 18 %>
+                </td>
+                <td>
+                    € <%= error_message_on(:listing, :country5_shipping) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t('views.listings.shipping.s27') %>
+                </td>
+                <td>
+                    <%= f.text_field :country5_shipping_with_another_item, :separator => ",", :size => 8, :value => @shop.country5_shipping_with_another_item, :tabindex => 19 %>
+                </td>
+                <td>
+                    € <%= error_message_on(:listing, :country5_shipping_with_another_item) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t('views.listings.shipping.s28') %>
+                </td>
+                <td>
+                    <%= f.text_field :country5_deliverytime, :size => 8, :value => @shop.country5_deliverytime, :tabindex => 20 %>
+                </td>
+                <td>
+                    <%= t('views.listings.shipping.s29') %><%= error_message_on(:listing, :country5_deliverytime) %>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="bold">
+                    <%= t('views.listings.shipping.s30') %>:
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <%= f.text_area :shipping_comments , :cols => 54, :rows => 5, :value => @shop.shipping_comments, :tabindex => 21 %>
+                </td>
+            </tr>
+        </table>
+      
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+	<div class="left" style="clear: left; margin-top: 20px;">
+		<%= link_to t('views.listings.shipping.s31'), specifics_path(:back => 1) %>
+	</div>
+	<div class="right" style="clear: right; margin-top: 20px;">
+		<%= f.submit t('views.listings.shipping.s32'), :class => "submit_b" %>
+    </div>
+</div>
+<% end %>

@@ -1,0 +1,3 @@
+SystemMailer#registered
+
+Find me in app/views/system_mailer/registered.erb

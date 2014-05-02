@@ -1,0 +1,73 @@
+<div class="left" style="width: 100%;">
+  <h2 style="color: blue; margin-bottom: 0px; padding-bottom: 0px;">Account Draws: Confirm/Fail</h2>
+  <hr style="border: 1px solid blue;">
+<p>If a user fails to pay (bank account not having enough money on it), then we use the failure button. The user receives a penalty charge of 9.00 Euro and his seller status is set to 1. His name is shown in red. Should a red name fail to pay, we will have to set his account status to inactive (until we get a bank transfer from this individual.)</p>
+
+<table style="width: 100%;">
+  <tr>
+  	<th>Nr</th>
+    <th>List</th>
+    <th>Seller</th>
+    <th>Login</th>
+    <th>Name</th>
+    <th>Account holder</th>
+    <th>Iban</th>
+    <th>Bic</th>
+    <th>Balance at draw</th>
+    <th>Debited</th>
+    <th>Fail</th>
+	<th>Date created</th>
+	<th>Date updated</th>
+  </tr>
+<% x = 0 %>
+<% total = 0 %>
+<% total_earned = 0 %>
+<% @draws.each do |draw| %>
+<% x += 1 %>
+<% total += draw.balance_now %>
+<% total_earned += draw.debited %>
+
+  <tr class="<%= cycle("tr1", "tr2") -%>" >
+	<td><%= x %></td>
+	<td><%=h draw.list %></td>
+    <td><%=h draw.seller_id %></td>
+	<% if draw.seller.seller_status == "1" %>
+    <td style="color: red;"><%=h draw.login_name %></td>
+	<% else %>
+	<td><%=h draw.login_name %></td>
+	<% end %>
+    <td><%=h draw.name %></td>
+    <td><%=h draw.account_holder %></td>
+    <td><%=h draw.iban %></td>
+    <td><%=h draw.bic %></td>
+    <td><%=h draw.balance_now %></td>
+
+	<% if draw.debited == draw.balance_now %>
+	<td> Confirmed </td>
+	<% else %>
+    <td> <%= button_to 'Confirm', confirm_draw_path(:id => draw.id)%></td>
+	<% end %>
+
+	<% if draw.debited == 0 and draw.fail != "Draw failed" %>
+    <td> <%= button_to 'Failure', failure_draw_path(:id => draw.id)%></td>
+	<% elsif draw.debited == draw.balance_now %>
+	<td> </td>
+	<% elsif draw.fail = "Draw failed" %>
+	<td> Failed </td>
+	<% end %>
+	
+	<td><%=h draw.created_at.strftime('%d ' '%B' ' %Y' ' - %H:%M')%></td>
+	<td><%=h draw.updated_at.strftime('%d ' '%B' ' %Y' ' - %H:%M')%></td>
+    <td><%= link_to 'S', draw %></td>
+    <td><%= link_to 'E', edit_draw_path(draw) %></td>    
+  </tr>
+<% end %>
+<tr>
+	<td colspan="8"></td><td>Outstanding: <br><%= total %> EUR</td><td>Earned: <br><%= total_earned %> EUR</td>
+</tr>
+</table>
+
+<br />
+<%= will_paginate @draws %>
+<%= link_to 'New draw', new_draw_path %>
+</div>

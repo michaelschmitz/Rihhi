@@ -1,0 +1,44 @@
+<h2 class="text_green"><%= t("views.sessions.new.s1") %></h2>
+<div class="left align_left" style="margin-left: 200px;">
+
+        <div class="left " style="width: 250px; height: 200px">
+            <div class="align_center" style="height: 120px">
+                <h2 class="text_green align_center "><%= t("views.sessions.new.s2") %></h2>
+                 <% form_tag session_path do -%>
+				<table>
+                	<tr><td style="text-align: right; padding-left: 10px;"><%= t("views.sessions.new.s3") %></td><td><%= text_field_tag :login %> <%= set_focus_to_id("login") %></td></tr>
+					<tr><td style="text-align: right; padding-left: 10px;"><%= t("views.sessions.new.s4") %></td><td><%= password_field_tag :password %> </td></tr>
+               		<tr><td style="text-align: right; padding-left: 10px;"><%= check_box_tag 'remember_me' %> </td><td style="text-align: left;"><%= t("views.sessions.new.s5") %></td></tr>
+			   </table>
+			  
+            </div>
+            <div style="height: 40px; width: 205px; margin-top: 5px;">
+                <%= submit_tag t("views.sessions.new.s6"), :class => "submit_b_neutral" %>
+                <% end -%>
+			</div>
+		 <p style="width: 250px; text-align: center;"><%= link_to t("views.sessions.new.s7"), forgot_path() %></p>
+        </div>
+
+    </div>
+    <div style="float: left; width: 250px; height: 220px; margin-left: 30px;">
+       
+        <div class="left " style="width: 250px; height: 200px;">
+            <div class="align_center" style="height: 120px">
+               <h2 class="text_green align_center "><%= t("views.sessions.new.s8") %></h2>
+                <br>
+           
+                <%= t("views.sessions.new.s9") %>
+                <br>
+                <%= t("views.sessions.new.s10") %>
+             
+                <br>
+            </div>
+			<div style="height: 40px; width: 205px; margin-top: 5px;">
+                <%= button_to t("views.sessions.new.s11"), new_user_path, :class => "submit_b_neutral" %>                
+			</div>
+           
+        </div>
+      
+    </div>
+   
+</div>

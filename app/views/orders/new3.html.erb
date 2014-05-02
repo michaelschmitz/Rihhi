@@ -1,0 +1,173 @@
+<% @onpage = 4 %>
+<%= render :partial => "neworder", :object => @onpage %><!-- Main -->
+<div class="left" style="width: 600px; margin-left: 0px; padding: 10px 10px 10px 10px;">
+	
+	<div class="left" style="width: 100%;">
+		<div class="left" style="width: 100%;">
+			<h2 class="text_green" style="background-color: white;"><%= t("views.orders.new3.s1") %></h2>
+	    	<% total = 0 %>
+		</div>
+		<div style="float: left; clear: none;  width: 280px;">
+			<h3 class="text_green"><%= t("views.orders.new3.s2") %></h3>
+		 	<ul style="padding-left: 10px;">
+			<li><%= h @order.user_fullname %></li>
+			<li><%= h @order.user_areacode %></li>
+			<li><%= h @order.user_city %></li>
+			<li><%= t(h(@order.user_country)) %></li>
+			</ul>
+		</div>		
+		<div style="float: left; clear: none; margin-left: 40px; width: 280px;">
+			<h3 class="text_green"><%= t("views.orders.new3.s3") %></h3>
+			<% @this_order = @order %>
+		       <% if @order.payment_chosen == "paypal" %>
+	            <p>You selected to pay via PayPal.</p>
+	            <% end %>	            
+	            <% if @order.payment_chosen == "cheque" %>
+	            <p>You selected to pay via Cheque.</p>
+	            <% end %>
+	            <% if @order.payment_chosen == "bank" %>			
+	            <p>You selected to pay via bank transfer.</p>
+	            <% end %>
+	            <% if @order.payment_chosen == "cod" %>
+	            <p>You selected to pay via Cash on Delivery.</p>
+	            <% end %>
+		</div>	    
+	</div>
+	
+	<div class="left" style="width: 600px; margin-top: 10px;">
+	<h3 class="text_green"><%= t("views.orders.new3.s4") %>:</h3>
+    <table style="text-align: left;">
+       
+        <% @order.deliverables.each do |d| %>
+        <% if !@failure.include?(d.id) %>
+     	<tr>
+        <td style="width: 100px; padding-left: 5px;">
+	            <% if d.listing.pic1.exists? %>
+	              <span class="img-shadow"><%= link_to(image_tag(d.listing.pic1.url(:thumb)), listing_path(d.listing.id)) %></span>
+				  <% else%>
+				 <span class="img-shadow"><%= image_tag("../pic1s/medium/missing.png", :width => "125") %></span>
+				  <% end %>
+	        </td>
+	        <td style="width: 240px;">
+	            <h4><%= link_to (h d.title), listing_path(d.listing.id) %>
+	            <br>
+	            <span class="text_darkgrey" style="font-weight: normal;"><%= t("views.orders.new3.s5") %> <%= I18n.t(h(d.size)) %>
+	                <br>
+	                <%= t("views.orders.new3.s6") %> <%= I18n.t(h(d.color)) %>
+	            </span>
+	            </td>
+	            <td style="width: 50px; text-align: right; ">
+	                <%= h d.price.to_s %>€
+					<br>
+	                &nbsp;
+	                <br>
+	                &nbsp;
+	            </td>
+	            <td style="width: 80px; text-align: right;">
+	                <span class="text_darkgrey"><%= t("views.orders.new3.s7") %>: </span>
+	                <%= h d.amount %><br>
+	                &nbsp;
+	                <br>
+	                &nbsp;
+	            </td>      
+            <td style="width: 100px; text-align: right;">
+              <%=h number_to_currency((d.amount * d.price.to_f), :unit => "") %>€
+                   <br>
+	                &nbsp;
+	                <br>
+	                &nbsp;          
+            </td>
+        </tr>
+        <% total += d.amount * d.price.to_f %>
+        <% end %>
+        <% end %>
+        <tr style="text-align: right;">
+            <td colspan="4">
+                <%= t("views.orders.new3.s8") %>
+            </td>
+            <td>
+                <%= number_to_currency(@total_cost_of_deliverables, :unit => "") %>€
+            </td>
+        </tr>
+        <tr style="text-align: right;">
+            <td colspan="4">
+                <%= t("views.orders.new3.s9") %>
+            </td>
+            <td>
+                + <%= number_to_currency(@total_cost_of_shipping, :unit => "") %>€
+            </td>
+        </tr>
+        <tr class="bold" style="text-align: right;">
+            <td colspan="4">
+                <%= t("views.orders.new3.s10") %>
+            </td>
+            <td>
+                <%= number_to_currency(@total_cost, :unit => "") %>€
+            </td>
+        </tr>
+    </table>
+	
+    <% if @shown_failures.size >= 1 %>
+	<hr>
+    <p style="text-align: left; color: red;">
+        <%= t("views.orders.new3.s12") %>: <br><%= t("views.orders.new3.s11") %>.
+    </p>
+    <table style="text-align: left;">
+        <% count = 0 %>
+        <% fields_for @shown_failures do |fl| %>
+        <% @shown_failures.each do |d| %>
+		<tr>
+        <td style="width: 100px; padding-left: 5px;">
+	            <%= link_to(image_tag(d.pic1.url(:thumb)), listing_path(d.listing.id)) %>
+	        </td>
+	        <td style="width: 240px;">
+	            <h4><%= link_to (h d.title), listing_path(d.listing.id) %>
+	            <br>
+	            <span class="text_darkgrey" style="font-weight: normal;"><%= t("views.orders.new3.s13") %> <%= I18n.t(h(d.size)) %>
+	                <br>
+	                <%= t("views.orders.new3.s14") %> <%= I18n.t(h(d.color)) %>
+	            </span>
+	            </td>
+	            <td style="width: 50px; text-align: right; ">
+	                <%= h d.price.to_s %>€
+					<br>
+	                &nbsp;
+	                <br>
+	                &nbsp;
+	            </td>
+	            <td style="width: 80px; text-align: right;">
+	                <span class="text_darkgrey"><%= t("views.orders.new3.s15") %>: </span>
+	                <%= h d.amount %>
+					<br>
+	                &nbsp;
+	                <br>
+	                &nbsp;   
+	            </td>      
+            <td style="width: 100px; text-align: right;">
+              <%=h number_to_currency((d.amount * d.price.to_f), :unit => "") %>€
+                           <br>
+	                &nbsp;
+	                <br>
+	                &nbsp;            
+            </td>
+        </tr>
+        <% end %>
+        <% end %>
+    </table>
+    <p>
+        <%= t("views.orders.new3.s16") %>.
+    </p>
+    </td>
+    <% end %>
+    <hr>
+    <div style="float:left; width: 200px; margin-top: 10px; margin-bottom: 10px; margin-right: 20px;">
+        <%= button_to t("views.orders.new3.s17"), cart_path(@cart), :class => "submit_b", :method => :get %>
+    </div>
+    <div style="float:right; width: 200px; margin-top: 10px; margin-bottom: 10px; margin-right: 10px;">
+        <% form_for :order, :url => {:action => "new4", :id => @order.id }, :html => { :method => :put } do |f| %>
+        <%= f.submit t("views.orders.new3.s18"), :class => "submit_b" %>
+        <% end %>
+    </div>
+	
+	</div>
+</div>

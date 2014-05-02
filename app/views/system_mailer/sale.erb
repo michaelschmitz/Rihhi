@@ -1,0 +1,45 @@
+<%= @user.login %> <%= t("views.smailer.sale.s1")%>.
+
+<%= render :partial => "shared/theorder", :locals => { :order => @order, :deliverables => @deliverables } %>
+
+<%= @user.login %> <%= t("views.smailer.sale.s7")%>:
+
+<%= @order.user_fullname %>
+<%= @order.user_address %>
+<%= @order.user_areacode %> <%= @order.user_city %>
+<%= t(@order.user_country) %>
+----------------------------------------------------
+<%= t("views.smailer.sale.s8")%>:
+<% if @order.payment_chosen == "bank" %>
+<%= @user.login %>  <%= t("views.smailer.sale.s9")%>.
+<%= t("views.smailer.sale.s10")%>. 
+
+<%= t("views.smailer.sale.s11")%>: <%= @shop.bank_account_holder %>
+<%= t("views.smailer.sale.s12")%>: <%= @shop.bank_bic %>  
+<%= t("views.smailer.sale.s13")%>: <%= @shop.bank_iban %>
+<% end %>
+<% if @order.payment_chosen == "cod" %>
+<%= @user.login %> <%= t("views.smailer.sale.s14")%>. 
+<% end %>
+<% if @order.payment_chosen == "paypal" %>
+<%= @user.login %>  <%= t("views.smailer.sale.s51")%>.
+<%= t("views.smailer.sale.s16")%>:
+
+<%= t("views.smailer.sale.s17")%>: <%= @seller.shop.paypal_account %>
+<% end %>
+<% if @order.payment_chosen == "cheque" %>
+<%= @user.login %> <%= t("views.smailer.sale.s18")%>. 
+<%= t("views.smailer.sale.s19")%>:
+
+<%= @seller.full_name %>
+<%= @seller.street %>
+<%= @seller.post_code %>
+<%= @seller.city %>
+<%= @seller.country %>
+<% end %>
+
+<%= t("views.smailer.sale.s20")%>.
+<%= t("views.smailer.sale.s21")%>.
+<%= render :partial => "shared/imprint" %>
+ 
+ 

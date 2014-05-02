@@ -1,0 +1,19 @@
+<div style="height: auto; width: 200px; margin-left: 10px; margin-top: 20px; display: block; font-stretch: extra-expanded; " class="left">
+<ul>
+	<% if @onpage >= 1 %>
+		<li style="width: 300px;"><p><%= image_tag("d1.jpg", :size => "20x20" ) %><span style="vertical-align: 30%; margin-left: 10px;">Information</span></p>
+	<% end %>
+	<% if @onpage >= 2 %>
+		<li ><p><%= image_tag("d2.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;">Confirm</span></p></li>
+	<% else %>
+		<li class="text_lightgrey"><p><%= image_tag("l2.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;">Confirm</span></p></li>
+	<% end %>
+
+	<li>&nbsp;</li>
+	<% if @onpage >= 3 %>
+		<li ><p><%= image_tag("dc.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;"> Done</span></p></li>	
+	<% else %>
+		<li class="text_lightgrey"><p><%= image_tag("lc.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;"> Done</span></p></li>	
+		<% end %>
+</ul>
+</div>

@@ -1,0 +1,8 @@
+<p><%= t("views.orders.paypal_all.s3") %>.</p>
+   
+    <p>
+        <%= t("views.orders.paypal_all.s4") %>: <%= @this_order.seller.shop.paypal_account %>.
+    </p>
+    <p>
+        <a href="https://www.paypal.com/<%= params[:locale] || "en" %>/cgi-bin/webscr?cmd=_login-run" target="_blank">Click here to pay now with PayPal</a>.
+    </p>

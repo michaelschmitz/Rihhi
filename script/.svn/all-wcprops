@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 35
+/rihhi/larp/!svn/ver/2/rihhi/script
+END
+destroy
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/rihhi/larp/!svn/ver/2/rihhi/script/destroy
+END
+dbconsole
+K 25
+svn:wc:ra_dav:version-url
+V 45
+/rihhi/larp/!svn/ver/2/rihhi/script/dbconsole
+END
+console
+K 25
+svn:wc:ra_dav:version-url
+V 43
+/rihhi/larp/!svn/ver/2/rihhi/script/console
+END
+generate
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/rihhi/larp/!svn/ver/2/rihhi/script/generate
+END
+about
+K 25
+svn:wc:ra_dav:version-url
+V 41
+/rihhi/larp/!svn/ver/2/rihhi/script/about
+END
+server
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/rihhi/larp/!svn/ver/2/rihhi/script/server
+END
+runner
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/rihhi/larp/!svn/ver/2/rihhi/script/runner
+END
+plugin
+K 25
+svn:wc:ra_dav:version-url
+V 42
+/rihhi/larp/!svn/ver/2/rihhi/script/plugin
+END

@@ -1,0 +1,60 @@
+<%= render :partial => "shared/box_right" %>
+<h2 class="text_green"><%= t('views.messages.show.s1')%></h2>
+<div class="form_top">
+</div>
+<div class="form_area background_grey">
+	
+	<% for old in @messages %>
+	<table class="align_left">
+        <tr>
+            <td style="width: 150px; vertical-align: top;" class="text_bold">
+                <%= link_to h(old.receiver_name), user_path(old.sender_id) %>
+            </td>
+            <td style="width: 450px; vertical-align: top;" class="text_bold">
+                <%= h(old.title) %>
+                <br>
+                &nbsp;
+            </td>
+            <td style="vertical-align: top;">
+               
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= old.created_on %>
+            </td>
+            <td class="text_black" colspan="2">
+                <%= (h old.message).gsub("\n", "<br />") %>
+            </td>
+        </tr>
+    </table>
+	<% end %>
+    <table class="align_left">
+        <tr>
+            <td style="width: 150px; vertical-align: top;" class="text_bold">
+                <%= link_to h(@message.receiver_name), user_path(@message.sender_id) %>
+            </td>
+            <td style="width: 450px; vertical-align: top;" class="text_bold">
+                <%= h(@message.title) %>
+                <br>
+                &nbsp;
+            </td>
+            <td style="vertical-align: top;">
+                <%= link_to t('views.messages.show.s2'), {:action => "new", :to_id => @message.sender_id} %> | <%= link_to t('views.messages.show.s2a'), :controller => "messages", :action => "remove_in_show", :id => @message, :confirm =>  t('views.messages.show.s2b') %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= @message.created_on %>
+            </td>
+            <td class="text_black" colspan="2">
+                <%= (h @message.message).gsub("\n", "<br />") %>
+            </td>
+        </tr>
+    </table>
+    <br>
+</div>
+<div class="form_top form_bottom" style="margin-bottom: 10px;">
+</div>
+<%= link_to t('views.messages.show.s3'), new_message_path %>
+| <%= link_to t('views.messages.show.s4'), messages_path %>

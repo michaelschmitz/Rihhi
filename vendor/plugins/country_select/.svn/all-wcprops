@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/rihhi/larp/!svn/ver/131/rihhi/vendor/plugins/country_select
+END
+uninstall.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/rihhi/larp/!svn/ver/2/rihhi/vendor/plugins/country_select/uninstall.rb
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/rihhi/larp/!svn/ver/2/rihhi/vendor/plugins/country_select/README
+END
+install.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/rihhi/larp/!svn/ver/2/rihhi/vendor/plugins/country_select/install.rb
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/rihhi/larp/!svn/ver/2/rihhi/vendor/plugins/country_select/init.rb
+END
+MIT-LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/rihhi/larp/!svn/ver/2/rihhi/vendor/plugins/country_select/MIT-LICENSE
+END

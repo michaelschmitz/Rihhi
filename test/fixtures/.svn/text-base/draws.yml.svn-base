@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  list: 1
+  seller_id: 1
+  login: 
+  name: MyString
+  account_holder: MyString
+  iban: MyString
+  bic: MyString
+  balance_now: 9.99
+  debited: 9.99
+  difference: 9.99
+  fail: MyString
+
+two:
+  list: 1
+  seller_id: 1
+  login: 
+  name: MyString
+  account_holder: MyString
+  iban: MyString
+  bic: MyString
+  balance_now: 9.99
+  debited: 9.99
+  difference: 9.99
+  fail: MyString

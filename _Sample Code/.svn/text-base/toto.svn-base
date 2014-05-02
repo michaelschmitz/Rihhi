@@ -1,0 +1,139 @@
+####################
+Do or die
+####################
+
+
+######################
+##Quick to do
+######################
+
+22. Listing/Index 2: Detailed Search herausstellen, indem im Ergebnis gesagt wird: "You searched for X in Field x and Y in Field y. Your search has T results"
+3. Order Given in Index 1-4
+4. Suchfunktion: Categories auslesen aus DB und übersetzen im Controller.
+5. Currently_on_Page bei Feedback?
+
+####################
+Nice to have
+####################
+1. Formular zur Miete (Schäden am Mietgegenstand): Rüstung, Helm, Waffen, Kaution
+2. Mieten separat darstellen mit rotem Knopf,
+3. Mietlogik einbauen mit Prozess dahinter (Ja, ich will Mieten -> Kostenübersicht (Gegenstand, Versandmöglichkeiten), Kalender wann bereits vermietet -> Mieten für Zeitraum, Lieferadresse -> Absenden ->)
+4. Gruppensystem
+5. Suche nach Gruppe im Umkreis
+6. Im Shop URL zur eigenen Webseite
+4.  SystemMailer:StatusMail >Mitgliedsdaten zeigt Freunde "Yes" anstelle von Ja. t(X) missing --> Mehr Aufwand, eigentlich nicht notwendig
+1.  Hearted/Favorites: Show -> Darstellung benötigt ein weiteres Div als Wrapper um Overview
+35. Unten auf der Seite: "Register" als Button und "Sell Items" als Button ?
+3.  Message/Answer: Soll automatisch sein: "RE: Topic"
+28. Specifics: Umfang und Materialdicke als Option bei Listing (Specifics, Edit 3, Show)
+4.  Profile/Show: Etwas ist passiert in Rot
+	-Jemand hat ordered
+	-Feedback geben
+	-Friend request
+	-Draw passiert
+45. "Image upload mit Uploader SWF/Ajax/Rails"	
+
+39. Popup für Terms of Service (dahinter schhreiben:Opens in new window, Wikipeida Link) als Overlay auf der aktuellen Seite (Neues kleineres Fenster öffnen, einfachste Lösung :> Fixed Widht, Height)
+40. IDEE: Seller Lastschriftverfahren: Kontodaten erst angeben, nachdem ein Item gelistet wurde (Item complete, Kontodaten angegeben == 0, dann zeige Item und blende oben "Bitte Kontodaten eingeben" ein als Flash [:Bad]
+31. Shop/Show: Sell a new Item als Button, nicht als Link, in der linken Spalte
+25. Images: Bilder/Edit 5 sieht hässlich aus. Warum sind die nicht gleichgroß in 150 mal 150 oder was auch immer ich eingestellt habe?
+
+5.  User page: Mauer bauen, Kommentar posten/löschen
+8.  Listings: Index 3 (Fehler?)
+11. Change Orders "Step 1 - Step 2 - Step 3" in ein System wie bei Amazon: Über der Order. Dadurch sieht man welcher Schrit noch kommt.
+29. Luxus: Bei "Step back" in Listings/New etc. die Einträge saven (user muss sonst Tags, etc. neu eintippen!)
+13. Order Page: Link to "Send message to" in jeder Order
+14. Cancelled: Reason for cancellation? In email aufnehmen. Order neues Feld: Cancel_Reason
+21. Suche auf der großen Seite: Als Ergebniss anzeigen: Searched in Members in Feld Login, in Items in Feld Title. Detailed search for ITems is "here" -> Link auf Index 2.
+32. Design von Rihhi: Rihhi-Logo separat, etwas whitespace, dann Menüoptionen (Buy Item, Sell Item, Dann Search Box oben rechts)
+####
+
+Designfragen
+
+a  Profile: "Grün und blau sticht sich, warum blau, lieber schwarz?"
+b  Specifics: Sizes und Colors sichtbar, usable for larp und reenactment sichtbar, sonderwerte nicht, sonderfarben und grössen auch hidden
+c  "Hide additional options:"-Categories page 	-Specifics page (Nur Standard und) Shippping Page
+d  Click to send button bauen
+####################
+Accepted fails
+a  Listing: Title: Darf nicht unendlich lang sein. Update 1 failed. -> Länger als DB erlaubt, hat der User halt Problem.
+b  User -> Keine Emails wenn keine Änderung --> Muss PW vergleichen, zuviel arbeit, später machen
+c  "Warum geht standard nicht weg?" Einheitsgrösse, richtig?"
+
+######################################################
+
+Erledigt:
+1. terms of service in neuem fenster öffnen lassen, und kleiner.
+2. Only visible to friends? Sollte alles auf "No" stehen - standardmässig.
+3. About me -> Empty? Sollte "" sein, dann auch den Standardsatz im Show anzeigten.
+4. Warum vor 20 Stunden gejoined? Was ist die Serverzeit? Wie den Server auf Deutsche zeit stellen? 
+5. New Item mit Creation abfangen
+6. Sellers/102/Listings: Woher kommt das zweite? Warum ist 402 angezeigt, obwohl es 401 ist?
+7. Length, Width, Height, Weight: "Steht später mit Null drin" "Einfach frei lassen", Radio button auf checked
+8. Show my member page
+9. "Delivery time: 5 als gute Voreinstellung?"
+10. Kann ich nochmal flaggen? Ja, warum nicht. Musst ja angemeldet sein.
+11. Bei Einloggen auf Account müssen Nachrichten angezeigt werden: "Sie haben Freundschaftsanfragen"
+12. Warum bild unscharf (mit crop gelöst)
+13. "Was heisst current outstanding account balance?" "Add movement: Guthaben 5 Euro erhalten, daher -5. "
+14. Kann nicht von sich selber kaufen. Einkaufswagen verstecken - sonst selber.
+15. Transactions: Hand ist kein Link: Link entfernen.
+16. Shop -> Edit (Avatar, Description, Tos) zurück auf Shop | Layout ändern. Avatar ganz oben.
+17. Shipping: 5th country Tageszeit entweder egal oder Fehlermeldung anzeigen.
+18. grosser knopf auf shop settings : "Sell a new item" -> Ist dann im Account
+19. Kann ich mir selbst ne message schicken? Auf meinem Item rausnehmen, auf meinem Shop und User rausnehmen. -> Schick dir was du willst.
+20. Listing: Show: Nur die ersten 45 Zeichen. -> Gleiches Gilt für Price --> Irrelevant, aber für Title geändert durch Umbruch.
+21. Terms of SErvice: Ist n Link, musst du auch Kenntlich machen ( (Show/Hide terms of service: Nur die First 20 anzeigen.) --> Nur 3 Zeilen anzeigen, ausklappen wenn mehr.
+22. Balance minus schlecht, Balance plus ist gut. --> Farben geändert.
+23. Transaction: Knopf für zurück erstellen
+24. User: 21 in edit, 19 nur auf Show? --> Erledigt.
+25. WAs ist das für ne Nummer? Sollte sein "Transaction ID" --> Geändert in ID.
+26. Transactions: 4 x 20 Cent | You listed a new item: An welcher Stelle wird das abgebucht? |Nur movement/abbuchen wenn item noch nicht kreiert.
+27. Warum habe ich direkt Schulden?" | "Wofür B und T?" | "Warum Rot? Warum ist minus gut?" | -> Seller email und Movement erklärt warum Minus gut ist.
+27. Email an Seller: JEmand hat was bestellt? .--> Gibt es
+28. My Orders: Shipping Information (Unten rechtS: country.Barbados?)
+29. Boxen für lenghtwidht etc kürzer.
+30. "Back-button bei New item: Wenn das Item bereits komplett hochgeladen ist, also Step 4, dann nur noch Show view und Edit." --> Wenns abgeschickt ist, und der Server es interpretiert, dann direkt zu show.
+31. Listing: Show: Nicht unendlich lange Category tags ? --> Umbrechen wie Titel
+32. Abfangen: Nur die ersten 20 Chars bei Lenght, Width, Height und Weight.
+33. NaN -> Ratings mit Feedback Zero abfangen, Seite geändert.
+34. Cats: Müssen mit t im Controller behandelt werden --> Erledigt
+35. Warum fehlermeldung grün? --> ? Wo?
+36. Listings: Show: Ships to Translation_missing for en! --> Nö.
+37. "Wenn ich zu allen Ländern will." --> everywhere else ist schwierig zu finden --> In Shop voreinstellen -> Germnay, Europe, Everywhere else.
+38. Categories Armor translator im Dropdown beheben! --> wie im listing
+39. Protected Seller Create - > Man kann nur einmal selber seller werden.
+40. Country in Sellersettings auf EU? --> Seller.country
+41. Narum ist die NR nur, sollte 1 bis X sein, nicht die ID's.
+42. Shopping Cart: Title nur die ersten 30 Sachen anzeigen. -> Ist in TD und bricht um wie's sein soll.
+43. Orders/New2: Warum von shopping Angaben zurück in Cart? Warum keine Fehlermeldung für fehlendes land?
+44. Friends Warum fehlt das Bild auf der Listing Show vom User Nadine? Hallo?
+45. Friends/Show: Wenn Friends_Visible = "No", alle anzeigen. Sonst check ob a) ich's bin oder b) wir Freunde sind. -> Done
+46. Links korrekt auf Friends page--> done
+47. ACHTUNG: Punkt statt Komma bei Listings.new für den Preis. Auch im Modell richtig abfragen. (Listings:Shipping & Edit 4, Shop: Edit)
+48. Link auf "out-of-stock" -> hinter der Zahl bei Amount einen Link "Change" (führt zu Title)
+49. ACHTUNG: Email bestätigen mit Aktivierungsknopf
+50. ACHTUNG: Order soll deliverable amount_in_stock decreasen sobald Order.step4. Dabei auch Email an seller wenns = 0. 19. Email an Seller: Item out of Stock.
+51. Wenn Listing/Show out of stock ist, und jemand die Farbe/Größe ändert, dann wird Add-to-Cart angezeigt. Sollte den Button nicht laden.
+52. ACHTUNG: Wenn Order gecancelt wird von Seller, Item aus dem Cart rauswerfen (nicht zurück ins Cart)
+53. Email an Customer: Order has been cancelled
+54. Email mit Unterschrift der Firma UST Nummer etc.
+55. Auch auf Startseite: Sell Items immer zeigen-> Link zum Anmelden, Link zum Seller werden, Link zum Item
+56. Shop/Show: Div um Bild machen, sonst wandert "Send message" hoch, wenn das Bild schmal ist.
+57. Buyer sollte zu "Customer" umbenannt werden in der EN.yml file, da wo der Seller es sieht.
+58. "Good" als erste Option in Feedback's New
+59. Listings/Show: ToS auf der Artikelseite unten anzeigen.
+60.  Flagged: "Click here to cancel and go back to the form."
+61. Nach einloggen, immer auf "My Account" -> Als Seller?
+62. 34. COOL: Wenn Shop/Login button angeklickt, eine "Ladeanzeige" einblenden wie bei Highrise (code von da leihen.) OnClick ="replace with "loading.gif") --> Removed, einfacheres System.
+63. Money Orders komplett rauswerfen --> Done
+64. User page: "Add as friend"-Button nicht anzeigen, wenn derjenige bereits mich gerequestet/gecancelt oder ich ihn requested habe)
+65. Emails mit Deliverables/Order details (?)
+66. Orders/New2: "Shipping costs are based on your address. You can review and confirm your order on the next page before you buy."
+67. Umbenennen: Von designed vor in Usable for LARP/Reenactment.
+68. Wenn Bank IBAN und BIC angegeben, dann auch auf der "Preferred Payment option für Customer" bereits anzeigen
+69. Hello User.login in anderer Farbe (Grün?), Bold?
+70. Shared/New on Rihhi: Zeigt incomplete items? Soll nur completed zeigen!
+71. Der requester sollte sehen wen er gerequestet hat, und wo die invitation nocht aussteht.
+72. Order/New: Other open orders you could continue with (Add: Remove this order?)
+73. Feedback I received: Korrekte Zahl anzeigen (Profiles/Show) (Falschrum? User_has_rated = 1 wäre richtig, wenn er geratet hat, oder?)

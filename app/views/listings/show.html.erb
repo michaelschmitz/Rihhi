@@ -1,0 +1,802 @@
+<div>
+    <div class="item_titlearch">
+        <div id="item_title">
+            <h2><%= h(@listing.title).first(120).gsub("\n", "<br />") %></h2>
+        </div>
+        <div id="item_price">
+            <h2 class="text_green" style="margin-bottom: 0px;"><%= h number_to_currency(@listing.price, :unit => "", :separator => ",") %> €</h2>
+            <span style="color: #999999;"><%= h @listing.nr_of_items_in_stock %> <%= t("views.listings.show.s1") %></span>
+        </div>
+        <div id="item_options" style="margin-top: 0px;">
+		
+            		<!-- Set -->
+			<%= form_tag('/carts/add', :method => :post) %>
+                <table style="margin-top: 0px;" class="align_left">
+                    <% @sizes = Size.find(:first, :conditions => ["listing_id = ?", @listing.id]) %>
+                    <% if @sizes != nil %>
+                    <tr style="margin-top: 0px;">
+                        <td style="width: 50px; color: #999999;">
+                            <%= t("views.listings.show.s2") %>:
+                        </td>
+                        <td>
+                            <select name="size" size="1" id="sizes">
+                                <% if @sizes.all == "1" %>
+                                <option value="size.all"><%= I18n.t('size.all') %></option>
+                                <% (@initial_size = "size.all" and set = 1) unless set == 1 %>
+                                <% end %>
+                                <% if @sizes.xxs == "1" %>
+                                <option value="size.xxs"><%= I18n.t('size.xxs') %></option>
+                                <% (@initial_size = "size.xxs" and set = 1) unless set == 1 %>
+                                <% end %>
+                                <% if @sizes.xs == "1" %>
+                                <option value="size.xs"><%= I18n.t('size.xs') %></option>
+                                <% (@initial_size = "size.xs" and set = 1) unless set == 1 %>
+                                <% end %>
+                                <% if @sizes.s == "1" %>
+                                <option value="size.s"><%= I18n.t('size.s') %></option>
+                                <% (@initial_size = "size.s" and set = 1) unless set == 1 %>
+                                <% end %>
+                                <% if @sizes.m == "1" %>
+                                <option value="size.m"><%= I18n.t('size.m') %></option>
+                                <% (@initial_size = "size.m" and set = 1) unless set == 1 %>
+                                <% end %>
+                                <% if @sizes.l == "1" %>
+                                <option value="size.l"><%= I18n.t('size.l') %></option>
+                                <% (@initial_size = "size.l" and set = 1) unless set == 1 %>
+                                <% end %>
+                                <% if @sizes.xl == "1" %>
+                                <option value="size.xl"><%= I18n.t('size.xl') %></option>
+                                <% (@initial_size = "size.xl" and set = 1) unless set == 1 %>
+                                <% end %>
+                                <% if @sizes.xxl == "1" %>
+                                <option value="size.xxl"><%= I18n.t('size.xxl') %></option>
+                                <% (@initial_size = "size.xxl" and set = 1) unless set == 1 %>
+                                <% end %>
+                                <% if @sizes.xxxl == "1" %>
+                                <option value="size.xxxl"><%= I18n.t('size.xxxl') %></option>
+                                <% (@initial_size = "size.xxxl" and set = 1) unless set == 1 %>
+                                <% end %>
+                            </select>
+                        </td>
+                    </tr>
+                    <% end %>
+                    <!-- colors --><% @colors = Color.find(:first, :conditions => ["listing_id = ?", @listing.id]) %>
+                    <% if @colors != nil %>
+                    <tr style="margin-top: 0px;">
+                    <td style="width: 50px; color: #999999;">
+                        <%= t("views.listings.show.s3") %>:
+                    </td>
+                    <td>
+                        <select name="color" size="1" id="f.colors">
+                            <% set = 0 %>
+                            <% if @colors.black == "1" %>
+                            <option value="color.black"><%= I18n.t('color.black') %></option>
+                            <% (@initial_color = "color.black" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.gold == "1" %>
+                            <option value="color.gold"><%= I18n.t('color.gold') %></option>
+                            <% (@initial_color = "color.gold" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.silver == "1" %>
+                            <option value="color.silver"><%= I18n.t('color.silver') %></option>
+                            <% (@initial_color = "color.silver" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.purple == "1" %>
+                            <option value="color.purple"><%= I18n.t('color.purple') %></option>
+                            <% (@initial_color = "color.purple" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.lime == "1" %>
+                            <option value="color.lime"><%= I18n.t('color.lime') %></option>
+                            <% (@initial_color = "color.lime" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.blue == "1" %>
+                            <option value="color.blue"><%= I18n.t('color.blue') %></option>
+                            <% (@initial_color = "color.blue" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.brown == "1" %>
+                            <option value="color.brown"><%= I18n.t('color.brown') %></option>
+                            <% (@initial_color = "color.brown" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.yellow == "1" %>
+                            <option value="color.yellow"><%= I18n.t('color.yellow') %></option>
+                            <% (@initial_color = "color.yellow" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.maroon == "1" %>
+                            <option value="color.maroon"><%= I18n.t('color.maroon') %></option>
+                            <% (@initial_color = "color.maroon" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.fuchsia == "1" %>
+                            <option value="color.fuchsia"><%= I18n.t('color.fuchsia') %></option>
+                            <% (@initial_color = "color.fuchsia" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.olive == "1" %>
+                            <option value="color.olive"><%= I18n.t('color.olive') %></option>
+                            <% (@initial_color = "color.olive" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.teal == "1" %>
+                            <option value="color.teal"><%= I18n.t('color.teal') %></option>
+                            <% (@initial_color = "color.teal" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.white == "1" %>
+                            <option value="color.white"><%= I18n.t('color.white') %></option>
+                            <% (@initial_color = "color.white" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.gray == "1" %>
+                            <option value="color.gray"><%= I18n.t('color.gray') %></option>
+                            <% (@initial_color = "color.gray" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.red == "1" %>
+                            <option value="color.red"><%= I18n.t('color.red') %></option>
+                            <% (@initial_color = "color.red" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.green == "1" %>
+                            <option value="color.green"><%= I18n.t('color.green') %></option>
+                            <% (@initial_color = "color.green" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.navy == "1" %>
+                            <option value="color.navy"><%= I18n.t('color.navy') %></option>
+                            <% (@initial_color = "color.navy" and set = 1) unless set == 1 %>
+                            <% end %>
+                            <% if @colors.other == "1" %>
+                            <option value="color.other_ask_seller"><%= I18n.t('color.other_ask_seller') %></option>
+                            <% (@initial_color = "color.other_ask_seller" and set = 1) unless set == 1 %>
+                            <% end %>
+                        </select>
+                    </td>
+                    <% end %>
+                </table>
+      <%= hidden_field_tag("listing_id", value = @listing.id) %>
+        </div>
+		
+		
+		
+        <div id="item_button">
+        	<% if logged_in? %>
+				<% if self.current_user.is_seller? %>
+					<% if self.current_user.seller.id == @listing.seller_id %>
+						<p><%= t("views.listings.show.s60") %> <%= @listing.v.to_s %> <%= t("views.listings.show.s61") %>.</p>
+					<% else %>
+			        	<% if @listing.nr_of_items_in_stock >= 1 %>
+			            <div>
+			                <%= submit_tag(value = "", {:class => "cart c_" + (session[:locale] || "en"), :size => "40x130" }) %>
+			            </div>
+						<% else %>
+						<p>		<%= t("views.listings.show.s4") %></p>
+						<% end %>
+					<% end %>
+				<% else %>
+			    		<% if @listing.nr_of_items_in_stock >= 1 %>
+			            <div>
+			                <%= submit_tag(value = "", {:class => "cart c_" + (session[:locale] || "en"), :size => "40x130" }) %>
+			            </div>
+						<% else %>
+						<p>		<%= t("views.listings.show.s4") %></p>
+						<% end %>
+				<% end %>
+			<% else %>
+				<% if @listing.nr_of_items_in_stock >= 1 %>
+		            <div>
+		                <%= submit_tag(value = "", {:class => "cart c_" + (session[:locale] || "en"), :size => "40x130" }) %>
+		            </div>
+				<% else %>
+					<p>		<%= t("views.listings.show.s4") %></p>
+				<% end %>
+			<% end %>
+				
+        </div>
+		
+    </div>
+</div>
+<!-- close title arch -->
+
+<!-- Leftcolumn -->
+<div class="item_leftcolumn">
+    <!-- I - This shows the big image, with id for the javascript being generated by the counter -->
+    <div class="left">
+        <div id="pic1" style="display: block;">
+            <% if @listing.pic1.exists? %>
+            <span class="img-shadow"><%= lightbox_image_tag(@listing.pic1.url(:medium), @listing.pic1.url(:full) ,
+            {:class=>"images"}, :title => t("views.listings.show.s5"), :rel => "lightbox[photos]") %></span>
+            <% else %>
+            <span class="img-shadow"><%= image_tag("http://s3.amazonaws.com/img.rihhi.com/system/missing_large.png", :size => "300x300") %></span>
+            <% end %>
+        </div>
+		<div id="pic2" style="display: none;">
+		<% if @listing.pic2.exists? %>
+            <span class="img-shadow"><%= lightbox_image_tag(@listing.pic2.url(:medium), @listing.pic2.url(:full) ,
+            {:class=>"images"}, :title => t("views.listings.show.s5"), :rel => "lightbox[photos]") %></span>
+        <% end %>
+		</div>
+		
+		<div id="pic3" style="display: none;">
+		<% if @listing.pic3.exists? %>
+        
+            <span class="img-shadow"><%= lightbox_image_tag(@listing.pic3.url(:medium), @listing.pic3.url(:full) ,
+            {:class=>"images"}, :title => t("views.listings.show.s5"), :rel => "lightbox[photos]") %></span>
+        
+		<% end %>
+		</div>
+		<div id="pic4" style="display: none;">
+		<% if @listing.pic4.exists? %>
+        
+            <span class="img-shadow"><%= lightbox_image_tag(@listing.pic4.url(:medium), @listing.pic4.url(:full) ,
+            {:class=>"images"}, :title =>  t("views.listings.show.s5"), :rel => "lightbox[photos]") %></span>
+        
+		<% end %>
+		</div>
+    </div>
+    <!-- II Small images-->
+    <div class="right" style="width: 110px; margin-left: 5px;">
+        <% if @listing.pic1.exists? %>
+        <a href="" onclick="$('pic1').appear();$('pic2').hide();$('pic3').hide();$('pic4').hide(); return false;"><span class="img-shadow"><%= image_tag(@listing.pic1.url(:small)) %></span></a>
+        <% end %>
+        <% if @listing.pic2.exists? %>
+        <a href="" onclick="$('pic1').hide();$('pic2').appear();$('pic3').hide();$('pic4').hide(); return false;"><span class="img-shadow"><%= image_tag(@listing.pic2.url(:small)) %></span></a>
+        <% end %>
+        <% if @listing.pic3.exists? %>
+        <a href="" onclick="$('pic1').hide();$('pic2').hide();$('pic3').appear();$('pic4').hide(); return false;"><span class="img-shadow"><%= image_tag(@listing.pic3.url(:small)) %></span></a>
+        <% end %>
+        <% if @listing.pic4.exists? %>
+        <a href="" onclick="$('pic1').hide();$('pic2').hide();$('pic3').hide();$('pic4').appear(); return false;"><span class="img-shadow"><%= image_tag(@listing.pic4.url(:small)) %></span></a>
+        <% end %>
+    </div>
+    <!-- III -->
+    <div class="item_three" style="float: left; clear:none; width: 580px;">
+        <h3 class="text_green" style="background-color: white; padding-left: 0px;"><%= t("views.listings.show.s6") %></h3>
+        <p>
+            <%= (h @listing.description).gsub("\n", "<br />") %>
+        </p>
+        <table class="align_left" style="margin-top: 10px;">
+            <tr>
+                <td style="width: 150px;">
+                    <%= t("views.listings.show.s7") %>:
+                </td>
+                <td>
+                    <%=t(@listing.category.name) %>, <%= t(@listing.subcategory.name) %>
+                    <% if @listing.lastcategory != nil %>
+                    , <%= t(@listing.lastcategory.name) %>
+                    <% end %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s8") %>:
+                </td>
+                <td>
+                	<%= (h(@listing.category_tag)).first(250).gsub("\n", "<br />") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s9") %>:
+                </td>
+                <td>
+                	<%= h(@listing.material_tag).first(250).gsub("\n", "<br />")   %>                  
+                </td>
+            </tr>
+        </table>
+        <h3 class="text_green" style="background-color: white; padding-left: 0px;"><%= t("views.listings.show.s10") %></h3>
+        <table style="width: 100%" class="align_left">
+            <tr>
+                <td style="width: 150px;">
+                    <%= t("views.listings.show.s11") %>: 
+                </td>
+                <td class="align_left">
+                    <% if @listing.preparation_time == "0" %>
+                    <%= t("views.listings.show.s12") %><% else %>
+                    <%=h(@listing.preparation_time).first(6).gsub("\n", "<br />") %> <%= t("views.listings.show.s13") %><% end %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s14") %>:
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 150px;">
+                    -<%=h t(@listing.country1) %>
+                </td>
+                <td>
+                    <%= t("views.listings.show.s15") %> <%=h number_to_currency(@listing.country1_shipping, :unit => "") %>€ 
+                </td>
+                <td>
+                    <span class="text_darkgrey">(<%= number_to_currency(@listing.country1_shipping_with_another_item, :unit => "") %> € <%= t("views.listings.show.s16") %>)</span>
+                </td>
+                <td>
+                    <%= t("views.listings.show.s17") %> <%= h @listing.country1_deliverytime %> <%= t("views.listings.show.s13") %>.
+                </td>
+            </tr>
+            <% if @listing.country2 != "-------" %>
+            <tr>
+                <td style="width: 150px;">
+                    -<%=h t(@listing.country2) %>
+                </td>
+                <td>
+                    <%= t("views.listings.show.s15") %> <%=h number_to_currency(@listing.country2_shipping, :unit => "") %>€ 
+                </td>
+                <td>
+                    <span class="text_darkgrey">(<%= number_to_currency(@listing.country2_shipping_with_another_item, :unit => "") %> € <%= t("views.listings.show.s16") %>)</span>
+                </td>
+                <td>
+                    <%= t("views.listings.show.s17") %> <%= h @listing.country2_deliverytime %> <%= t("views.listings.show.s13") %>.
+                </td>
+            </tr>
+            <% end %>
+            <% if @listing.country3 != "-------" %>
+            <tr>
+                <td style="width: 150px;">
+                    -<%=h t(@listing.country3) %>
+                </td>
+                <td>
+                    <%= t("views.listings.show.s15") %> <%=h number_to_currency(@listing.country3_shipping, :unit => "") %>€ 
+                </td>
+                <td>
+                    <span class="text_darkgrey">(<%= number_to_currency(@listing.country3_shipping_with_another_item, :unit => "") %> € <%= t("views.listings.show.s16") %>)</span>
+                </td>
+                <td>
+                    <%= t("views.listings.show.s17") %> <%= h @listing.country3_deliverytime %> <%= t("views.listings.show.s13") %>.
+                </td>
+            </tr>
+            <% end %>
+            <% if @listing.country4 != "-------" %>
+            <tr>
+                <td style="width: 150px;">
+                    -<%=h t(@listing.country4) %>
+                </td>
+                <td>
+                    <%= t("views.listings.show.s15") %> <%=h number_to_currency(@listing.country4_shipping, :unit => "") %>€ 
+                </td>
+                <td>
+                    <span class="text_darkgrey">(<%= number_to_currency(@listing.country4_shipping_with_another_item, :unit => "") %> € <%= t("views.listings.show.s16") %>)</span>
+                </td>
+                <td>
+                    <%= t("views.listings.show.s17") %> <%= h @listing.country4_deliverytime %> <%= t("views.listings.show.s13") %>.
+                </td>
+            </tr>
+            <% end %>
+            <% if @listing.country5 != "-------" %>
+            <tr>
+                <td style="width: 150px;">
+                    -<%=h t(@listing.country5) %>
+                </td>
+                <td>
+                    <%= t("views.listings.show.s15") %> <%=h number_to_currency(@listing.country5_shipping, :unit => "") %>€ 
+                </td>
+                <td>
+                    <span class="text_darkgrey">(<%= number_to_currency(@listing.country5_shipping_with_another_item, :unit => "") %> € <%= t("views.listings.show.s16") %>)</span>
+                </td>
+                <td>
+                    <%= t("views.listings.show.s17") %> <%= h @listing.country5_deliverytime %> <%= t("views.listings.show.s13") %>.
+                </td>
+            </tr>
+            <% end %>
+        </table>
+        <% if @listing.shipping_comments != "" %>
+        <p>
+            <%= (h @listing.shipping_comments).gsub("\n", "<br />") %>
+        </p>
+        <% end %>
+        <h3 class="text_green" style="background-color: white; padding-left: 0px;"><%= t("views.listings.show.s18") %></h3>
+        <table style="width: 100%" class="align_left">
+            <% if @shop.allow_paypal == "Yes" %>
+            <tr>
+                <td style="width: 150px;">
+                    Paypal 
+                </td>
+                <td>
+                </td>
+            </tr>
+            <% end %>
+			<% if @shop.allow_bank_transfer == "Yes" %>
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s19") %>
+                </td>
+                <td>
+                </td>
+            </tr>
+			<% end %>
+            <% if @shop.allow_cheque == "Yes" %>
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s20") %>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <% end %>
+            <% if @shop.allow_cash_on_delivery == "Yes" %>
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s21") %>
+                </td>
+                <td>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+		
+		<% if @shop.shop_tos != "" %>
+    	<h3 class="text_green" style="background-color: white; padding-left: 0px;"><%= t("views.listings.show.s62") %></h3>
+    	
+         <p style="text-align: left;">
+            <%= (h @shop.shop_tos).gsub("\n", "<br />") %>
+        </p>
+		<%end %>
+    
+    </div>
+</div>
+
+<div class="left" style="width: 343px; margin-left: 11px; height: auto; padding-top: 5px; padding-bottom: 5px; border-top: 1px solid #c9c9c9; background-color: white; ">
+	<table>
+	<tr>
+		<%if  @listing.renting == "No" %>
+		
+				<td style="width: 240px;"><%= t("views.listings.show.s64") %> </td>
+		<% elsif @listing.renting == "Yes" %>
+                 <td style="width: 170px; text-align: left;">
+                    <%= t("views.listings.show.s63") %><br>
+					Current status: <span style="color: green;">Available</span>
+                </td>
+				<td> <%= link_to image_tag("http://s3.amazonaws.com/img.rihhi.com/system/cart_en.png"), {:controller => "messages", :action => "new", :to_id => @listing.seller.user.id} %>				 </td>
+        <% else %>        
+		                 <td style="width: 170px;  text-align: left;">
+                    <%= t("views.listings.show.s63") %><br>
+					Current status: <span style="color: red;">Rented out</span>
+                </td>
+				<td> <%= link_to image_tag("http://s3.amazonaws.com/img.rihhi.com/system/cart_en.png"), {:controller => "messages", :action => "new", :to_id => @listing.seller.user.id} %>				 </td>
+						
+
+		<% end %>
+                </td>
+            </tr>
+			</table>
+	</div> 
+
+
+<div class="item_rightcolumn">
+	
+    <% if logged_in? -%>
+    <% if @listing.seller.user.id == self.current_user.id %>
+    <div class="clear_left" style="width: 343px; ">
+        <h3 ><%= t("views.listings.show.s22") %>:</h3>
+        <ul style="padding-left: 10px; padding-bottom: 10px; padding-top: 10px;">
+            <li>
+                <%= link_to '1 -' + t("views.listings.show.s23"), title_url(@listing.seller, @listing.id) %>
+            </li>
+            <li>
+                <%= link_to '2 -' + t("views.listings.show.s24"), cat_url(@listing.seller, @listing.id) %>
+            </li>
+            <li>
+                <%= link_to '3 -' + t("views.listings.show.s25"), spec_url(@listing.seller, @listing.id) %>
+            </li>
+            <li>
+                <%= link_to '4 -' + t("views.listings.show.s26"), ship_url(@listing.seller, @listing.id) %>
+            </li>
+            <li>
+                <%= link_to '5 -' + t("views.listings.show.s27"), img_url(@listing.seller, @listing.id) %>
+            </li>            
+			<li>
+                <br>
+            </li>
+			<li>
+                <%= link_to t("views.listings.show.s28"), listings_path() %>
+            </li>
+        </ul>
+    </div>
+
+    <% end %>
+    <% end %>
+	
+    <div class="clear_left" style="width: 343px;">
+        <h3><%= t("views.listings.show.s29") %></h3>
+        <table class="align_left" style="width: 100%;">
+            <tr>
+                <td style="width: 100px; padding: 10px 0px 0px 10px;">
+               <% if @listing.seller.shop.avatar.exists? %>
+		<span class="img-shadow"><%= link_to image_tag(@listing.seller.shop.avatar.url(:thumb), :border=>0), :controller => "shops", :action => "show", :id => @listing.seller_id %></span>
+		<% else %>
+		<span class="img-shadow"><%= link_to image_tag("http://s3.amazonaws.com/img.rihhi.com/system/missing_shop.png", :size => "100x100"), :controller => "shops", :action => "show", :id => @listing.seller_id %></span>
+		<% end %>   
+			 
+                </td>
+                <td>
+                    <table class="align_left" >
+                        <tr>
+                            <td>
+                                <%= link_to @listing.seller.user.login, user_path(@listing.seller.user.id) %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%= link_to  t("views.listings.show.s30"), {:controller => "messages", :action => "new", :to_id => @listing.seller.user.id} %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%= link_to  t("views.listings.show.s31"), :controller => "shops", :action => "show", :id => @listing.seller_id %>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+			 </table>
+			 <table class="align_left" style="width: 100%; padding-left: 10px;">
+            <tr>
+                <td style="width: 100px;">
+                    <%= t("views.listings.show.s32") %>:
+                </td>
+                <% if @listing.seller.rating == 0 %>
+                <td>
+                    <%= t("views.listings.show.s33") %>.
+                </td>
+                <td>
+                <% else %>
+                <td>
+                    <%= link_to number_to_percentage(@listing.seller.rating, :precision => 2) + ' Karma', rating_path(@listing.seller.id) %>
+					 <%= link_to "(" + @listing.seller.pos.to_s + " positive / " + (@listing.seller.number_of_ratings).to_s + " total)", rating_path(@listing.seller.id) %>
+                </td>             
+                    
+				<% end %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s34") %>:
+                </td>
+                <td colspan="2">
+                    <%= distance_of_time_in_words_to_now(@listing.seller.user.created_at) %> <%= t("views.listings.show.s35") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s36") %>:
+                </td>
+                <td colspan="2">
+                    <%= @listing.seller.city %>, <%= h(t(@listing.seller.country)) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                </td>
+            </tr>
+        </table>
+		
+        <% if @pictures.length >= 4 %>
+	        <h3><%= t("views.listings.show.s37") %> <%= h @listing.seller.user.login %></h3>
+ 	        <table>
+	            <tr>
+	                <td style="width: 10px; ">
+	                    <%= image_tag "http://s3.amazonaws.com/img.rihhi.com/system/arrow_left.jpg", :size => "10x75", :class => "prev" %>
+	                </td>
+	                <td>
+	                    <div class="anyClass" style="height: 100px; width: 300px; overflow-x: hidden; overflow-y: hidden; position: relative; ">
+	                        <ul>
+	                             <% run = -1 %> 
+	                            <% @pictures.each do |p| %>
+	                            <% run += +1 %> 
+	                            <li style="width: 100px; height: 100px; margin-left: 2px; margin-right: 2px; padding-top: 10px;">
+									 <span class="img-shadow" ><%= link_to(image_tag(p, :size => "75x75"), listing_path(@listings[run].id)) %></span>
+	                            </li>
+	                            <% end %>
+	                        </ul>
+	                    </div>
+	                </td>
+	                <td style="width: 10px; margin-left: -15px;">
+	                    <%= image_tag "http://s3.amazonaws.com/img.rihhi.com/system/arrow_right.jpg", :size => "10x75", :class => "next" %>
+	                </td>
+	            </tr>
+	        </table>		
+			
+		<% elsif @pictures.length >= 1 %>
+			<h3><%= t("views.listings.show.s37") %> <%= h @listing.seller.user.login %></h3>
+	              <table>
+	            <tr>            
+	                <td>
+	                    
+	                            <% run = -1 %> 
+	                            <% @pictures.each do |p| %>
+	                            <% run += +1 %> 
+	                            <span style="width: 100px; height: 100px; margin-left: 10px; padding-top: 10px; float:left;">
+									 <span class="img-shadow" ><%= link_to(image_tag(p, :size => "75x75"), listing_path(@listings[run].id)) %></span>
+	                            </span>
+	                            <% end %>                        
+	                    
+	                </td>             
+	            </tr>
+	        </table>		
+        <% end %>
+        <h3><%= t("views.listings.show.s38") %></h3>
+        <table style="width: 100%; padding-left: 10px;" class="align_left">
+            <% if @listing.quality != "" %>
+            <tr>
+                <td >
+                    <%= t("views.listings.show.s39") %>:
+                </td>
+                <td>
+                    <%if  @listing.quality == "1" %>
+						<%= t("views.listings.show.s40") %>
+					<% else %>
+						<%= t("views.listings.show.s41") %>
+					<% end %>
+					<%=	 %>
+                </td>
+            </tr>
+			<% end %>
+            
+            
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s42") %>:
+                </td>
+                <td>
+                	
+                    <%if  @listing.safe_for_reenactment == "1" %>
+						<%= t("views.listings.show.s43") %>
+					<% else %>
+						<%= t("views.listings.show.s44") %>
+					<% end %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s45") %>:
+                </td>
+                <td style="width: 100px;">
+				<%if  @listing.safe_for_larp == "1" %>
+                   	<%= t("views.listings.show.s43") %>
+				<% else %>
+						<%= t("views.listings.show.s44") %>
+				<% end %>
+                </td>
+            </tr>
+            <% if @listing.item_length != "" %>
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s46") %>:
+                </td>
+                <td>
+                    <%=	h(@listing.item_length).first(20) %> cm
+                </td>
+            </tr>
+            <% end %>
+            <% if @listing.item_width != "" %>
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s47") %>:
+                </td>
+                <td>
+                    <%=	h(@listing.item_width).first(20) %> cm
+                </td>
+            </tr>
+            <% end %>
+            <% if @listing.item_height != "" %>
+            <tr>
+                <td style="width: 100px;">
+                    <%= t("views.listings.show.s48") %>:
+                </td>
+                <td style="width: 50px;">
+                    <%= h(@listing.item_height).first(20) %> cm
+                </td>
+            </tr>
+            <% end %>
+            <% if @listing.item_weight != "" %>
+            <tr>
+                <td>
+                    <%= t("views.listings.show.s49") %>:
+                </td>
+                <td>
+                    <%=	h(@listing.item_weight).first(20) %> kg
+                </td>
+            </tr>
+            <% end %>
+        </table>
+    </div>
+	
+</div>
+    <div style="float:right; width: 330px; margin-right: 10px; margin-top: 10px; ">
+        <% if self.current_user != nil %>
+        <table style="width: 100%" class="align_left">
+            <tr>
+                <td style="width: 30px;">
+                    <%= image_tag("favorite.jpg", :size=> "25x25") %>
+                </td>
+                <td>
+                    <% if @favorite.blank? %>
+                    <%= link_to t("views.listings.show.s50"), favorites_path(:listing_id => @listing.id, :user_id => self.current_user.id), :method => :post %>
+                    <% else %>
+                    <%= link_to t("views.listings.show.s51"), favorite_path(@favorite), :method => :delete %>
+                    <% end %>
+                </td>
+                <td style="text-align: right">
+                    <%= link_to t("views.listings.show.s52"), favorites_path() %>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">
+                    <%= image_tag("heart.jpg", :size=> "25x25") %>
+                </td>
+                <td>
+                    <% if @hearted.blank? %>
+                    <%= link_to t("views.listings.show.s53"), hearteds_path(:listing_id => @listing.id, :user_id => self.current_user.id), :method => :post %>
+                    <% else %>
+                    <%= link_to t("views.listings.show.s54"), hearted_path(@hearted.id), :method => :delete %>
+                    <% end %>
+                </td>
+                <td style="text-align: right">
+                    <%= link_to t("views.listings.show.s55"), hearteds_path() %>
+                </td>
+            </tr>
+        </table>
+        <div id="slide_up_and_down" style="display:none; width:330px; height:335px; padding-left: 10px; text-align: left; background-color:; border: solid; border-color: red;">
+            <div>
+                <h2 style="color: red; display:none;"><%= t("views.listings.show.s56") %>:</h2>
+                <div style="margin-right: 10px; padding-left: 10px; padding-top: 5px; padding-right: 10px; background-color: #F9F9F7; display:none ">
+                    <% form_for :flaggeds, :url => { :controller => "flaggeds", :action => "create" } do |f| %>
+                    <p class="bold">
+                        <%= t("views.listings.show.s57") %>:
+                    </p>
+                    <%= f.text_area :reason, :value => @reason, :cols=> 33, :rows=> 5 %>
+                    <%= f.hidden_field :flagger_id, :value => self.current_user.id %>
+                    <%= f.hidden_field :user_id, :value => @listing.seller_id %>
+                    <%= f.hidden_field :listing_id, :value => @listing.id %>
+                    <p style="margin-top: 10px; margin-top: 10px; padding-bottom: 10px; text-align: right; margin-right: 50px;">
+                        <%= f.submit t("views.listings.show.s59") %>
+                    </p>
+                </div>
+                <a href="#" onclick="Effect.SlideUp('slide_up_and_down'); $('flag_as_link').appear();return false;">
+                    <p style="text-align: center; margin-top: 10px; margin-bottom: 20px; text-decoration: underline; font-size: 12px; color: black;" class="bold">
+                        <%= t("views.listings.show.s58") %>
+                    </p>
+                </a>
+                <% end %>
+            </div>
+        </div>
+        <table>
+            <tr>
+                <td style="width: 30px;">
+                    <%= image_tag("flag.jpg", :size=> "25x25") %>
+                </td>
+                <td>
+                    <a href="#" onclick="Effect.SlideDown('slide_up_and_down'); $ ('flag_as_link').hide(); return false;"><%= t("views.listings.show.s56") %></a>
+                </td>
+            </tr>
+        </table>
+		 </div>
+        <% else %>
+		<div class="left">
+        <table style="width: 100%" class="align_left">
+            <tr>
+                <td style="width: 30px;">
+                    <%= image_tag("favorite.jpg", :size=> "25x25") %>
+                </td>
+                <td class="align_left">
+                    <%= link_to t("views.listings.show.s50"), new_session_path() %>
+                </td>
+                <td style="text-align: right">
+                    <%= link_to t("views.listings.show.s52"), new_session_url %>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">
+                    <%= image_tag("heart.jpg", :size=> "25x25") %>
+                </td>
+                <td>
+                    <%= link_to  t("views.listings.show.s53"), new_session_path() %>
+                </td>
+                <td style="text-align: right">
+                    <%= link_to t("views.listings.show.s55"), new_session_url %>
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 30px;">
+                    <%= image_tag("flag.jpg", :size=> "25x25") %>
+                </td>
+                <td>
+                    <%= link_to t("views.listings.show.s56"), new_session_path() %>
+                </td>
+            </tr>
+        </table>
+		</div>
+        <% end %>
+</div>

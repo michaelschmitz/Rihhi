@@ -1,0 +1,8 @@
+<%= @seller_user.login %> <%= t("views.smailer.sale3.s1")%> <%= @order.id.to_s %>.
+
+<%= render :partial => "shared/theorder", :locals => { :order => @order, :deliverables => @deliverables } %>
+
+<%= t("views.smailer.sale3.s2")%> <%= @seller_user.login %> <%= t("views.smailer.sale3.s3")%>.
+
+<%= render :partial => "shared/imprint" %>
+ 

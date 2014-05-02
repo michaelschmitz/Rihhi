@@ -1,0 +1,12 @@
+<p>
+  <b>Title:</b>
+  <%=h @list.title %>
+</p>
+<p>
+	<%= link_to 'Add Listing', new_user_list_lists_listing() %>
+</p>
+	
+
+
+<%= link_to 'Edit', edit_user_list_path(@list.user, @list) %> |
+<%= link_to 'Back', user_lists_path(@list.user) %>

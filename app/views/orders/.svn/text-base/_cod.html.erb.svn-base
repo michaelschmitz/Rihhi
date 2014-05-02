@@ -1,0 +1,9 @@
+
+<p>
+    <%= t("views.orders.cod_all.s3") %>.
+</p>
+<p>
+    <%= t("views.orders.cod_all.s4") %> <%= @this_order.created_at.strftime('%A, %d. %B,  %Y') %>. 
+</p>
+
+<p><%= t("views.orders.cod_all.s5") %>.</p>

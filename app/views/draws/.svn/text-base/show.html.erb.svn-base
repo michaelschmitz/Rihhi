@@ -1,0 +1,58 @@
+<p>
+  <b>List:</b>
+  <%=h @draw.list %>
+</p>
+
+<p>
+  <b>Seller:</b>
+  <%=h @draw.seller_id %>
+</p>
+
+<p>
+  <b>Login:</b>
+  <%=h @draw.login_name %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%=h @draw.name %>
+</p>
+
+<p>
+  <b>Account holder:</b>
+  <%=h @draw.account_holder %>
+</p>
+
+<p>
+  <b>Iban:</b>
+  <%=h @draw.iban %>
+</p>
+
+<p>
+  <b>Bic:</b>
+  <%=h @draw.bic %>
+</p>
+
+<p>
+  <b>Balance now:</b>
+  <%=h @draw.balance_now %>
+</p>
+
+<p>
+  <b>Debited:</b>
+  <%=h @draw.debited %>
+</p>
+
+<p>
+  <b>Difference:</b>
+  <%=h @draw.difference %>
+</p>
+
+<p>
+  <b>Fail:</b>
+  <%=h @draw.fail %>
+</p>
+
+
+<%= link_to 'Edit', edit_draw_path(@draw) %> |
+<%= link_to 'Back', draws_path %>

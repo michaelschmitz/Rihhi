@@ -1,0 +1,69 @@
+<% @onpage = 5 %>
+<%= render :partial => "newlisting", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <h2 class="text_green"><%= t('views.listings.images.s1') %></h2>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+    	<div style="text-align: right; float: right;"><%= image_tag("important.png")%>  = <%= t('views.listings.images.s1a') %></div>
+        <% form_for(@listing, :url => complete_url(@listing.seller_id, @listing.id), :html => { :multipart => true, :method => :put }) do |f| %>
+        <% fields_for :listing do |l| %>
+      
+        <table style="width: 100%" class="align_left">
+            <tr>
+                <td style="width: 150px;">
+                    <%= t('views.listings.images.s2') %><%= image_tag("important.png")%> 
+                </td>
+                <td>
+                   <%= f.file_field :pic1, :tabindex => 4 %><%= error_message_on(:listing, :images) %>
+                </td>
+            </tr>
+
+            <%= set_focus_to_id("p1_uploaded_data") %>
+        </table>
+        <hr style="border:1px solid white;">
+        <table style="width: 100%" class="align_left">
+            
+            <tr>
+                <td style="width: 150px;">
+                    <%= t('views.listings.images.s3') %> 
+                </td>
+                <td>
+                <%= f.file_field :pic2, :tabindex => 5 %>
+                </td>
+            </tr>
+           
+            <tr>
+                <td>
+                     <%= t('views.listings.images.s3') %> 
+                </td>
+                <td>
+                    <%= f.file_field :pic3, :tabindex => 6 %>
+                </td>
+            </tr>
+            
+            
+            <tr>
+                <td>
+                    <%= t('views.listings.images.s3') %>
+                </td>
+                <td>
+                    <%= f.file_field :pic4, :tabindex => 7 %>
+                </td>
+            </tr>
+            
+        </table>
+        <%= f.hidden_field :complete, :type => "hidden", :value => "yes" %>
+        <% end %>
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+    	<div class="left" style="clear: left; margin-top: 20px;">
+		<%= link_to t('views.listings.images.s4'), shipping_path() %>
+	</div>
+	<div class="right" style="clear: right; margin-top: 20px;">
+		<%= f.submit  t('views.listings.images.s5'), :class => "submit_b" %>
+    </div> 
+        <% end %>
+    </div>
+</div>

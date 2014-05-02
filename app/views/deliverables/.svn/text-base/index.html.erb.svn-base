@@ -1,0 +1,24 @@
+<h1>Listing deliverables</h1>
+
+<table>
+  <tr>
+    <th>Listing</th>
+    <th>Order</th>
+    <th>Amount</th>
+  </tr>
+
+<% for deliverable in @deliverables %>
+  <tr>
+    <td><%=h deliverable.listing_id %></td>
+    <td><%=h deliverable.order_id %></td>
+    <td><%=h deliverable.amount %></td>
+    <td><%= link_to 'Show', deliverable %></td>
+    <td><%= link_to 'Edit', edit_deliverable_path(deliverable) %></td>
+    <td><%= link_to 'Destroy', deliverable, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New deliverable', new_deliverable_path %>

@@ -1,0 +1,16 @@
+<h1>Editing list</h1>
+
+<% form_for(@list, :url => user_list_path(@list.user, @list), :html => { :method => :put }) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', user_list_path(@list.user, @list) %> |
+<%= link_to 'Back', user_list_path(@list.user) %>

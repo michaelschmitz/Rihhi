@@ -1,0 +1,35 @@
+<div class="overview" style="margin-top: 10px;">
+    <% for listing in @listings %>
+    <div class="left" style="width: 180px;">
+        <div class="left">
+            <div id="pic1" style="display: block; padding-top: 10px;">
+                <% if listing.pic1.exists? %>
+                <span class="img-shadow"><%= link_to image_tag(listing.pic1.url(:thumb), :size => "150x150"), listing_path(listing.id) %></span>
+                <% else %>
+                <span class="img-shadow"><%= link_to image_tag("http://s3.amazonaws.com/img.rihhi.com/system/missing_small.png", :size => "150x150"), listing_path(listing.id) %></span>
+                <% end %>
+            </div>
+        </div>
+        <div class="left">
+            <table>
+                <tr>
+                    <td colspan="2" class="align_left">
+                        <a href="<%= listing_path(listing) %>"><%= h truncate(listing.title, :length => 22) %></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="align_left text_darkgrey" style="width: 90px">
+                        <%= link_to h(truncate(listing.seller.user.login, :length => 14)), shop_path(listing.seller.id) %>
+                    </td>
+                    <td class="text_green align_right" style="width: 60px">
+                        <%= number_with_delimiter(listing.price, :delimited => ',').first(8) %>€
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <% end %>
+    <div class="left" style="width: 100%; border-top: 1px solid #cecece;">
+        <%= will_paginate @listings %>
+    </div>
+</div>

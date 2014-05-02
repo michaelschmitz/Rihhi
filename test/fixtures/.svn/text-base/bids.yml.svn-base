@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  bidder: MyString
+  estimated_cost: 1.5
+  estimated_done_by: MyString
+  bid_status: MyString
+
+two:
+  bidder: MyString
+  estimated_cost: 1.5
+  estimated_done_by: MyString
+  bid_status: MyString

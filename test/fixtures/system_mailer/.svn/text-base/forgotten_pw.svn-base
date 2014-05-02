@@ -1,0 +1,3 @@
+SystemMailer#forgotten_pw
+
+Find me in app/views/system_mailer/forgotten_pw.erb

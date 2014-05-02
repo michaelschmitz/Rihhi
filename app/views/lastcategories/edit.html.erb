@@ -1,0 +1,12 @@
+<h1>Editing lastcategory</h1>
+
+<% form_for(@lastcategory) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @lastcategory %> |
+<%= link_to 'Back', lastcategories_path %>

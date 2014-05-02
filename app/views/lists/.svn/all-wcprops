@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/rihhi/larp/!svn/ver/2/rihhi/app/views/lists
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 57
+/rihhi/larp/!svn/ver/2/rihhi/app/views/lists/new.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/rihhi/larp/!svn/ver/2/rihhi/app/views/lists/show.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 58
+/rihhi/larp/!svn/ver/2/rihhi/app/views/lists/edit.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/rihhi/larp/!svn/ver/2/rihhi/app/views/lists/index.html.erb
+END

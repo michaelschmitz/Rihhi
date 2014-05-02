@@ -1,0 +1,101 @@
+class CreateEvents < ActiveRecord::Migration
+  def self.up
+    create_table :events do |t|
+      t.integer :user_id
+      t.string :title
+      t.string :subtitle
+      t.text :startdate
+      t.text :enddate
+      t.text :description
+      t.string :creator_name
+      t.text :ticket_deadline
+
+      t.string :complete      #At what step of the creation process?
+      
+      t.string :orga_name
+      t.string :orga_website
+      t.string :orga_email
+      
+      t.string :name_of_contact1
+      t.string :street_of_contact1
+      t.string :area_code_of_contact1
+      t.string :city_of_contact1
+      t.string :country_of_contact1
+      t.string :tel1_of_contact1
+      t.string :tel2_of_contact1
+      t.string :description_of_contact1_availability
+      t.string :fax_of_contact1      
+      t.string :email_of_contact1
+      
+      t.string :name_of_contact2
+      t.string :street_of_contact2
+      t.string :area_code_of_contact2
+      t.string :city_of_contact2
+      t.string :country_of_contact2
+      t.string :tel1_of_contact2
+      t.string :tel2_of_contact2
+      t.string :description_of_contact2_availability
+      t.string :fax_of_contact2
+      t.string :email_of_contact2
+      t.boolean :invitation_only
+      t.string :invitation_code
+      
+      t.string :location
+      t.string :street
+      t.string :area_code
+      t.string :city
+      t.string :region
+      t.string :country
+      t.text   :location_description      
+     
+      t.string :genre
+      t.string :genre_description
+      t.string :rules
+      t.string :rules_description
+      t.string :catering
+      t.string :catering_description
+      t.string :accomodation
+      t.string :accomodation_description
+      t.string :campaign
+      t.string :campaign_description
+      t.integer :minimum_age   
+      t.integer :ambiente
+      t.integer :fights
+      t.integer :battles
+      t.integer :magic
+      t.integer :mysteries
+      
+      t.string :event_status
+      t.integer :max_sc
+      t.integer :max_nsc
+      t.integer :available_sc
+      t.integer :available_nsc   
+ 
+      
+      t.integer :tickets_available_on_rihhi
+      
+      t.string :currency
+      t.string :currency_description      
+      t.string :account_holder_name
+      t.string :account_number
+      t.string :bank_identifier
+      t.string :paypal_account
+     
+
+      
+      t.string :url_to_invitation
+      t.string :uploaded_invitation
+      t.string :uploaded_image
+      t.string  :link_to_forum_discussion
+      
+      t.string :status   #Describes the setup-process. Either "incomplete" (still in setup) or "complete" (visible on Rihhi)
+
+      t.column :created_at,                :text
+      t.column :updated_at,                :text
+    end
+  end
+
+  def self.down
+    drop_table :events
+  end
+end

@@ -1,0 +1,27 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  startdate: 2009-09-20
+  enddate: 2009-09-20
+  country: MyString
+  orga: MyString
+  min_age: 1
+  genre: MyString
+  accomodation: MyString
+  catering: MyString
+  status: MyString
+  rules: MyString
+
+two:
+  title: MyString
+  startdate: 2009-09-20
+  enddate: 2009-09-20
+  country: MyString
+  orga: MyString
+  min_age: 1
+  genre: MyString
+  accomodation: MyString
+  catering: MyString
+  status: MyString
+  rules: MyString

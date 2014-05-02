@@ -1,0 +1,237 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+		<meta name="google-site-verification" content="mUM8eEDL8VRC9Yfpq_58rmQYup4-goC7jtyXtDCDAm4" />
+        <title><%= t('views.layouts.application.s1') %></title>
+        <%= stylesheet_link_tag "http://s3.amazonaws.com/img.rihhi.com/code/design" %>
+
+		<%= javascript_include_tag 'prototype', 'effects', 'builder', 'scriptaculous', 'lightbox', 'dragdrop', 'controls', 'jquery', 'jcarousellite',   :cache => true %>
+        <script type="text/javascript">
+            <!--
+            jQuery.noConflict();
+            jQuery(function(){
+                jQuery(".anyClass").jCarouselLite({
+                    btnNext: ".next",
+                    btnPrev: ".prev"
+                });
+            });
+            //-->
+        </script>
+    </head>
+	
+	
+    <body>
+        <div id="the_feedback" OnClick="$('the_feedback_box').appear(); return false;">
+        </div>
+        <div id="the_feedback_box" style="display:none">
+            <div id="show_feedbackform" >
+                <%= render :partial => 'shared/feedbackform' %>
+            </div>
+        </div>
+        <div id="innerbody">
+            <div class="core">
+                <div id="row1">
+                    <div class="left">
+                    	<% if @cart %>
+                        <%= link_to(t('views.layouts.application.s2') + ": <span class='text_bold'>" + @cart.cart_items.count.to_s + " " + t('views.layouts.application.s3') + "</span>", cart_path(@cart)) %>
+                        <% end %>
+                    </div>
+                   
+                    <div class="right">
+                        <% if logged_in? -%>
+                        <%= t('views.layouts.application.s4') %> <span class="text_bold"><%= link_to self.current_user.login, profile_path %>:  <%= link_to t('views.layouts.application.s7'), profile_path %> | <%= link_to_unless_current t('views.layouts.application.s5'), session_path, :method => :delete %></span>
+                        <% else -%>
+                        <span class="text_bold"><%= link_to_unless_current t('views.layouts.application.s6'), new_session_path %> | <%= link_to t('views.layouts.application.s8'), new_user_path %></span>
+                        <% end -%>
+						
+                    </div>
+                </div>
+                <div id="row2">
+                    <!-- The rihi logo div--><!-- the buy div, sell div, community div etc.-->
+                    <div class="topmenu">
+                        <%= link_to("" , { :controller => "site", :action => "index" }, :class => "topmenu_logo") %>
+                        	<div class="topmenu_topdivs">
+                            	<%= link_to I18n.t('views.layouts.application.s9'), overview_path() %> 
+                        	</div>
+						
+                        	<div class="topmenu_topdivs">
+                        		<% if logged_in?%>
+									<% if self.current_user.is_seller?%>
+                           				<%= link_to I18n.t('views.layouts.application.s10'),  new_seller_listing_path(self.current_user.seller.id) %>
+									<% else %>
+									<%= link_to I18n.t('views.layouts.application.s10'),  new_seller_path() %>	
+										
+                        			<% end %>
+								<% else %>
+									<%= link_to I18n.t('views.layouts.application.s10'),  new_user_path() %>
+								<% end %>
+						</div>
+						<% if @g_events_enabled == 1 %>
+                        	<div class="topmenu_topdivs">
+                            	<%= link_to I18n.t('views.layouts.application.s11'), events_path() %>
+						<% else %>
+							<div class="topmenu_topdivs">
+						<% end %>
+						</div>
+						<% if @g_tickets_enabled == 1 %>
+                        	<div class="topmenu_topdivs">
+                        		<%= link_to I18n.t('views.layouts.application.s12'), tickets_path() %>                            
+                        <% else %>
+							<div class="topmenu_topdivs">
+                        <% end %>
+						</div>
+						<% if @g_tickets_enabled == 1 %>
+                        	<div class="topmenu_topdivs">
+                            	<a href="community"><%= I18n.t('views.layouts.application.s13') %></a>
+                        <% else %>
+							<div class="topmenu_topdivs">
+						<% end %>
+						</div>                
+                         <div class="topmenu_topdivs">                     
+                        </div>  
+						<!-- Language selection -->
+						<div class="topmenu_topdivs right" style="padding-left: 20px; width: 171px;">
+	                        <div class="right" style="width: 50px; margin-top: 5px;">
+	                            <%= image_tag("http://s3.amazonaws.com/img.rihhi.com/system/flags/" + (session[:locale] || "en")  + ".png", :size => "16x11" ) %>
+	                        </div>
+							<div class="right">
+	                            <% form_tag "", :method => :get, :class => "locale" do %>
+								
+	                            <%= select_tag "locale", options_for_select(LANGUAGES, I18n.locale.to_s), :onchange => "this.form.submit()" %>
+	                            <%= submit_tag "submit" %>
+	                            <%= javascript_tag "$$('.locale input').each(Element.hide)" %>
+	                            <% end %>
+	                        </div>								
+						</div>
+						<!-- Second level -->
+                        <div class="left" id="breadcrumb">
+						<!-- Breadcrumb -->
+						   <div class="text_darkgrey left" style="width: 400px; padding-left: 10px;">
+						   	<p class="left" style="margin-top: 3px; margin-bottom: 0px;">
+                   				> <%= link_to t('views.layouts.application.s14'), site_path()%>  
+								<% if defined? @l1_link %>
+								> <a href="<%= @l1_link%>"><%= @l1_name %></a>
+									<% if defined? @l2_link %>
+									 > <a href="<%= @l2_link%>"><%= @l2_name %></a>
+									<% end %>
+									<% if defined? @l3_link %>
+									 > <a href="<%= @l3_link%>"><%= @l3_name %></a>
+									<% end %>
+									<% if defined? @l4_link %>
+									 > <a href="<%= @l4_link%>"><%= @l4_name %></a>
+									<% end %>
+									<% if defined? @l5_link %>
+									 > <a href="<%= @l5_link%>"><%= @l5_name %></a>
+									<% end %>
+								<% end %> 								 
+							</p>
+                			</div>
+							<div class="left" style="width: 235px; height: 20px; padding-top: 2px;">
+							
+							</div>
+						<!-- Search -->	
+							<div class="left" style="margin-top: -2px;">
+	                            <% form_tag search_path, :method => 'get' do %>							
+	                            <%= text_field_tag :asearch, params[:asearch] || t('views.layouts.application.s15') %>							
+									<div id="autocomplete_search_choices" name="autocomplete_search_choices" class="autocomplete">
+						
+									</div>
+								   <script>new Ajax.Autocompleter("asearch", "autocomplete_search_choices", "/autocomplete_search", {
+										minChars: 2,
+										frequency: 0.1,
+										});</script>
+								 </div>
+								 <!-- onblur="if(this.value=='') this.value='Search...';" onfocus="if(this.value=='Search...') this.value='';" />-->
+							<div class="left" style="padding-left: 5px; padding-right: 5px;">	   
+                            	<input type="submit" value=<%= t('views.layouts.application.s16')%> class="smallbutton" />
+                            	<% end %>
+                        	</div>						
+                        </div>
+                     
+                    </div>
+                </div>
+             
+                <div class="view">
+                    <% if flash[:notice_good] -%>
+                    <div id="notice_good">
+                        <%= flash[:notice_good] %>
+                    </div>
+                    <% end -%>
+                    <% if flash[:notice_bad] -%>
+                    <div id="notice_bad">
+                        <%= flash[:notice_bad] %>
+                    </div>
+                    <% end -%>
+                    <% if flash[:notice] -%>
+                    <div id="notice">
+                        <%= flash[:notice] %>
+                    </div>
+                    <% end -%>
+                    <%= @content_for_layout %>
+                </div>
+            </div>
+        </div>
+        <!-- #closing innerbody-->
+        <div id="bottom">
+            <div class="left" style="margin-left: 25%;">
+                <ul style="list-style: none;">
+                    <li>
+                        <%= link_to(t('views.layouts.application.s14'), { :controller => "site", :action => "index" }) %>
+                    </li>
+                    <li>
+                        <%= link_to(t('views.layouts.application.s17'), { :controller => "site", :action => "about" }) %>
+                    </li>
+                    <li>
+                        <%= link_to(t('views.layouts.application.s18'), { :controller => "site", :action => "help" }) %>
+                    </li>
+					 <li>
+                        <%= link_to(t('views.layouts.application.s19'), { :controller => "site", :action => "imprint" }) %>
+                    </li>
+                </ul>
+            </div>
+			    <% if logged_in? -%>
+            <div class="left" style="margin-left: 20px;">
+                <% @parameter = params %>
+                <ul style="list-style: none;">
+                    <li>
+                        System Status box:
+                    </li>
+                    <% @parameter.each do |p, o| %>
+                    <li>
+                        <%= p %>: <%= o %>
+                    </li>
+                    <% end %>
+					
+               	   <li> Cart enabled: <%= @cart.id %> </li>
+				   <li>Captcha enabled: <%= @captcha_enabled %> </li>
+				   <li> Bids enabled: <%= @g_bids_enabled %> </li>
+				   <li> Events enabled: <%= @g_events_enabled %> </li>
+				   <li> Tickets enabled: <%= @g_tickets_enabled %> </li>
+				   <li> Mails enabled: <%= @mails_activated %> </li>
+				  </ul>
+            </div>
+			<% end %>
+            <div class="left" style="margin-left: 20px;">
+                <ul style="list-style: none;">
+                    <% if logged_in? -%>
+                    <li>
+                        The users id is
+                    </li>
+                    <li>
+                        <%= self.current_user.id %>
+                    </li>
+                    <% else %>
+                    <li>
+                        No user logged in.
+                    </li>
+                    <% end %>
+					<li>Language (Session): <%= session[:locale] || "not set" %></li>
+					<li>Language (I18n): <%= I18n.locale || "not set" %></li>
+					
+					
+                </ul>
+            </div>
+        </div>
+    </body>
+</html>

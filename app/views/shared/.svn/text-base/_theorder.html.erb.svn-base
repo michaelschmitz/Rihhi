@@ -1,0 +1,11 @@
+----------------------------------------------------
+<%= t("views.shared.theorder.s2")%>:
+<% @deliverables.each do |d|  %>
+<%= d.amount %>x <%= d.title %>    (<%= t(d.size) %>/<%= t(d.color) %>)				<%= d.price %> EUR
+<% end %>
+
+<%= t("views.shared.theorder.s3")%>:  <%= @order.price_of_all_deliverables %> EUR
+<%= t("views.shared.theorder.s4")%>:     <%= @order.cost_of_shipping %> EUR
+
+<%= t("views.shared.theorder.s5")%>:        <%= @order.total_cost_of_order %> EUR
+----------------------------------------------------

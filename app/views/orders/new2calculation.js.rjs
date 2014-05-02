@@ -1,0 +1,1 @@
+page.replace_html("show_cost", :partial => "new2calculation", :object => @order)

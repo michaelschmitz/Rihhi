@@ -1,0 +1,153 @@
+<% if @tickets.length == 0%>
+<p style="text-align: left;">No tickets registered.</p>
+<% else %>
+<div class="left" style="width: 750px;">
+    <% count = 0 %>
+    <table style="width: 750px; border-spacing: 0px">
+        <tr style="height: 30px; background-color: #bbb;">
+            <th style="width: 130px;">
+            </th>
+            <th style="width: 200px;" class="align_left">
+                <%= t("views.tickets.old_tickets.event")%>
+            </th>
+            <th style="width: 150px;" class="align_left">
+                <%= t("views.tickets.old_tickets.ticket")%>
+            </th>
+            <th style="width: 150px;" class="align_left">
+                <%= t("views.tickets.old_tickets.status")%>
+            </th>
+            <th style="width: 150px;" class="align_left" colspan="2">
+                <%= t("views.tickets.old_tickets.price")%>
+            </th>
+        </tr>
+        <% for ticket in @tickets %>
+        <% @ticket = ticket %>
+        <% count += 1 %>
+
+        <tr class="<%= cycle("tr1", "tr2") -%>" style="height: 60px; width: 750px;" onClick="window.location.href = '<%= url_for :controller => 'tickets', :action => 'show', :id => ticket %>'">
+            <td style="width: 130px;">
+                <% if ticket.sc_or_nsc == "PC - Player character" %>
+                <div class="info left">
+                    <%= image_tag("icon_pc.png", :size=> "40x40", :alt => "Player Character ticket") %>
+                    <span>
+                        <ul style="list-style: none;">
+                            <li>
+                                <%= t("views.tickets.old_tickets.this_is_a_pc")%>.
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+                <% else %>
+                <div class="info left">
+                    <%= image_tag("icon_nsc.png", :size=> "40x40") %>
+                    <span>
+                        <ul style="list-style: none;">
+                            <li>
+                                <%= t("views.tickets.old_tickets.this_is_a_npc")%>.
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+                <% end %>
+                <% if ticket.ticket_available_on_rihhi? %>
+                <div class="info left">
+                    <%= image_tag("icon_rihhi.png", :size=> "40x40") %>
+                    <span>
+                        <ul style="list-style: none;">
+                            <li>
+                                <%= t("views.tickets.old_tickets.on_rihhi")%>.
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+                <% else %>
+                <div class="info left">
+                    <%= image_tag("icon_orga.png", :size=> "40x40") %>
+                    <span>
+                        <ul style="list-style: none;">
+                            <li>
+                                <%= t("views.tickets.old_tickets.off_rihhi")%>.
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+                <% end %>
+                <% if ticket.has_deal? %>
+                <div class="info left">
+                    <%= image_tag("icon_deal.png", :size=> "40x40") %>
+                    <span>
+                        <ul style="list-style: none;">
+                            <li>
+                                <%= t("views.tickets.old_tickets.ticket_deal")%>.
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+                <% end %>
+            </td>
+            <td style="width: 180px;" class=" align_left">
+                <span class="bold"><%=h(truncate(ticket.event.title, :length=> 30)) %></span>
+                <br>
+                <%= h eventdate(@ticket.event.startdate , @ticket.event.enddate) %>
+            </td>
+            <td style="width: 230px;" class="align_left">
+                <span class="bold"><%=h truncate(ticket.name, :length => 30) %>
+                </span>
+                <br>
+				 <%= h eventdate(ticket.valid_from , ticket.valid_until) %>
+                
+            </td>
+            <td style="width: 100px;" class="align_left">
+                (<%=(ticket.nr_of_tickets_available_online || 0) - (ticket.nr_of_tickets_sold || 0) %> / <%= (ticket.nr_of_tickets_available_online || 0 ) %> <%= t("views.tickets.old_tickets.tickets_left")%>)
+                <br>
+            </td>
+            <% #Check for todays date. Then add all relevant prices & dates to two arrays. %>
+            <% @relevant_prices = [] %>
+            <% @relevant_deadlines = [] %>
+            <% if ticket.price1? and ticket.price1_deadline >= Date.today %>
+            <% @relevant_prices << ticket.price1 %>
+            <% @relevant_deadlines << ticket.price1_deadline %>
+            <% end %>
+            <% if ticket.price2? and ticket.price2_deadline >= Date.today %>
+            <% @relevant_prices << ticket.price2 %>
+            <% @relevant_deadlines << ticket.price2_deadline %>
+            <% end %>
+            <% if ticket.price3? and ticket.price3_deadline >= Date.today %>
+            <% @relevant_prices << ticket.price3 %>
+            <% @relevant_deadlines << ticket.price3_deadline %>
+            <% end %>
+            <% if ticket.price4? and ticket.price4_deadline >= Date.today %>
+            <% @relevant_prices << ticket.price4 %>
+            <% @relevant_deadlines << ticket.price4_deadline %>
+            <% end %>
+            <% if ticket.price5? and ticket.price5_deadline >= Date.today %>
+            <% @relevant_prices << ticket.price5 %>
+            <% @relevant_deadlines << ticket.price5_deadline %>
+            <% end %>
+            <% #Check for todays date. Then add all relevant prices & dates to two arrays. %>
+            <td style="width: 80px;">
+                <h2 class="" style="background-color: ;"><%=h @relevant_prices[0] %>,- € </h2>
+            </td>
+        </tr>
+        <tr>
+            <td style="border-bottom: 1px inset #9A9B9B; padding: 0 0 0 0;" colspan="6">
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6" id="<%= "t" + count.to_s %>" style="display:none;">
+                <div style="float:left; position: absolute; margin-left: -50px; margin-top: -1 50px; z-index: 50000; border: none;">
+                    <Div>
+                        <p>
+                            ........
+                        </p>
+                    </Div>
+                </div>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+    <div class="left" style="width: 100%; text-align: center;">
+        <%= will_paginate(@tickets,:param_name => 'tickets_page') %>
+    </div>
+</div>
+<% end %>

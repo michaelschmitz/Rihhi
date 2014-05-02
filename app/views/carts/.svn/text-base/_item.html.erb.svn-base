@@ -1,0 +1,6 @@
+<%= link_to item.listing.title, listing_path(item.listing) %>
+<%= pluralize(item.amount, "pc", "pcs") %>,
+<%= item.listing.title %>
+
+
+(<%= link_to 'Remove', remove_cart_path(item.listing) %>)

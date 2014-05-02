@@ -1,0 +1,234 @@
+<% @onpage = 3 %>
+<%= render :partial => "newlisting", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <h2 class="text_green"><%= t('views.listings.specifics.s1') %></h2>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+        <div style="text-align: right; float: right;">
+            <%= image_tag("important.png") %>= <%= t('views.listings.specifics.s2') %>
+        </div>
+        <% form_for(@listing, :url => shipping_url(@listing.seller_id, @listing.id), :html => { :method => :put }) do |f| %>
+		<%= error_messages_for(:sizes) %>
+        <table class="align_left">
+            <tr>
+                <td class="bold" colspan="2">
+                    <%= t('views.listings.specifics.s3') %><%= image_tag("important.png") %> 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td style="width: 130px;">
+                                <%=check_box("sizes", "xxs", {}, "1", "0") %><%= I18n.t('size.xxs') %>
+                            </td>
+                            <td style="width: 130px;">
+                                <%=check_box("sizes", "xs", {}, "1", "0") %><%= I18n.t('size.xs') %>
+                            </td>
+                            <td style="width: 150px;">
+                                <%=check_box("sizes", "s", {}, "1", "0") %><%= I18n.t('size.s') %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%=check_box("sizes", "m", {}, "1", "0") %><%= I18n.t('size.m') %>
+                            </td>
+                            <td>
+                                <%=check_box("sizes", "l", {}, "1", "0") %><%= I18n.t('size.l') %>
+                            </td>
+                            <td>
+                                <%=check_box("sizes", "xl", {}, "1", "0") %><%= I18n.t('size.xl') %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%=check_box("sizes", "xxl", {}, "1", "0") %><%= I18n.t('size.xxl') %>
+                            </td>
+                            <td>
+                                <%=check_box("sizes", "xxxl", {}, "1", "0") %><%= I18n.t('size.xxxl') %>
+                            </td>
+							    <td>
+                                <%=check_box("sizes", "all", {}, "1", "0") %><%= I18n.t('size.all') %>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" colspan="2">
+                    <%= t('views.listings.specifics.s4') %><%= image_tag("important.png") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td style="width: 130px;">
+                                <%=check_box("colors", "black", {}, "1", "0") %><%= I18n.t('color.black') %>
+                            </td>
+                            <td style="width: 130px;">
+                                <%=check_box("colors", "brown", {}, "1", "0") %><%= I18n.t('color.brown') %>
+                            </td>
+                            <td style="width: 150px;">
+                                <%=check_box("colors", "white", {}, "1", "0") %><%= I18n.t('color.white') %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%=check_box("colors", "gold", {}, "1", "0") %><%= I18n.t('color.gold') %>
+                            </td>
+                            <td>
+                                <%=check_box("colors", "yellow", {}, "1", "0") %><%= I18n.t('color.yellow') %>
+                            </td>
+                            <td>
+                                <%=check_box("colors", "gray", {}, "1", "0") %><%= I18n.t('color.gray') %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%=check_box("colors", "silver", {}, "1", "0") %><%= I18n.t('color.silver') %>
+                            </td>
+                            <td>
+                                <%=check_box("colors", "maroon", {}, "1", "0") %><%= I18n.t('color.maroon') %>
+                            </td>
+                            <td>
+                                <%=check_box("colors", "red", {}, "1", "0") %><%= I18n.t('color.red') %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%=check_box("colors", "purple", {}, "1", "0") %><%= I18n.t('color.purple') %>
+                            </td>
+                            <td>
+                                <%=check_box("colors", "fuchsia", {}, "1", "0") %><%= I18n.t('color.fuchsia') %>
+                            </td>
+                            <td>
+                                <%=check_box("colors", "green", {}, "1", "0") %><%= I18n.t('color.green') %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%=check_box("colors", "lime", {}, "1", "0") %><%= I18n.t('color.lime') %>
+                            </td>
+                            <td>
+                                <%=check_box("colors", "olive", {}, "1", "0") %><%= I18n.t('color.olive') %>
+                            </td>
+                            <td>
+                                <%=check_box("colors", "navy", {}, "1", "0") %><%= I18n.t('color.navy') %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <%=check_box("colors", "blue", {}, "1", "0") %><%= I18n.t('color.blue') %>
+                            </td>
+                            <td>
+                                <%=check_box("colors", "teal", {}, "1", "0") %><%= I18n.t('color.teal') %>
+                            </td>
+                            <td>
+                                <%=check_box("colors", "other", {}, "1", "0") %><%= I18n.t('color.other_ask_seller') %>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+			</table>
+			<table class="align_left">
+            <tr>
+                <td class="bold" colspan="2">
+                    <%= t('views.listings.specifics.s5') %>: <%= error_message_on(:listing, :item_length) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.text_field :item_length, :size => 35, :tabindex => 5, :value => @listing.item_length || "" %>
+                </td>
+                <td>
+                    cm
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" colspan="2">
+                    <%= t('views.listings.specifics.s6') %>: <%= error_message_on(:listing, :item_width) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.text_field :item_width, :size => 35, :tabindex => 6 , :value => @listing.item_width || "" %>
+                </td>
+                <td>
+                    cm
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" colspan="2">
+                    <%= t('views.listings.specifics.s7') %>: <%= error_message_on(:listing, :item_height) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.text_field :item_height, :size => 35, :tabindex => 7, :value => @listing.item_height || "" %>
+                </td>
+                <td>
+                    cm
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" colspan="2">
+                    <%= t('views.listings.specifics.s8') %>: <%= error_message_on(:listing, :item_weight) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.text_field :item_weight, :size => 35, :tabindex => 8 , :value => @listing.item_weight|| "" %>
+                </td>
+                <td>
+                    kg
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    &nbsp;
+                </td>
+            </tr>
+        </table>
+        <table style="width: 100%" class="align_left">
+            <tr>
+                <td style="width: 200px;" class="bold">
+                    <%= t('views.listings.specifics.s9') %>:
+                </td>
+                <td class="bold">
+                    <%= t('views.listings.specifics.s10') %>:
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.radio_button :safe_for_larp, 1, :checked => true, :tabindex => 1 %><%= t('views.listings.specifics.s11') %> <%= f.radio_button :safe_for_larp, 0, :tabindex => 2 %><%= t('views.listings.specifics.s12') %>
+                </td>
+                <td>
+                    <%= f.radio_button :safe_for_reenactment, 1, :tabindex => 3 %><%= t('views.listings.specifics.s11') %> <%= f.radio_button :safe_for_reenactment, 0, :checked => true, :tabindex => 4 %><%= t('views.listings.specifics.s12') %>
+                </td>
+            </tr>
+        </table>
+        <!-- The description & support column-->
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+    <div class="left" style="clear: left; margin-top: 20px;">
+		<%= link_to t('views.listings.specifics.s13'), categories_path() %>
+	</div>
+	<div class="right" style="clear: right; margin-top: 20px;">
+		<%= f.submit t('views.listings.specifics.s14'), :class => "submit_b" %>
+    </div>
+	<% end %>
+</div>

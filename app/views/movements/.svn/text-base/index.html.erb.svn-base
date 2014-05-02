@@ -1,0 +1,64 @@
+<div class="left" style="width: 100%;">
+  <h2 class="text_green" style="margin-bottom: 0px; padding-bottom: 20px;"><%= t('views.movements.index.s1')%></h2>
+
+  <table>
+  	<tr><th style="font-size: smaller; width: 130px;"><%= t('views.movements.index.s2')%></th>
+	    <th style="font-size: smaller;"><%= t('views.movements.index.s3')%></th>
+		<th style="font-size: smaller; padding: 0px 0px 0px 50px;"><%= t('views.movements.index.s4')%></th></tr>
+	<tr><td style="text-align: center;"><h2 style="text-align: center;"><%=  number_with_precision(@seller.turnover, :precision => 2) %> EUR</h2></td>
+	
+	<% if @seller.account_balance <= 0 %>
+	    <td><h2 class="text_green" style="text-align: center;"><%=  number_with_precision(@seller.account_balance, :precision => 2) %> EUR</h2></td>
+		<% else %>
+		<td><h2 style="text-align: center;"><%=  number_with_precision(@seller.account_balance, :precision => 2) %> EUR</h2></td>
+		<% end %>
+		<td><h2 style="text-align: center;  padding: 0px 0px 0px 50px;"><%=  number_with_precision(@seller.last_account_balance || 0.00 , :precision => 2) %> EUR</h2></td></tr>
+		
+  </table>
+ <hr>
+<% if !@movements.empty? %>
+  <table style="text-align: left; width: 100%;">
+  <tr class="bold" style="height: 30px; vertical-align: center;">
+    <th style="padding: 0px 0px 0px 5px;"><%= t('views.movements.index.s5')%></th>   
+    <th style="padding: 0px 0px 0px 5px;"><%= t('views.movements.index.s6')%></th>   
+    <th style="padding: 0px 5px 0px 0px; text-align: right;"><%= t('views.movements.index.s7')%></th>   
+    <th style="padding: 0px 0px 0px 5px;"><%= t('views.movements.index.s8')%></th>
+	<% if self.current_user.userpower == 6 %>
+    <th style="padding: 0px 0px 0px 5px;"><%= t('views.movements.index.s9')%></th>
+    <th style="padding: 0px 0px 0px 5px;"><%= t('views.movements.index.s10')%></th>
+	<% end %>
+  </tr>
+	<% @movements.each do |movement| %>
+	 <tr class="<%= cycle("tr1_s", "tr2_s") -%>" >
+	 	 <td style="width: 50px; padding: 0px 0px 0px 5px;"><%=h movement.id %></td>
+	 	 <td style="width: 140px; padding: 0px 0px 0px 5px;"><%=h movement.created_at.strftime('%d ' '%B' ' %Y' ' - %H:%M') %></td>     
+	     
+		 <% if movement.code == 1 or movement.code == 5 %>
+		 <td style="width: 100px; padding: 0px 5px 0px 0px; text-align: right; color: green;">
+		 <% elsif movement.code == 2%>
+		 <td style="width: 100px; padding: 0px 5px 0px 0px; text-align: right; color: red;">
+		 <% elsif movement.code == 3%>
+		 <td style="width: 100px; padding: 0px 5px 0px 0px; text-align: right; color: red;">
+		 <% else %>
+		 <td style="width: 100px; padding: 0px 5px 0px 0px; text-align: right;">
+		 <% end %>
+		 <%=h number_to_currency(movement.value, :unit => "") %> EUR</td>
+		 
+	     <td style="width: 580px; padding: 0px 0px 0px 5px;"><%= movement.reason %></td>
+		 <% if self.current_user.userpower == 6 %>
+	     <td style="width: 90px; padding: 0px 0px 0px 5px;"><%=h movement.email %></td>
+	     <td style="width: 90px; padding: 0px 0px 0px 5px;"><%=h movement.dispute %></td>
+		 <% end %>
+	  </tr>
+	<% end %>
+		  </table>
+	<% else %>
+	<p><%= t('views.movements.index.s11')%></p>
+<% end %>
+
+<br />
+<%= will_paginate @movements %>
+</div>
+<div>
+	<%= render :partial => "shared/links" %>
+</div>

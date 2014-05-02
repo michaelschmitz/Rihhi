@@ -1,0 +1,41 @@
+<h2 class="text_green">My requests</h2>
+
+<% if @requests.length == 0 %>
+	<p style="text-align: center; width: 100%; margin-top: 50px; margin-bottom: 50px;">You have no own requests yet.</p>
+<% else %> 
+
+<table style="width: 900px;">
+  <tr>
+    <th style="width: 250px;">Title</th>
+	<th style="width: 70px;">Quantity</th>
+    <th style="width: 100px;">Ideal price</th>
+    <th style="width: 130px;">Deadline</th>
+	<th style="width: 130px;">Expiry date</th>
+	<th style="width: 70px;">Bids</th>
+	<th colspan="3" style="width: 150px;"></th>
+
+  </tr>
+
+<% for r in @requests %>
+  <tr style="height: 30px;">
+    <td style="width: 200px;"><%=h r.title %></td>
+	<td><%=h r.quantity %></td>
+    <td><%=h r.ideal_price %> €</td>
+    <td><%=h r.deadline %></td>
+	<td><%=h r.expiry_date %></td>
+    <td><%=h r.bids.length %></td>
+  
+    <td><%= link_to 'Show', r %></td>
+    <td><%= link_to 'Edit', edit_request_path(r) %></td>
+    <td><%= link_to 'Close', r, :confirm => 'Are you sure?', :method => :delete %></td>
+	                        <!-- :url => {:controller => "requests", :action => "close"} -->
+
+  </tr>
+ 
+<% end %>
+</table>
+<% end %>
+<br />
+
+<%= link_to 'New request', new_request_path %> | 
+<%= link_to 'Back to My Account', profile_path %>

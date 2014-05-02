@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/rihhi/larp/!svn/ver/236/rihhi/app/views/messages
+END
+_inbox.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/rihhi/larp/!svn/ver/187/rihhi/app/views/messages/_inbox.html.erb
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/rihhi/larp/!svn/ver/187/rihhi/app/views/messages/new.html.erb
+END
+sentmail.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/rihhi/larp/!svn/ver/187/rihhi/app/views/messages/sentmail.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/rihhi/larp/!svn/ver/236/rihhi/app/views/messages/show.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/rihhi/larp/!svn/ver/26/rihhi/app/views/messages/edit.html.erb
+END
+_sentmail.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/rihhi/larp/!svn/ver/187/rihhi/app/views/messages/_sentmail.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/rihhi/larp/!svn/ver/187/rihhi/app/views/messages/index.html.erb
+END

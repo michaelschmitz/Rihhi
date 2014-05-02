@@ -1,0 +1,40 @@
+<table style="text-align: left;">
+        <tr>
+            <td colspan="2">
+                <%= t("views.orders.bank_transfer.s1") %>
+            </td>
+        </tr>
+		   <tr>
+            <td colspan="2">
+                <br> 
+            </td>
+        </tr>
+        <tr>
+        	<td style="width: 120px;" class="bold"><%= t("views.orders.bank_transfer.s2") %>:</td><td>  <%= @this_order.seller.shop.bank_account_holder %></td>
+			  </tr>
+        <tr>
+				<td class="bold"><%= t("views.orders.bank_transfer.s3") %>:</td><td><%= @this_order.seller.shop.bank_bic %></td>
+			  </tr>
+        <tr>
+        		<td class="bold"><%= t("views.orders.bank_transfer.s4") %>:</td><td><%= @this_order.seller.shop.bank_iban %></td>
+			  </tr>
+        <tr>
+        		<td class="bold"><%= t("views.orders.bank_transfer.s5") %>:</td><td>Rihhi-<%= @this_order.id %></td>
+			  </tr>
+			  	   <tr>
+            <td colspan="2">
+                <br> 
+            </td>
+        </tr>
+       
+        <tr>
+            <td colspan="2">
+                <%= t("views.orders.bank_transfer.s6") %><%= @this_order.created_at.strftime('%A, %d. %B,  %Y')%>. 
+            </td>
+			</tr>
+        <tr>
+			<td colspan="2">
+				 <%= t("views.orders.bank_transfer.s7") %>
+			</td>
+        </tr>
+    </table>

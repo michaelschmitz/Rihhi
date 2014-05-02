@@ -1,0 +1,174 @@
+<h1>Listing ticketorders</h1>
+
+<table>
+  <tr>
+    <th>Ticket</th>
+    <th>User</th>
+    <th>Email</th>
+    <th>Nr of tickets</th>
+    <th>T1 first name</th>
+    <th>T1 last name</th>
+    <th>T1 age</th>
+    <th>T1 accomodation</th>
+    <th>T1 remark</th>
+    <th>T1 vegetarian</th>
+    <th>T1 sani</th>
+    <th>T2 first name</th>
+    <th>T2 last name</th>
+    <th>T2 age</th>
+    <th>T2 accomodation</th>
+    <th>T2 remark</th>
+    <th>T2 vegetarian</th>
+    <th>T2 sani</th>
+    <th>T3 first name</th>
+    <th>T3 last name</th>
+    <th>T3 age</th>
+    <th>T3 accomodation</th>
+    <th>T3 remark</th>
+    <th>T3 vegetarian</th>
+    <th>T3 sani</th>
+    <th>T4 first name</th>
+    <th>T4 last name</th>
+    <th>T4 age</th>
+    <th>T4 accomodation</th>
+    <th>T4 remark</th>
+    <th>T4 vegetarian</th>
+    <th>T4 sani</th>
+    <th>T5 first name</th>
+    <th>T5 last name</th>
+    <th>T5 age</th>
+    <th>T5 accomodation</th>
+    <th>T5 remark</th>
+    <th>T5 vegetarian</th>
+    <th>T5 sani</th>
+    <th>T6 first name</th>
+    <th>T6 last name</th>
+    <th>T6 age</th>
+    <th>T6 accomodation</th>
+    <th>T6 remark</th>
+    <th>T6 vegetarian</th>
+    <th>T6 sani</th>
+    <th>T7 first name</th>
+    <th>T7 last name</th>
+    <th>T7 age</th>
+    <th>T7 accomodation</th>
+    <th>T7 remark</th>
+    <th>T7 vegetarian</th>
+    <th>T7 sani</th>
+    <th>T8 first name</th>
+    <th>T8 last name</th>
+    <th>T8 age</th>
+    <th>T8 accomodation</th>
+    <th>T8 remark</th>
+    <th>T8 vegetarian</th>
+    <th>T8 sani</th>
+    <th>T9 first name</th>
+    <th>T9 last name</th>
+    <th>T9 age</th>
+    <th>T9 accomodation</th>
+    <th>T9 remark</th>
+    <th>T9 vegetarian</th>
+    <th>T9 sani</th>
+    <th>T10 first name</th>
+    <th>T10 last name</th>
+    <th>T10 age</th>
+    <th>T10 accomodation</th>
+    <th>T10 remark</th>
+    <th>T10 vegetarian</th>
+    <th>T10 sani</th>
+    <th>Arrival on</th>
+    <th>Terms and conditions</th>
+    <th>Additional remarks</th>
+    <th>Status</th>
+  </tr>
+
+<% @ticketorders.each do |ticketorder| %>
+  <tr>
+    <td><%=h ticketorder.ticket_id %></td>
+    <td><%=h ticketorder.user_id %></td>
+    <td><%=h ticketorder.email %></td>
+    <td><%=h ticketorder.nr_of_tickets %></td>
+    <td><%=h ticketorder.t1_first_name %></td>
+    <td><%=h ticketorder.t1_last_name %></td>
+    <td><%=h ticketorder.t1_age %></td>
+    <td><%=h ticketorder.t1_accomodation %></td>
+    <td><%=h ticketorder.t1_remark %></td>
+    <td><%=h ticketorder.t1_vegetarian %></td>
+    <td><%=h ticketorder.t1_sani %></td>
+    <td><%=h ticketorder.t2_first_name %></td>
+    <td><%=h ticketorder.t2_last_name %></td>
+    <td><%=h ticketorder.t2_age %></td>
+    <td><%=h ticketorder.t2_accomodation %></td>
+    <td><%=h ticketorder.t2_remark %></td>
+    <td><%=h ticketorder.t2_vegetarian %></td>
+    <td><%=h ticketorder.t2_sani %></td>
+    <td><%=h ticketorder.t3_first_name %></td>
+    <td><%=h ticketorder.t3_last_name %></td>
+    <td><%=h ticketorder.t3_age %></td>
+    <td><%=h ticketorder.t3_accomodation %></td>
+    <td><%=h ticketorder.t3_remark %></td>
+    <td><%=h ticketorder.t3_vegetarian %></td>
+    <td><%=h ticketorder.t3_sani %></td>
+    <td><%=h ticketorder.t4_first_name %></td>
+    <td><%=h ticketorder.t4_last_name %></td>
+    <td><%=h ticketorder.t4_age %></td>
+    <td><%=h ticketorder.t4_accomodation %></td>
+    <td><%=h ticketorder.t4_remark %></td>
+    <td><%=h ticketorder.t4_vegetarian %></td>
+    <td><%=h ticketorder.t4_sani %></td>
+    <td><%=h ticketorder.t5_first_name %></td>
+    <td><%=h ticketorder.t5_last_name %></td>
+    <td><%=h ticketorder.t5_age %></td>
+    <td><%=h ticketorder.t5_accomodation %></td>
+    <td><%=h ticketorder.t5_remark %></td>
+    <td><%=h ticketorder.t5_vegetarian %></td>
+    <td><%=h ticketorder.t5_sani %></td>
+    <td><%=h ticketorder.t6_first_name %></td>
+    <td><%=h ticketorder.t6_last_name %></td>
+    <td><%=h ticketorder.t6_age %></td>
+    <td><%=h ticketorder.t6_accomodation %></td>
+    <td><%=h ticketorder.t6_remark %></td>
+    <td><%=h ticketorder.t6_vegetarian %></td>
+    <td><%=h ticketorder.t6_sani %></td>
+    <td><%=h ticketorder.t7_first_name %></td>
+    <td><%=h ticketorder.t7_last_name %></td>
+    <td><%=h ticketorder.t7_age %></td>
+    <td><%=h ticketorder.t7_accomodation %></td>
+    <td><%=h ticketorder.t7_remark %></td>
+    <td><%=h ticketorder.t7_vegetarian %></td>
+    <td><%=h ticketorder.t7_sani %></td>
+    <td><%=h ticketorder.t8_first_name %></td>
+    <td><%=h ticketorder.t8_last_name %></td>
+    <td><%=h ticketorder.t8_age %></td>
+    <td><%=h ticketorder.t8_accomodation %></td>
+    <td><%=h ticketorder.t8_remark %></td>
+    <td><%=h ticketorder.t8_vegetarian %></td>
+    <td><%=h ticketorder.t8_sani %></td>
+    <td><%=h ticketorder.t9_first_name %></td>
+    <td><%=h ticketorder.t9_last_name %></td>
+    <td><%=h ticketorder.t9_age %></td>
+    <td><%=h ticketorder.t9_accomodation %></td>
+    <td><%=h ticketorder.t9_remark %></td>
+    <td><%=h ticketorder.t9_vegetarian %></td>
+    <td><%=h ticketorder.t9_sani %></td>
+    <td><%=h ticketorder.t10_first_name %></td>
+    <td><%=h ticketorder.t10_last_name %></td>
+    <td><%=h ticketorder.t10_age %></td>
+    <td><%=h ticketorder.t10_accomodation %></td>
+    <td><%=h ticketorder.t10_remark %></td>
+    <td><%=h ticketorder.t10_vegetarian %></td>
+    <td><%=h ticketorder.t10_sani %></td>
+    <td><%=h ticketorder.arrival_on %></td>
+    <td><%=h ticketorder.terms_and_conditions %></td>
+    <td><%=h ticketorder.additional_remarks %></td>
+    <td><%=h ticketorder.status %></td>
+    <td><%= link_to 'Show', ticketorder %></td>
+    <td><%= link_to 'Edit', edit_ticketorder_path(ticketorder) %></td>
+    <td><%= link_to 'Destroy', ticketorder, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New ticketorder', new_ticketorder_path %>

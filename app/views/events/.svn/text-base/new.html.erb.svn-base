@@ -1,0 +1,152 @@
+<% @onpage = 1 %>
+<%= render :partial => "newevent", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <h2 class="text_green">1 - New event: Title, Date, Location</h2>
+    <ul style="margin-bottom: 10px;">
+        <li>
+            Listing an event is <span class="bold">free</span>.
+        </li>
+        <li>
+            Events can always be edited later.
+        </li>
+    </ul>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+         <% form_for(:event, :url => new_event2_path(@event.id), :html => { :multipart => false }) do |f| %>
+      
+        <div style="text-align: right; float: right;">
+            <%= image_tag("important.png") %> = required field
+        </div>
+	
+        <table class="align_left">
+        	    
+        	<tr>
+                <td colspan="2" class="bold">
+                    Title <%= image_tag("important.png") %><%= error_message_on(:event, :title) %>
+					<div id="autocomplete_choices" name="autocomplete_choices" class="autocomplete">
+					
+					</div>
+					
+                </td>
+            </tr>
+					
+            <tr>
+                <td colspan="2">
+                    <%= f.text_field :title , :size => 70 , :tabindex => 1  %>
+					
+                </td>
+            </tr>
+				<script>new Ajax.Autocompleter("event_title", "autocomplete_choices", "/event_autocomplete_title", {
+					minChars: 2,
+					frequency: 0.1,
+					});</script>
+		<%= set_focus_to_id("listing_title") %>
+		
+            <tr>
+                <td colspan="2" class="bold">
+                    Subtitle 
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <%= f.text_field :subtitle , :size => 70 , :tabindex => 2 %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 260px;">
+                    Startdate 
+                </td>
+                <td class="bold">
+                    Enddate 
+                </td>
+            </tr>
+            <tr>
+                <td style="width: 260px;">
+                    <%= f.date_select :startdate, {}, { :tabindex => "3" } %>
+                </td>
+                <td>
+                    <%= f.date_select :enddate, {}, { :tabindex => "4" } %>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="bold">
+                    Description <%= image_tag("important.png") %><%= error_message_on(:event, :description) %>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <%= f.text_area :description, :cols => 54, :rows => 10, :tabindex => 5 %>
+                </td>
+            </tr>
+        </table>
+        <table class="align_left">
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    Location 
+                </td>
+                <td>
+                    <%= f.text_field :location, :size => 44, :tabindex => 6 %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    Street 
+                </td>
+                <td>
+                    <%= f.text_field :street, :size => 44, :tabindex => 7 %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    Area Code <%= image_tag("important.png") %><%= error_message_on(:event, :area_code) %>
+                </td>
+                <td>
+                    <%= f.text_field :area_code, :size => 44 , :tabindex => 8%>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    City <%= image_tag("important.png") %><%= error_message_on(:event, :city) %>
+                </td>
+                <td>
+                    <%= f.text_field :city, :size => 44 , :tabindex => 9%>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    Region <%= image_tag("important.png") %><%= error_message_on(:event, :region) %>
+                </td>
+                <td>
+                    <%= f.text_field :region, :size => 44 , :tabindex => 10%>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    Country <%= image_tag("important.png") %><%= error_message_on(:event, :country) %>
+                </td>
+                <td>
+                    <%= f.country_select :country, {}, {}, {:tabindex => 11 }%>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="bold">
+                    Location description 
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <%= f.text_area :location_description, :cols => 54, :rows => 4, :tabindex => 12 %>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+    <div class="right" style="clear: both; margin-top: 20px;">
+        <%= f.submit "Click to continue", :class => "submit_b", :tabindex => 13 %>
+    </div>
+    <% end %>
+
+</div>
+<%= set_focus_to_id('event_title') %>

@@ -1,0 +1,57 @@
+<% @onpage = 1 %>
+<%= render :partial => "shared/edit_settings", :object => @onpage %><!-- add edit to newlisting, make a second copy-->
+<div style="width: 750px; float:left;">
+    <% form_for(@shop, :html => { :multipart => true, :method => :put }) do |f| %>
+    <h2 class="text_green"><%= t("views.shops.edit.s1") %></h2>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+              <h3><%= t("views.shops.edit.s3") %>: </h3>
+
+        <table>
+            <tr>
+                <td style="padding-top: 20px;">
+			<% if @shop.avatar? %>
+	    	<span class="img-shadow"><%= image_tag(@shop.avatar.url(:medium)) %></span>
+	    <% else %>
+	        <span class="img-shadow"><%= image_tag("schmied.jpeg", :size => "200x200") %></span>
+	    <% end %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <%= f.file_field :avatar %>
+                </td>
+            </tr>
+        </table>
+		<h3><%= t("views.shops.edit.s2") %> </h3>
+        <table style="width: 100%" class="align_left">
+            <tr>
+                <td colspan="2">
+                    <%= f.text_area :about_my_shop, :cols => "87", :rows => "10", :tabindex => 31 %>
+                </td>
+            </tr>
+        </table>
+  
+
+        <h3><%= t("views.shops.edit.s4") %> </h3>
+        <table style="width: 100%" class="align_left">
+            <tr>
+                <td colspan="2">
+                    <%= f.text_area :shop_tos, :cols => "87", :rows => "10", :tabindex => 31 %>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+    <div style="float: left; clear: none; margin-top: 10px; margin-left: 10px;">
+        <%= link_to t("views.shops.edit.s5"), shop_path(@shop) %>
+    </div>
+    <div style="float: right; clear: none; margin-top: 10px; margin-right: 10px;">
+        <%= f.submit t("views.shops.edit.s6"), :class => "submit_b" %>
+    </div>
+    <% end %>
+</div>
+<!-- end of this view-->
+<%= render :partial => "shared/links" %>

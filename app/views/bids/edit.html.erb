@@ -1,0 +1,58 @@
+<h2 class="text_green">Edit bid</h2>
+
+<% form_for(@bid, :html => { :multipart => true}) do |b| %>
+	<div class="form_top">
+    </div>
+	
+	<div class="form_area background_grey">
+		<div style="text-align: right; float: right;"><%= image_tag("important.png")%>  = required field</div>
+	
+		<table class="align_left"> 
+		  
+		  <tr>
+		    <td style="font-weight: bold;" colspan="2">Description <%= image_tag("important.png")%><%= error_message_on(:bid, :description) %></td>
+		  </tr>
+		  <tr>
+			<td colspan="2"><%= b.text_area :description, :cols => 54, :rows => 10 %></td>
+		  </tr>
+		  <tr>
+		    <td style="font-weight: bold; padding-top: 5px;" colspan="2">Final cost (incl. shipping) <%= image_tag("important.png")%><%= error_message_on(:bid, :final_cost) %></td>
+		  </tr>
+		  <tr>  
+			<td ><%= b.text_field :final_cost, :size => 10 %></td><td style="text-align: left; width: 535px;">€ </td>
+		  </tr>
+		  <tr>
+		  <tr>
+		    <td style="font-weight: bold; padding-top: 5px;" colspan="2">Preparation time (incl. shipping) <%= image_tag("important.png")%><%= error_message_on(:bid, :preparation_time) %></td>
+		  </tr>
+		  <tr>  
+			<td colspan="2"><%= b.text_field :preparation_time, :size => 30 %></td>
+		  </tr>
+		  
+		  <tr>
+		  	<%= b.hidden_field :seller_id %>
+		  </tr>
+		  <tr>
+		  	<%= b.hidden_field :request_id %>
+		  </tr>
+		  <tr>
+		  	<%= b.hidden_field :bid_status %>
+		  </tr>
+		  
+		    <p>  
+   <%= f.file_field :attachment %>
+  </p>
+	   </table>
+		
+	</div>	
+	
+	<div class="form_top form_bottom">
+    </div>
+	
+	<div style="margin-top: 30px; margin-bottom: 30px; text-align:right; width: 700px;"><%= b.submit "Update" %></div> 	
+<% end %>
+
+<div style="width: 700px;">
+	<%= link_to 'Show', @bid %> |
+	<%= link_to 'Back to My Bids', bids_path %>
+</div>

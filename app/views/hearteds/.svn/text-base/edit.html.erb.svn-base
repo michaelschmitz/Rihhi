@@ -1,0 +1,20 @@
+<h1>Editing hearted</h1>
+
+<% form_for(@hearted) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :listing_id %><br />
+    <%= f.text_field :listing_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @hearted %> |
+<%= link_to 'Back', hearteds_path %>

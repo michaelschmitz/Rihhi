@@ -1,0 +1,40 @@
+<div style="height: auto; width: 150px; margin-left: 20px; margin-top: 20px; display: block; font-stretch: extra-expanded; " class="left">
+<ul style="list-style: none;">
+	<% if @onpage == 1 %>
+		<li style="width: 300px;" class="text_darkgrey"><p><%= image_tag("d1.jpg", :size => "20x20" ) %><span style="vertical-align: 30%; margin-left: 10px;" class="bold" ><%= t("views.orders.neworder.s1") %></span></li>
+	<% elsif @onpage >= 2 %>	
+		<li style="width: 300px;" class="text_darkgrey"><p><%= image_tag("d1.jpg", :size => "20x20" ) %><span style="vertical-align: 30%; margin-left: 10px;" ><%= t("views.orders.neworder.s1") %></span></li>
+	<% end %>
+	
+	<% if @onpage == 2 %>
+		<li class="text_darkgrey"><p><%= image_tag("d2.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;" class="bold" ><%= t("views.orders.neworder.s2") %></span></li>
+	<% elsif @onpage >= 3 %>	
+		<li class="text_darkgrey"><p><%= image_tag("d2.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;" ><%= t("views.orders.neworder.s2") %></span></li>
+	<% else %>
+		<li class="text_lightgrey"><p><%= image_tag("l2.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;"><%= t("views.orders.neworder.s2") %></span></li>
+	<% end %>
+	
+	<% if @onpage == 3 %>
+		<li class="text_darkgrey"><p><%= image_tag("d3.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;" class="bold" ><%= t("views.orders.neworder.s3") %></span></li>
+	<% elsif @onpage >= 4 %>	
+		<li class="text_darkgrey"><p><%= image_tag("d3.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;" ><%= t("views.orders.neworder.s3") %></span></li>
+	<% else %>
+		<li class="text_lightgrey"><p><%= image_tag("l3.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;"><%= t("views.orders.neworder.s3") %></span></li>
+	<% end %>
+	
+	<% if @onpage == 4 %>
+		<li class="text_darkgrey"><p><%= image_tag("d4.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;" class="bold" ><%= t("views.orders.neworder.s4") %></span></li>
+	<% elsif @onpage >= 5 %>	
+		<li class="text_darkgrey"><p><%= image_tag("d4.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;" ><%= t("views.orders.neworder.s4") %></span></li>
+	<% else %>
+		<li class="text_lightgrey"><p><%= image_tag("l4.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;"><%= t("views.orders.neworder.s4") %></span></li>
+	<% end %>
+	<li>&nbsp;</li>
+	<% if @onpage == 5 %>
+		<li class="text_darkgrey"><p><%= image_tag("d5.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;" class="bold" ><%= t("views.orders.neworder.s5") %></span></li>
+	<% else %>
+		<li class="text_lightgrey"><p><%= image_tag("l5.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;"><%= t("views.orders.neworder.s5") %></span></li>
+	<% end %>
+
+</ul>
+</div>

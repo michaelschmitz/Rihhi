@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  seller_id: MyString
+  user_id: MyString
+  payment_via: MyString
+  status: MyString
+  status_payment: MyString
+  status_shipment: MyString
+  status_recieved: MyString
+  status_evaluate_seller: MyString
+  status_evaluate_buyer: MyString
+  status_closed: MyString
+
+two:
+  seller_id: MyString
+  user_id: MyString
+  payment_via: MyString
+  status: MyString
+  status_payment: MyString
+  status_shipment: MyString
+  status_recieved: MyString
+  status_evaluate_seller: MyString
+  status_evaluate_buyer: MyString
+  status_closed: MyString

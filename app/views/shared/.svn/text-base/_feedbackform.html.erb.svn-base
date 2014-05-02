@@ -1,0 +1,18 @@
+<h2 class="text_green"><%= t("views.shared.feedbackform.s0") %></h2>
+      <% remote_form_for :feedback, @feedback, :url => { :action => 'send_feedback', :controller => 'feedbacks' } do |fb| %>
+      <p style="text-align: left;"><%= t("views.shared.feedbackform.s1") %> .</p>
+      <table class="profile_leftcolum background_grey" style="width: 360px; padding-top: 10px; padding-left: 10px; padding-right: 10px; -moz-border-radius: 5px; -webkit-border-radius: 5px;">       
+        <tr><td style="text-align: left" class="bold"><%= t("views.shared.feedbackform.s2") %>:</td></tr>
+        <tr><td style="text-align: left; width: 200px;"><%= t("views.shared.feedbackform.s3") %>:</td>  <td style="text-align: left"><%= fb.radio_button(:kind_of_feedback, "Translation", :checked => true)%></td></tr>
+        <tr><td style="text-align: left; width: 200px;"><%= t("views.shared.feedbackform.s4") %>:</td><td style="text-align: left"><%= fb.radio_button(:kind_of_feedback, "Error")%></td></tr>
+        <tr><td style="text-align: left; width: 200px;"><%= t("views.shared.feedbackform.s5") %>:</td> <td style="text-align: left"><%= fb.radio_button(:kind_of_feedback, "Happy")%></td></tr>
+        <tr><td colspan="2" style="text-align: left;" class="bold"><%= t("views.shared.feedbackform.s6") %></td></tr>
+        <tr><td colspan="2" style="text-align: left;"><%= fb.text_area(:feedback, :cols => 39, :rows => 5) %></td></tr>
+        <tr><td colspan="2" style="text-align: left;" class="bold"><%= t("views.shared.feedbackform.s7") %></td></tr>
+        <tr><td colspan="2" style="text-align: left;"><%= fb.text_field(:email, :size => 50)%></td></tr>
+        <tr><td colspan="2" style="text-align: right; padding-bottom: 10px; padding-top: 10px;"><%= fb.submit t("views.shared.feedbackform.s8"), :id => "submit1", :class => "listing_submit" %></td></tr>
+      </table>
+      <p><%= fb.hidden_field(:page, :value => 'currently_on_page') %></p>
+      <% end %>
+      <br>
+	  <p style="text-decoration: underline; font-size: 12px; color: black; cursor: pointer;" onClick="$('the_feedback_box').hide(); return false;"><%= t("views.shared.feedbackform.s9") %>.</p>

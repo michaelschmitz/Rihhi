@@ -1,0 +1,20 @@
+<% @tlistings = Tlisting.find(:all, :conditions => ["ticket_id = ?", @ticket.id ]) %>
+<table>
+<% for tlisting in @tlistings %>
+<tr><td>  Ticket ID</td><td> Listing ID </td></tr>
+  <tr>
+    <td><%=h tlisting.ticket_id%></td>
+    <td><%=h tlisting.listing_id %></td>
+    <td><%= link_to 'Show', tlisting %></td>
+    <td><%= link_to 'Edit', edit_tlisting_path(tlisting) %></td>
+    <td><%= link_to 'Destroy', tlisting, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+  <% if tlisting.listing_id != nil and tlisting.listing_id != 0 %>
+  <% @listing = Listing.find(tlisting.listing_id)%>  
+  <% @album = Album.find(:first, :conditions => ["listing_id = ?", @listing.id])%>
+  <% @photo = Photo.find(:first, :conditions => ["album_id = ?", @album.id])%>
+  <tr><td><%= image_tag(@photo.public_filename(:small)) %></td><td style="width: 200px;"><%= link_to @listing.title, @listing %></td> <td>(Normal price <%= @listing.price %> €) </td> </tr>
+  <% end %>
+  
+<% end %>
+</table>

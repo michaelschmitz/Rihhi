@@ -1,0 +1,172 @@
+<% @onpage = 2 %>
+<%= render :partial => "neworder", :object => @onpage %>
+<!-- Overall frame-->
+<div class="left" style="width: 750px;">
+
+	<div class="left" style="width: 750px; margin-left: 0px; padding: 10px 10px 10px 10px;">
+	    <h2 class="text_green"><%= t("views.orders.new.s1") %></h2>
+	    <ul class="align_left">
+	        <li>
+	            <%= t("views.orders.new.s2") %>.
+	        </li>
+	     
+	    </ul>
+	</div>
+	
+	<div style="float:left; width: 100%; text-align: left; " class="form">
+	<hr>
+	    <!-- Begin of selected order--><h3 style="background-color: white; font-size: larger;" class="text_green"><%= t("views.orders.new.s3") %> <%=h @current_order.seller.user.login %></h3>
+	    <!-- Now going through the listings --><% @deliverables = Deliverable.find(:all,
+	    :conditions => ["order_id = ?", @current_order.id]) %>
+	    <% total = 0 %>
+	    <% @deliverables.each do |d| %>
+	
+	  
+	    <table>
+	    <tr>
+	        <td style="width: 100px; padding-left: 5px;">
+			<% if d.listing.pic1.exists? %>
+	              <span class="img-shadow"><%= link_to(image_tag(d.listing.pic1.url(:thumb)), listing_path(d.listing.id)) %></span>
+				  <% else%>
+				 <span class="img-shadow"><%= image_tag("../pic1s/medium/missing.png", :width => "125") %></span>
+				  <% end %>
+	        </td>
+	        <td style="width: 240px;">
+	            <h4><%= link_to (h d.title), listing_path(d.listing.id) %>
+	            <br>
+	            <span class="text_darkgrey" style="font-weight: normal;"><%= t("views.orders.new.s4") %> <%= I18n.t(h(d.size)) %>
+	                <br>
+	                <%= t("views.orders.new.s5") %> <%= I18n.t(h(d.color)) %>
+	            </span>
+	            </td>
+	            <td style="width: 50px; text-align: right; ">
+	                <%= h(d.price.to_s) %> €
+					<br>
+	                &nbsp;
+	                <br>
+	                &nbsp;
+	            </td>
+	            <td style="width: 80px; text-align: right; padding-right: 10px;">
+	                <span class="text_darkgrey"><%= t("views.orders.new.s6") %>: </span>
+	                <%= h(d.amount) %>
+	                <br>
+	                &nbsp;
+	                <br>
+	                &nbsp;
+	            </td>
+	            <td style="width: 250px; text-align: right; font-weight: bold; padding-right: 8px;">
+	                <%=h d.amount * d.price.to_f %>€<br>&nbsp;<br>&nbsp;
+					</td>
+	        </tr>
+	        <% total += d.amount * d.price.to_f %>
+	   <% end %>
+		    <tr>
+		        <td colspan="6" style="text-align: right; padding-right: 10px;" class="bold">
+		            <%= t("views.orders.new.s7") %>: <%=h total.to_f %>€
+		        </td>
+		    </tr>
+		    <tr>
+		        <td colspan="6" style="text-align: right; color: black; font-size: normal; padding-right: 10px;">
+		            <%= t("views.orders.new.s8") %>.
+		        </td>
+		    </tr>
+	   </table>
+    <div style="float:left; width: 200px; margin-top: 10px; margin-bottom: 10px; margin-right: 20px;">
+       	<%= button_to t("views.orders.new.s9"), cart_path(@cart), :class => "submit_b", :method => :get %>
+	</div>	
+	
+	<div style="float:right; width: 200px; margin-top: 10px; margin-bottom: 10px; margin-right: 10px;">
+	    <% form_for :order, :url => {:action => "new2", :id => @order.id }, :html => { :method => :put } do |f| %>
+	    <%= f.submit t("views.orders.new.s10"), :class => "submit_b" %>
+	</div>
+	
+	</div>
+	<hr>
+	<% end %>
+	<!-- End of selected order-->
+	
+	<div style="float:left; width: 750px;" class="form">
+	<hr>
+	    <ul class="align_left" style="margin-top: 10px; margin-bottom: 10px;">
+	        <li>
+	            <%= t("views.orders.new.s11") %>:
+	        </li>
+	    </ul>
+	</div>
+	
+	    <% @orders.each do |o| %>
+		<div style="float:left; width: 750px; border: 1px solid #eaeaea; margin-bottom: 5px;" class="form">
+	    <!-- Begin of selected order--><h3 style="background-color: white; font-size: larger;" class="text_green"><%= t("views.orders.new.s12") %> <%=h o.seller.user.login %></h3>
+	    <!-- Now going through the deliverables --><% @deliverables = Deliverable.find(:all, :conditions => ["order_id = ?", o.id]) %>
+	    <% total = 0 %>
+	    <table>
+	        <% @deliverables.each do |d| %> 
+	        <tr>
+	            <td style="width: 100px; padding-left: 5px;">
+	              <% if d.listing.pic1.exists? %>
+	              <span class="img-shadow"><%= link_to(image_tag(d.listing.pic1.url(:thumb)), listing_path(d.listing.id)) %></span>
+				  <% else%>
+				 <span class="img-shadow"><%= image_tag("../pic1s/medium/missing.png", :width => "125") %></span>
+				  <% end %>
+	            </td>
+	            <td style="width: 240px;">
+	                <h4><%= link_to (h d.title), listing_path(d.listing.id) %>
+	                <br>
+	                <span class="text_darkgrey" style="font-weight: normal;"><%= t("views.orders.new.s13") %> <%= I18n.t(h(d.size)) %>
+	                <br>
+	                <%= t("views.orders.new.s14") %> <%= I18n.t(h(d.color)) %>
+	                </span>
+	            </td>
+	            <td style="width: 50px; text-align: right; ">
+	                <%= h(d.price.to_s) %>€
+	                <br>
+	                &nbsp;
+	                <br>
+	                &nbsp;
+	             </td>
+	             <td style="width: 80px; text-align: right; padding-right: 5px;">
+	             	<span class="text_darkgrey"><%= t("views.orders.new.s15") %>: </span>
+	                <%= h(d.amount) %>
+	                <br>
+	                &nbsp;
+	                <br>
+	                &nbsp;
+	            </td>
+	            <td style="width: 250px; text-align: right; font-weight: bold; padding-right: 8px;">
+	                <br>
+	                &nbsp;
+	                <br>
+	                &nbsp;<%=h d.amount * d.price.to_f %>€
+	            </td>
+	            </tr>
+	            <% total += d.amount * d.price.to_f %>
+	        <% end %>
+	            <tr>
+	                <td colspan="6" style="text-align: right; padding-right: 8px;" class="bold">
+	                    <%= t("views.orders.new.s16") %>: <%=h total.to_f %>€
+	                </td>
+	            </tr>
+	            <tr>
+	            <td colspan="6" style="text-align: right; color: black; font-size: normal; padding-right: 8px;">
+	                <%= t("views.orders.new.s17") %>.
+	            </td>
+	        </tr>
+	        </table>	
+			<div style="float:left; width: 200px; margin-top: 10px; margin-bottom: 10px; margin-right: 20px;">
+			
+				<%= button_to t("views.orders.index.s45"), remove_order_path(:id => o.id), :class => "submit_b", :method => :post %>
+			
+			
+       				
+    		</div>	                
+	        <div style="float:right; width: 200px; margin-top: 10px; margin-bottom: 10px; margin-right: 20px;">
+	            <% form_for(:order, o, :url => { :controller => "orders", :action => "new2" }) do |f| %>
+	            <%= f.hidden_field(:id, :value => o.id) %>
+	            <%= f.submit t("views.orders.new.s18"), :class => "submit_b" %>
+				<% end %>
+	    	</div>
+			</div>
+	  <% end %>
+	  
+	</div>
+</div>

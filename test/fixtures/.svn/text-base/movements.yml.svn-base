@@ -1,0 +1,15 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  seller_id: 1
+  value: 9.99
+  reason: MyString
+  email: false
+  dispute: false
+
+two:
+  seller_id: 1
+  value: 9.99
+  reason: MyString
+  email: false
+  dispute: false

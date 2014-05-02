@@ -1,0 +1,95 @@
+<div style="width: 750px; float:left;">
+	<h2 class="text_green">Edit your request</h2>
+
+	<% form_for(@request, :html => { :multipart => true}) do |f| %>
+	<div class="form_top">
+	</div>
+
+	<div class="form_area background_grey">
+		<div style="text-align: right; float: right;"><%= image_tag("important.png")%>  = required field</div>
+	 
+		 	<table class="align_left"> 
+			  <tr>
+			    <td style="font-weight: bold;" colspan="3">Title <%= image_tag("important.png")%> <%= error_message_on(:request, :title) %></td>
+			  </tr>
+			  <tr>  
+				<td colspan="3"><%= f.text_field :title, :size => 70 %></td>
+			  </tr>
+			  <tr>
+			    <td style="font-weight: bold;" colspan="3">Description <%= image_tag("important.png")%><%= error_message_on(:request, :description) %></td>
+			  </tr>
+			  <tr>
+				<td colspan="3"><%= f.text_area :description, :cols => 54, :rows => 10 %></td>
+			  </tr>
+			  <tr>
+			    <td>Materials</td><td colspan="2">Tags</td>
+			  </tr>
+			  <tr>  
+				<td style="width: 240px;"><%= f.text_field :materials %></td><td colspan="2"><%= f.text_field :tags %></td>
+			  </tr>
+			  <tr>
+			    <td style="font-weight: bold;">Quantity <%= image_tag("important.png")%><%= error_message_on(:request, :quantity) %></td><td style="font-weight: bold;" colspan="2">Ideal price <%= image_tag("important.png")%><%= error_message_on(:request, :ideal_price) %></td>
+			  </tr>
+			  <tr>  
+				<td><%= f.text_field :quantity, :size => 10 %></td><td ><%= f.text_field :ideal_price, :size => 10 %></td><td style="text-align: left; width: 135px;">€ </td>
+			  </tr>
+		  <tr>
+		    <td style="font-weight: bold">Deadline <%= image_tag("important.png")%></td>		    <td style="font-weight: bold">Example picture</td>
+		  </tr>
+		  <tr>
+		  	<td ><%= f.date_select :deadline, :size => 10 %></td>
+			
+			<td colspan="3"><%= f.file_field :attachment %></td>
+		  </tr>
+			</table>
+		
+		<hr style="border:1px solid white;">
+		
+		<p style="text-align: left; font-weight:bold; font-size: 150%; margin-top: 20px;">Shipping Adress:</p>
+		<div style="background-color: #D7D7D7; margin-bottom: 10px; padding-bottom: 5px;">
+		<p style="text-align: left; color: #535353; padding-left: 20px; font-weight: bold;">Not visible for other users except you give an order to someone</p>
+		
+		<table class="align_left">  
+		  <tr>
+		    <td style="font-weight: bold; width: 104px;">Full name <%= image_tag("important.png")%> <%= error_message_on(:request, :full_name) %></td><td><%= f.text_field :full_name, :size => 52 %></td>
+		  </tr>
+		  <tr>  
+			<td style="font-weight: bold;">Street <%= image_tag("important.png")%><%= error_message_on(:request, :street) %></td><td><%= f.text_field :street, :size => 52 %></td>
+		  </tr>
+		  <tr>
+		    <td>City <%= image_tag("important.png")%><%= error_message_on(:request, :city) %></td><td><%= f.text_field :city, :size => 52 %></td>
+		  </tr>
+		  <tr>  
+			<td style="font-weight: bold;">Zip Code <%= image_tag("important.png")%><%= error_message_on(:request, :zip_code) %></td><td><%= f.text_field :zip_code, :size => 52 %></td>
+		  </tr>
+		</table>
+		</div>
+		  
+		<table class="align_left">
+		  <tr>
+		    <td style="font-weight: bold; width: 104px;">State <%= image_tag("important.png")%><%= error_message_on(:request, :state) %></td><td><%= f.text_field :state, :size => 52 %></td>
+		  </tr>
+		  <tr>  
+			</td><td style="font-weight: bold;">Country <%= image_tag("important.png")%><%= error_message_on(:request, :country) %></td><td><%= f.text_field :country, :size => 52 %>
+		  </tr>
+		  <tr>
+		    <%= f.hidden_field :user_id %>
+		  </tr>
+		  <tr>
+		    <%= f.hidden_field :request_status %>
+		  </tr>
+		</table>
+	</div>	
+	
+	<div class="form_top form_bottom">
+    </div>
+	
+	<div style="margin-top: 30px; margin-bottom: 30px; text-align:right;"><%= f.submit "Edit" %></div> 	
+	
+	<% end %>
+	<div style="margin-bottom: 20px">
+		<%= link_to 'Show', @request %> |
+		<%= link_to 'Back to my requests', my_requests_path %>
+	</div>
+
+</div>

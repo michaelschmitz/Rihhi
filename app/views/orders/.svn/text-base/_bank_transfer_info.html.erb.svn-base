@@ -1,0 +1,22 @@
+<p><%= t("views.orders.bank.s1") %>.</p>
+<p><%= t("views.orders.bank.s2") %>: </p>
+
+<table style="text-align: left;">
+        <tr>
+        	<td style="width: 120px;" class="bold"><%= t("views.orders.bank.s3") %>:</td><td> <%= @this_order.seller.shop.bank_account_holder %></td>
+			  </tr>
+        <tr>
+				<td class="bold"><%= t("views.orders.bank.s4") %>:</td><td><%= @this_order.seller.shop.bank_bic %></td>
+			  </tr>
+        <tr>
+        		<td class="bold"><%= t("views.orders.bank.s5") %>:</td><td> <%= @this_order.seller.shop.bank_iban %></td>
+			  </tr>
+        <tr>
+        		<td class="bold"><%= t("views.orders.bank.s6") %>:</td><td>Rihhi-<%= @this_order.id %></td>
+			  </tr>
+			  	   <tr>
+            <td colspan="2">
+                <br> 
+            </td>
+        </tr>
+</table>

@@ -1,0 +1,20 @@
+<h1>Editing tlisting</h1>
+
+<% form_for(@tlisting) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :ticket_id %><br />
+    <%= f.text_field :ticket_id %>
+  </p>
+  <p>
+    <%= f.label :listing_id %><br />
+    <%= f.text_field :listing_id %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @tlisting %> |
+<%= link_to 'Back', tlistings_path %>

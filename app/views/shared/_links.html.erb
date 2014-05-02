@@ -1,0 +1,9 @@
+<div style="width: 100%; float: left; margin-top: 20px;">
+<hr>
+	<p style="text-align: center;">
+	<% if self.current_user.is_seller?%>
+	<%= link_to t('views.shared.links.s1'), new_seller_listing_path(self.current_user.seller.id) %> <br>
+	<% end %>
+	<%= link_to t('views.shared.links.s2'), profile_path() %>
+	</p>
+</div>

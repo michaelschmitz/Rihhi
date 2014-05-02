@@ -1,0 +1,46 @@
+<% @onpage = 4 %>
+<%= render :partial => "shared/edit_settings", :object => @onpage %><!-- add edit to newlisting, make a second copy-->
+
+<div style="width: 750px; float:left;">
+<% form_for(@seller, :html => { :multipart => true, :method => :put }) do |f| %>
+<h2 class="text_green"><%= t("views.sellers.edit.s1") %></h2>
+
+	<div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+		<h3><%= t("views.sellers.edit.s2") %></h3>
+		<table style="width: 100%" class="align_left">
+			<tr><td style="width: 150px;"><%= t("views.sellers.edit.s3") %>:</td><td><%= f.text_field :full_name, :size => 44 %></td></tr>
+			<tr><td><%= t("views.sellers.edit.s4") %>:</td><td><%= f.text_field :street, :size => 44 %></td></tr>
+			<tr><td><%= t("views.sellers.edit.s5") %>:</td><td><%= f.text_field :post_code, :size => 44 %></td></tr>
+			<tr><td><%= t("views.sellers.edit.s6") %>:</td><td><%= f.text_field :city, :size => 44 %></td></tr>			
+			<tr><td><%= t("views.sellers.edit.s7") %>:</td><td><%= select( "seller", "country", country_list(), :tabindex => 1 ) %></td></tr>
+		</table>
+		<br>
+	
+	</div>
+	<div class="form_top form_bottom">
+    </div>
+
+	<div class="form_top" style="margin-top: 20px;">
+    </div>
+    <div class="form_area background_grey">
+		<h3><%= t("views.sellers.edit.s8") %></h3>
+		<table style="width: 100%;  padding-left: 10px;" class="align_left">
+		<tr><td style="width: 150px;"><%= t("views.sellers.edit.s9") %>:</td><td> <%= f.radio_button :electronic_direct_debit , 'Yes', :tabindex => 7  %>Yes (Only for German bank accounts) <br><%= f.radio_button :electronic_direct_debit , 'No', :tabindex => 8, :checked => true %>No (Use PayPal instead)</td></tr>
+		<tr><td><%= t("views.sellers.edit.s10") %>:</td><td><%= f.text_field :account_holder_name, :tabindex => 9, :class => "form_field" %><%= error_message_on(:seller, :account_holder_name) %></td></tr>
+		<tr><td><%= t("views.sellers.edit.s11") %>:</td><td><%= f.text_field :account_number, :tabindex => 10, :class => "form_field" %><%= error_message_on(:seller, :account_number) %></td></tr>
+		<tr><td><%= t("views.sellers.edit.s12") %>:</td><td><%= f.text_field :bank_identifier, :tabindex => 11, :class => "form_field"%><%= error_message_on(:seller, :bank_identifier) %></td></tr>
+		</table>
+	
+ 	</div>
+    <div class="form_top form_bottom">
+    </div>
+   
+	<div style="float: right; clear: none; margin-top: 10px; margin-right: 10px;">
+	  <%= f.submit t("views.sellers.edit.s13"), :class => "submit_b" %></div>
+	
+	<% end %>
+
+</div>
+<%= render :partial => "shared/links" %>

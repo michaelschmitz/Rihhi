@@ -1,0 +1,3 @@
+<p><%= t("views.orders.paypal_all.s1") %>.</p>
+<p><%= t("views.orders.paypal_all.s2") %>: <%= @this_order.seller.shop.paypal_account %>.</p>
+   

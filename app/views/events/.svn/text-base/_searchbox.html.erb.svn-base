@@ -1,0 +1,29 @@
+<% if @nosearch == 0 %>
+<div class="left" style="width: 750px; border: 1px solid #eaeaea; margin-bottom: 10px; display: block;" id="searchbox">
+<% else %>
+<div class="left" style="width: 750px; border: 1px solid #eaeaea; margin-bottom: 10px; display: none;" id="searchbox">
+<% end%>
+
+   <% form_for :search, { :url => { :action => "index" }, :html => { :method => "get"} } do |f| %>
+   <table class="align_left">
+   	<tr>
+   		<td style="width: 100px; padding-left: 10px;" class="bold">Title</td>		<td><%= f.text_field :event_name, :size => 30, :tabindex => 1 %></td>
+		<td style="width: 100px; padding-left: 10px;" class="bold">Country</td>		<td><%= f.country_select :country, [], {}, :tabindex => 2 %></td></tr>   	<tr>
+		
+			
+		<td style="padding-left: 10px;" class="bold">Startdate </td>		<td><%= f.date_select :startdate %></td><td style="padding-left: 10px;" class="bold">Enddate </td>		<td><%= f.date_select :enddate %></td>
+	
+			</tr>   	<tr>
+
+   	</tr>
+   </table>
+ 
+      
+<div class="left" style="margin-left: 10px; margin-bottom: 5px;">
+         <%= submit_tag 'Search', :name => nil %>
+      </div>
+    <% end %>
+
+
+   
+</div>

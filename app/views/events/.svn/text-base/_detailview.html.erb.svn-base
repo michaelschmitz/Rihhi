@@ -1,0 +1,219 @@
+<% for event in @events %>
+
+
+
+<div class="left" style="width: 100%; margin-top: 10px;">
+<div class="left" style="width: 750px;"> 
+    <table class="align_left nicetable" style="width: 100%;">
+        <tr class="tr3">
+            <td style="width: 150px;" class="bold">
+                <div class="left" >
+                    <% if event.startdate == event.enddate %>
+                    <%=h event.enddate.strftime('%d. %b  %Y') %>
+                    <% else %>
+                    <%=h event.startdate.strftime('%d. %b ') %> - <%=h event.enddate.strftime('%d. %b  %Y') %>
+                    <% end %>
+                </div>
+                <div class="left" style="clear:left">
+                    <% if event.invitation_only == 1 %>
+					<h2> ! </h2>
+					<% end %>
+                </div>
+            </td>
+            <td>
+               <h2 class="text_green"> <%=h event.title %>- <%=h event.subtitle %></h2>
+            </td>
+        </tr>
+        <tr class="tr4">
+            <td class="bold">
+                Orga 
+            </td>
+            <td>
+                <%=h event.orga_name %>
+            </td>
+        </tr>
+        <tr class="tr3">
+            <td class="bold">
+                Ort 
+            </td>
+            <td>
+                <%=h event.location %>
+                <br>
+                <%=h event.street %>, <%=h event.area_code %><%=h event.city %>, <%=h event.country %> 
+				(<a target="blank" href="http://maps.google.com/maps?f=q&source=s_q&hl=de&geocode=&q=<%=h event.street %>,+<%=h event.area_code %>+<%=h event.city %>,+<%=h event.country %>&&ie=UTF8&t=h&z=16">View in Map</a>)
+				
+				
+				
+            </td>
+        </tr>
+        <tr class="tr4">
+            <td class="bold">
+                Genre 
+            </td>
+            <td>
+                <%=h event.genre %>
+				<% if event.genre_description != "" %>
+				(<%=h event.genre_description %>)
+				<% end %> 
+            </td>
+        </tr>
+        <tr class="tr3">
+            <td class="bold">
+                Art 
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr class="tr4">
+            <td class="bold">
+                Accomodation 
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr class="tr3">
+            <td class="bold">
+                Catering 
+            </td>
+            <td>
+                <%=h event.catering %>
+				   	<% if event.catering_description != "" %>
+				(<%=h event.catering_description %>)
+				<% end %> 
+            </td>
+        </tr>
+        <tr class="tr4">
+            <td class="bold">
+                Tickets 
+            </td>
+            <td>
+                <%=h event.currency %>
+            </td>
+        </tr>
+        <tr class="tr3">
+            <td class="bold">
+                Spieler/NSC 
+            </td>
+            <td>
+                <%=h event.max_nsc %>
+                <%=h event.available_sc %>
+                <%=h event.available_nsc %>
+                <%=h event.rules %>
+            </td>
+        </tr>
+        <tr class="tr4">
+            <td class="bold">
+                Regeln 
+            </td>
+            <td>
+            	<%=h event.rules %>
+            	<% if event.rules_description != "" %>
+				(<%=h event.rules_description %>)
+				<% end %>
+            </td>
+        </tr>
+        <tr class="tr3">
+            <td class="bold">
+                Voraussetzungen 
+            </td>
+            <td>
+            	Minimum age: <%=h event.minimum_age %> years 
+            </td>
+        </tr>
+        <tr class="tr4">
+            <td class="bold">
+                Status 
+            </td>
+            <td>
+                <%=h event.event_status %>
+            </td>
+        </tr>
+        <tr class="tr3">
+            <td class="bold">
+                Kampagne 
+            </td>
+            <td>
+                <%=h event.campaign %>
+				<% if event.campaign_description != "" %>
+				(<%=h event.campaign_description %>)
+				<% end %>
+            </td>
+        </tr>
+        <tr class="tr4">
+            <td class="bold">
+                Anmeldeschluss 
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr class="tr3">
+            <td class="bold">
+                Kontakt 
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr class="tr4">
+            <td class="bold">
+                Website 
+            </td>
+            <td>
+                <%=h event.orga_website %>
+            </td>
+        </tr>
+        <tr class="tr3">
+            <td class="bold">
+                Kategorisierung 
+            </td>
+            <td>
+            </td>
+        </tr>
+        <tr class="tr4">
+            <td class="bold">
+                Beschreibung 
+            </td>
+            <td>
+                <%=h event.description %>
+            </td>
+        </tr>
+        <tr class="tr3">
+            <td class="bold">
+                Eingetragen am 
+            </td>
+            <td>
+                by <%=h event.creator_name %>
+            </td>
+        </tr>
+        <tr class="tr4">
+            <td class="bold">
+                ID-Nummer 
+            </td>
+            <td>
+                <%=h event.id %>
+            </td>
+        </tr>
+        <tr class="tr3">
+            <td class="bold">
+                Options
+            </td>
+            <td>
+              <%= link_to 'Show', event %> | <%= link_to 'Edit', edit_event_path(event) %> | <%= link_to 'Destroy', event, :confirm => 'Are you sure?', :method => :delete %>
+            </td>
+        </tr>
+    </table>
+</div>
+<div class="left" style="width: 210px;">
+<p>People that signed up:</p>
+	<ul>
+		<li>Imag Guy</li>
+		<li>Imag Guy</li>
+		<li>Imag Guy</li>
+		<li>Imag Guy</li>
+		<li>Imag Guy</li>
+		<li>Imag Guy</li>
+		<li>Imag Guy</li>
+	</ul>
+<p>see more people</p>
+</div>
+</div>
+<% end %>

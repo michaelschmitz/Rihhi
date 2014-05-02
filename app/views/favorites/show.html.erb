@@ -1,0 +1,13 @@
+<p>
+  <b>Listing:</b>
+  <%=h @favorites.listing_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @favorites.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_favorite_path(@favorites) %> |
+<%= link_to 'Back', favorite_path %>

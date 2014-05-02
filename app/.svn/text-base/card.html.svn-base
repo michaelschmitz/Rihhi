@@ -1,0 +1,267 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+		<title>Extraction Inc. - Rampage Incorporated.</title>
+	</head>
+	<body>
+		<div id="cardspace" style="float: left; margin-left: 25%;">
+			<div id="game" style="width: 600px;">
+				<h2>Extraction Inc.</h2>
+				<p>Huge corporations have replaced the fallen states of the early 21th century. Megacities have succumbed under tens of millions of slumdwellers,
+				and within their lawless zones the competing corporations hire mercenaries to infiltrate, sabotage or outright execute their competitors. </p>
+				<p>These mercenaries range from hopeful new arrivals armed with rusty pistols to highly trained, cybernetically enhanced agents who have
+				 access to incredible levels of firepower. </p>
+				<p>These cybernetically enhanced agents are among the most powerful beings alive. </p>
+				<p>Dealing with corporate security guards, former military troops and armored vehicles barely demands their attention. Tanks are handled before breakfast. 
+				Only other agents represent a credible threat.</p>
+				<p>City blocks are leveled whenever two of these agents clash, and their battles become legends among the shaken survivors in the slums.</p>
+				<p>You belong to one of the many hopefuls living within the sprawl and  peddle your services to anyone interested. And you have just received your first offer for a real contract...</p>
+				<p> If you want to succeed in this hard new world, then this is your chance.</p>
+			</div>			
+			
+			<div id="gameplay">
+				<h2>Gameplay</h2>
+				<p>The game is divided in two parts: Mission Preparation and Mission Execution.</p>				
+				<p>Mission preparation includes new mission selection, preparation and upgrading of your cyborg agents and investments
+					into research and additional equipment. This requires level-headed thinking and a strategic outlook.</p>
+				<p>Mission execution places the agents inside the city and on a direct path to their target. Agents have to deal with civillians,
+					police and enemy security as well as other agents if necessary. This involves excessive use of force and 
+					a clear tactical mindset.
+			</div>
+			
+						
+			<div id="Missions">
+				<h2>Missions:</h2>
+				<p>There are 45 basic interchangeable missions and 5 unique ones. </p>
+				<p>Unique missions are intended to finish a game session at levels 3, 6, 9, 12 and 15 and provide cliffhangers to the overall backstory.</p>
+				<p>Basic missions are always for a certain difficulty level, with 3 missions each for difficulty levels one, two, three up to fifteen.</p>
+				<p>At the start of the game, players can view the three Level 1 - Missions and select one to start with. </p>
+				<p>Once they have completed one mission of level 1, they can randomly draw one new level 2 mission and continue with it.<p>
+				<p>Players may also choose to continue with another level 1 mission to see another level 2 mission to choose and gain more cash, research and equipment.</p>
+				<p>So once a mission becomes available for a player group, they can choose to finish them at any later time - no strict order required.</p>	
+				<p>See the page <a href="missions.html">Missions</a> for a listing of all missions available</p>				
+			</div>
+			
+			<div id="todo">
+				<h2>todo:</h2>
+				<p>Create a monetary tech-tree, showing the highest levels of skill & cash attainable, then move backwards to assign $ values to missions!</p>
+				<p>Powerpoint wont work, pen & paper?</p>				
+			</div>
+			
+			<div id="material">
+				<h2>Material included in the game (See cost calculation below)</h2>
+				<h2>Remember: Go Premium and price is not an issue. Quality is. And awesomeness! (90$ should be fine)</h2>
+				<p>Around 400 Game cards and 40 dice.</p>
+				<p>6D6 x4 = 24 D6 ~ 12 $ at retail. (Could be lowered to 6D6 for -> 6 $, assume 12$</p>
+				<p>16D20 x1 = 16 D20 ~ 24 $ at retail. (0.50$ for cheap ones no rebate -> 8 $, great ones are 1.5€ each -> 24 $</p>
+				<p>Game cards: Cash (1x 50$, 9x 100$, 9x 1000$, 9x 10000$, 4x 50000$) = 32 Cards or chips (cheaper).</p>
+				<p>Game cards: Cyborgs (4x) = 4 Cards. (Expensive to design)</p>
+				<p>Game cards: Terrain 12 Cards. (Expensive to design - Big Picture)</p>
+				<ul>
+					<li>City (4x)</li>
+					<li>Outer Complex (3x)</li>
+					<li>Inner Complex (3x)</li>
+					<li>High Security Area(2x)</li>
+				</ul>
+				<p>Game cards: Enemy units: = 70 Cards. (Expensive to design)</p>
+
+				<ul>
+					<li>Civillians (12x)</li>
+					<li>Scientists (12x)</li>
+					<li>Police (12x)</li>
+					<li>SWAT (4x)</li>
+					<li>Security (6x)</li>
+					<li>Military (6x)</li>
+					<li>Assault (6x)</li>
+					<li>Tanks (4x)</li>
+					<li>Cyborgs (8x)</li>
+				</ul>
+				<p>Weapons: 111 Cards</p>
+				<ul>
+					<li>Pistol 9mm (10x)</li>
+					<li>Desert Eagle (10x)</li>
+					<li>Beretta Auto (10x)</li>
+					<li>Magnum .357 (6x)</li>
+					<li>Uzi (6x)</li>
+					<li>Submachine Mp5 (6x)</li>
+					<li>Machine Gun (6x)</li>
+					<li>Heavy MG (6x)</li>
+					<li>G36c (6x)</li>
+					<li>Barret M107 Sniper Rifle (6x)</li>				
+					<li>Minigun (6x)</li>
+					<li>Flamethrower (6x)</li>
+					<li>Surefire Laser (6x)</li>				´
+					<li>Rocketlauncher (6x)</li>				
+					<li>Gaussgun (6x)</li>				
+					<li>Mindbender (4x)</li>				
+					<li>Gluegun (5x)</li>				
+				</ul>
+				<p>Ammunition: 82 Cards (may be removed)</p>
+				<ul>
+					<li>Ammunition 9mm (30x)</li>
+					<li>Ammunition MG (30x)</li>
+					<li>Energy Canister (6x)</li>
+					<li>Fuel Canister (10x)</li>
+					<li>Rocket Pack (6x)</li>
+				</ul>
+				<p>Equipment: 80 Cards (still to be defined)</p>
+				<ul>
+					<li>Armors Type 1-5 4x (20x)</li>
+					<li>Equipment 	(4x)</li>
+					<li>Equipment 	(4x)</li>
+					<li>Equipment 	(4x)</li>					
+					<li>Research Cards (10x) (May be represented by a game of chance? - Buy points ? - Simply be available?)</li>
+				</ul>
+				<p>Cybernetic Enhancements: 48 Cards (core)</p>
+				<ul>
+					<li>Legs 1 (4x)</li>
+					<li>Legs 2 (4x)</li>
+					<li>Legs 3 (4x)</li>
+					<li>Arms 1 (4x)</li>
+					<li>Arms 2 (4x)</li>
+					<li>Arms 3 (4x)</li>
+					<li>Torso 1 (4x)</li>
+					<li>Torso 2 (4x)</li>
+					<li>Torso 3 (4x)</li>					
+					<li>Head 1 (4x)</li>
+					<li>Head 2 (4x)</li>
+					<li>Head 3 (4x)</li>
+				</ul>
+				<p>Tactics: 40 Cards</p>
+				<ul>
+					<li>Switch Place (2x)</li>
+					<li>Extract (Move again for all AP)	(2x)</li>
+					<li>Cover Fire (2x)</li><!-- Give AP-->
+					<li>Ambush (2x)</li><!-- Increase Damage Potential-->
+					<li>Sniper support (2x)</li><!-- Have a hidden sniper shoot at the target (while in city/outside) -->
+					<li>Police licence (2x)</li><!-- Police leaves this sector and ignores you.-->
+					<li>Targeting information (2x)</li><!-- Increase Accuracy by 3 for one turn.-->
+					<li>Diversion (2x)</li><!-- Two enemy units lose one action point each.-->
+					<li>Timed moves (2x)</li><!-- Cyborgs act in unison, increasing two agents Armor by 2-->
+				</ul>
+				Shotgun
+				Auto Shotgun
+				MP5
+				M3Commando
+				G36c
+				Barret M107 - .50 Sniper Rifle -Pushback -1
+				Machinegun
+				Heavy Machinegun				-Pushback -1
+				Uzi
+				Minigun							-Pushback -2
+				Laser
+				Rocketlauncher					
+				Gaussgun						-Pushback -1
+				Mindbender					- If a target is killed (wounded) often enough with this weapon, it is "converted" and can be commanded by the player with full health.
+				Foamslugger					- Explosive device which blinds the target for x rounds
+																				
+				
+				<p>Mission execution places the agents inside the city and on a direct path to their target. Agents have to deal with civillians,
+					police and enemy security as well as other agents if necessary. This involves excessive use of force and 
+					a clear tactical mindset.
+			</div>
+			
+			
+			<div id="header">
+				<h2>Police Officer                -500$</h2>
+								
+			</div>
+			<div id="image">
+				<p>Pic of officer</p>
+			</div>
+			<div id="health">
+				Health: 1 / Armor: 2
+			</div>
+			<div id="text">
+			Player has:							Influenced by:
+				Range 			 			- influenced by: weapon, skill card
+				Move (walk, run)			- LEGS, skill card
+				# of Wounds	(1-8)			- TORSO, skill card
+				Wounded at (Resilience)?	- TORSO, skill card
+				Armor						- Equipment, skill card
+				Accuracy					- HEAD, Weapon, Equipment, skill card
+				Action Points (use cards)	- HEAD, skill card, equipment
+				Heavy Weapon Carry			- ARMS 3 (needed for e.g laser 1, rocket 2, flame 2, mini 1, gauss 1, flechette 3,...), skill card
+				Healing speed				- Torso, skill card?  
+				
+				[Stealth						- ARMS, LEGS, TORSO, HEAD, skill card, Equipment]
+			Weapon has:
+				Range						- equipment, upgrades
+				Accuracy bonus/malus		- equipment, upgrade
+				Shots (3D6, 5D6)	- equipment, upgrade   -> Describes the number of dice to be rolled to see how many hits are made
+				Damage Potential (1,2,3)	- upgrades, ammunition -> If a wound roll succeeds, how many wounds are caused by this weapon?
+				#Check Warhammer Documentation	
+				Requirements (Arms2?)		- ARMS, HEAD, 
+				Pushback	(-1, -2)		- LEGS
+				Reload (1 AP, 2 AP)			- Standard is 1
+				Ammo (2 Shots, 6er, 15, 20)	- Equipment: Ammunition - needs to be bought and carried. e.g. 8 Shot magazine for 9mm, 6 Shot mag for Mp5 (Burst), Energy canister for laser (5 shots)
+											
+			Weapon types:
+			<table>
+<tr><th>Name</th>		<th>Type</th>		<th>Price/Re-sell</th>	<th>Hands</th>	<th>Range</th><th>AP to use</th><th>Damage Potential</th><th>Requirements</th><<th>Pushback</th><th>Free text</th></tr>				
+			
+<tr><td>Pistol</td>		<td>Standard</td>	<td>200$/50$</td>		<td>1</td>		<td>4</td>	  <td>1</td>		<td>1D6</td>
+				Desert Eagle
+				Walther PPK
+				Shotgun
+				Auto Shotgun
+				MP5
+				M3Commando
+				G36c
+				Barret M107 - .50 Sniper Rifle -Pushback -1
+				Machinegun
+				Heavy Machinegun				-Pushback -1
+				Uzi
+				Minigun							-Pushback -2
+				Laser
+				Rocketlauncher					
+				Gaussgun						-Pushback -1
+				Mindbender					- If a target is killed (wounded) often enough with this weapon, it is "converted" and can be commanded by the player with full health.
+				Foamslugger					- Explosive device which blinds the target for x rounds
+				
+			</table>
+			</div>
+			
+			<div id="Equipment">
+				<h2>Equipment</h2>
+				<p>Incredible amounts of equipment to extend weapon functionality and cyborg skills are available.</p>
+				<p>The below table contains all known equipment items with price and functional description.</p>
+				<table>
+	<tr><th>Name</th>				<th>Price/Resell</th>	<th>Description</th><th>Requirements</th></tr>
+	<tr><td style="font-weight: bold;">Drugs</td></tr>
+	<tr><td>Speedkicker</td>			<td>200$/50$</td>		<td>1 action point, trash: Increases the cyborg speed by +2 for this turn</td></tr>
+	<tr><td>Sensebooster </td>			<td>300$/100$</td>		<td>1 action point, trash: Increases the cyborg AP by +2 for this turn</td></tr>
+	<tr><td>Rampage	</td>				<td>500$/150$</td>		<td>1 action point, trash: The cyborg will gain 2 additional wounds for the next four turns. If he does not return to base until then (while being wounded on one of them), he will die.</td></tr>					
+	<tr><td style="font-weight: bold;">Armors</td></tr>
+	<tr><td>Kevlar Vest</td>			<td>1000$/100$</td>		<td>Equip as Armor: Increases Armor by 1</td></tr><!-- Armor tradeoffs - Speed vs. Armor level -->										
+	<tr><td>Brigantine</td>				<td>2000$/200$</td>		<td>Equip as Armor: Increases Armor by 2. Decrease Speed by 1.</td></tr>	
+	<tr><td>Carbon Cloak</td>			<td>3000$/300$</td>		<td>Equip as Armor: Increases Armor by 2.</td></tr>	
+	<tr><td>ROCK 'Deflector Alpha'</td>	<td>4000$/400$</td>		<td>Equip as Armor: Increases Armor by 3. Decrease Speed by 1.</td></tr>	
+	<tr><td>Bomb Squad Protection</td>	<td>5000$/500$</td>	<td>Equip as Armor: Increases Armor by 4. Decrease Speed by 2. Openly <i>hostile.</i></td></tr>	
+	
+				</table>
+			</div>
+
+			
+			<div id="Tactics">
+				<h2>Tactics Cards:</h2>
+				<p>Players can buy tactics cards for their cyborgs. They allow the cyborgs to behave in a certain manner advantageous to the current situation and normally provide a massive boost to a teammember.</p>
+				<p>Tactic cards give the players more possibilities regarding their action points - not only move, shoot, reload, use equipment.</p>					
+				<p>Equipment cards represent hardware, Tactics cards software. Tactic cards allow the cyborgs to take cover, switch places with other cyborgs, provide cover fire,
+					support other cyborgs with action points, health or damage and generally provides additional actions not representable by equipment.</p>
+					
+				<p>The below table contains all known equipment items with price and functional description.</p>
+				<table>
+					<tr><th>Name</th>				<th>Price/Resell</th>	<th>Description</th><th>Requirements</th></tr>
+					<tr><td>Speedkicker</td>		<td>200$/50$</td>		<td>1 action point, trash: Increases the cyborg speed by +2 for this turn</td></tr>
+					<tr><td>Sensebooster </td>		<td>300$/100$</td>		<td>1 action point, trash: Increases the cyborg AP by +2 for this turn</td></tr>
+					<tr><td>Rampage	</td>			<td>500$/150$</td>		<td>1 action point, trash: The cyborg will gain 5 additional wounds for the next four turns. If he does not return to base until then (while being wounded on one of them), he will die.</td></tr>					
+					<tr><td>Speed vial</td>			<td>200$/50$</td>		<td>1 action point, trash: Increases the cyborg speed by +2</td></tr>					
+				</table>
+			</div>
+		</div>
+		
+		
+	</body>
+</html>

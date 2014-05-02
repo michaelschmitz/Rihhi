@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/rihhi/larp/!svn/ver/2/rihhi/tmp/performance
+END
+BrowsingTest#test_homepage_objects.csv
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/rihhi/larp/!svn/ver/2/rihhi/tmp/performance/BrowsingTest%23test_homepage_objects.csv
+END
+BrowsingTest#test_homepage_gc_runs.csv
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/rihhi/larp/!svn/ver/2/rihhi/tmp/performance/BrowsingTest%23test_homepage_gc_runs.csv
+END
+BrowsingTest#test_homepage_memory.csv
+K 25
+svn:wc:ra_dav:version-url
+V 84
+/rihhi/larp/!svn/ver/2/rihhi/tmp/performance/BrowsingTest%23test_homepage_memory.csv
+END
+BrowsingTest#test_homepage_gc_time.csv
+K 25
+svn:wc:ra_dav:version-url
+V 85
+/rihhi/larp/!svn/ver/2/rihhi/tmp/performance/BrowsingTest%23test_homepage_gc_time.csv
+END
+BrowsingTest#test_homepage_process_time.csv
+K 25
+svn:wc:ra_dav:version-url
+V 90
+/rihhi/larp/!svn/ver/2/rihhi/tmp/performance/BrowsingTest%23test_homepage_process_time.csv
+END

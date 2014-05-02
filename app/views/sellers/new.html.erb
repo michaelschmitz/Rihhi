@@ -1,0 +1,128 @@
+<h2 class="text_green"><%= t("views.sellers.new.s1") %></h2>
+<p class="align_left">
+    <%= t("views.sellers.new.s2") %>
+    <br>
+    <%= t("views.sellers.new.s3") %>
+</p>
+<div style="float: left; width: 540px;">
+    <div class="corner_u_left">
+    </div>
+    <div class="background_grey" style="width: 520px; height: 10px; float: left; position: relative;">
+    </div>
+    <div class="corner_u_right">
+    </div>
+    <div class="item_leftcolumn background_grey" style="width: 540px;">
+        <% form_for(@seller) do |f| %>
+        <h3 class="background_grey"><%= t("views.sellers.new.s4") %></h3>
+        <table style="width: 100%; padding-left: 10px;" class="align_left">
+            <tr>
+                <td style="width: 150px;">
+                    <%= t("views.sellers.new.s5") %>:
+                </td>
+                <td>
+                    <%= f.text_field :full_name, :tabindex => 1, :class => "form_field" %><%= error_message_on(:seller, :full_name) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.sellers.new.s6") %>:
+                </td>
+                <td>
+                    <%= f.text_field :street, :tabindex => 2, :class => "form_field" %><%= error_message_on(:seller, :street) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.sellers.new.s7") %>:
+                </td>
+                <td>
+                    <%= f.text_field :post_code, :tabindex => 3, :class => "form_field" %><%= error_message_on(:seller, :post_code) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.sellers.new.s8") %>:
+                </td>
+                <td>
+                    <%= f.text_field :city, :tabindex => 4, :class => "form_field" %><%= error_message_on(:seller, :city) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.sellers.new.s9") %>:
+                </td>
+                <td>
+                    <%= select( "seller", "country", country_list(), {}, :tabindex => 6 ) %><%= error_message_on(:seller, :country) %>
+                </td>
+            </tr>
+        </table>
+        <h3 class="background_grey"><%= t("views.sellers.new.s10") %></h3>
+        <table style="width: 100%;  padding-left: 10px;" class="align_left">
+            <tr>
+                <td style="width: 150px;">
+                    <%= t("views.sellers.new.s11") %>:
+                </td>
+                <td>
+                    <%= f.radio_button :electronic_direct_debit , t("views.sellers.new.s12"), :tabindex => 7 %><%= t("views.sellers.new.s13") %> 
+                    <br>
+                    <%= f.radio_button :electronic_direct_debit , t("views.sellers.new.s14"), :tabindex => 8, :checked => true %><%= t("views.sellers.new.s15") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.sellers.new.s16") %>:
+                </td>
+                <td>
+                    <%= f.text_field :account_holder_name, :tabindex => 9, :class => "form_field" %><%= error_message_on(:seller, :account_holder_name) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.sellers.new.s17") %>:
+                </td>
+                <td>
+                    <%= f.text_field :account_number, :tabindex => 10, :class => "form_field" %><%= error_message_on(:seller, :account_number) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.sellers.new.s18") %>:
+                </td>
+                <td>
+                    <%= f.text_field :bank_identifier, :tabindex => 11, :class => "form_field" %><%= error_message_on(:seller, :bank_identifier) %>
+                </td>
+            </tr>
+        </table>
+        <div class="align_center">
+            <br>
+            <table style="padding-left: 10px;">
+                <tr>
+                    <td class="align_left" style="width: 150px;">
+                        <%= t("views.sellers.new.s19") %>:
+                    </td>
+                    <td class="align_center" style="width: 20px;">
+                        <%= f.check_box :terms_of_service, :value => "1", :tabindex => 14 %>
+                    </td>
+                    <td>
+                    <%= t("views.sellers.new.s20") %> <%= link_to t("views.sellers.new.s21"), tos_path(), :target => "blank" %> </a>.<%= error_message_on(:seller, :terms_of_service) %>
+                </td>
+                </tr>
+            </table>
+            <br>
+        </div>
+    </div>
+    <div class="corner_l_left">
+    </div>
+    <div class="background_grey" style="width: 520px; height: 10px; float: left; position: relative;">
+    </div>
+    <div class="corner_l_right">
+    </div>
+    <div class="left" style="margin-top: 10px;">
+        <%= link_to t("views.sellers.new.s22"), profile_path %>
+    </div>
+    <div class="right" style="margin-top: 10px;">
+        <%= f.submit t("views.sellers.new.s23"), :class => "submit_b" %>
+ 
+        <% end %>
+    </div>
+</div>

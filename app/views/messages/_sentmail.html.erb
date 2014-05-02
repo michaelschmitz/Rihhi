@@ -1,0 +1,47 @@
+<div class="form_top">
+</div>
+<div class="form_area background_grey">
+   
+        <% for message in @messages %>
+		<table class="align_left">
+        <% if message.read == "Yes" %>
+        	<tr class="text_darkgrey">
+        <% else %>
+			<tr >
+        <% end %>
+                <td style="width: 120px;" class="text_bold">
+                    <%= link_to h(truncate(message.receiver_name, :length => 20)), user_path(message.receiver_id) %>
+                </td>
+                <td style="width: 390px;" class="text_bold">
+                    <%= link_to h(truncate(message.title, :length => 50)), message %>
+                </td>
+				  <td style="width: 200px;">
+                    
+                </td>
+            </tr>
+            <tr>
+            	<td class="text_darkgrey">                 
+                    <%= message.created_on %>
+                </td>
+                <td class="text_darkgrey">
+                 
+                    <%= link_to h(truncate(message.message, :length => 50)), message %>
+                </td>
+                <td>
+				  
+                 
+					<%= link_to_remote t('views.messages.sentmail.s1'),  :url => {:action => "remove_sent", :id => message.id, :method => :delete}, :confirm => 'This can not be undone. Are you sure?', :update => "inbox" %>
+                 </td>
+            </tr>
+			 </table>
+			 <br>
+            <% end %>
+				 <% if @messages.length == 0 %>
+		 <p> <%= t('views.messages.sentmail.s2') %>. </p>
+		 <% end %>
+           
+        </div>
+		
+	
+        <div class="form_top form_bottom" style="margin-bottom: 10px;">
+        </div>

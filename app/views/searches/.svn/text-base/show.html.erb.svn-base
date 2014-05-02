@@ -1,0 +1,188 @@
+<%= render :partial => "shared/box_right" %>
+<div class="left">
+    <h2 class="text_green"><%= t("views.searches.show.s1") %>:</h2>
+    <p style="text-align: left;">
+        <%= t("views.searches.show.s2") %> "<%= @term %>" <%= t("views.searches.show.s3") %>
+		 (<%= @listings.length %>) <%= t("views.searches.show.s4") %> (<%= @users.length %>).
+		
+    </p>
+    <% if @listings.length >= 1 %>
+    <h3 class="text_green"> <%= t("views.searches.show.s5") %> (<%= @listings.length %> <%= t("views.searches.show.s6") %>)</h3>
+    <table style="width: 700px; border-spacing: 0px">
+        <tr>
+            <th>
+            </th>
+            <th style="text-align: right;">
+                <%= t("views.searches.show.s7") %> 
+            </th>
+            <th style="text-align: right;">
+                <%= t("views.searches.show.s8") %>
+            </th>
+            <th style="text-align: right;">
+                <%= t("views.searches.show.s9") %> 
+            </th>
+            <th style="text-align: right; padding-right: 10px;">
+                <%= t("views.searches.show.s10") %> 
+            </th>
+        </tr>
+        <% for listing in  @listings %>
+        <% @link =  listing_path(listing.id.to_s) %>
+        <tr class="<%= cycle("tr1", "tr2") -%>" style="height: 130px; width: 750px;" onClick="location.href='<%= @link.to_s -%>'">
+            <% if listing.pic1.exists? %>
+            <td style="width: 150px;" class="align_left">
+                <span class="img-shadow"><%= image_tag(listing.pic1.url(:small)) %></span>
+            </td>
+            <% else %>
+            <td style="width: 150px; padding-top: 10px;" class="align_left">
+                <span class="img-shadow"><%= image_tag("../pic1s/medium/missing.png", :width => "100") %></span>
+            </td>
+            <% end %>
+            <td style="width: 210px; text-align: right;" class="align_left">
+                <%= h listing.title %>
+            </td>
+            <td style="width: 150px; text-align: right;" class="align_left">
+                <%= h listing.seller.user.login %>
+            </td>
+            <td style="width: 120px; text-align: right;" class="align_left">
+                <%= h listing.nr_of_items_in_stock.to_s %>
+            </td>
+            <td style="width: 120px; text-align: right; padding-right: 10px;" class="align_left">
+                <%= h listing.price %> EUR
+            </td>
+        </tr>
+        <% end %>
+    </table>
+    <% end %>
+   
+<% if @g_bids_enabled == 1 %>
+    <% if @requests.length >= 1 %>
+    <h3 class="text_green"> Requests (<%= @requests.length %> results)</h3>
+    <table style="width: 700px; border-spacing: 0px">
+        <% for request in  @requests %>
+        <% @link =  request_path(request.id.to_s) %>
+        <tr class="<%= cycle("tr1", "tr2") -%>" style="height: 60px; width: 750px;" onClick="location.href='<%= @link.to_s -%>'">
+            <td style="width: 100px;" class="align_left">
+            </td>
+            <td style="width: 150px;" class="align_left">
+                <%= request.title %>
+            </td>
+            <td style="width: 150px;" class="align_left">
+                <%= request.title %>
+            </td>
+            <td style="width: 150px;" class="align_left">
+                <%= request.title %>
+            </td>
+            <td style="width: 150px;" class="align_left">
+                <%= request.title %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+    <% end %>
+<% end %>
+
+<% if @g_events_enabled == 1 %>    
+    <% if @events.length >= 1 %>
+    <h3 class="text_green"> Events (<%= @events.length %> results)</h3>
+    <table style="width: 700px; border-spacing: 0px">
+        <% for event in  @events %>
+        <% @link =  event_path(event.id.to_s) %>
+        <tr class="<%= cycle("tr1", "tr2") -%>" style="height: 60px; width: 750px;" onClick="location.href='<%= @link.to_s -%>'">
+            <td style="width: 100px;" class="align_left">
+            </td>
+            <td style="width: 150px;" class="align_left">
+                <%= event.title %>
+            </td>
+            <td style="width: 150px;" class="align_left">
+                <%= event.title %>
+            </td>
+            <td style="width: 150px;" class="align_left">
+                <%= event.title %>
+            </td>
+            <td style="width: 150px;" class="align_left">
+                <%= event.title %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+    <% end %>
+<% end %>
+
+<% if @g_tickets_enabled == 1 %>  
+    <% if @tickets.length >= 1 %>
+    <h3 class="text_green"> Tickets (<%= @tickets.length %> results)</h3>
+    <table style="width: 700px; border-spacing: 0px">
+        <% for ticket in  @tickets %>
+        <% @link =  ticket_path(ticket.id.to_s) %>
+        <tr class="<%= cycle("tr1", "tr2") -%>" style="height: 60px; width: 750px;" onClick="location.href='<%= @link.to_s -%>'">
+            <td style="width: 100px;" class="align_left">
+            </td>
+            <td style="width: 150px;" class="align_left">
+                <%= ticket.name %>
+            </td>
+            <td style="width: 150px;" class="align_left">
+                <%= ticket.name %>
+            </td>
+            <td style="width: 150px;" class="align_left">
+                <%= ticket.name %>
+            </td>
+            <td style="width: 150px;" class="align_left">
+                <%= ticket.name %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+    <% end %>
+<% end %>
+	
+    <% if @users.length >= 1 %>
+    <h3 class="text_green"> <%= t("views.searches.show.s11") %>  (<%= @users.length %> <%= t("views.searches.show.s12") %>)</h3>
+    <table style="width: 700px; border-spacing: 0px">
+        <tr>
+            <th>
+            </th>
+            <th style="text-align: right;">
+                <%= t("views.searches.show.s13") %>
+            </th>
+            <th style="text-align: right;">
+                <%= t("views.searches.show.s14") %>
+            </th>
+            <th style="text-align: right;">
+                <%= t("views.searches.show.s15") %>
+            </th>
+            <th style="text-align: right; padding-right: 10px;">
+                <%= t("views.searches.show.s16") %> 
+            </th>
+        </tr>
+        <% for user in  @users %>
+        <% @link =  user_path(:id => user.id) %>
+        
+        <tr class="<%= cycle("tr1", "tr2") -%>" style="height: 130px; width: 750px;" onClick="location.href='<%= @link.to_s -%>'">
+            <% if user.userpage.avatar.exists? %>
+            <td style="width: 150px; padding-top: 10px;" class="align_left">
+                <span class="img-shadow"><%= image_tag(user.userpage.avatar.url(:thumb)) %></span>
+            </td>
+            <% else %>
+            <td style="width: 150px;" class="align_left">
+                <span class="img-shadow"><%= image_tag("treant.jpeg", :size => "100x100") %></span>
+            </td>
+            <% end %>
+            <td style="width: 150px; text-align: right;" class="align_left">
+                <%= user.login %>
+            </td>
+            <td style="width: 150px;  text-align: right;" class="align_left">
+               <%= (distance_of_time_in_words(Time.now, (user.created_at.to_s).first(10))) %> <%= t("views.listings.show.ago") %>
+            </td>
+            <td style="width: 150px;  text-align: right;" class="align_left">
+           <% if user.is_seller? %>
+		       <%= link_to  t("views.listings.show.view_shop"), :controller => "shops", :action => "show", :id => user.seller.id %>
+			   <% end %>
+            </td>
+            <td style="width: 150px;  text-align: right; padding-right: 10px;" class="align_left">
+              <%= link_to  t("views.listings.show.send_message"), {:controller => "messages", :action => "new", :to_id => user.id} %>
+            </td>
+        </tr>
+        <% end %>
+    </table>
+    <% end %>
+</div>

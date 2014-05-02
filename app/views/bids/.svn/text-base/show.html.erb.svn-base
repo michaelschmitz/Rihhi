@@ -1,0 +1,173 @@
+<div style="width: 600px; float: left; margin-top: 20px;">
+
+<table class="align_left">
+	<tr>
+	  <td style="font-weight: bold;" colspan="2">Description: </td>
+	</tr>
+	
+	<tr>
+	  <td style="width: 400px;" colspan="2"><%=(h @bid.description).gsub("\n", "<br />") %></td>
+	
+	<% if @bid.attachment_file_name? %>
+	
+		<td><%= image_tag(@bid.attachment.url(:thumb))%></td><td></td>
+	
+	<% end %>
+	</tr>
+	<tr>
+	  <td style="font-weight: bold; width: 200px;">Final cost (incl. shipping):</td>
+	  <td style="color: #00CD00;"><%=h @bid.final_cost %> €</td>
+	</tr>
+	
+	<tr>
+	  <td style="font-weight: bold;">Preparation time (incl. shipping):</td>
+	  <td><%=h @bid.preparation_time %></td>
+	</tr>
+	
+	<tr>
+		<td>&nbsp;</td><td></td>
+	</tr>
+	
+	<% if self.current_user != nil %>
+		<% if self.current_user.id != @bid.seller_id %>
+	<tr>
+	  <td style="font-weight: bold; width: 100px;">Bidder:</td>
+	  <td><%=h @bid.seller.user.login %></td>
+	</tr>
+		<% end %>
+    <% end %>	
+	
+	<tr>
+	  <td style="font-weight: bold;">Bid status:</td>
+	  <td><%=h @bid.bid_status %></td>
+	</tr>
+	
+	<% if @bid.bid_status == "accepted" %>
+		<% if self.current_user != nil %>
+		  <% if self.current_user.id != @bid.seller_id %>
+		  		<tr>
+		  			<td style="font-weight: bold;" colspan="2"></td>
+		  		</tr>
+		  		<tr>
+		  			<td style="font-weight: bold;" colspan="2"></td>
+		  		</tr>
+		  		<tr>
+		  			<td style="font-weight: bold; vertical-align: top; padding-top: 5px;">Please transfer <%=h @bid.final_cost %> € to:</td>
+						<% if @seller.account_holder_name != "" %>
+							<td>
+								<table style="text-align: left;">
+								<tr>
+        							<td style="width: 120px;" class="bold">Account holder:</td><td> <%= @seller.account_holder_name %></td>
+							    </tr>
+       						    <tr>
+									<td class="bold">IBAN:</td><td><%= @seller.account_number %></td>
+			  					</tr>
+       						    <tr>
+        							<td class="bold">BIC:</td><td> <%= @seller.bank_identifier %></td>
+								</tr>
+								</table>	
+							</td>
+									
+						<% elsif @shop.paypal_account != "" %>
+							<td>
+								<table style="text-align: left;">
+								<tr>
+        							<td>Via Paypal to: <%= @shop.paypal_account %>.</td>
+							    </tr>
+								<tr>
+								<td><a href="https://www.paypal.com/<%= params[:locale] || "en" %>/cgi-bin/webscr?cmd=_login-run" target="_blank">Click here to pay now with PayPal</a>.</td>
+								</tr>
+								</table>	
+							</td>
+						<% else %>
+							<td></td>
+						<% end %>
+		  		</tr>
+				<tr>
+		  			<td colspan="2"></td>
+		  		</tr>
+				<tr>
+		  			<td colspan="2">The bidder will send you a confirmation once he has received your payment and when he ships the order.</td>
+		  		</tr>
+				<tr>
+		  			<td colspan="2">You can also see the status of your order under "My Account/Purchases/Open orders".</td>
+		  		</tr>
+				<tr>
+		  			<td colspan="2">Please note that the seller can cancel your order if he does not receive payment within 5 days.</td>
+		  		</tr>
+				
+		  <% else %>
+		        <tr>
+		  			<td style="font-weight: bold;" colspan="2"></td>
+		  		</tr>
+		  		<tr>
+		  			<td style="font-weight: bold;" colspan="2"></td>
+		  		</tr>
+		  		<tr>
+		  			<td style="font-weight: bold; vertical-align: top; padding-top: 5px;"><%=h @request.user.login %> should transfer <%=h @bid.final_cost %> € to: </td>
+				    <% if @seller.account_holder_name != "" %>
+							<td>
+								<table style="text-align: left;">
+								<tr>
+        							<td style="width: 120px;" class="bold">Account holder:</td><td> <%= @seller.account_holder_name %></td>
+							    </tr>
+       						    <tr>
+									<td class="bold">IBAN:</td><td><%= @seller.account_number %></td>
+			  					</tr>
+       						    <tr>
+        							<td class="bold">BIC:</td><td> <%= @seller.bank_identifier %></td>
+								</tr>
+								</table>	
+							</td>
+									
+						<% elsif @shop.paypal_account != "" %>
+							<td>
+								<table style="text-align: left;">
+								<tr>
+        							<td>Via Paypal to: <%= @shop.paypal_account %>.</td>
+							    </tr>
+								<tr>
+								<td><a href="https://www.paypal.com/<%= params[:locale] || "en" %>/cgi-bin/webscr?cmd=_login-run" target="_blank">Click here to pay now with PayPal</a>.</td>
+								</tr>
+								</table>	
+							</td>
+						<% else %>
+							<td></td>
+						<% end %>
+		  		</tr>
+				<tr>
+		  			<td colspan="2"></td>
+		  		</tr>
+				<tr>
+		  			<td colspan="2">Check whether you have received the payment on the account indicated above.</td>
+		  		</tr>
+				<tr>
+		  			<td colspan="2">Confirm receiving the payment via "My Account/Confirm Payment".</td>
+		  		</tr>
+				<tr>
+		  			<td colspan="2">When shipping the item confirm shipping via "My Account/Confirm Shipping".</td>
+		  		</tr>
+		  <% end %>
+		<% end %>
+	<% end %>	 
+	
+</table>
+
+</div> 
+
+<div style="width: 600px; float: left; margin-top: 40px; margin-bottom: 40px;">  
+	<% if self.current_user != nil %>
+		<% if self.current_user.id == @bid.seller_id %>
+			<% if @bid.bid_status == "open" %>
+				 <%= link_to 'Edit', edit_bid_path(@bid) %> |
+				 <%= link_to 'Back to My Bids', bids_path %> |
+				 <%= link_to 'Back to all requests', requests_path() %>
+			<% else %>			     
+	             <%= link_to 'Back to My Bids', bids_path %> |
+				 <%= link_to 'Back to all requests', requests_path() %>
+			<% end %>
+		<% else %>	 
+			 <%= link_to 'Back', request_path(:id => @bid.request_id) %> 
+		<% end %>
+    <% end %>			 
+	</div>

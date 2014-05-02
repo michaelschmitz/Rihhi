@@ -1,0 +1,120 @@
+<% @onpage = 2 %>
+<%= render :partial => "newlisting", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <h2 class="text_green"><%= t('views.listings.categories.s1')%></h2>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+        <div style="text-align: right; float: right; ">
+            <%= image_tag("important.png") %>= <%= t('views.listings.categories.s2')%>
+        </div>
+        <% form_for(@listing, :url => specifics_path(@listing.seller_id, @listing.id), :html => { :method => :put }) do |l| %>
+        <div id="loading_spinner" style="display:none; 	position: fixed; margin-top: 250px; margin-left: 10%; border: 1px solid green;">
+            <%= image_tag 'loading.gif', 	:id 	=> 'spinner',
+            :class 	=> 'loading',
+            :style 	=> "display:none; margin-left: 5px; margin-top: 12px;" %>
+        </div>
+        <div class="left">
+            <table class="align_left">
+                <tr>
+                    <td class="bold">
+                        <%= t('views.listings.categories.s3')%>  <%= image_tag("important.png") %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%= l.collection_select(:category_id, @categories, :id, :name,  options = {},
+                        html_options = {:size => 10, :style => "width: 150px;"}) %>
+                        <%= set_focus_to_id("listing_category_id") %><%= error_message_on(:listing, :category_id) %>
+                        <%= observe_field 	:listing_category_id,
+                        :frequency 	=> 0.2,
+                        :before 	=> "Element.show('spinner'); Element.show('loading_spinner')",
+                        :complete	=> "Element.hide('spinner'); Element.hide('loading_spinner')",
+                        :url		=> { :action => :subcategory, :id => @listing.id},
+                        :with 		=> "'sc=' + encodeURIComponent(value)" %>
+                        <%= observe_field 	:listing_category_id,
+                        :frequency 	=> 0.1,
+                        :url		=> { :action => :lastcategory},
+                        :with 		=> "" %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div id="show_subcategory" class="left">
+            <div>
+                <table class="align_left">
+                    <tr>
+                        <td class="bold">
+                            <%= t('views.listings.categories.s4')%><%= image_tag("important.png") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>                        
+							<%= l.collection_select(:subcategory_id, @subcategories, :id, :name, options = {},
+                            html_options = { :size => 10, :style => "width: 150px;"}) %><%= error_message_on(:listing, :subcategory_id) %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div id="show_lastcategory">
+            <div>
+                <table class="align_left">
+                    <tr>
+                        <td class="bold">
+                            <%= t('views.listings.categories.s5')%>
+                        </td>
+                    </tr>
+                    <% fields_for :listing do |l| %>
+                    <tr>
+                        <td>
+                            <%= l.collection_select(:lastcategory_id, @lastcategories, :id, :name, options = {},
+                            html_options = {:size => 10, :style => "width: 150px;"}) %>
+                            <%end %>
+                            <%= error_message_on(:listing, :lastcategory_id) %>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div>
+            <br>
+            <table class="align_left" style="margin-top: 10px;">
+                <tr>
+                    <td class="bold">
+                        <%= t('views.listings.categories.s6')%>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%= l.text_field :category_tag, :size => 72, :tabindex => 11 %>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <br>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold">
+                        <%= t('views.listings.categories.s7')%> 
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <%= l.text_field :material_tag, :size => 72, :tabindex => 12 %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+  	<div class="left" style="clear: left; margin-top: 20px;">
+	<%= link_to t('views.listings.categories.s8'), new_seller_listing_path() %>
+	  </div>
+	<div class="right" style="clear: right; margin-top: 20px;">
+		<%= l.submit t('views.listings.categories.s9') , :class => "submit_b" %>
+    </div>
+    <% end %>
+</div>

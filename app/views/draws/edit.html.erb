@@ -1,0 +1,56 @@
+<h1>Editing draw</h1>
+
+<% form_for(@draw) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :list %><br />
+    <%= f.text_field :list %>
+  </p>
+  <p>
+    <%= f.label :seller_id %><br />
+    <%= f.text_field :seller_id %>
+  </p>
+  <p>
+    <%= f.label :login_name %><br />
+    <%= f.text_field :login_name %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :account_holder %><br />
+    <%= f.text_field :account_holder %>
+  </p>
+  <p>
+    <%= f.label :iban %><br />
+    <%= f.text_field :iban %>
+  </p>
+  <p>
+    <%= f.label :bic %><br />
+    <%= f.text_field :bic %>
+  </p>
+  <p>
+    <%= f.label :balance_now %><br />
+    <%= f.text_field :balance_now %>
+  </p>
+  <p>
+    <%= f.label :debited %><br />
+    <%= f.text_field :debited %>
+  </p>
+  <p>
+    <%= f.label :difference %><br />
+    <%= f.text_field :difference %>
+  </p>
+  <p>
+    <%= f.label :fail %><br />
+    <%= f.text_field :fail %>
+  </p>
+  <p>
+    <%= f.submit 'Update' %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @draw %> |
+<%= link_to 'Back', draws_path %>

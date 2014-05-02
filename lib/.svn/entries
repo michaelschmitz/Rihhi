@@ -1,0 +1,55 @@
+8
+
+dir
+242
+https://svn.codespaces.com/rihhi/larp/rihhi/lib
+https://svn.codespaces.com/rihhi/larp
+
+
+
+2010-08-16T22:22:01.639215Z
+235
+blaukatze!
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ce245bec-e5c3-47c4-86f5-a6cae0350485
+
+authenticated_system.rb
+file
+
+
+
+
+2010-10-18T15:52:55.963000Z
+f0ac102c12ce161710d6bc848bd7a798
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+authenticated_test_helper.rb
+file
+
+
+
+
+2010-10-18T15:52:55.912000Z
+d0ca5663f200a5f7c1e5a8c9720f2a98
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+tasks
+dir
+

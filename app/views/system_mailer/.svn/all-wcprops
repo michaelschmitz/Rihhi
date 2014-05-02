@@ -1,0 +1,107 @@
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/rihhi/larp/!svn/ver/236/rihhi/app/views/system_mailer
+END
+sale3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/rihhi/larp/!svn/ver/213/rihhi/app/views/system_mailer/sale3.erb
+END
+movement2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/rihhi/larp/!svn/ver/206/rihhi/app/views/system_mailer/movement2.erb
+END
+movement1.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/rihhi/larp/!svn/ver/206/rihhi/app/views/system_mailer/movement1.erb
+END
+sale5.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/rihhi/larp/!svn/ver/213/rihhi/app/views/system_mailer/sale5.erb
+END
+sale.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/rihhi/larp/!svn/ver/213/rihhi/app/views/system_mailer/sale.erb
+END
+resend_info.erb
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/rihhi/larp/!svn/ver/206/rihhi/app/views/system_mailer/resend_info.erb
+END
+changed_pw.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/rihhi/larp/!svn/ver/206/rihhi/app/views/system_mailer/changed_pw.erb
+END
+sale4.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/rihhi/larp/!svn/ver/213/rihhi/app/views/system_mailer/sale4.erb
+END
+sale2.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/rihhi/larp/!svn/ver/221/rihhi/app/views/system_mailer/sale2.erb
+END
+registered.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/rihhi/larp/!svn/ver/206/rihhi/app/views/system_mailer/registered.erb
+END
+changed_pw_security.erb
+K 25
+svn:wc:ra_dav:version-url
+V 78
+/rihhi/larp/!svn/ver/206/rihhi/app/views/system_mailer/changed_pw_security.erb
+END
+message.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/rihhi/larp/!svn/ver/236/rihhi/app/views/system_mailer/message.erb
+END
+movement3.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/rihhi/larp/!svn/ver/206/rihhi/app/views/system_mailer/movement3.erb
+END
+ordered.erb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/rihhi/larp/!svn/ver/209/rihhi/app/views/system_mailer/ordered.erb
+END
+cancelled.erb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/rihhi/larp/!svn/ver/213/rihhi/app/views/system_mailer/cancelled.erb
+END
+seller.erb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/rihhi/larp/!svn/ver/206/rihhi/app/views/system_mailer/seller.erb
+END
+friend_request.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/rihhi/larp/!svn/ver/206/rihhi/app/views/system_mailer/friend_request.erb
+END

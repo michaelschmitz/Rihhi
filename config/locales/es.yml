@@ -1,0 +1,2725 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+es:
+  hello: "Hello world"
+
+#This extensive file covers all translations within Rihhi. 
+#This file is sorted:  
+ # Changes added
+#    1. Controllers (Same order as when opening the "controllers" folder
+#    2. Models      (as above)
+#    3. Views       (as above)
+#    4. General (Unsorted)
+#    5. Overall variables: Categories, Sub & Lastcategories
+#    6. Error field name
+#    7. Vendor Plugins
+#        a) Country_Select 
+#    8. Helpers
+#    9. Time & Date formats
+#
+#This is our translation masterfile.
+#Line numbers should be matching in translated files.
+
+########################################
+# 1. Controladores
+########################################
+  controllers:
+      application:
+          s1: "traducción no está disponible"
+
+      carts:
+          s1: "Alta"
+          s2: "eliminado"
+          s3: "borra el carro"
+
+      draws:
+          s1: "Su cuenta bancaria se ha cargado de"
+          s2: "euros. El saldo pendiente de la cuenta ha disminuido en esta cantidad."
+          s3: "Atención. Su cuenta bancaria no puede ser cargado para"
+          s4: "EUR. Nuestro banco nos ha cobrará una tarifa de 9,00 euros, lo que ha sido añadido a su cuenta. Nosotros lo volverá a intentar sacar dinero de su cuenta bancaria durante nuestro próximo ciclo. Por favor, siga las instrucciones en el correo electrónico que ha recibido."
+
+      favorites:
+          s1: "Mi Cuenta"
+          s2: "Favoritos"
+                    
+          
+      feedbacks:
+          s1: "Mi Cuenta"
+          s2: "Feedback"
+
+      flaggeds:
+          s1: "Gracias por marcar este anuncio. Nuestro equipo se ocupará de este."
+          s2: "Sírvanse proporcionar una razón para marcar este listado."
+
+      friends:
+          s1: "Amigo fue aceptada."
+          s2: "Solicitud ignorada."
+          s4: "Este usuario mantiene su lista de amigos privada"
+                    
+      hearteds:
+          s1: "Mi Cuenta"
+          s2: "artículos Hearted"
+
+      listings:
+          s1: "Mi Cuenta"
+          s2: "Mis artículos"
+          s3: "Artículos"
+          s4: "Fuera de elementos de almacén"
+          s5: "Este elemento no está disponible ya."
+          s6: "Editar Elemento"
+          s7: "venta se ha actualizado con éxito."
+          s8: "No se pudo salvar, había algunos errores."
+          s9: "Vendedor eliminado tema en"
+          s10: "El anuncio fue retirado."
+          s11: "Nuevo elemento ("
+          s12: ") Paso 1"
+          s13: ") Paso 2"
+          s14: ") Paso 3"
+          s15: ") Paso 4"
+          s16: "Usted que figuran un nuevo elemento (<a href = \" listados / "
+          s17: "</ a>). Su cuenta ha sido acusado de 0,20 euros."
+          s18: "Por favor, sube una imagen principal aquí."
+          s19: "Guardar fallado. Por favor, inténtelo de nuevo."
+          s20: ") Paso 5"
+          s21: "Este tema ya se ha creado."
+          s22: "Nueva partida con éxito en la lista. Rihhi saldo de su cuenta se ha incrementado en 0,20 euros."
+
+      messages:
+          s1: "Mensaje enviado a"
+          s2: "Error durante la actualización del messsage."
+          s3: "El mensaje ha sido eliminado."
+          s4: "Error al eliminar el mensaje. Inténtelo de nuevo."
+          s5: "Mensajes"
+          s6: "Nuevo"
+          s7: "Leer"
+          s8: "Bandeja de entrada"
+          
+      movements:
+          s1: "Finanzas"
+          s2: "Transacciones"
+
+      orders:
+          s1: "Pedidos"
+          s2: "Mis Pedidos"
+          s3: "Mi Cuenta"
+          s4: "Ventas"
+          s5: "La historia de las ventas del pasado"
+          s6: "órdenes Completo"
+          s7: "Ustedes han confirmado haber recibido pago por <a href = orden \" # d. MedlinePlus La cantidad en stock se ha reducido para los artículos de esta orden. "
+          s8: "Ustedes han confirmado el envío <a href = orden \" # d "
+          s9: "Uno de los artículos en su carrito no está disponible. Por favor, elimine este tema y vuelva a intentarlo."
+          s10: "Uno o más de los elementos de su solicitud ya no están disponibles. Ellos han sido retirados."
+          s11: "Se produjo un error durante el proceso de pedido. Por favor, inténtelo de nuevo."
+          s12: "El vendedor no entrega al país seleccionado. Por favor, seleccione una dirección diferente."
+          s13: "Hubo cierta información faltante en el formulario de abajo."
+          s14: "Error al completar su solicitud. Por favor, inténtelo de nuevo en cinco minutos."
+          s15: "Este pedido se ha completado ya. Revise sus órdenes para ver su estado."
+          s16: "Ha cancelado para <a href = \" # d "
+          s17: "Esta orden no podría ser cancelada. Asegúrese de proporcionar un motivo para cancelar la orden."
+                    
+      profiles:
+          s1: "Mi Cuenta"
+          s2: "Descripción de cuenta"
+
+      ratings:
+          s1: "Mi Cuenta"
+          s2: "Feedback"
+          s3: "Dar de votos"
+          s4: "Comentario de los comentarios"
+          s5: "Gracias por tus comentarios."
+          s6: "Su venta <a href=\"completed_sales/\">"
+          s7: "</ a> se estableciera completado. Su cuenta ha sido acusado de"
+          s8: "</ a> se estableciera completado. Su volumen de negocios ha aumentado en un"
+          s9: "El orden se ha completado. Su volumen de negocios y saldo de la cuenta han aumentado."
+          
+      requests:
+          s1: "Pide"
+          
+      sellers:
+          s1: "Mi Cuenta"
+          s2: "la configuración de vendedor"
+          s3: "Ahora usted es un vendedor registrado. Modificar la configuración o volver a su cuenta para vender artículos."
+          s4: "Actualización de éxito"
+          s5: "Como un nuevo vendedor, que recibió una bonificación de 5,00 euros en su cuenta. Esto le permite anunciar y vender algunos artículos de forma gratuita"
+
+      sessions:
+          s1: "Ha iniciado sesión pulg"
+          s2: "Nombre de éxito."
+          s3: "Error de acceso. Nombre de usuario o contraseña no está bien."
+          s4: "Usted ha sido desconectado."
+          
+      shops:
+          s1: "Mi Cuenta"
+          s2: "Configuración de la tienda"
+          s3: "Presets de envío"
+          s4: "Opciones de pago"
+          s5: "tienda se ha creado correctamente."
+          s6: "Shop se ha actualizado con éxito."
+          s7: "Parece que hay algunos errores."
+
+      site:
+          s1: "¿Quiénes somos?"
+          s2: "Términos de Servicio"
+          s3: "Ayuda"
+
+      userpages:
+          s1: "Mi Cuenta"
+          s2: "Editar: Página de miembros"
+          s3: "La página se ha actualizado correctamente miembros."
+      
+      users:
+          s1: "No hay usuario registrado con esta dirección de correo electrónico."
+          s2: "Usted ha recibido un correo electrónico con su nombre de usuario actual y una nueva contraseña."
+          s3: "No hay usuario registrado con esta dirección de correo electrónico."
+          s4: "Gracias por registrarte!"
+          s5: "Mi Cuenta"
+          s6: "Configuración miembros"
+          s7: "Ha actualizado su configuración. Usted ha recibido un correo electrónico con la nueva situación."
+          s8: "Ha actualizado su página de miembro."
+          s9: "Miembros"
+          s10: "Regístrate"
+                         
+########################################
+#             2. Modelos
+########################################
+  models:
+      flagged:
+          s1: "Por favor ingrese su razón para marcar este elemento."
+          s2: "Por lo menos 5 caracteres"
+      
+      listing:
+          s1: "No se puede estar en blanco"
+          s2: "¿Debería parecerse a 5,99. Utilice punto en vez de coma"
+          s3: "Más de un centavo"
+          s4: "Por lo menos 2 caracteres"
+          s5: "Debe ser una o más"
+          s6: "Por favor seleccione una categoría"
+          s7: "Por favor, seleccione una categoría y subcategoría"
+          s8: "Categoría se requiere"
+          s9: "Subcategoría se requiere"
+          s10: "Debe ser un número"
+          s11: "¿Puede el` t en blanco si un segundo país se ha seleccionado "
+          s12: "¿Puede el` t en blanco si un tercer país se ha seleccionado "
+          s13: "¿Puede el` t en blanco si un cuarto país se ha seleccionado "
+          s14: "¿Puede el` t en blanco si un quinto país se ha seleccionado "
+                    
+      message:
+          s1: "Esta persona no existe."
+          s2: "Sírvanse proporcionar un título para el mensaje."
+          s3: "Debería haber un poco de texto en el mensaje."
+      
+      order:
+          s1: "Escriba su nombre completo aquí."
+          s2: "Inserte aquí su dirección."
+          s3: "Su código de área es necesario."
+          s4: "Escriba el nombre de su ciudad."
+          s5: "¿No debería estar en blanco."
+          s6: "Por favor, escoge un país"
+          s7: "Por favor, elija una opción de pago."
+      
+      rating:
+          s1: "Por favor, seleccione una retroalimentación"
+          
+      request:
+          s1: "xxx"
+      
+      seller:
+          s1: "No se puede estar en blanco."
+          s2: "Seleccione un país."
+          s3: "Hay que aceptar las Condiciones del Servicio de proceder."
+      
+      shop:
+          s1: "Para permitir que PayPal, usted deberá proporcionar su nombre de cuenta de PayPal"
+          s2: "Para permitir la transferencia bancaria, este campo debe ser llenado."
+          s3: "Por favor, acepte al menos un método de pago"
+
+      systemmailer:
+          s1: "Registro completo"
+          s2: "La contraseña o correo electrónico ha cambiado"
+          s3: "Usuario y Contraseña para Rihhi"
+          s4: "Te has convertido en un vendedor en Rihhi"
+          s5: "La confirmación de su pedido"
+          s6: "solicitar a usted (Orden"
+          s7: "confirmaron la recepción del pago por Orden"
+          s8: "sólo envían Orden"
+          s9: "retroalimentación proporcionada en su solicitud"
+          s10: ", comentó en su reacción de orden"
+          s11: "Venta completa - volumen de negocios y saldo de la cuenta han aumentado."
+          s12: "Su cuenta ha sido equilibrado."
+          s13: "Atención: Tu cuenta bancaria no puede ser cargado."
+          s14: "pidió ser su amigo en Rihhi."
+          s15: "Uno de sus pedidos se ha cancelado."
+          s16: "Nuevo mensaje de"
+          
+      
+      user:
+          s1: "No se puede estar en blanco."
+          s2: "Es demasiado corto. Al menos seis caracteres."
+          s3: "no coincide con la confirmación."
+          s4: "¿Es demasiado corto. Por lo menos tres personajes."
+          s5: "Debe ser una dirección válida de correo electrónico"
+          s6: "ya se ha utilizado."
+             
+########################################
+# 3. Vistas
+########################################
+  views:
+      views:
+          show:
+              s1: "xxx"
+      
+      carts:
+          cart_notice:
+              s1: "xxx"
+          cart:
+              s1: "Su cesta de compra"
+              s2: "Esta página muestra todos los artículos en su carrito."
+              s3: "Los artículos se pueden provenir de diferentes vendedores y necesita por separado para cada una de ellas."
+              s4: "Uno o más de los elementos que ha seleccionado no se dispone de más tiempo. Ellos han sido removidos de su carro."
+              s5: "Comprar"
+              s6: "Cantidad"
+              s7: "Añadir una"
+              s8: "Quitar uno"
+              s9: "Total"
+              s10: "Sin el transporte marítimo."
+              s11: "Confirmar"
+              s12: "Revisa tu pedido en la página siguiente."
+              s13: "Limpia tu carro"
+              s14: "No hay artículos en su cesta de la compra en este momento."
+              s15: "Mostrar mis órdenes"
+              s16: "Mi Cuenta"
+
+          clear:
+              s1: "Por favor, confirme vaciar su carrito de compras."
+              s1: "Confirmar"
+
+      favorites:
+          index:
+              s1: "Mis artículos favorited"
+                
+      feedbacks:
+          thanks:
+              s1: "Gracias por enviar su comentario!"
+              s2: "Si ha introducido una dirección de correo electrónico, le enviaremos una respuesta personal."
+              s3: "Haga clic aquí para cerrar esta ventana"
+
+      friends:
+          show:
+              s1: "` s amigos "
+              s2: "No hay amigos agregados."
+              s3: "Volver a la página de miembro"
+              s4: "mantiene su lista de amigos privada"
+
+      hearteds:
+          index:
+              s1: "Mis artículos corazón"
+              s2: "Volver a mi cuenta"
+      
+      layouts:
+          application:
+              s1: "Rihhi - El mercado de Live Action Role-Playing artículos con una creciente comunidad!"
+              s2: "cesta de la compra"
+              s3: "elementos"
+              s4: "Identificados como"
+              s5: "Cerrar sesión"
+              s6: "Login"
+              s7: "Mi Cuenta"
+              s8: "Regístrate"
+              s9: "Comprar"
+              s10: "Vender"
+              s11: "Eventos"
+              s12: "Tickets"
+              s13: "Comunidad"
+              s14: "Home"
+              s15: "Buscar"
+              s16: "Go"
+              s17: "¿Quiénes somos?"
+              s18: "Ayuda"
+              s19: "Impresión"
+                    
+      listings:
+          empty1:
+              s1: "En primer lugar la imagen:"
+              s2: "Ninguna imagen"
+              s3: "(Las imágenes seleccionadas se envían después de hacer clic en el botón Guardar)"
+              
+          empty2:
+              s1: "Segunda imagen:"
+              s2: "Ninguna imagen"
+              s3: "(Las imágenes seleccionadas se envían después de hacer clic en el botón Guardar)"
+
+          empty3:
+              s1: "En tercer lugar de la imagen:"
+              s2: "Ninguna imagen"
+              s3: "(Las imágenes seleccionadas se envían después de hacer clic en el botón Guardar)"
+
+          empty4:
+              s1: "la imagen Cuarto:"
+              s2: "Ninguna imagen"
+              s3: "(Las imágenes seleccionadas se envían después de hacer clic en el botón Guardar)"
+
+          lastcategory:
+              s1: "Tercera categoría"
+          
+          newlisting_edit:
+              s1: "Título"
+              s2: "Categorías"
+              s3: "Características"
+              s4: "Envío"
+              s5: "Imágenes"
+
+          newlisting:
+              s1: "El título y el precio"
+              s2: "Categorías y Etiquetas"
+              s3: "Colores y tamaños"
+              s4: "Envío"
+              s5: "Imágenes"
+              s6: "Hecho"
+
+          searchbox:
+              s1: "Nombre"
+              s2: "Vendedor"
+              s3: "Descripción"
+              s4: "Min precio"
+              s5: "Precio máximo"
+              s6: "Materiales"
+              s7: "Categorías complementarias"
+              s8: "Categoría"
+              s9: "Buscar"
+              
+          subcategory:
+              s1: "segunda categoría"
+
+          categories:
+              s1: "Paso 2 - Categorías"
+              s2: "el campo es obligatorio"
+              s3: "primera categoría"
+              s4: "segunda categoría"
+              s5: "Tercera categoría"
+              s6: "etiquetas categoría adicional:"
+              s7: "Material etiquetas:"
+              s8: "un paso atrás"
+              s9: "Continuar"
+              
+          edit1:
+              s1: "Editar título, precio y descripción"
+              s2: "el campo es obligatorio"
+              s3: "Título"
+              s4: "Precio"
+              s5: "Cantidad en stock"
+              s6: "Condición"
+              s7: "Nuevo"
+              s8: "Usado"
+              s9: "Descripción"
+              s10: "Haga clic para guardar"
+
+          edit2:
+              s1: "Editar categorías y etiquetas"
+              s2: "el campo es obligatorio"
+              s3: "primera categoría"
+              s4: "segunda categoría"
+              s5: "Tercera categoría"
+              s6: "etiquetas categoría adicional"
+              s7: "Material etiquetas"
+              s8: "Haga clic para guardar"
+          
+          edit3:
+              s1: "Editar más información"
+              s2: "el campo es obligatorio"
+              s3: "Tamaños disponibles"
+              s4: "Colores disponibles"
+              s5: "Longitud (x)"
+              s6: "Ancho (y)"
+              s7: "Altura (z)"
+              s8: "Peso"
+              s9: "útil para larp"
+              s10: "utilizables para la recreación"
+              s11: "Sí"
+              s12: "No"
+              s13: "Haga clic para guardar"
+
+          edit4:
+              s1: "Editar la información de envío"
+              s2: "el campo es obligatorio"
+              s3: "Tiempo de preparación"
+              s4: "días"
+              s5: "1. buques a"
+              s6: "Sólo el transporte"
+              s7: "Con otro tema"
+              s8: "El tiempo de entrega"
+              s9: "días"
+              s10: "2. Envío a los"
+              s11: "Sólo el transporte"
+              s12: "Con otro tema"
+              s13: "El tiempo de entrega"
+              s14: "días"
+              s15: "3. Enviar a:"
+              s16: "Sólo el transporte"
+              s17: "Con otro tema"
+              s18: "El tiempo de entrega"
+              s19: "días"
+              s20: "4. Enviar a:"
+              s21: "Sólo el transporte"
+              s22: "Con otro tema"
+              s23: "El tiempo de entrega"
+              s24: "días"
+              s25: "5. Enviar a:"
+              s26: "Sólo el transporte"
+              s27: "Con otro tema"
+              s28: "El tiempo de entrega"
+              s29: "días"
+              s30: "Los comentarios de envío adicionales"
+              s31: "Haga clic para guardar"
+
+          edit5:
+              s1: "Editar imágenes"
+              s2: "Primera imagen"
+              s3: "Ninguna imagen"
+              s4: "(Las imágenes seleccionadas se envían después de hacer clic en el botón Guardar)"
+              s5: "En segundo lugar de la imagen"
+              s6: "Eliminar esta imagen"
+              s7: "Ninguna imagen"
+              s8: "(Las imágenes seleccionadas se envían después de hacer clic en el botón Guardar)"
+              s9: "En tercer lugar de la imagen"
+              s10: "Eliminar esta imagen"
+              s11: "Ninguna imagen"
+              s12: "(Las imágenes seleccionadas se envían después de hacer clic en el botón Guardar)"
+              s13: "Cuarto de la imagen"
+              s14: "Eliminar esta imagen"
+              s15: "Ninguna imagen"
+              s16: "(Las imágenes seleccionadas se envían después de hacer clic en el botón Guardar)"
+              s17: "Haga clic para guardar"
+
+          images:
+              s1: "Paso 5 - Imágenes"
+              s1a: "el campo es obligatorio"
+              s2: "Principal de la imagen"
+              s3: "la imagen adicional"
+              s4: "un paso atrás"
+              s5: "Completar"
+          
+          index:
+              s1: "Mis artículos"
+              s2: "Usted no tiene ningún producto en Rihhi todavía."
+              s3: "ID"
+              s4: "Imagen"
+              s5: "Info"
+              s6: "Editar"
+              s7: "Eliminar"
+              s8: "Título"
+              s9: "Precio"
+              s10: "Cantidad en stock"
+              s11: "1 - Título y Precio"
+              s12: "2 - Categorías"
+              s13: "3 - Características"
+              s14: "4 - Embarque"
+              s15: "5 - Imágenes"
+              s16: "Eliminar"
+              s17: "¿Está seguro?"
+
+          index2:
+              s1: "Categorías"
+              s2: "Categoría"
+              s3: "Hay"
+              s4: "elementos disponibles."
+              s5: "Mostrar / Ocultar Buscar"
+              s6: "La búsqueda tiene"
+              s7: "resultados"
+
+          index3:
+              s0: "Resultados"
+              s1: "Mostrar / Ocultar Buscar"
+              s2: "La búsqueda tiene"
+              s3: "resultados"
+          
+          Index4:
+              s1: "Fuera de Stock"
+              s2: "Ninguno de sus artículos están agotados."
+              s3: "Imagen"
+              s4: "Info"
+              s5: "Editar"
+              s6: "Eliminar"
+              s7: "Título"
+              s8: "Precio"
+              s9: "Cantidad en stock"
+              s10: "1 - Título y Precio"
+              s11: "2 - Categorías"
+              s12: "3 - Características"
+              Envío s13: "4 -"
+              s14: "5 - Imágenes"
+              s15: "Eliminar"
+              s16: "¿Está seguro?"
+              s17: "(Cambio)"
+
+          new:
+              s1: "Paso 1 - Nuevo elemento"
+              s2: "Lista de tu artículo en cinco sencillos pasos."
+              s3: "Una tarifa de 0,20 € se aplica a cada elemento de la lista."
+              s4: "el campo es obligatorio"
+              s5: "Título"
+              s6: "Precio"
+              s7: "Cantidad en stock"
+              s8: "Condición"
+              s9: "Nuevo"
+              s10: "Usado"
+              s11: "Descripción"
+              s12: "Volver a mi cuenta"
+              s13: "Continuar"
+              s14: "Se puede alquilar"
+              s15: "No"
+              s16: "Sí, ponerse en contacto conmigo"
+              s17: "Sí. Actualmente alquilado"
+ 
+          results:
+              s1: "Resultados de la búsqueda"
+          
+          shipping:
+              s1: "Paso 4 - Envío"
+              s2: "el campo es obligatorio"
+              s3: "Tiempo de preparación"
+              s4: "días"
+              s5: "1. buques a"
+              s6: "Sólo el transporte"
+              s7: "Con otro tema"
+              s8: "El tiempo de entrega"
+              s9: "días"
+              s10: "2. Envío a los"
+              s11: "Sólo el transporte"
+              s12: "Con otro tema"
+              s13: "El tiempo de entrega"
+              s14: "días"
+              s15: "3. Enviar a:"
+              s16: "Sólo el transporte"
+              s17: "Con otro tema"
+              s18: "El tiempo de entrega"
+              s19: "días"
+              s20: "4. Enviar a:"
+              s21: "Sólo el transporte"
+              s22: "Con otro tema"
+              s23: "El tiempo de entrega"
+              s24: "días"
+              s25: "5. Enviar a:"
+              s26: "Sólo el transporte"
+              s27: "Con otro tema"
+              s28: "El tiempo de entrega"
+              s29: "días"
+              s30: "Los comentarios de envío adicionales"
+              s31: "un paso atrás"
+              s32: "Continuar"
+                                                             
+          show:
+              s1: "en la acción"
+              s2: "Tamaño"
+              s3: "Color"
+              s4: "Artículo agotado. <br> Pídale al vendedor para más."
+              s5: "Presione ESC para cerrar esta imagen"
+              s6: "Descripción"
+              s7: "En la Categoría"
+              s8: "categorías complementarias"
+              s9: "etiquetas Material"
+              s10: "Las opciones de envío y los plazos de entrega"
+              s11: "Listo para el envío"
+              s12: "Hoy"
+              s13: "días"
+              s14: "envíos a"
+              s15: "a favor"
+              s16: "con otro tema"
+              s17: "en"
+              s18: "posibilidades de pago"
+              s19: "Transferencia bancaria (IBAN / BIC)"
+              s20: "Cheque"
+              s21: "Pago a la entrega"
+              s22: "Editar este artículo"
+              s23: "Título"
+              s24: "Categorías"
+              s25: "Características"
+              s26: "Envío"
+              s27: "Imágenes"
+              s28: "Mostrar todos mis artículos"
+              s29: "Vendido por"
+              s30: "Enviar un mensaje"
+              s31: "Ver la tienda"
+              s32: "Feedback"
+              s33: "Todavía no hay reacciones"
+              s34: "Antigüedad"
+              s35: "Hace"
+              s36: "Lugar"
+              s37: "Otras partidas por"
+              s38: "las estadísticas del artículo"
+              s39: "Calidad"
+              s40: "Nuevo"
+              s41: "Usado"
+              s42: "Diseñado para recreación"
+              s43: "Sí"
+              s44: "No"
+              s45: "Diseñado para larp"
+              s46: "Largo"
+              s47: "Ancho"
+              s48: "Altura"
+              s49: "Peso"
+              s50: "Favoritos de este artículo"
+              s51: "Eliminar de los favoritos"
+              s52: "Ver a mis privados"
+              s53: "Heart este artículo"
+              s54: "Eliminar este producto"
+              s55: "Ver a mis artículos de corazón"
+              s56: "Marcar como inadecuado"
+              s57: "La razón"
+              s58: "Haga clic aquí para cerrar esta forma"
+              s59: "Haga clic para enviar"
+              s60: "Este artículo ha sido visto"
+              s61: "tiempos"
+              s62: "Términos de Servicio"
+              s63: "Se puede alquilar"
+              s64: "No"
+              s65: "Sí, ponerse en contacto conmigo"
+              s66: "Sí. Actualmente alquilado"
+
+          specifics:
+              s1: "Colores y tamaños"
+              s2: "el campo es obligatorio"
+              s3: "Tamaños disponibles"
+              s4: "Colores disponibles"
+              s5: "Longitud (x)"
+              s6: "Ancho (y)"
+              s7: "Altura (z)"
+              s8: "Peso"
+              s9: "Diseñado para larp"
+              s10: "Diseñado para recreación"
+              s11: "Sí"
+              s12: "No"
+              s13: "un paso atrás"
+              s14: "Continuar"
+      
+      messages:
+          inbox:
+              s1: "Respuesta"
+              s2: "Marcar como no leído"
+              s3: "Marcar como leído"
+              s4: "Eliminar"
+              s4A: "Esto no se puede deshacer. ¿Está seguro?"
+              s5: "No hay mensajes"
+          
+          sentmail:
+              s1: "Eliminar"
+              s2: "No hay mensajes"
+          
+          index:
+              s1: "Bandeja de entrada"
+              s2: "Nuevo mensaje"
+              s3: "Volver a mi cuenta"
+
+          new:
+              s1: "Redactar mensaje"
+              s1A: "Para"
+              s2: "Título"
+              s3: "Mensaje"
+              s4: "Enviar"
+              s5: "Volver a mi bandeja de entrada"
+         
+          sent:
+              s1: "correo enviado"
+              s2: "Nuevo mensaje"
+          
+          show:
+              s1: "Lea el mensaje"
+              s2: "Respuesta"
+              s2A: "Eliminar"
+              s2B: "Esto no se puede deshacer. ¿Está seguro?"
+              s3: "Nuevo mensaje"
+              s4: "Volver a la bandeja de entrada"
+
+      movements:
+          index:
+              s1: "Las finanzas y las transacciones"
+              s2: "La facturación total hasta ahora"
+              s3: "Rihhi Cuenta Balance"
+              s4: "El pasado cargado de"
+              s5: "ID"
+              s6: "Fecha"
+              s7: "Valor"
+              s8: "La Razón"
+              s9: "Confirmado con el correo electrónico?"
+              s10: "Disputa esto?"
+              s11: "No se han realizado operaciones en su cuenta creada."
+
+      orders:
+          bank_c:
+              s1: "El cliente selecciona pagar mediante transferencia bancaria."
+              s2: "Recibió los siguientes datos de su cuenta"
+              s3: "Titular de la cuenta"
+              s4: "IBAN"
+              s5: "BIC"
+              s6: "Referencia"
+          
+          bank:
+              s1: "Ha seleccionado de pago por transferencia bancaria"
+              s2: "Los vendedores son detalles de la cuenta"
+              s3: "Titular de la cuenta"
+              s4: "IBAN"
+              s5: "BIC"
+              s6: "Referencia"
+           
+          bank_transfer:
+              s1: "Por favor, pagar al vendedor a través de transferencia bancaria dentro de los próximos cuatro días."
+              s2: "Titular de la cuenta"
+              s3: "IBAN"
+              s4: "BIC"
+              s5: "Referencia"
+              s6: "Usted ordenó el"
+              s7: "El vendedor puede cancelar su pedido si no recibe el pago dentro de los cinco días."
+      
+          cheque_c:
+              s1: "El cliente selecciona pagar con un cheque"
+              s2: "Recibió los detalles de su dirección"
+           
+          cheque:
+              s1: "Ha seleccionado a pagar con cheque"
+              s2: "La dirección de los vendedores es"
+              
+              cheque1:
+              s1: "Por favor, pagar al vendedor a través de comprobar, lo antes posible."
+              s2: "El vendedor puede cancelar su pedido si no ha recibido el pago dentro de los cinco días hábiles"
+           
+          cod_all:
+              s1: "El cliente seleccionado para pagar a través de contra reembolso"
+              s2: "Ha seleccionado pagar a través de contra reembolso"
+              s3: "La forma de pago acordada es contra reembolso"
+              s4: "Usted ordenó el"
+              s5: "El vendedor tiene ahora para confirmar el envío del orden"
+                              
+          neworder:
+              s1: "Carro"
+              s2: "Seleccione el orden"
+              s3: "Envío de destino"
+              s4: "Examen"
+              s5: "Listo"
+                                
+          order:
+              s1: "Orden"
+              s2: "a favor"
+              s3: "del vendedor"
+              s4: "Tamaño"
+              s5: "Color"
+              s6: "Artículos"
+              s7: "Envío"
+              s8: "Total"
+              s9: "Referencia"
+          
+          paypal_all:
+              s1: "El cliente seleccionado para pagar a través de PayPal"
+              s2: "Él enviará el pago a"
+              s3: "Ha seleccionado a través de PayPal para pagar"
+              s4: "Enviar el pago a"
+              s5: "Por favor, paga"
+              s6: "con PayPal, dentro de los próximos dos días"
+              s7: "Enviar el pago a"
+              s8: "Haga clic aquí para pagar con PayPal, ahora"
+          
+          index:
+              s1: "Usted no tiene ninguna orden"
+              s2: "Mis Pedidos"
+              s3: "Orden"
+              s4: "Vendido por"
+              s5: "Paso 1"
+              s6: "Usted ordenó"
+              s7: "Paso 2:"
+              s8: "Vendedor confirma el pago"
+              s9: "Paso 3"
+              s10: "Vendedor buques"
+              s11: "Paso 4"
+              s12: "Dar retroalimentación"
+              s13: "Paso 5"
+              s14: "Comentario de vendedor"
+              s15: "Paso 6"
+              s16: "Estado de la orden"
+              s17: "Detalles"
+              s18: "Seguir este orden"
+              s19: "Esperando la confirmación"
+              s20: "Esperando confirmación"
+              s21: "Dar retroalimentación"
+              s22: "Lugar para comentarios"
+              s23: "Completo"
+              s24: "Cancelado"
+              s25: "Abrir"
+              s26: "Orden progreso"
+              s27: "Orden dada"
+              s28: "Abrir"
+              s29: "El pago recibido por el vendedor"
+              s30: "Abrir"
+              s31: "Pedido enviado por el vendedor"
+              s32: "Abrir"
+              s33: "Usted proporcionaron información para el vendedor"
+              s34: "Abrir"
+              s35: "El vendedor comentó sobre sus comentarios"
+              s36: "Abrir"
+              s37: "Nuestro sistema marcó el fin de lo más completo"
+              s38: "El pago de la información"
+              s39: "Envío de la información"
+              s40: "Tú siempre que el vendedor con la dirección de envío siguiente"
+              s41: "Mostrar mis ventas"
+              s42: "orden Cancelado"
+              s43: "Esta orden ha sido cancelada"
+              s44: "La Razón"
+              s45: "Cancelar la orden"
+               
+          index2:
+              s2: "Mis ventas"
+              s3: "n º"
+              s4: "Orden"
+              s5: "Paso 1"
+              s6: "cliente efectuó el pedido"
+              s7: "Paso 2:"
+              s8: "Confirmar pago"
+              s9: "Paso 3"
+              s10: "Confirmar el envío"
+              s11: "Paso 4"
+              s12: "Cliente da una respuesta"
+              s13: "Paso 5"
+              s14: "Comentario de los comentarios"
+              s15: "Paso 6"
+              s16: "Estado de la orden"
+              s17: "Detalles"
+              s18: "Cliente sigue ordenando"
+              s19: "Confirmar pago"
+              s20: "Confirmar el envío"
+              s21: "Lugar para comentarios"
+              s22: "Comentario de los comentarios"
+              s23: "Completo"
+              s24: "Cancelado"
+              s25: "Abrir"
+              s26: "Orden progreso"
+              s27: "Abrir"
+              s28: "El pago recibido por el vendedor"
+              s29: "Abrir"
+              s30: "Pedido enviado por el vendedor"
+              s31: "Abrir"
+              s32: "El cliente siempre comentarios sobre esta transacción."
+              s33: "Ha comentado sobre los clientes de votos"
+              s34: "Abrir"
+              s35: "Nuestro sistema marcó el fin de lo más completo"
+              s36: "El pago de la información"
+              s37: "Envío de la información"
+              s38: "El cliente siempre que la dirección de envío siguiente"
+              s39: "Cancelación opción"
+              s40: "Usted puede cancelar este pedido, proporcionando una razón más adelante. <br> El cliente será notificado"
+              s41: "Este pedido ha sido cancelado por usted o por un administrador"
+              s42: "Este pedido está completo y no se pueden cancelar más"
+              s43: "Usted ya ha recibido comentarios sobre esta solicitud. No se puede cancelar más"
+              s44: "Cancelar la orden"
+              s44a: "¿Está seguro?"
+              s45: "Mostrar mis órdenes"
+              s46: "Mostrar mis ventas terminado"
+              s47: "La razón para la cancelación"
+              s48: "La Razón"
+           
+          index3:
+              s2: "Las ventas Completo"
+              s3: "n º"
+              s4: "Orden"
+              s5: "Paso 1"
+              s6: "cliente efectuó el pedido"
+              s7: "Paso 2:"
+              s8: "Confirmar pago"
+              s9: "Paso 3"
+              s10: "Confirmar el envío"
+              s11: "Paso 4"
+              s12: "Cliente da una respuesta"
+              s13: "Paso 5"
+              s14: "Comentario de los comentarios"
+              s15: "Paso 6"
+              s16: "Estado de la orden"
+              s17: "Detalles"
+              s18: "Cliente sigue ordenando"
+              s19: "Confirmar pago"
+              s20: "Confirmar el envío"
+              s21: "Lugar para comentarios"
+              s22: "Comentario de los comentarios"
+              s23: "Completo"
+              s24: "Cancelado"
+              s25: "Abrir"
+              s26: "Orden progreso"
+              s27: "Abrir"
+              s28: "El pago recibido por el vendedor"
+              s29: "Abrir"
+              s30: "Pedido enviado por el vendedor"
+              s31: "Abrir"
+              s32: "El cliente siempre comentarios sobre esta transacción."
+              s33: "Ha comentado sobre los clientes de votos"
+              s34: "Abrir"
+              s35: "Nuestro sistema marcó el fin de lo más completo"
+              s36: "El pago de la información"
+              s37: "Envío de la información"
+              s38: "El cliente siempre que la dirección de envío siguiente"
+              s39: "Cancelación opción"
+              s40: "Si el cliente no ha enviado o ha solicitado el pago para cancelar esta orden, usted puede cancelar el pedido haciendo clic en el enlace de abajo"
+              s41: "Este pedido ha sido cancelado por usted o por un administrador"
+              s42: "Este pedido está completo y no se pueden cancelar más"
+              s45: "Mostrar mis órdenes"
+              s46: "Mostrar mis ventas"
+
+          Index4:
+              s1: "Usted no tiene ninguna orden terminado"
+              s2: "Los pedidos Completo"
+              s3: "Orden"
+              s4: "Vendido por"
+              s5: "Paso 1"
+              s6: "Usted ordenó"
+              s7: "Paso 2:"
+              s8: "Vendedor confirma el pago"
+              s9: "Paso 3"
+              s10: "Vendedor buques"
+              s11: "Paso 4"
+              s12: "Dar retroalimentación"
+              s13: "Paso 5"
+              s14: "Comentario de vendedor"
+              s15: "Paso 6"
+              s16: "Estado de la orden"
+              s17: "Detalles"
+              s18: "Seguir este orden"
+              s19: "Esperando la confirmación"
+              s20: "Esperando confirmación"
+              s21: "Dar retroalimentación"
+              s22: "Lugar para comentarios"
+              s23: "Completo"
+              s24: "Cancelado"
+              s25: "Abrir"
+              s26: "Orden progreso"
+              s27: "Orden dada"
+              s28: "Abrir"
+              s29: "El pago recibido por el vendedor"
+              s30: "Abrir"
+              s31: "Pedido enviado por el vendedor"
+              s32: "Abrir"
+              s33: "Usted proporcionaron información para el vendedor"
+              s34: "Abrir"
+              s35: "El vendedor comentó sobre sus comentarios"
+              s36: "Abrir"
+              s37: "Nuestro sistema marcó el fin de lo más completo"
+              s38: "El pago de la información"
+              s39: "Envío de la información"
+              s40: "Tú siempre que el vendedor con la dirección de envío siguiente"
+              s41: "Mostrar mis ventas"
+              s42: "Volver a mi cuenta"
+
+          new:
+              s1: "Orden Seleccione"
+              s2: "Por favor, confirme que este orden es correcto"
+              s3: "Comprar"
+              s4: "Tamaño"
+              s5: "Color"
+              s6: "Cantidad"
+              s7: "Total"
+              s8: "Sin el transporte marítimo"
+              s9: "Volver a mi carrito"
+              s10: "Continuar"
+              s11: "Otras órdenes abiertas puede continuar con"
+              s12: "Comprar"
+              s13: "tamaño"
+              s14: "Color"
+              s15: "Cantidad"
+              s16: "Total"
+              s17: "Sin el transporte marítimo"
+              s18: "Seleccione este orden"
+
+          new2:
+              s1: "Envío de destino"
+              s2: "El precio final de su pedido se muestra después de que nos ha facilitado su dirección de envío"
+              s3: "Los costes de envío se basan en su dirección. Usted puede revisar y confirmar su pedido en la página siguiente antes de comprar."
+              s4: "el campo es obligatorio"
+              s5: "Dirección de la información"
+              s6: "Nombre completo"
+              s7: "la calle"
+              s8: "Código postal"
+              s9: "Ciudad"
+              s10: "País"
+              s11: "Las opciones de pago"
+              s12: "Paga con Paypal"
+              s13: "Transferencia bancaria"
+              s14: "Cheque"
+              s15: "Pago a la entrega"
+              s16: "Continuar"
+              s17: "Volver"
+              
+          new3:
+              s1: "Revisa tu pedido"
+              s2: "Dirección de envío"
+              s3: "El pago"
+              s4: "Su pedido"
+              s5: "tamaño"
+              s6: "Color"
+              s7: "Cantidad"
+              s8: "Productos"
+              s9: "Envío"
+              s10: "Total"
+              s11: "Los siguientes artículos no pueden ser entregados a su dirección. Estos elementos serán retirados de esta orden si continúa"
+              s12: "Advertencia"
+              s13: "tamaño"
+              s14: "Color"
+              s15: "Cantidad"
+              s16: "Seleccione una dirección diferente o retirar el objeto de volver a su carro de la compra"
+              s17: "Volver a mi carrito"
+              s18: "Confirmar y comprar"
+          show:
+              s1: "Orden completo"
+              s2: "Gracias por la compra de"
+              s3: "Su pedido"
+              s4: "Tamaño"
+              s5: "Color"
+              s6: "Cantidad"
+              s7: "Productos"
+              s8: "Envío"
+              s9: "Total"
+              s10: "Envío"
+              s11: "El pago"
+              s12: "Usted ha recibido un correo electrónico que contienen la información que se muestra arriba"
+              s13: "Otro correo electrónico será enviado una vez que el comprador confirma la recepción de su pago y el envío de la orden"
+              s14: "Volver a mi carrito"
+              s15: "Mis órdenes abiertas"
+              s16: "Seguir comprando"
+                  
+      requests:
+          show:
+              s1: "A pedido de"
+              s2: "Enviar mensaje"
+              s3: "Cantidad"
+              s4: "Materiales"
+              s5: "precio ideal"
+              s6: "Etiquetas"
+              s7: "Plazo"
+              s8: "Ejemplo"
+              s9: "Envíe a"
+              s10: "Publicado en"
+              s11: "fecha de caducidad"
+              s12: "¿Está seguro?"
+              s13: "Pujar"
+              s14: "Conviértete en un vendedor a hacer una oferta"
+              s15: "Solicitud de Cierre"
+              s16: "Editar esta solicitud"
+              s17: "Volver a mis peticiones"
+              s18: "Volver a mis peticiones cerrado"
+              s19: "Mostrar todas las solicitudes"
+              s20: "Marcar como inadecuado"
+              s21: "La razón"
+              s22: "Haga clic aquí para cerrar esta forma"
+              s23: "Hay"
+              s24: "las ofertas sobre esta solicitud"
+              s25: "Había"
+              s26: "Oferta"
+              s27: "Tiempo de preparación (incluyendo gastos de envío)"
+              s28: "costo final (incluidos los gastos de envío)"
+              s29: "Ver los detalles del pago"
+              s30: "Oferta aceptada"
+              s31: "Oferta rechazada"
+              s32: "Aceptar la oferta"
+              s33: "Rechazar la oferta"
+              
+      events:
+          show:
+              s1: "Tickets"
+              s2: "La edad mínima para la asistencia es"
+              s3: "años"
+              s4: "Invitación sólo"
+              s5: "Fecha"
+              s6: "Lugar"
+              s7: "a la vista más grande en una nueva ventana"
+              s8: "Género"
+              s9: "Reglas"
+              s10: "Campaña"
+              s11: "Alojamiento"
+              s12: "Ambiente"
+              s13: "Celebration"
+              s14: "Questing"
+              s15: "Luchas"
+              s16: "Pocos"
+              s17: "Muchos"
+              s18: "Batallas"
+              s19: "Magic"
+              s20: "Un poco"
+              s21: "Mucho"
+              s22: "Misterios"
+              s23: "ubicación"
+              s24: "la calle"
+              s25: "Espacio y Ciudad"
+              s26: "País"
+              s27: "Descripción del lugar"
+              s28: "Url a la invitación"
+              s29: "foro de debate"
+              s30: "asistir"
+              s31: "Ver todos"
+              
+              #rightcolumn #
+              s32: "No hay billetes no disponibles"
+              s33: "Editar este evento"
+              s34: "Agregar un billete"
+              s35: "PC plazas disponibles"
+              s36: "NPC plazas disponibles"
+              s37: "Entradas a la venta hasta que aparezca"
+              s38: "Ver todas las opciones de billetes"
+              s39: "Evento entró por"
+              s40: "Enviar mensaje"
+              s41: "Ver tienda"
+              s42: "Orga"
+              s43: "Sitio Web"
+              s44: "Correo electrónico"
+              s45: "Primera Persona de contacto"
+              s46: "Nombre"
+              s47: "la calle"
+              s48: "Código de Área"
+              s49: "Ciudad"
+              s50: "Teléfono 1"
+              s51: "Teléfono 2"
+              s52: "Disponibilidad"
+              s53: "Fax"
+              s54: "Segunda Persona de contacto"
+
+      tickets:
+          old_tickets:
+              s1: "Este es un personaje jugador (PJ) de billetes"
+              s2: "Este es un personaje no jugador (NPC) de billetes"
+              s3: "Este billete está disponible en línea en Rihhi"
+              s4: "Este billete está disponible en la Orga directamente - no se puede comprar este boleto en Rihhi"
+              s5: "Este billete incluye un acuerdo para el equipo"
+              s6: "Evento"
+              s7: "Ticket"
+              s8: "Estado"
+              s9: "Precio"
+              s10: "tickets"
+          
+          show:
+              s1: "Válido"
+              s2: "hasta que aparezca"
+              s3: "Alojamiento"
+              s4: "Alojamiento"
+              s5: "Antes"
+              s6: "Precio"
+              s7: "Url a la invitación"
+              s8: "foro de debate"
+              s9: "Asistir"
+              s10: "Ver a todos los asistentes"
+              s11: "entradas Orden"
+              s12: "Otras entradas para este evento"
+              s13: "Editar esta entrada"
+              s14: "de que los boletos vendidos en Rihhi"
+              s15: "Evento de la información"
+              s16: "Entradas a la venta hasta que aparezca"
+              s17: "Ver todas las opciones de billetes"
+              s18: "PC plazas disponibles"
+              s19: "NPC plazas disponibles"
+              s20: "Ver en el Mapa"
+              s21: "Los boletos vendidos por"
+              s22: "Enviar mensaje"
+              s23: "Evento Orga"
+              s24: "Nombre"
+              s25: "Sitio Web"
+              s26: "Correo electrónico"
+
+      profiles:
+          show:
+              s1: "Estado de la cuenta: Forma de pago pendientes"
+              s2: "El saldo de su cuenta Rihhi no podía ser debitado de su cuenta bancaria. Siga las instrucciones en el correo electrónico que ha recibido para poner remedio a esta situación."
+              s3: "Póngase en contacto con nosotros en support@rihhi.de si tiene alguna pregunta"
+              s4: "'s Información general"
+              s5: "Pedidos"
+              s6: "Los pedidos y ventas"
+              s7: "Mi Carrito de la compra"
+              s8: "Mis órdenes"
+              s9: "Mis ventas"
+              s10: "Pedidos"
+              s11: "Mi Carrito de la compra"
+              s12: "Mis órdenes"
+              s13: "Feedback"
+              s14: "Le di de votos"
+              s15: "de votos que recibí"
+              s16: "Feedback"
+              s17: "Le di de votos"
+              s18: "Historia"
+              s19: "órdenes Completo"
+              s20: "las ventas Completo"
+              s21: "Historia"
+              s22: "órdenes Completo"
+              s23: "Conversaciones"
+              s24: "Nuevo"
+              s25: "Bandeja de entrada"
+              s26: "Enviados"
+              s27: "Inventario"
+              s28: "Artículos"
+              s29: "Lista de un nuevo ítem"
+              s30: "Artículos puestos en venta"
+              s31: "Fuera de stock"
+              s32: "Elementos eliminados"
+              s33: "Ofertas"
+              s34: "Abrir"
+              s35: "Marcadores"
+              s36: "Favoritos"
+              s37: "Elementos Hearted"
+              s38: "Los valores"
+              s39: "Opciones de vendedor"
+              s40: "Tienda descripción"
+              s41: "envío pre-sets"
+              s42: "Las opciones de pago"
+              s43: "Configuración"
+              s44: "Los valores"
+              s45: "Página miembros"
+              s46: "Show"
+              s47: "Editar"
+              s48: "Mostrar los amigos"
+              s48a: "La configuración de la tienda"
+              s49: "Mostrar mi tienda"
+              s50: "Vender artículos"
+              s51: "Finanzas"
+              s52: "Ver todas las transacciones"
+              s53: "Publicidad"
+              s54: "Artículos"
+              s55: "Ofertas"
+              s56: "Eventos"
+              s57: "Tickets"
+              s58: "Lista de un nuevo ítem"
+              s59: "Pide a un amigo:"
+              s60: "Otros"
+
+      ratings:
+          show:
+              s1: "Todos los votos para"
+              s2: "ha recibido"
+              s3: "las calificaciones de sus clientes"
+              s4: "De esos eran"
+              s5: "positivo y"
+              s6: "negativo"
+              s7: "Su Karma se encuentra en"
+              s8: "Este vendedor no ha recibido respuesta todavía"
+              s9: "ID"
+              s10: "Los comentarios de"
+              s11: "Orden"
+              s12: "Feedback"
+              s13: "El comentario del vendedor"
+              s14: "Fecha"
+              s15: "Bad"
+              s16: "Bueno"
+              s17: "Mostrar mis órdenes"
+              s18: "Mostrar mis ventas"
+              s19: "Mostrar mis transacciones"
+              s20: "Todavía no hay reacciones"
+  
+          index:
+              s1: "Sus comentarios"
+              s2: "Usted le dio información a"
+              s3: "órdenes"
+              s4: "No ha dado ninguna opinión todavía"
+              s5: "N º"
+              s6: "votos para"
+              s7: "Orden"
+              s8: "Feedback"
+              s9: "El comentario del vendedor"
+              s10: "Fecha"
+              s11: "Bad"
+              s12: "Bueno"
+              s13: "Volver a mi perfil"
+              s14: "Mostrar mis ventas"
+            
+          edit:
+                            
+              s2: "Comentario sobre la retroalimentación dada por"
+              s3: "Información del Cliente"
+              s4: "Bad"
+              s5: "Bueno"
+              s6: "Opina sobre de votos"
+              s7: "Comentario de los comentarios (opcional)"
+              s8: "Caracteres restantes"
+              s9: "comentario Guardar"
+              s10: "Orden vista"
+              s11: "tamaño"
+              s12: "Color"
+              s13: "Cantidad"
+              s14: "Productos"
+              s15: "Envío"
+              s16: "Total"
+              s17: "Orden progreso"
+              s18: "Abrir"
+              s19: "El pago recibido por el vendedor"
+              s20: "Abrir"
+              s21: "Pedido enviado por el vendedor"
+              s22: "Abrir"
+              s23: "El cliente siempre voto para usted"
+              s24: "Abrir"
+              s25: "El vendedor comentó sobre sus comentarios"
+              s26: "Abrir"
+              s27: "Nuestro sistema marcó el fin de lo más completo"
+          
+          new:
+              s1: "Dar información a"
+              s2: "Feedback"
+              s3: "Malo: No soy feliz"
+              s4: "Bueno: yo soy feliz"
+              s5: "La razón (opcional)"
+              s6: "Caracteres restantes"
+              s7: "Enviar comentarios"
+              s8: "Usted ordenó"
+              s9: "tamaño"
+              s10: "Color"
+              s11: "Cantidad"
+              s12: "Productos"
+              s13: "Envío"
+              s14: "Total"
+              s15: "Orden progreso"
+              s16: "Abrir"
+              s17: "El pago recibido por el vendedor"
+              s18: "Abrir"
+              s19: "Pedido enviado por el vendedor"
+              s20: "Abrir"
+              s21: "Usted proporcionaron información para el vendedor"
+              s22: "Abrir"
+              s23: "El vendedor comentó sobre sus comentarios"
+              s24: "Abrir"
+              s25: "Nuestro sistema marcó el fin de lo más completo"
+      
+      searches:
+          show:
+              s1: "Resultados de la búsqueda"
+              s2: "Resultado de la búsqueda"
+              s3: "en las partidas"
+              s4: "y de los miembros"
+              s5: "Artículos"
+              s6: "resultados"
+              s7: "Título"
+              s8: "Vendido por"
+              s9: "Cantidad disponible"
+              s10: "Precio"
+              s11: «Miembros»
+              s12: los "resultados"
+              s13: "Miembro"
+              s14: "Miembro desde"
+              s15: "Tiene una tienda?"
+              s16: "Enviar un mensaje"
+     
+      sellers:
+          edit:
+              s1: "Opciones de vendedor"
+              s2: "Dirección de la información"
+              s3: "Nombre completo "
+              s4: "la calle"
+              s5: "Código postal"
+              s6: "Ciudad"
+              s7: "País"
+              s8: "El pago de preferencia"
+              s9: "Electronic débito directo"
+              s10: "Nombre de la cuenta titular"
+              s11: "Número de cuenta (IBAN)"
+              s12: "identificador del banco (BIC)"
+              s13: "Actualizar"
+          new:
+              s1: "Conviértete en un vendedor"
+              s2: "Nota sobre las tasas: Listado un artículo cuesta 20 céntimos."
+              s3: "bien, una disposición de ventas del 3% sobre el costo total (incluyendo el envío) se carga después de que el artículo se vende."
+              s4: "Dirección de la información"
+              s5: "Nombre completo"
+              s6: "la calle"
+              s7: "Código postal"
+              s8: "Ciudad"
+              s9: "País"
+              s10: "El pago de preferencia"
+              s11: "Electronic débito directo"
+              s12: "Sí"
+              s13: "Sí (Sólo para las cuentas de banco alemán)"
+              s14: "No"
+              s15: "No (uso de PayPal en su lugar)"
+              s16: "Nombre de la cuenta titular"
+              s17: "Número de cuenta (IBAN)"
+              s18: "identificador del banco (BIC)"
+              s19: "Términos de Servicio"
+              s20: "Estoy de acuerdo con el"
+              s21: "Condiciones Rihhi de Servicio"
+              s22: "Cancelar y volver a mi perfil"
+              s23: "Continuar"
+          
+      sessions:
+          new:
+              s1: "Entrar al Rihhi"
+              s2: "Ya eres un miembro?"
+              s3: "Login"
+              s4: "Contraseña"
+              s5: "Acuérdate de mí"
+              s6: "Conectar"
+              s7: "¿Ha olvidado usted usuario / contraseña?"
+              s8: "Conviértete en un miembro!"
+              s9: "La unión es rápida y fácil."
+              s10: "Todo lo que necesitas es una dirección de correo electrónico válida."
+              s11: "Regístrate"
+      shared:
+          box_right:
+              s1: "Nuevo en Rihhi"
+          
+          edit_settings:
+              s1: "Mi Cuenta"
+              s2: "Los valores"
+              s2a: "Página de miembros"
+              s3: "Opciones de vendedor"
+              s4: "Tienda descripción"
+              s5: "envío pre-sets"
+              s6: "Las opciones de pago"
+      
+          feedbackform:
+              s0: "Feedback"
+              s1: "Su opinión nos ayuda a mejorar. Gracias por tomarse su tiempo"
+              s2: "¿Te gusta"
+              s3: "sugerir una traducción"
+              s4: "nos informan sobre un error"
+              s5: "compartir su felicidad"
+              s6: "Feedback"
+              s7: "El correo electrónico (si desea una respuesta):"
+              s8: "Haga clic para enviar"
+              s9: "Haga clic aquí para cancelar y cerrar este cuadro"
+          
+          imprint:
+              s1: "Mejor que respecta a"
+              s2: "Michael desde Rihhi"
+                        
+          links:
+              s1: "Lista de un nuevo ítem"
+              s2: "Volver a mi cuenta"
+              
+          mainmenu:
+              s1: "Categorías"
+              
+          theorder:
+              s2: "Su pedido"
+              s3: "productos Total"
+              s4: "Envío"
+              s5: "Total"
+          
+      shops:
+          edit:
+              s1: "Tienda descripción"
+              s2: "Tienda descripción"
+              s3: "Tienda de la imagen"
+              s4: "Tienda Condiciones del servicio / AGB"
+              s5: "Mostrar mi tienda"
+              s6: "Actualizar"
+          
+          payment_options:
+              s1: "Las opciones de pago"
+              s2: "Esta página le permite cambiar las opciones de pago disponibles para sus clientes."
+              s3: "Los clientes pueden pagar con"
+              s4: "Paypal"
+              s5: "cuenta de Paypal"
+              s6: "Transferencia bancaria"
+              s7: "Sí"
+              s8: "No"
+              s9: "Titular de la cuenta"
+              s10: "BIC"
+              s11: "Número de cuenta o IBAN"
+              s12: "Cheques"
+              s13: "Pago a la entrega"
+              s14: "Mostrar mi tienda"
+              s15: "Actualizar"
+         
+          shipping_presets:
+              s1: "Envío presets"
+              s2: "opciones de envío pre-seleccionar a la lista nuevos artículos más rápido"
+              s3: "Seleccione las opciones de envío"
+              s4: "1. buques a"
+              s5: "Sólo el transporte"
+              s6: "Con otro tema"
+              s7: "El tiempo de entrega"
+              s8: "días"
+              s9: "2. Envío a los"
+              s10: "3. Envíe a"
+              s11: "4. Envíe a"
+              s12: "5. Expedición a"
+              s13: "Otros comentarios"
+              s14: "Mostrar mi tienda"
+              s15: "Actualizar"
+          
+          show:
+              s1: "Mostrar mi página de miembro"
+              s2: "Editar mi tienda"
+              s3: "'s Shop"
+              s4: "Esta es mi tienda. Echa un vistazo a lo que tengo que ofrecer."
+              s5: "Información de la tienda"
+              s6: "Localización"
+              s7: "Antigüedad"
+              s8: "Karma"
+              s9: "Artículos"
+              s10: "Comentarios"
+              s11: "Términos de Servicio"
+              s12: "Mostrar Términos de Servicio"
+              s13: "Me envían normalmente a"
+              s14: "Envío comentarios"
+              s15: "'s temas"
+              s16: "No hay elementos que figuran todavía"
+              s17: "Acepto pagos a través de"
+              s19: "Vender un objeto nuevo"
+
+      
+      site:
+          about:
+              s1: "Acerca de Rihhi"
+              s2: "Rihhi fue fundada para dar a nuestra comunidad un mercado en el mundo online"
+              s3: "Aquí nos podemos reunir con nuestros amigos, comerciar libremente nuestros equipos nuevos y usados y solicitar artículos únicos de algunos de los mundos más innovadores y talentosos artesanos y hombres."
+              s4: "Finalmente, este lugar nos permite prepararnos para los retos que esperan: Si es una aventura corta debajo de una antigua ciudad o una campaña épica, la conquista de los continentes."
+              s5: "Por favor, háganos saber qué piensa acerca de Rihhi - sugerencias, comentarios y críticas son siempre bienvenidas. Utilice el botón de la izquierda :-)"
+              s6: "Créditos"
+              s7: "Un agradecimiento especial a Frank Schnelle (Wulfson) para la excelente traducción alemana de la página."
+      
+          help:
+              s1: "Ayuda"
+              s2: "Esta página contendrá las instrucciones y una lista de preguntas más frecuentes"
+              
+          imprint:
+              s1:                 "Impresión" 
+
+          tos:
+              s1:     "Terms of Service (English Version)"
+              s2:     "Important"
+              s3:     "Using Rihhi as a member is free of charge"
+              s4:     "Selling items via Rihhi does incur costs"
+              s5:     "A) Listing an item on Rihhi (Irrelevant of the amount in stock) incurs a fee of 0,20 EUR for the seller."
+              s6:     "B) A fee of 3% on the complete cost of an order is charged to the seller should the item be sold"
+              s7:     "There are no other costs."
+              s7a:    "Terms of Service"
+              s8:     "Terms of Service for using Rihhi.de"
+              s9:     "Rihhi.de.com (from now on: „Rihhi“) is a LARP-Online platform with an attached marketplace"
+              s10:    "Members can buy and sell items and services." 
+              s11:    "Rihhi is offered by Michael Schmitz, Rudolf-Blum-Strasse 15, 52146 Würselen."
+              s12:    "Your usage of Rihhi implies accordance and acceptance of the following Terms of Service (ToS)."
+              s13a:    "§ 1 Scope of Terms of Service" 
+              s13:    "These ToS describe the contractual relationship between Rihhi and the registered Member, using the Rihhi platform"
+              s14:     "Contractual relationships between Members are not affected by this ToS. General private or contractual laws apply to these relationsips."
+              s15:     "Contractual relationsihps between members are only affected by this ToS as they involve the realization of the contracts between these members."
+              s16:     "These ToS do explicitly not apply to any impairment of performance within the contractual relationships between these members."
+              s17:     "These ToS apply as soon as the member is registered"
+              s18:     "Acceptance of these ToS is confirmed by clicking the acceptance checkbox during sign up."
+              s19:     "You can always revoke your acceptance of these terms in accordance with ToS § 4, paragraph 4."
+              s20:     "The minimum age for usage of Rihhi is 18 years."
+              s21:     "§ 2 Definition and Description"
+              s22:     "1. Rihhi.de is an online marketplace with a focus on LARP equipment and services. Members can trade items and services."
+              s23:     "Items and services can be offered, advertised, sold and bought as long as their sale, advertisement and trade doesn't injure applicable laws or these ToS."
+              s24:     "1a. Rihhi runs this online platform for trading items and services."
+              s25:     "Rihhi is neither a representative of the buyer nor the seller. Rihhi is not a party to any transactions negotiated via the Rihhi platform"
+              s26:     "Rihhi is solely involved with Members in their usage of the site."
+              s27:     "Contractual parties of the relevant purchase agreement are the buyer and seller alone"
+              s28:     "The fulfillment of the relevant purchase agreement is handled only between the members"
+              s29:     "Rihhi offers no rights to its customers regarding the acceptance and support of claims regarding purchase agreements between buyers and sellers."
+              s30:     "Rihhi will only accept claims regarding purchase agreements as this involves the fulfillment of legal or contractual relationships between Rihhi and its members"
+              s31:     "2. Usage of Rihhi and  browsing for products, userpagesm, shops and services are available to any visitor"
+              s32:     "Usage of additional functions, especially the purchase and sale of items and services, requires a registration as buyer or seller."
+              s33:     "3. Rihhi does not allow the trade of items or services forbidden by local laws"
+              s34:     "4. Rihhi advertises products offered by its members via different channels, including, but not limited to, online advertising, presentations on other websites and print or other channels"
+              s35:     "5. Rihhi contains a rating system, which allows buyers and sellers to exchange feedback regarding the purchase process after the completion of the contract"
+              s36:     "Members are required to offer valid and truthful facts regarding the fulfillment of the purchase contract"
+              s37:     "Ratings which include non-constructive criticism violate the spirit of Rihhi and are not allowed. Criticism needs to be based on facts and objective assessment of the situation and should follow applicable legal law regarding slander and libel"
+              s38:     "Rating yourself is forbidden, as well as asking others to add positive Feedback to your account."
+              s39:     "5a. Rihhi can and will delete ratings that seem or could seem to violate this ToS or locally applicable law"
+              s40:     "Rihhi claims the right to delete comments without providing reasons."
+              s41:     "Members can not demand a reinstatement of deleted ratings for any reason"
+              s42:     "6. The member frees Rihhi of all claims that can be made by other members or third parties regarding an injury of their rights or property, due to contents provided by the member, including ratings provided by him"
+              s43:     "The member will also cover legal costs incurred in situations that require Rihhi's legal defense, including costs charged for attending courts and lawyer's fees."
+              s44:     "This does not apply if the source of the legal problems are not stemming from the member's actions"
+              s45:     "§ 3 Sign up"
+              s46:     "1. Rihhi can be used partially without registration. Additional functions, e.g. the purchase and sale of items, requires a registration"
+              s47:     "There is no right to be registered as a member on Rihhi"
+              s48:     "Registering as a member is free of charge"
+              s49:     "By registering on the platform and through usage of the system a contract is established between Rihhi and the member."
+              s50:     "2. Registration is only allowed for persons legally allowed to represent themself in business transactions. The minimum age is 18"
+              s51:     "3. Information requested during sign up and during the usage of the system has to be provided accurately and completey."
+              s52:     "The member is required to keep contact and other information current"
+              s53:     "Signing up companies may only be handled by an authorized natural person representing that company. There may be only one owner of an account"
+              s54:     "4. The member selects his login and password during the signup process."
+              s55:     "Members are not allowed to hand over their password to third parties. They are fully responsible for their account"
+              s56:     "For security reasons, the passwort is saved in encrypted form and can not be viewed by Rihhi's employees or third parties"
+              s57:     "Rihhi will not trade or transfer your password or other data with any third parties."
+              s58:     "5. Member accounts can not be transferred to other parties"
+              s59:     "6. Rihhi claims the right to cancel membership based on incomplete sign-up information"
+              s60:     "§ 4 Blockade and Deletion"
+              s61:     "1. Rihhi can block and delete accounts if the membership account seems compromised or provides indication that the member violates the ToS or applicable laws. Blockade or deletion are viable options to protect other members from fraudulent activities or spam and will be used without warning."
+              s62:     "Possibilities include the blockade or deletion of accounts, the removal or deletion of items, postings and member information"
+              s63:     "Rihhi will try to use the least harsh measure to protect the justified interests of the affected member, especially if the member seems innocent regarding the offenses"
+              s64:     "2. Members can be removed from the system"
+              s65:     "This can happen for the following reasons"
+              s66:     "The member has received multiple negative feedbacks, the deletion is necessary to protect other members"
+              s67:     "The member has provided inadequate contact data or wrongly identified himself as a private seller while operating professionally."
+              s68:     "The member has transferred his account to someone else or does not provide payment for services rendered by Rihhi"
+              s69:     "The member damages or hinders other users or abuses the Rihhi platform"
+              s70:     "Member can not demand a reinstatement of their deleted account for any reason."
+              s71:     "3. Rihhi can always cancel the contractual relationship with a member within 14 days"
+              s72:     "This does not touch Rihhi's right to block or delete accounts"
+              s73:     "4. A blocked or deleted member is not allowed to use Rihhi, neither with a new account nor with the account of someone else"
+              s74:     "5. The member can always cancel his account. Outstanding fees owed to Rihhi are still payable, however"
+              s75:     "Revoking your membership can be claimed by sending a written message to Rihhi | Michael Schmitz, Rudolf-Blum-Strasse 15, 52146 Würselen, or an email to support@rihhi.de"
+              s76:     "§ 5 Selling Items and Services"
+              s77:     "1. Members registered as sellers can open their own shop on Rihhi. This shop contains their offered items and services"
+              s78:     "Sellers are responsible for their shop and for the fulfillment of legal requirements as applicable for their countries"
+              s79:     "Becoming a seller is free of charge, selling items on Rihhi does incur costs."
+              s80:     "Costs are A) a 0,20 EUR fee for listing an item on Rihhi and B) 3% provision on the total cost of an order if the item is sold. The 3% are calculated on the total cost of an order which includes the applicable shipping cost."
+              s81:     "3. Rihhi requires additional information from sellers"
+              s82:     "This information has to be provided accurately and correctly. Failure to provide this information can lead to account blockade and deletion. "
+              s83:     "Rihhi debits fees either directly to the sellers bank account (if the seller has provided and selected to be debited directly) or sends an email to the seller regarding a payment transfer via PayPal."
+              s84:     "The seller can then transfer the required amount to Rihhi via PayPal"
+              s85:     "4. A seller provides a binding sales offer to eligible buyers with each item listed. Once the buyer meets the eligibility requirements, the contract has to be fulfilled"
+              s86:     "A purchase agreement is binding once the buyer fulfill the eligibility requirements (often, regarding shipping) and confirms his order by clicking on the 'confirm' button in the last step of the order process"
+              s87:     "5. Sellers are required to list their items in the correct categories. The items should be named in a positive and readable way and should not emulate a category or tag cloud. Failure to do so can lead to item deletion and bans"
+              s88:     "The item must be advertised correctly in both text and picture. All necessary informations related to a purchase decision must be provided"
+              s89:     "The seller needs to provide correct shipping costs and details regarding the payment and shippping process"
+              s90:     "Commercial sellers are required to provide the legally required information regarding customer protection rights, if applicable."
+              s91:     "The shop offers a ToS-Field in the profile section which can be pre-filled for this use"
+              s92:     "6. Article desciptions may not violate rights of third parties and need to be relevant and pertaining to the item offered"
+              s93:     "Advertisement for items or services which are not available via Rihhi are not allowed and will lead to account blockade and deletion"
+              s94:     "7. The price shown on the item page represents the final price of the item, includes additional VAT if applicable but excludes possible shipping costs."
+              s95:     "Sellers may not add Rihhi's fees on top of the final price"
+              s96:     "8. Rihhi reserves the right to delete items from the platform should these violate the spirit of Rihhi."
+              s97:     "§6 Fees and payment"
+              s98:     "1. Membership on Rihhi is free of charge"
+              s99:     "Rihhi does not demand fees for membership, for registration as a seller or for the purchase of an item"
+              s100:     "2. Rihhi requests fees for listing an item."
+              s101:     "A) Item listing fee of 0,20 EUR. These 0,20 EUR are independent of the amount of items of this type in stock."
+              s102:     "Example: Whether a 'Roman Gladius' is sold with three or five in stock or sold once or twice doese not affect this listing fee, it's always just once 0,20 EUR."
+              s103:     "3. If a purchase agreement is made via Rihhi between a buyer and a seller, Rihhi requests a sales provision from the seller"
+              s104:     "This provision is calculated as 3% of the total cost of the order and includes the shipping costs"
+              s105:     "Example: A sword (50 EUR) and shield (50 EUR) are purchased by a customer, the shipping costs are another 50 EUR"
+              s106:     "Rihhi calculates a fee of 3% from those 150 EUR, which would be 4,50 EUR"
+              s107:     "4. The fee structure can be changed by Rihhi without notice. "
+              s108:     "Seller will receive a notification if this happens. Sellers are able to cancel their Rihhi membership if this occurs"
+              s109:     "5. Fees and provisions are payable immediately."
+              s110:     "Sellers can decide whether they want to get their (German) bank account debited automatically, or will pay via PayPal after having received a Payment invitation"
+              s111:     "Should Rihhi try to debit the bank account and fail due to reasons attributable to the member, then Rihhi will add the additional costs to the Members Rihhi balance"
+              s112:     "5a. Additional costs for the first failed debit are set at 9,00 EUR"
+              s113:     "6. Rihhi will send an email to all Sellers before debiting their bank accounts"
+              s114:     "The payable fee is also shown under 'My Account - Finances'"
+              s115:     "The member will be set in payment arrears should the PayPal Payment invitation not be answered within 10 days, or if the debit trial should fail"     
+              s116:     "7. Rihhi keeps bank account information provided by the seller to bill accrued fees"
+              s117:     "The sellers account will always automatically be debited on the 15th of the next month after the intial invoice period"
+              s118:     "To confirm the current account balance, Rihhi provides an email invoice to all sellers 14 days before the next draft"
+              s119:     "Sellers need to check their bill and notify Rihhi if some items on the bill seem to be inaccurate." 
+              s120:     "7a. Errors during the debit process will be handled by adding the amount to the sellers account as a credit"
+              s121:     "8. Sellers are not allowed to avoid the Rihhi payment system when dealing with their customers. We are doing our best to be fair and expect our customers to provide the same fairness"
+              s122:     "§ 7 Purchasing Items"
+              s123:     "1. Buyers are required to fulfill their side of the contract if they purchase an item. "
+              s124:     "The purchase contract is settled once the buyer klicken"
+              s125:     "Nach Abschluss des Kaufvertrags erhalten Sie eine Bestätigungsemail an Ihre Emailadresse"
+              s126:     "Sie sind verpflichtet, die Leistung innerhalb von 5 Tagen nach Bestätigung der Bestellung durch den Verkäufer zu begleichen"
+              s127:     "2. Käufer stimmen den AGB und Lieferbedingungen des jeweiligen Shops, wie in der Gegenstandsbeschreibung und in den Geschäftsbedingungen des Verkäufers angegeben, zu, vorausgesetzt diese Bedingungen sind nicht in Widerspruch zu diesen Nutzungsbedingungen oder gesetzlich unwirksam"
+              s128:     "3. Kaufverträge können nur in Ausnahmefällen annuliert werden, etwa wenn der Verkäufer nach Vertragsabschluss die Artikelbeschreibung ändert, ein eindeutiger typographischer Fehler vorliegt oder die Identität des Verkäufers unklar ist"
+              s129:     "Kaufverträge können annuliert werden, wenn sich Käufer und Verkäufer einig sind und die Annulierung über Nachrichten auf dem Rihhi-System besprochen haben"
+              s130:     "4. Käufer sind für Ihre Geschäftsfähigkeit selbst verantwortlich"
+              s131:     "§ 8 Das Rihhi-Bewertungssystem 'Karma'"
+              s132:     "1. Rihhi kann nicht garantieren, dass jedes Mitglied die natürliche oder juristische Person ist, für die es sich ausgibt"
+              s133:     "Ein Mitglied kann falsche Daten angegeben haben"
+              s134:     "2. Das Rihhi Bewertungssystem dient als einfache, aber nicht 100% sichere, Qualitätskontrolle bezüglich der Leistungen des Verkäufers"
+              s135:     "Es soll Mitgliedern helfen, die Zuverlässigkeit anderer Mitglieder einzuschätzen"
+              s136:     "3. Mitglieder sind verpflichtet, wahrheitsgemäße und sachliche Angaben zu machen, die im Zusammenhang mit der Abwicklung des Kaufvertrags stehen"
+              s137:     "Bewertungen sind ohne Schmähkritik zu verfassen und müssen auf hinreichender Tatsachengrundlage und den allgemeinen Gesetzen beruhen"
+              s138:     "4. Es ist nicht erlaubt, Bewertungen über sich selbst abzugeben oder über Dritte zu veranlassen, oder unnötige Bewertungen für andere Verkäufer abzugeben"
+              s139:     "Rihhi kann und wird Bewertungen ohne Angabe von Gründen löschen, wenn diese dem Geist der Plattform widersprechen"
+              s140:     "§ 10 Allgemeine Grundsätze"
+              s141:     "1. Geltende Gesetze sind zu befolgen"
+              s142:     "Eingestellte Inhalte dürfen nicht gegen geltendes Recht oder diese AGB verstoßen"
+              s143:     "2. Einträge und Aktivitäten auf Rihhi müssen den Wert der Plattform schützen und dürfen nicht"
+              s144:     "falsch, inakkurat oder irreführend sein, beleidigend, drohend, missbräuchlich oder rufschädigend sein, obszön, unanständig sein oder Pornographie beinhalten; das Copyright, Patent-, Marken-, Geheimhaltungs-, Eigentums- oder Datenschutzrecht einer Dritten Person verletzen, Inhalte ohne vorherige Zustimmung der Rechteinhaber kopieren, verbreiten oder vervielfältigen, betrügerisch sein oder den Handel von Diebesgut involvieren; die durch die Nutzung von Rihhi erhaltenen Adressen und Kontaktdaten für andere Zwecke als die vertragliche oder vorvertragliche Kommunikation nutzen; insbesondere ist es untersagt diese für Werbezweck zu nutzen; im Widerspruch zu anwendbaren Recht oder Richtlinien stehen, einschließlich Gesetzen zum Export, Verbraucherschutz, unrechtmäßigem Wettbewerb, Anti-Diskriminierung, Falschwerbung; Rihhi in schlechtem Licht darstellen"
+              s145:     "4. Rihhi benötigt nicht-personenbezogene Informationen von Mitgliedern für den allgemeinen Geschäftsbetrieb"
+              s146:     "Mitglieder erteilen uns ein nicht-exklusives, weltweites, unwiderrufliches, gebührenfreies und sublizensierbares Recht über das Copyright, die Handelsmarke und die Datenbankrechte in Ihren Informationen ausschließlich zu diesem Zweck"
+              s147:     "Diese nicht-personenbezogenen Informationen werden dabei nur im Rahmen unserer Datenschutzerklärung verwendet"
+              s148:     "§ 11 Datenschutz"
+              s149:     "1. Datenschutz ist uns wichtig."
+              s150:     "Wir verwenden Ihre Daten ausschliesslich für allgemeine Geschäftszwecke und zur Aufrechterhaltung und Durchführung unseres Betriebs"
+              s151:     "2. Ihre Daten werden nicht an Dritte weitergegeben oder verkauft"
+              s152:     "3. Persönliche Daten werden in unseren eigenen Datenbanken gespeichert und sind nicht für Dritte zugänglich"
+              s153:     "4. Passwörter werden verschlüsselt gesichert und können auch von Rihhi nicht eingesehen werden"
+              s154:     "§ 12 Haftungsbeschränkung"
+              s155:     "1. Rihhi haftet nicht für die zwischen Mitgliedern abgeschlossenen Verträgen und den daraus entstehenden Ansprüchen und Rechtsfolgen."
+              s156:     "2. Rihhi haftet nicht für fremde Inhalte, sondern allein der Anbieter"
+              s157:     "Rihhi macht sich fremde Inhalte nicht zu Eigen"
+              s158:     "3. Mitglieder stellen Rihhi von jeglichen Ansprüchen frei, die Dritte gegenüber Rihhi wegen rechtswidriger Einstellung von Artikeln geltend machen, dies schliesst der Texte in den Bewertungen oder Foren ein"
+              s159:     "Das schädigende Mitglied übernimmt die Kosten der Rechtsverteidigung (insbes. Anwaltskosten), welche Rihhi durch eine rechtmäßige Anspruchsgeltendmachung entstehen"
+              s160:     "Soweit die Rechtsverletzung von der Gegenseite zu vertreten ist, erhält das Mitglied nach Abschluss des Verfahrens die Kosten von Rihhi erstattet"
+              s161:     "4. Rihhi haftet nur für Vorsatz und grobe Fahrlässigkeit von sämtlichen gesetzlichen Vertretern, leitenden Angestellten und Erfüllungsgehilfen"
+              s162:     "Im Falle wesentlicher Vertragspflichten, des Schuldnerverzuges oder einer von Rihhi zu vertretenden Unmöglichkeit der Leistungserbringung, haftet Rihhi jedoch für jedes schuldhafte Verhalten"
+              s163:     "Die Haftung ist auf vorhersehbare und typische unmittelbare Schäden begrenzt"
+              s164:     "5. Die auf Rihhi angebotenen Links sind sorgfältig ausgewählt."
+              s165:     "Eine Verantwortung für den Inhalt der mittels Link angebotenen Seiten kann jedoch nicht übernommen werden"
+              s166:     "Wir distanzieren uns ausdrücklich von den Inhalten der mittels Link verknüpften Seiten"
+              s167:     "Informieren Sie uns, wenn ein Link zu einer Seite mit rechtswidrigen Inhalten verweist, damit der betreffende Link entfernt werden kann"
+              s168:     "7. Rihhi stellt Rihhi.de in der Form und mit den Funktionen bereit, die jeweils gerade verfügbar sind"
+              s169:     "Ein Anspruch auf Bereitstellung oder Beibehaltung bestimmter Funktionen besteht nicht"
+              s170:     "Hinsichtlich der Verfügbarkeit des Systems wird keinerlei Garantie abgegeben (Auch wenn wir uns wirklich reinhängen)"
+              s171:     "Die Verfügbarkeit kann zeitweise durch Wartungsarbeiten oder aus anderen Gründen im Ganzen oder in Teilen, z. B. hinsichtlich einzelner Funktionen eingeschränkt sein ('eingeschränkte Verfügbarkeit')"
+              s172:     "Eine Haftung für Folgen eingeschränkter Verfügbarkeit - gleich welcher Art und aus welchem Grund - ist ausgeschlossen"
+              s173:     "Soweit die eingeschränkte Verfügbarkeit Auswirkungen auf den Abschluss von Kaufverträgen hat, etwa weil ein Artikel nicht eingestellt oder ein Kaufvertragsabschluss deshalb nicht durchgeführt werden kann, ergeben sich hieraus keinerlei Ansprüche gegen Rihhi"
+              s174:     "§ 13 Vertragsübernahme durch Dritte"
+              s175:     "1. Rihhi ist berechtigt, mit einer Ankündigungsfrist von vier Wochen seine Rechte und Pflichten aus diesem Vertragsverhältnis ganz oder teilweise auf einen Dritten zu übertragen"
+              s176:     "In diesem Fall ist das Mitglied berechtigt, den Nutzungsvertrag nach Mitteilung der Vertragsübernahme per E-Mail an support@rihhi.de zu kündigen"
+              s177:     "§ 14 Schriftform, anwendbares Recht und Gerichtsstand"
+              s178:     "1. Diese AGB sowie die Nutzung der Services bestimmen sich nach deutschem Recht mit Ausnahme seiner kollisionsrechtlichen Bestimmungen"
+              s179:     "Für Streitigkeiten aus oder im Zusammenhang mit der Nutzung der Dienstleistungen und/oder diesen AGB sind die Gerichte in Aachen ausschließlich zuständig, sofern Sie Kaufmann sind oder keinen festen Wohnsitz in Deutschland haben, Ihren Wohnsitz oder gewöhnlichen Aufenthaltsort nach Wirksamwerden dieser AGB ins Ausland verlegt haben oder wenn Ihr Wohnsitz oder gewöhnlicher Aufenthaltsort im Zeitpunkt der Klageerhebung nicht bekannt ist"
+              s180:     "2. Sofern es sich bei dem Mitglied um einen Kaufmann im Sinne des Handelsgesetzbuchs, ein öffentlich-rechtliches Sondervermögen oder eine juristische Person des öffentlichen Rechts handelt, ist Aachen ausschließlicher Gerichtsstand für alle aus dem Nutzungsvertrag und diesen AGB entstehenden Streitigkeiten"
+              s181:     "3. Sämtliche Erklärungen, die im Rahmen des mit Rihhi abzuschließenden Nutzungsvertrags übermittelt werden, müssen in Schriftform oder per E-Mail erfolgen. Die postalische Anschrift von Rihhi ist Rihhi Michael Schmitz, Rudolf-Blum-Strasse 15, 52146 Würselen"
+              s182:     "Die postalische Anschrift sowie die E-Mail-Adresse eines Mitglieds sind diejenigen, die als aktuelle Kontaktdaten im Mitgliedskonto des Mitglieds von diesem angegeben wurden"
+              s183:     "§ 15 Salvatorische Klausel"
+              s184:     "Sofern eine Bestimmung dieser AGB unwirksam ist, bleiben die übrigen Bestimmungen davon unberührt"
+              s185:     "Die unwirksame Bestimmung gilt als durch eine solche ersetzt, die dem Sinn und Zweck der unwirksamen Bestimmung in rechtswirksamer Weise wirtschaftlich am nächsten kommt"
+              s186:     "Gleiches gilt für eventuelle Regelungslücken"
+              s187:     "Stand: 02. August 2010"
+         
+      smailer:
+          cancelled:
+              s1: "Querido"
+              s2: "su orden"
+              s3: "desde"
+              s4: "fue cancelado por"
+              s5: "La razón"
+              s6: "Enviar un mensaje al vendedor si le gustaría discutir las razones de la anulación de la orden"
+          
+          changed_pw_sec:
+              s1: "Usted ha recibido este correo electrónico como medida de seguridad"
+              s2: "Usted o alguien más ha cambiado su dirección de correo electrónico o su contraseña"
+              s3: "Su registrados actualmente miembro de datos es el siguiente"
+              s4: "Correo electrónico"
+              s5: "Nombre de usuario"
+              s6: "Contraseña"
+              s7: "Se puede cambiar la dirección de correo electrónico y la contraseña de su cuenta de valores"
+          
+          changed_pw:
+              s1: "Ha actualizado la configuración de su miembro"
+              s2: "Su registrados actualmente miembro de datos es el siguiente"
+              s3: "Configuración"
+              s4: "Correo electrónico"
+              s5: "Nombre de usuario"
+              s6: "Contraseña"
+              s7: "Privacidad"
+              s8: "Amigos pública?"
+              s9: "Puede cambiar la configuración y las opciones de privacidad en su cuenta de valores"
+          
+          friend_r:
+              s1: "ha solicitado ser tu amigo en Rihhi"
+              s2: "Ingresar a tu cuenta y vaya a su página de miembro de aceptar o ignorar esta petición"
+          
+          message:
+              s1:                 "Querido"
+              s2:                 "después de enviar un mensaje en Rihhi"
+              
+          movement1:
+              s1: "Usted completó una venta con el fin"
+              s2: "Su volumen de negocios ha aumentado en un"
+              s3: "El saldo de su cuenta Rihhi ha aumentado en un"
+              s4: "Estado"
+              s5: "Volumen de negocios"
+              s6: "saldo de la cuenta Rihhi es"
+
+          movement2:
+              s1: "Su cuenta bancaria se ha cargado de"
+              s2: "El saldo de su cuenta nueva Rihhi es ahora"
+              
+          movement3:
+              s1: "Su cuenta bancaria no puede ser cargado para"
+              s2: "Tratamos de esta cuenta de débito"
+              s3: "Titular de la cuenta"
+              s4: "BIC"
+              s5: "IBAN / Número de cuenta"
+              s6: "Nuestro banco nos ha cargado los costos adicionales para esto."
+              s7: "Por lo tanto, añade 9,00 euros a cuenta de su saldo pendiente Rihhi."
+              s8: "Para resolver esta situación, por favor, la transferencia"
+              s8a: "a nuestra cuenta bancaria."
+              s9: "Titular de la cuenta"
+              s10: "Banco"
+              s11: "BIC"
+              s12: "Número de cuenta"
+              s13: "Referencia"
+          
+          ordered:
+              s1: "La confirmación de su pedido"
+              s6: "El pedido será enviado a"
+              s7: "Detalles de pago"
+              s8: "Transferir el pago a"
+              s9: "Titular de cuenta bancaria"
+              s10: "Cuenta BIC"
+              s11: "Cuenta IBAN"
+              s12: "Referencia"
+              s13: "Ha seleccionado contra reembolso"
+              s14: "Ha seleccionado pagar con PayPal"
+              s15: "Transferir el pago a"
+              s16: "cuenta PayPal"
+              s17: "Referencia"
+              s18: "Ve aquí para pagar ahora"
+              s19: "Ha seleccionado a pagar con un cheque"
+              s20: "Enviar el cheque a"
+
+          registered:
+              s1: "Ha registrado su cuenta Rihhi"
+              s2: "Puede utilizar el nombre de usuario y la contraseña siguientes para iniciar sesión en"
+              s3: "Nombre de usuario"
+              s4: "Contraseña"
+              s5: "Puede cambiar esta contraseña en su cuenta de valores"
+              s6: "Que tenga un montón de diversión y disfrute de su tiempo en Rihhi!"
+              
+          resend:
+              s1: "Ustedes han solicitado recibir un correo electrónico con su nombre de cuenta y la contraseña"
+              s2: "Por razones de seguridad, el sistema ha generado una nueva contraseña."
+              s3: "Nombre de usuario"
+              s4: "Contraseña"
+              s5: "Puede cambiar la contraseña de su cuenta de valores"
+          
+          sale:
+              s1: "solicitar a usted"
+              s2: "Datos del pedido"
+              s3: "productos Total"
+              s4: "Envío"
+              s5: "Total"
+              s6: "Referencia"
+              s7: "siempre que la dirección de envío siguiente"
+              s8: "Detalles de pago"
+              s9: "seleccionado de pago por transferencia bancaria"
+              s10: "Recibió la siguiente información de cuenta"
+              s11: "Banco titular de la cuenta"
+              s12: "Cuenta BIC"
+              s13: "Cuenta IBAN"
+              s14: "seleccionado para pagar en efectivo en la entrega"
+              s15: "seleccionado para pagar con PayPal"
+              s16: "Él quiere transferir el dinero a"
+              s17: "cuenta PayPal"
+              s18: "seleccionado para pagar con un cheque"
+              s19: "Él enviará el cheque"
+              s20: "Por favor, ingrese a su cuenta y confirmar la recepción del pago / envío de la orden"
+              s21: "También se puede cancelar la orden que si es necesario"
+
+          sale2:
+              s1: "confirmaron la recepción de su pago de"
+              s2: "Usted recibirá otro correo electrónico una vez que el vendedor envía la orden"
+              s5: "por fin"
+
+          sale3:
+              s1: "sólo envían su solicitud"
+              s2: "Sírvanse proporcionar retroalimentación para"
+              s3: "una vez que el pedido ha llegado"
+
+          sale4:
+              s1: "ha ofrecido comentarios sobre el orden"
+              s2: "retroalimentación fue"
+              s3: "Bueno"
+              s4: "Bad"
+              s5: "Usted puede hacer comentarios sobre estos comentarios - una vez que lo han hecho, esta orden se establece para completar"
+                    
+          sale5:
+              s1: "se ha pronunciado sobre su opinión al orden"
+              s2: ", comentó"
+              s3: "Usted le dio la retroalimentación siguiente"
+              s4: "Bueno"
+              s5: "Bad"
+              s6: "Este pedido se ha completado"
+
+          seller:
+              s1: "Te has convertido en un vendedor en Rihhi"
+              s2: "El sistema ha creado una tienda para ti. La configuración estándar se supone que desea que sus clientes de pagar via PayPal."
+              s3: "También se supone que se envían a Alemania, todos los lugares en Europa y el resto del mundo. Utilice el menú Configuración para cambiar estos ajustes preestablecidos a su gusto."
+              s4: "Sus datos son los siguientes vendedor"
+              s5: "Nombre"
+              s6: "la calle"
+              s7: "Código postal"
+              s8: "Ciudad"
+              s9: "País"
+              s10: "Usted tiene una cuenta bancaria en Alemania y seleccionados para pagar las cuotas a través de domiciliación bancaria electrónica"
+              s11: "Titular de la cuenta"
+              s12: "Número de cuenta"
+              s13: "identificador del banco"
+              s14: "Su cuenta será cargado automáticamente una vez que su saldo pendiente sea superior a 0,40 euros"
+              s15: "Ha seleccionado al pago de honorarios a través de PayPal. avisos de pago se enviará a esta dirección de correo electrónico una vez que su saldo pendiente sea superior a 0,40 euros"
+              s16: "Nota sobre las tasas"
+              s17: "venta un artículo cuesta 0,20 euros"
+              s18: "Una vez que se vende un artículo, una disposición de 3% sobre el coste total de la venta (incluido el transporte) se aplica"
+              s19: "No dude en contactar con nosotros en info@rihhi.de en cualquier momento para formular preguntas acerca de su cuenta s19"
+              s22: "Como un nuevo vendedor, que recibió una bonificación de 5,00 euros en su cuenta. Esto le permite anunciar y vender algunos artículos de forma gratuita"
+      
+      usermailer:
+          activation:
+              s1: "su cuenta ha sido activada"
+              
+          signup:
+              s1: "su cuenta ha sido creada"
+              s2: "Nombre de usuario"
+              s3: "Contraseña"
+              s4: "Visita esta url para activar su cuenta"
+                   
+      userpages:
+          edit:
+              s1: "Editar: Página de miembros"
+              s2: "Mi Avatar"
+              s3: "Acerca de mi"
+              s3a: "Lengua de preferencia"
+              s4: "Sólo visible para los amigos?"
+              s5: "Acerca de mi"
+              s6: "Sí"
+              s7: "No"
+              s8: "Yo soy a. .."
+              s9: "Mi nombre real es"
+              s10: "Mi página web es"
+              s11: "vengo"
+              s12: "LARP filosofía"
+              s13: "LARP ajustes"
+              s14: "Mis personajes favoritos"
+              s15: "Jugador Grupo"
+              s16: "Página de Internet de Grupo Player"
+              s17: "Relación"
+              s18: "Buscar"
+              s19: "Contacta conmigo a través de"
+              s20: "Contra el futuro"
+              s21: "Cons Last"
+              s22: "Pregúntame sobre"
+              s23: "La música que me gusta"
+              s24: "Los libros que me gusta"
+              s25: "Las películas que me gusta"
+              s26: "Otros de sus hobbies"
+              s27: "Si yo tuviera diez días izquierda ..."
+              s28: "Volver a mi cuenta"
+              s29: "Actualizar"
+
+      users:
+          edit:
+              s1: "Los valores"
+              s2: "Configuración"
+              s3: "Correo electrónico"
+              s4: "Nueva contraseña"
+              s5: "Confirmar nueva contraseña"
+              s6: "Amigos visibles para el público"
+              s7: "Sí"
+              s8: "No"
+              s9: "Actualizar"
+          
+          forgot:
+              s1: "Volver a enviar nombre de usuario y contraseña"
+              s2: "Correo electrónico"
+              s3: "Enviar"
+
+          new:
+              s1: "Registrarse en Rihhi"
+              s2: "el campo es obligatorio"
+              s3: "Login"
+              s4: "Debe ser único. Por lo menos 3 caracteres"
+              s5: "Correo electrónico"
+              s6: "Vamos a enviar el código de activación a esta dirección"
+              s7: "Regístrate"
+              s9: "Contraseña"
+              s10: "Confirmación de la contraseña"
+          
+          show:
+              s1: "Show"
+              s2: "'s"
+              s3: "Editar esta página"
+              s4: "Añadir como amigo"
+              s5: "Amigo pide"
+              s6: "Acepte la solicitud"
+              s7: "No haga caso de petición"
+              s8: "¿Está seguro?"
+              s9: "Amigos"
+              s10: "Mostrar todos los amigos"
+              s11: "Amigos"
+              s12: "Mostrar todos los amigos"
+              s13: "Amigos"
+              s14: "Mostrar todos los amigos"
+              s15: "No he tenido tiempo suficiente para escribir algo aquí todavía, pero seguramente lo harán más tarde."
+              s15a: "Yo soy un ..."
+              s16: "Mi nombre real es"
+              s17: "LARP filosofía"
+              s18: "Yo soy de"
+              s19: "La configuración LARP puedo jugar en"
+              s20: "Pregúntame sobre"
+              s21: "contras pasada asistí a"
+              s22: "contras futuro voy a asistir"
+              s23: "Contacta conmigo a través de"
+              s24: "Estoy buscando"
+              s25: "Relación de estado"
+              s26: "Mi jugador grupo"
+              s27: "la página principal de mi grupo"
+              s28: "Los personajes favoritos"
+              s29: "Movies"
+              s30: "Libros"
+              s31: "La música"
+              s32: "Mi página de inicio"
+              s33: "También tengo otras aficiones"
+              s34: "Si yo tuviera diez días izquierda ..." 
+                 
+####################
+# 4. General (sin clasificar)
+####################
+  color:
+      black: "Negro"
+      brown: "Brown"
+      white: "Blanco"
+      gold: "Oro"
+      yellow: "amarillo"
+      gray: "gris"
+      silver: "Plata"
+      maroon: "Maroon"
+      red: "Rojo"
+      purple: "Purple"
+      fuchsia: "Fucsia"
+      green: "Verde"
+      lime: "cal"
+      olive: "Oliva"
+      navy: "Marina"
+      teal: "verde azulado"
+      blue: "Azul"
+      other_ask_seller: "Como se muestra"
+  
+  size:
+      all: "Standard"
+      xxs: "XXS"
+      xs: "XS"
+      s: "S"
+      m: "M"
+      l: "L"
+      xl: "XL"
+      xxl: "XXL"
+      xxxl: "XXXL"
+
+#################################################
+# 5. En general las variables (categorías, Sub, Lastcategories)
+##################################################
+  
+  #Categorías #
+  armor: "Armadura"
+  accessoires: "Accesorios"
+  clothing: "La ropa"
+  figurines: "Figuras"
+  furniture: "Muebles"
+  make-up_and_masks: "Maquillaje y Máscaras"
+  tents_and_housing: "Tiendas y Vivienda"
+  supplies: "Suministros"
+  weapons_(LARP): "Las armas (LARP)"
+  weapons_(Other): "Las armas (Otros)"
+      
+  #Subcategoría #
+  arms: "Armas"
+  full_armor: "Full Armor"
+  helmet: "Casco"
+  legs: "Piernas"
+  neck: "Cuello"
+  other: "Otros"
+  shield: "Escudo"
+  torso: "Torso"
+  chain: "Cadena"
+  leather: "cuero"
+  plate: "Plate"
+  plastics: "Plásticos"
+  all: "Todo"
+  belt: "Cinturón"
+  bracelets: "Pulseras"
+  charm: "Encanto"
+  eyewear: "Gafas"
+  hair: "cabello"
+  keychain: "Llavero"
+  mirror: "Espejo"
+  mittens: "Mittens"
+  money_clips: "El dinero Clips"
+  scarf: "bufanda"
+  fantasy: "Fantasía"
+  medieval: "Medieval"
+  blouses: "Blusas"
+  capes: "Capas"
+  cloaks_and_jackets: "Capas y chaquetas"
+  corsage: "Ramillete"
+  dresses: "vestidos"
+  gambesons: "gambesones"
+  gloves: "Los guantes"
+  pants: "Pantalones"
+  shirts: "Camisetas"
+  skirts: Faldas "
+  tabards: "tabardos"
+  tunics: "túnicas"
+  ladies: "Señoras"
+  men: "Hombres"
+  both: "unisex"
+  kids: "Niños"
+  animals: "Los animales"
+  humans: "Los seres humanos"
+  monsters: "Monstruos"
+  objects: "Objetos"
+  armoire: "armario"
+  beds: "Camas"
+  chairs: "Sillas"
+  chests: "Pecho"
+  couches: "Camillas"
+  tables: "Tablas"
+  wardrobes: "Armarios"
+  beards: "Barbas"
+  contact_lenses: "Las lentes de contacto"
+  masks: "Máscaras"
+  paint: "Pinta"
+  teeth: "dientes"
+  tools: "Herramientas"
+  wigs: "Pelucas"
+  science_fiction: "ciencia ficción"
+  medieval_tents: "tiendas de campaña Medieval"
+  expedition_tents: "Expedición tiendas de campaña"
+  huts: "Cabañas"
+  airbrush_tools: "herramientas aerógrafo"
+  brushes: "Pinceles"
+  cutters: "Fresas"
+  glass_fibre_bars: "barras de fibra de vidrio"
+  latex_paint: "La pintura de látex"
+  metals: "Metales"
+  patterns: "Patrones"
+  textiles: "El sector textil"
+  ammunition: "Municiones"
+  axes: "ejes"
+  bows: "Arcos"
+  clubs: "Clubes"
+  crossbows: "Ballestas"
+  daggers: "Daggers"
+  DIY_Kits: "DIY-kits"
+  exotics: "exóticos"
+  flails: "mayales"
+  hammers: "Hammers"
+  long-range: "armas de largo alcance"
+  polearms: "Armas de asta"
+  shields: "Shields"
+  swords: "Espadas"
+
+  
+    
+  #Lastcategories #
+  #Traducción faltante #
+  
+########################################
+# 6. Los errores en los modelos
+########################################
+# Sólo ejemplos
+
+#              
+#########################################
+# 4. Distribuidor Plugins
+########################################
+      
+  # #
+  # # Country_Select
+  # #
+      
+  country:
+      a: "-------"
+      European_Union: "Unión Europea"
+      Everywhere: "En todos los demás"
+      Afghanistan: "Afganistán"
+      Aland_Islands: "Islas Aland"
+      Albania: "Albania"
+      Algeria: "Algeria"
+      American_Samoa: "Samoa Americana"
+      Andorra: "Andorra"
+      Angola: "Angola"
+      Anguilla: "Anguila"
+      Antigua_and_Barbuda: "Antigua y Barbuda"
+      Argentina: "Argentina"
+      Armenia: "Armenia"
+      Aruba: "Aruba"
+      Australia: "Australia"
+      Austria: "Austria"
+      Azerbaijan: "Azerbaiyán"
+      Bahamas: "Bahamas"
+      Bahrain: "Bahrein"
+      Bangladesh: "Bangladesh"
+      Barbados: "Barbados"
+      Belarus: "Bielorrusia"
+      Belgium: "Bélgica"
+      Belize: "Belice"
+      Benin: "Benin"
+      Bermuda: "Bermudas"
+      Bhutan: "Bhutan"
+      Bolivia: "Bolivia"
+      Bosnia_and_Herzegowina: "Bosnia y Herzegovina"
+      Botswana: "Botsuana"
+      Bouvet_Island: "Isla Bouvet"
+      Brazil: "Brasil"
+      British_Indian_Ocean_Territory: "Territorio Británico del Océano Índico"
+      Brunei_Darussalam: "Brunei Darussalam"
+      Bulgaria: "Bulgaria"
+      Burkina_Faso: "Burkina Faso"
+      Burundi_Cambodia: "Burundi Camboya"
+      Cameroon: "Camerún"
+      Canada: "Canadá"
+      Cape_Verde: "Cabo Verde"
+      Cayman_Islands: "Islas Caimán"
+      Central_African_Republic: "República Centroafricana"
+      Chad: "Chad"
+      Chile: "Chile"
+      China: "China"
+      Christmas_Island: "Isla de Navidad"
+      Cocos_(Keeling)_Islands: "Cocos (Keeling)"
+      Colombia: "Colombia"
+      Comoros: "Comoras"
+      Congo: "Congo"
+      Congo_the_Democratic_Republic_of_the: "Congo, la República Democrática del"
+      Cook_Islands: "Islas Cook"
+      Costa_Rica: "Costa Rica"
+      Cote_d_Ivoire: "Cote d'Ivoire"
+      Croatia: "Croacia"
+      Cuba: "Cuba"
+      Cyprus: "Chipre"
+      Czech_Republic: "República Checa"
+      Denmark: "Dinamarca"
+      Djibouti: "Djibouti"
+      Dominica: "Dominica"
+      Dominican_Republic: "República Dominicana"
+      Ecuador: "Ecuador"
+      Egypt: "Egipto"
+      El_Salvador: "El Salvador"
+      Equatorial_Guinea: "Guinea Ecuatorial"
+      Eritrea: "Eritrea"
+      Estonia: "Estonia"
+      Ethiopia: "Etiopía"
+      Falkland_Islands (Malvinas): "Islas Malvinas (Falkland)"
+      Faroe_Islands: "Islas Feroe"
+      Fiji: "Fiji"
+      Finland: "Finlandia"
+      France: "Francia"
+      French_Guiana: "Guayana Francesa"
+      French_Polynesia: "la Polinesia francesa"
+      French_Southern_Territories: "Territorios Australes Franceses"
+      Gabon: "Gabón"
+      Gambia: "Gambia"
+      Georgia: "Georgia"
+      Germany: "Alemania"
+      Ghana: "Ghana"
+      Gibraltar: "Gibraltar"
+      Greece: "Grecia"
+      Greenland: "Groenlandia"
+      Grenada: "Granada"
+      Guadeloupe: "Guadalupe"
+      Guam: "Guam"
+      Guatemala: "Guatemala"
+      Guernsey: "Guernsey"
+      Guinea: "Guinea"
+      Guinea-Bissau: "Guinea-Bissau"
+      Guyana: "Guyana"
+      Haiti: "Haití"
+      Heard_and_McDonald_Islands: "Islas Heard y McDonald"
+      Holy_See: "Santa Sede (Ciudad del Vaticano)"
+      Honduras: "Honduras"
+      Hong_Kong: "Hong Kong"
+      Hungary: "Hungría"
+      Iceland: "Islandia"
+      India: "India"
+      Indonesia: "Indonesia"
+      Iran_Islamic_Republic_of: "Irán, República Islámica del"
+      Iraq: "Irak"
+      Ireland: "Irlanda"
+      Isle_of_Man: "Isla de Man"
+      Israel: "Israel"
+      Italy: "Italia"
+      Jamaica: "Jamaica"
+      Japan: "Japón"
+      Jersey: "Jersey"
+      Jordan: "Jordan"
+      Kazakhstan: "Kazajstán"
+      Kenya: "Kenia"
+      Kiribati: "Kiribati"
+      Korea_Democratic_Peoples_Republic_of: "Corea, República Popular Democrática de"
+      Korea_Republic_of: "Corea del Sur"
+      Kuwait: "Kuwait"
+      Kyrgyzstan: "Kirguistán"
+      Lao_Peoples_Democratic_Republic: "La gente de Laos República Democrática` s "
+      Latvia: "Letonia"
+      Lebanon: "El Líbano"
+      Lesotho: "Lesotho"
+      Liberia: "Liberia"
+      Libyan_Arab_Jamahiriya: "Jamahiriya Árabe Libia"
+      Liechtenstein: "Liechtenstein"
+      Lithuania: "Lituania"
+      Luxembourg: "Luxemburgo"
+      Macao: "Macao"
+      Macedonia_The_Former_Yugoslav_Republic_Of: "Macedonia, Antigua República Yugoslava de"
+      Madagascar: "Madagascar"
+      Malawi: "Malawi"
+      Malaysia: "Malasia"
+      Maldives: "Maldivas"
+      Mali: "Mali"
+      Malta: "Malta"
+      Marshall_Islands: "Islas Marshall"
+      Martinique: "Martinica"
+      Mauritania: "Mauritania"
+      Mauritius: "Mauricio"
+      Mayotte: "Mayotte"
+      Mexico: "México"
+      Micronesia_Federated_States_of: "Micronesia, Estados Federados de"
+      Moldova_Republic_of: "Moldova, República de"
+      Monaco: "Mónaco"
+      Mongolia: "Mongolia"
+      Montenegro: "Montenegro"
+      Montserrat: "Montserrat"
+      Morocco: "Marruecos"
+      Mozambique: "Mozambique"
+      Myanmar: "Myanmar"
+      Namibia: "Namibia"
+      Nauru: "Nauru"
+      Nepal: "Nepal"
+      Netherlands: "Países Bajos"
+      Netherlands_Antilles: "Países Bajos Antillas"
+      New_Caledonia: "Nueva Caledonia"
+      New_Zealand: "Nueva Zelanda"
+      Nicaragua: "Nicaragua"
+      Niger: "Níger"
+      Nigeria: "Nigeria"
+      Niue: "Niue"
+      Norfolk_Island: "Norfolk Island"
+      Northern_Mariana_Islands: "Islas Marianas del Norte"
+      Norway: "Noruega"
+      Oman: "Omán"
+      Pakistan: "Pakistán"
+      Palau: "Palau"
+      Palestinian_Territory_Occupied: "territorio palestino, ocupado"
+      Panama: "Panamá"
+      Papua_New_Guinea: "Papua Nueva Guinea"
+      Paraguay: "Paraguay"
+      Peru: "el Perú"
+      Philippines: "Filipinas"
+      Pitcairn: "Pitcairn"
+      Poland: "Polonia"
+      Portugal: "Portugal"
+      Puerto_Rico: "Puerto Rico"
+      Qatar: "Qatar"
+      Reunion: "Reunión"
+      Romania: "Rumanía"
+      Russian_Federation: "Federación de Rusia"
+      Rwanda: "Rwanda"
+      Saint_Barthelemy: "San Bartolomé"
+      Saint_Helena: "Santa Elena"
+      Saint_Kitts_and_Nevis: "Saint Kitts y Nevis"
+      Saint_Lucia: "Santa Lucía"
+      Saint_Pierre_and_Miquelon: "San Pedro y Miquelón"
+      Saint_Vincent_and_the_Grenadines: "San Vicente y las Granadinas"
+      Samoa: "Samoa"
+      San_Marino: "San Marino"
+      Sao_Tome_and_Principe: "Santo Tomé y Príncipe"
+      Saudi_Arabia: "Arabia Saudita"
+      Senegal: "Senegal"
+      Serbia: "Serbia"
+      Seychelles: «las Seychelles»
+      Sierra_Leone: "Sierra Leona"
+      Singapore: "Singapur"
+      Slovakia: "Eslovaquia"
+      Slovenia: "Eslovenia"
+      Solomon_Islands: "Islas Salomón"
+      Somalia: "Somalia"
+      South_Africa: "Sudáfrica"
+      South_Georgia_and_the_South_Sandwich_Islands: "Georgia del Sur y Sandwich del Sur"
+      Spain: "España"
+      Sri_Lanka: "Sri Lanka"
+      Sudan: "Sudán"
+      Suriname: "Suriname"
+      Svalbard_and_Jan_Mayen: "Svalbard y Jan Mayen"
+      Swaziland: "Suazilandia"
+      Sweden: "Suecia"
+      Switzerland: "Suiza"
+      Syrian_Arab_Republic: "República Árabe Siria"
+      Taiwan: "Taiwán"
+      Tajikistan: "Tayikistán"
+      Tanzania_United_Republic_of: "Tanzania, República Unida de"
+      Thailand: "Tailandia"
+      Timor-Leste: "Timor-Leste"
+      Togo: "Togo"
+      Tokelau: "Tokelau"
+      Tonga: "Tonga"
+      Trinidad_and_Tobago: "Trinidad y Tobago"
+      Tunisia: "Túnez"
+      Turkey: "Turquía"
+      Turkmenistan: "Turkmenistán"
+      Turks_and_Caicos_Islands: "Islas Turcas y Caicos"
+      Tuvalu: "Tuvalu"
+      Uganda: "Uganda"
+      Ukraine: "Ucrania"
+      United_Arab_Emirates: "Emiratos Árabes Unidos"
+      United_ Kingdom: "Reino Unido"
+      United_States: "Estados Unidos"
+      United_States_Minor_Outlying_Islands: "Los Estados Unidos Islas periféricas de menor importancia"
+      Uruguay: "Uruguay"
+      Uzbekistan: "Uzbekistán"
+      Vanuatu: "Vanuatu"
+      Venezuela: "Venezuela"
+      Viet_Nam: "Viet Nam"
+      Virgin_Islands_British: "Islas Vírgenes Británicas"
+      Virgin_IslandsUS: "Islas Vírgenes, EE.UU."
+      Wallis_and_Futuna: "Wallis y Futuna"
+      Western_Sahara: "Sáhara Occidental"
+      Yemen: "Yemen"
+      Zambia: "Zambia"
+      Zimbabwe: "Zimbabwe"
+      
+################################################## #####
+# 8. Ayudantes
+################################################## #####
+  routing:
+      accessoires: "Accesorios"
+      
+      
+  activerecord:
+    models:
+      message: "Mensaje"
+    attributes:
+      message:
+        receiver: "Superstar"
+
+################################################## #####
+# 8. Formatos de fecha y etc | Do not touch this, its code and fine the way it looks.
+################################################## #####
+  number:
+    # Used in number_with_delimiter()
+    # These are also the defaults for 'currency', 'percentage', 'precision', and 'human'
+    format:
+      # Sets the separator between the units, for more precision (e.g. 1.0 / 2.0 == 0.5)
+      separator: ","
+      # Delimets thousands (e.g. 1,000,000 is a million) (always in groups of three)
+      delimiter: "."
+      # Number of decimals, behind the separator (1 with a precision of 2 gives: 1.00)
+      precision: 3
+      # If set to true, precision will mean the number of significant digits instead
+      # of the number of decimal digits (1234 with precision 2 becomes 1200, 1.23543 becomes 1.2)
+      significant: false
+      # If set, the zeros after the decimal separator will always be stripped (eg.: 1.200 will be 1.2)
+      strip_insignificant_zeros: false
+
+    # Used in number_to_currency()
+    currency:
+      format:
+        # Where is the currency sign? %u is the currency unit, %n the number (default: $5.00)
+        format: "%n %u"
+        unit: "€"
+        # These three are to override number.format and are optional
+        separator: ","
+        delimiter: "."
+        precision: 2
+        significant: false
+        strip_insignificant_zeros: false
+
+    # Used in number_to_percentage()
+    percentage:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        # precision:
+
+    # Used in number_to_precision()
+    precision:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        # precision:
+        # significant: false
+        # strip_insignificant_zeros: false
+
+    # Used in number_to_human_size()
+    human:
+      format:
+        # These three are to override number.format and are optional
+        # separator:
+        delimiter: ""
+        precision: 1
+        significant: true
+        strip_insignificant_zeros: true
+      # Used in number_to_human_size()
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+      # Used in number_to_human()
+      decimal_units:
+        format: "%n %u"
+        # Decimal units output formatting
+        # By default we will only quantify some of the exponents
+        # but the commented ones might be defined or overridden
+        # by the user.
+        units:
+          # femto: Quadrillionth
+          # pico: Trillionth
+          # nano: Billionth
+          # micro: Millionth
+          # mili: Thousandth
+          # centi: Hundredth
+          # deci: Tenth
+          unit: ""
+          # ten:
+          #   one: Ten
+          #   other: Tens
+          # hundred: Hundred
+          thousand: "Mil"
+          million: "Millón"
+          billion: "Mil millones"
+          trillion: "Trillón"
+          quadrillion: "Cuatrillón"
+
+  # Used in distance_of_time_in_words(), distance_of_time_in_words_to_now(), time_ago_in_words()
+  datetime:
+    distance_in_words:
+      half_a_minute: "medio minuto"
+      less_than_x_seconds:
+        one:  "menos de 1 segundo"
+        other: "menos de %{count} segundos"
+      x_seconds:
+        one:  "1 segundo"
+        other: "%{count} segundos"
+      less_than_x_minutes:
+        one:  "menos de 1 minuto"
+        other: "menos de %{count} minutos"
+      x_minutes:
+        one:  "1 minuto"
+        other: "%{count} minutos"
+      about_x_hours:
+        one:  "alrededor de 1 hora"
+        other: "alrededor de %{count} horas"
+      x_days:
+        one:  "1 día"
+        other: "%{count} días"
+      about_x_months:
+        one:  "alrededor de 1 mes"
+        other: "alrededor de %{count} meses"
+      x_months:
+        one:  "1 mes"
+        other: "%{count} meses"
+      about_x_years:
+        one:  "alrededor de 1 año"
+        other: "alrededor de %{count} años"
+      over_x_years:
+        one:  "más de 1 año"
+        other: "más de %{count} años"
+      almost_x_years:
+        one: "casi 1 año"
+        other: "casi %{count} años"
+    prompts:
+      year:   "Año"
+      month:  "Mes"
+      day:    "Día"
+      hour:   "Hora"
+      minute: "Minutos"
+      second: "Segundos"
+
+  helpers:
+    select:
+      # Default value for :prompt => true in FormOptionsHelper
+      prompt: "Por favor seleccione"
+
+    # Default translation keys for submit FormHelper
+    submit:
+      create: 'Guardar %{model}'
+      update: 'Actualizar %{model}'
+      submit: 'Guardar %{model}'
+
+  # Attributes names common to most models
+  #attributes:
+    #created_at: "Created at"
+    #updated_at: "Updated at"
+
+  # Active Record models configuration
+  activerecord:
+    errors:
+      messages:
+        taken: "ya está en uso"
+        record_invalid: "La validación falló: %{errors}"
+        # Append your own errors here or at the model/attributes scope.
+
+      # You can define own errors for models or model attributes.
+      # The values :model, :attribute and :value are always available for interpolation.
+      #
+      # For example,
+      #   models:
+      #     user:
+      #       blank: "This is a custom blank message for %{model}: %{attribute}"
+      #       attributes:
+      #         login:
+      #           blank: "This is a custom blank message for User login"
+      # Will define custom blank validation message for User model and 
+      # custom blank validation message for login attribute of User model.
+      #models:
+
+    # Translate model names. Used in Model.human_name().
+    #models:
+      # For example,
+      #   user: "Dude"
+      # will translate User model name to "Dude"
+
+    # Translate model attribute names. Used in Model.human_attribute_name(attribute).
+    #attributes:
+      # For example,
+      #   user:
+      #     login: "Handle"
+      # will translate User attribute "login" as "Handle"
+
+  # Active Model
+  errors:
+    # The default format to use in full error messages.
+    format: "%{attribute} %{message}"
+
+    template:
+      header:
+        one:   "No se pudo guardar este/a %{model} porque se encontró 1 error"
+        other:  "No se pudo guardar este/a %{model} porque se encontraron %{count} errores"
+      # The variable :count is also available
+      body: "Se encontraron problemas con los siguientes campos:"
+
+    # The values :model, :attribute and :value are always available for interpolation
+    # The value :count is available when applicable. Can be used for pluralization.
+    messages:
+      inclusion: "no está incluido en la lista"
+      exclusion: "está reservado"
+      invalid: "no es válido"
+      confirmation: "no coincide con la confirmación"
+      accepted: "debe ser aceptado"
+      empty: "no puede estar vacío"
+      blank: "no puede estar en blanco"
+      too_long: "es demasiado largo (%{count} caracteres máximo)"
+      too_short: "es demasiado corto (%{count} caracteres mínimo)"
+      wrong_length: "no tiene la longitud correcta (%{count} caracteres exactos)"
+      not_a_number: "no es un número"
+      greater_than: "debe ser mayor que %{count}"
+      greater_than_or_equal_to: "debe ser mayor que o igual a %{count}"
+      equal_to: "debe ser igual a %{count}"
+      less_than: "debe ser menor que %{count}"
+      less_than_or_equal_to: "debe ser menor que o igual a %{count}"
+      odd: "debe ser impar"
+      even: "debe ser par"
+
+  # Active Support
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%e/%m/%Y"
+      short: "%e de %b"
+      long: "%e de %B de %Y"
+
+    day_names: [Domingo, Lunes, Martes, Miércoles, Jueves, Viernes, Sábado]
+    abbr_day_names: [Dom, Lun, Mar, Mie, Jue, Vie, Sab]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Enero, Febrero, Marzo, Abril, Mayo, Junio, Julio, Agosto, Septiembre, Octubre, Noviembre, Diciembre]
+    abbr_month_names: [~, Ene, Feb, Mar, Abr, May, Jun, Jul, Ago, Sep, Oct, Nov, Dic]
+    # Used in date_select and datime_select.
+    order:
+      - :day
+      - :month
+      - :year
+
+  time:
+    formats:
+      default: "%A, %e de %B de %Y %H:%M:%S %z"
+      short: "%e de %b %H:%M"
+      long: "%e de %B de %Y %H:%M"
+    am: "am"
+    pm: "pm"
+
+  # Used in array.to_sentence.
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " y "
+      last_word_connector: ", y "
+
+ 
+################################################## #####
+# Fin del archivo de traducción Inglés
+################################################## #####
+              
+              

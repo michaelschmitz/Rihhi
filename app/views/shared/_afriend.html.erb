@@ -1,0 +1,12 @@
+<% user = User.find(:first, :conditions => ["id = ?", @friend]) %>
+<% userpage = Userpage.find(:first, :conditions => ["user_id = ?", user.id]) %>
+<div class="left" style="width: 120px; height: 130px; margin-top: 15px; margin-bottom: 10px;">
+    <% if userpage.avatar? %>
+    <span class="img-shadow"><%= link_to image_tag(userpage.avatar.url(:thumb), :size => "100x100"), user_path(user.id) %></span>
+    <% else %>
+    <span class="img-shadow"><%= link_to image_tag("treant.jpeg", :size => "100x100"), user_path(user.id) %></span>
+    <% end %>
+    <p>
+        <%= link_to user.login, user_path(user.id) %>
+    </p>
+</div>

@@ -1,0 +1,55 @@
+<% @onpage = 5 %>
+<%= render :partial => "newevent", :object => @onpage %>
+<div style="width: 750px; float:left; margin-bottom: 500px;">
+    <h2 class="text_green">5 - Payment Info</h2>
+    <ul style="margin-bottom: 10px;">
+        <li>
+            Where should your buyers send the payment for their tickets?
+        </li>
+    </ul>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+        <% form_for(:seller, :url => new_event6_path(@event.id), :html => { :multipart => true }) do |f| %>
+        <div style="text-align: right; float: right;">
+            <%= image_tag("important.png") %>required field
+        </div>
+        <table class="align_left">
+            <tr>
+                <td class="bold">
+                    Account holder name<%= image_tag("important.png") %>:
+                </td>
+                <td>
+                    <%= f.text_field :account_holder_name, :tabindex => 1, :class => "form_field" %><%= error_message_on(:seller, :account_holder_name) %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Account number (IBAN)<%= image_tag("important.png") %>:
+                </td>
+                <td>
+                    <%= f.text_field :account_number, :tabindex => 2, :class => "form_field" %><%= error_message_on(:seller, :account_number) %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Bank Identifier (BIC)<%= image_tag("important.png") %>:
+                </td>
+                <td>
+                    <%= f.text_field :bank_identifier, :tabindex => 3, :class => "form_field" %><%= error_message_on(:seller, :bank_identifier) %>
+                </td>
+            </tr>
+        </table>
+	
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+    <div class="left" style="clear: left; margin-top: 30px; margin-left: 10px;">
+        <%= link_to 'Back', new_event4_path(@event.id) %>
+    </div>
+    <div class="right" style="clear: none; margin-top: 20px; margin-bottom: 0px;">
+        <%= f.submit "Click to continue", :class => "submit_b", :tabindex => 8 %>
+        <% end %>
+    </div>
+</div>
+<%= set_focus_to_id("event_status") %>

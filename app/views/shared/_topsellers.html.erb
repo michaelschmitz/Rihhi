@@ -1,0 +1,29 @@
+<div class="overview">
+<div style="float: left; padding-left: 20px;"> 
+	
+<table>
+<tr>
+<% counter = 0 %>
+<% inrow = 0 %>
+ 	<% for listing in @topsellers %>
+		<% counter += 1 %>
+		<% inrow += 1%>
+			<% if inrow == 5 %>
+				</tr><tr>
+			<%	inrow = 1	%>
+			<% end %> 
+		<td >
+		<div class="overview_item">
+		<span class="img-shadow"><%= link_to image_tag("items/" + listing.id.to_s + ".jpg", :border=>0), listing_path(listing) %></span>
+		<table>
+				<tr><td colspan="2" class="align_left"><a href="<%= listing_path(listing) %>"><%= h truncate(listing.title,:length => 22) %></a></td></tr>
+				<tr><td class="align_left text_darkgrey" style="width: 90px"><%= h truncate(listing.seller.user.login, :length => 14) %></td><td class="text_green align_right" style="width: 60px"><%= number_with_delimiter(listing.price, :delimiter => ',').first(8) %> €</td></tr>		
+		</table>
+		
+		</div>
+		</td>
+	<% end %>
+</tr>
+</table>
+</div> 
+</div>

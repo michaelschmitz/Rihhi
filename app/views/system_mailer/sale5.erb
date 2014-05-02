@@ -1,0 +1,18 @@
+<%= @seller_user.login %> <%= t("views.smailer.sale5.s1")%> <%= @order.id.to_s %>.
+<%= @seller_user.login %> <%= t("views.smailer.sale5.s2")%>:
+"<%= h @sellertext %>"
+
+<%= t("views.smailer.sale5.s3")%> :
+
+<% if @rating.userrating == 2 %>
+<%= t("views.smailer.sale5.s4")%>. <%= h @rating.usertext %>
+<% else %>
+<%= t("views.smailer.sale5.s5")%>. <%= h @rating.usertext %>
+<% end %>
+
+<%= render :partial => "shared/theorder", :locals => { :order => @order, :deliverables => @deliverables } %>
+
+<%= t("views.smailer.sale5.s6")%> .
+
+<%= render :partial => "shared/imprint" %>
+ 

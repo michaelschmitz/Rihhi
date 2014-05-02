@@ -1,0 +1,53 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  event_id: 1
+  seller_id: 1
+  name: MyString
+  valid_from: 2009-09-05
+  valid_until: 2009-09-05
+  description: MyText
+  price1: 9.99
+  price2: 9.99
+  price3: 9.99
+  price4: 9.99
+  price5: 9.99
+  price1_deadline: 2009-09-05
+  price2_deadline: 2009-09-05
+  price3_deadline: 2009-09-05
+  price4_deadline: 2009-09-05
+  price5_deadline: 2009-09-05
+  nr_of_tickets_sold: 1
+  has_deal: false
+  deal_pickup_at_event: false
+  is_shipped: false
+  shipping_cost_domestic: 9.99
+  shipping_cost_abroad: 9.99
+  ticket_available_on_rihhi: false
+  ticket_fullservice: false
+
+two:
+  event_id: 1
+  seller_id: 1
+  name: MyString
+  valid_from: 2009-09-05
+  valid_until: 2009-09-05
+  description: MyText
+  price1: 9.99
+  price2: 9.99
+  price3: 9.99
+  price4: 9.99
+  price5: 9.99
+  price1_deadline: 2009-09-05
+  price2_deadline: 2009-09-05
+  price3_deadline: 2009-09-05
+  price4_deadline: 2009-09-05
+  price5_deadline: 2009-09-05
+  nr_of_tickets_sold: 1
+  has_deal: false
+  deal_pickup_at_event: false
+  is_shipped: false
+  shipping_cost_domestic: 9.99
+  shipping_cost_abroad: 9.99
+  ticket_available_on_rihhi: false
+  ticket_fullservice: false

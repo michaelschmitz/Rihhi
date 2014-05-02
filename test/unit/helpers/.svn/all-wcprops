@@ -1,0 +1,35 @@
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/rihhi/larp/!svn/ver/168/rihhi/test/unit/helpers
+END
+movements_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/rihhi/larp/!svn/ver/153/rihhi/test/unit/helpers/movements_helper_test.rb
+END
+userpages_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/rihhi/larp/!svn/ver/167/rihhi/test/unit/helpers/userpages_helper_test.rb
+END
+ticketorders_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 75
+/rihhi/larp/!svn/ver/98/rihhi/test/unit/helpers/ticketorders_helper_test.rb
+END
+friends_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/rihhi/larp/!svn/ver/168/rihhi/test/unit/helpers/friends_helper_test.rb
+END
+draws_helper_test.rb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/rihhi/larp/!svn/ver/156/rihhi/test/unit/helpers/draws_helper_test.rb
+END

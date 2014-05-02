@@ -1,0 +1,69 @@
+				  
+				<% event = @event%>
+				<% if event.accomodation == "accomodation.building" %>
+                <div class="info left">
+                    <%= image_tag("icon_acc_building.png", :size=> "40x40", :alt => "Accomodation: Building") %>
+                    <span>
+                        <ul style="list-style: none;">
+                            <li>
+                                Accomodation: Inside a building.
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+				<% elsif event.accomodation == "accomodation.castle" %>
+				     <div class="info left">
+                    <%= image_tag("icon_acc_castle.png", :size=> "40x40", :alt => "Accomodation: Castle") %>
+                    <span>
+                        <ul style="list-style: none;">
+                            <li>
+                                Accomodation: Inside a castle.
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+				<% elsif event.accomodation == "accomodation.camping" %>
+				     <div class="info left">
+                    <%= image_tag("icon_acc_camping.png", :size=> "40x40", :alt => "Accomodation: Camping") %>
+                    <span>
+                        <ul style="list-style: none;">
+                            <li>
+                                Accomodation: Camping possible.
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+				<% elsif event.accomodation == "accomodation.camping_ours" %>
+				     <div class="info left">
+                    <%= image_tag("icon_acc_camping_ours.png", :size=> "40x40", :alt => "Accomodation: Camping with our tents (and yours)") %>
+                    <span>
+                        <ul style="list-style: none;">
+                            <li>
+                                Accomodation: Camping possible. Orga has tents and you can also bring your own.
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+				<% elsif event.accomodation == "accomodation.other" %>
+				     <div class="info left">
+                    <%= image_tag("icon_acc_other.png", :size=> "40x40", :alt => "Accomodation: See description.)") %>
+                    <span>
+                        <ul style="list-style: none;">
+                            <li>
+                                Accomodation: 	  <%= event.accomodation_description || "Ask us."%>
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+					<% elsif event.accomodation == "accomodation.none" %>
+				     <div class="info left">
+                    <%= image_tag("icon_acc_none.png", :size=> "40x40", :alt => "Accomodation: No accomodation.") %>
+                    <span>
+                        <ul style="list-style: none;">
+                            <li>
+                                Accomodation: No accomodation available.
+                            </li>
+                        </ul>
+                    </span>
+                </div>
+                  <% end %>

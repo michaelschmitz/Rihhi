@@ -1,0 +1,159 @@
+<div class="shadow">
+    <div class="form_area background_grey">
+        <h2 class="text_green" style="margin: 0 0 0 0px;">Edit ticket</h2>
+        <% remote_form_for( :ticket,
+        :update => "tickets",
+        :url => { :controller => "tickets", :action => "remote_update_with_deals", :id => @ticket.id }) do |t| %>
+        <%= t.error_messages %>
+        <table class="align_left">
+            <tr>
+                <td colspan="2" class="bold">
+                    Ticket name
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <%= t.text_field :name, :size => 64 , :tabindex => 1 %>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2" class="bold">
+                    PC or NSC
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <%= t.select(:sc_or_nsc, ["PC - Player character", "NPC - Non player character"], {}, {:style => "width: 419px;", :tabindex => 2}) %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Description
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <%= t.text_area :description, :rows => 5, :cols => 50, :tabindex => 3 %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Tickets currently available
+                </td>
+                <td class="bold">
+                    Total number of tickets
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t.text_field :nr_of_tickets_available_online, :size => 27, :tabindex => 4 %>
+                </td>
+                <td>
+                    <%= t.text_field :nr_of_tickets_available_online, :tabindex => 5 %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Valid from
+                </td>
+                <td class="bold">
+                    Valid until
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t.date_select :valid_from , {}, { :tabindex => "6" } %>
+                </td>
+                <td>
+                    <%= t.date_select :valid_until, {}, { :tabindex => "7" } %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Deadline to buy
+                </td>
+                <td class="bold">
+                    Price before deadline
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t.date_select :price1_deadline , {}, { :tabindex => "8" } %>
+                </td>
+                <td>
+                    <%= t.text_field :price1, :tabindex => 9 %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t.date_select :price2_deadline, {}, { :tabindex => "10" } %>
+                </td>
+                <td>
+                    <%= t.text_field :price2, :tabindex => 11 %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t.date_select :price3_deadline, {}, { :tabindex => "12" } %>
+                </td>
+                <td>
+                    <%= t.text_field :price3, :tabindex => 13 %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t.date_select :price4_deadline, {}, { :tabindex => "14" } %>
+                </td>
+                <td>
+                    <%= t.text_field :price4, :tabindex => 15 %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t.date_select :price5_deadline, {}, { :tabindex => "16" } %>
+                </td>
+                <td>
+                    <%= t.text_field :price5, :tabindex => 17 %>
+                </td>
+            </tr>
+        </table>
+        <table class="align_left">
+            <tr>
+                <td class="bold">
+                    Ticket with deal?
+                </td>
+                <td>
+                    <%= t.check_box :has_deal, :tabindex => 18 %>
+                </td>
+                <td>
+                    (Allows you to add items to this ticket.)
+                </td>
+            </tr>
+         
+            <tr>
+                <td class="bold">
+                    Ticket position in list
+                </td>
+                <td>
+                    <%= t.text_field :position, :size => 1, :tabindex => 20 %>
+                </td>
+                <td>
+                    (Lower numbers first)
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <a href="" onclick="Element.hide('<%= @field_id %>'); return false;">Close</a>
+                </td>
+                <td style="width: 210px;">
+                </td>
+                <td>
+                    <%= t.submit "Update", :class => "submit_b_neutral" %>
+                </td>
+            </tr>
+        </table>
+        <% end %>
+    </div>
+</div>

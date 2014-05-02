@@ -1,0 +1,11 @@
+<h2 class="text_green" id="ticket_overview">Event Calendar</h2>
+<p class="align_left">
+	
+    There are <%= @all_events.length %> events within the period of ....... . 
+</p>
+
+<%= render :partial => "detailview", :object => @events %>
+            
+
+<%= will_paginate @events %>
+

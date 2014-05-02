@@ -1,0 +1,135 @@
+<% @onpage = 6 %>
+<%= render :partial => "newevent", :object => @onpage %>
+<div style="width: 750px; float:left; margin-bottom: 500px;">
+    <h2 class="text_green">6 - Status & Payment details</h2>
+    <ul style="margin-bottom: 10px;">
+        <li>
+            Define the status of the event and the number of places available.
+        </li>
+    </ul>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+        <% form_for(:event, :url => new_event7_path(@event.id), :html => { :multipart => false }) do |f| %>
+        <%= f.error_messages %>
+        <div style="text-align: right; float: right;">
+            <%= image_tag("important.png") %>= required field
+        </div>
+        <table class="align_left">
+            <tr>
+                <td class="bold" colspan="2">
+                    Event Status
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <% @g = ["Unknown", "SC and NSC places available", "Only SC tickets available", "Only NSC tickets available", "No tickets available",  "Contact us for tickets", "Event cancelled"] %>
+                    <%= f.select("status", @g, {}, { :style => "width:434px;", :tabindex => 1 } ) %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    PC places currently available
+                </td>
+                <td class="bold">
+                    Total PC places 
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= f.text_field :available_sc,  :tabindex => 2 %>
+                </td>
+                <td>
+                    <%= f.text_field :max_sc,  :tabindex => 3 %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    NPC places currently available
+                </td>
+                <td class="bold">
+                    Total NPC places 
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= f.text_field :available_nsc,  :tabindex => 4 %>
+                </td>
+                <td>
+                    <%= f.text_field :max_nsc, :tabindex => 5 %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Payment currency for tickets
+                </td>
+                <td class="bold">
+                    Currency (if "Other" is selected)
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <% @g = [ "AUD", "CAD", "CHF","CZK", "DKK", "EUR", "NOK", "PLN", "SFR", "SEK", "USD", "YEN", "Other"] %>
+                    <%= f.select("currency", @g, {}, { :style => "width:215px;", :tabindex => 6 } ) %>
+                </td>
+                <td>
+                    <%= f.text_field :currency_description,  :tabindex => 7 %>
+                </td>
+            </tr>
+        	<tr>
+            <td class="bold">
+               Tickets can be ordered via Rihhi.
+            </td>
+            <td>
+                <%= f.check_box :tickets_available_on_rihhi, :tabindex => 19 %> (Fee of 1 € per ticket sold)
+            </td>
+            
+        </tr>
+	    
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    Account holder name <%= image_tag("important.png") %>
+                </td>
+                <td>
+                    <%= f.text_field :account_holder_name, :tabindex => 40 %><%= error_message_on(:event, :account_holder_name) %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Account number (IBAN) <%= image_tag("important.png") %>
+                </td>
+                <td>
+                    <%= f.text_field :account_number, :tabindex => 41 %><%= error_message_on(:event, :account_number) %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Bank Identifier (BIC) <%= image_tag("important.png") %>
+                </td>
+                <td>
+                    <%= f.text_field :bank_identifier, :tabindex => 42 %><%= error_message_on(:event, :bank_identifier) %>
+                </td>
+            </tr>
+                 <tr>
+                <td class="bold">
+                    PayPal Account
+                </td>
+                <td>
+                    <%= f.text_field :paypal_account, :tabindex => 43 %><%= error_message_on(:event, :paypal_account) %>
+                </td>
+            </tr>
+			</table>
+        </table>
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+    <div class="left" style="clear: left; margin-top: 30px; margin-left: 10px;">
+        <%= link_to 'Back', new_event_path() %>
+		 </div>
+        <div class="right" style="clear: none; margin-top: 20px; margin-bottom: 0px;">
+            <%= f.submit "Click to continue", :class => "submit_b", :tabindex => 12 %>
+            <% end %>
+        </div>
+   
+</div>
+<%= set_focus_to_id("event_status") %>

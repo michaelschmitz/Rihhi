@@ -1,0 +1,320 @@
+<% @onpage = 1 %>
+<%= render :partial => "shared/edit_settings", :object => @onpage %><!-- add edit to newlisting, make a second copy-->
+<div style="width: 750px; float:left;">
+    <% form_for(@shop, :html => { :multipart => true, :method => :put }) do |f| %>
+    <h2 class="text_green"><%= t("views.shops.shipping_presets.s1") %></h2>
+    <ul style="margin-bottom: 10px;">
+        <li>
+            <%= t("views.shops.shipping_presets.s2") %>.
+        </li>   
+    </ul>    
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey align_left">
+        <h3><%= t("views.shops.shipping_presets.s3") %> </h3>
+        <table>
+            <% if @shop.country1 == "No preset" %>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s4") %>*
+                </td>
+                <td colspan="2">
+                	<%= select( "shop", "country1", country_list(1), :tabindex => 1 ) %>
+                </td>
+            </tr>
+            <% else %>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s4") %>*
+                </td>
+                <td colspan="2"> 
+					<%= select( "shop", "country1", country_list(1), :tabindex => 1 ) %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+        <%= set_focus_to_id("listing_country1") %>
+        <table>
+            <tr>
+                <td style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s5") %>*
+                </td>
+                <td>
+                    <%= f.text_field :country1_shipping, :size => 6, :value => number_to_currency(@shop.country1_shipping, :unit => ""), :tabindex => 2 %>
+                </td>
+                <td>
+                    € <%= error_message_on(:listing, :country1_shipping) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.shipping_presets.s6") %>*
+                </td>
+                <td>
+                    <%= f.text_field :country1_shipping_with_another_item, :size => 6, :value => number_to_currency(@shop.country1_shipping_with_another_item, :unit => ""), :tabindex => 3 %>
+                </td>
+                <td>
+                    € <%= error_message_on(:listing, :country1_shipping_with_another_item) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.shipping_presets.s7") %>*
+                </td>
+                <td>
+                    <%= f.text_field :country1_deliverytime, :size => 6, :value => @shop.country1_deliverytime, :tabindex => 4 %>
+                </td>
+                <td>
+                    <%= t("views.shops.shipping_presets.s8") %> <%= error_message_on(:listing, :country1_deliverytime) %>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <% if @shop.country2 == "No preset" %>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s9") %>
+                </td>
+                <td colspan="2">
+                		<%= select( "shop", "country2", country_list(1), :tabindex => 5 ) %>
+            
+                </td>
+            </tr>
+            <% else %>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s9") %>
+                </td>
+                <td colspan="2">
+                   	<%= select( "shop", "country2", country_list(1), :tabindex => 5 ) %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+        <table>
+            <tr>
+                <td style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s5") %>
+                </td>
+                <td>
+                    <%= f.text_field :country2_shipping, :size => 8, :value => number_to_currency(@shop.country2_shipping, :unit => ""), :tabindex => 6 %>
+                </td>
+                <td>
+                    € 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.shipping_presets.s6") %>
+                </td>
+                <td>
+                    <%= f.text_field :country2_shipping_with_another_item, :size => 8, :value => number_to_currency(@shop.country2_shipping_with_another_item, :unit => ""), :tabindex => 7 %>
+                </td>
+                <td>
+                    € 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.shipping_presets.s7") %>
+                </td>
+                <td>
+                    <%= f.text_field :country2_deliverytime, :size => 8, :value => @shop.country2_deliverytime, :tabindex => 8 %>
+                </td>
+                <td>
+                    <%= t("views.shops.shipping_presets.s8") %>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <% if @shop.country3 == "No preset" %>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s10") %>
+                </td>
+                <td colspan="2">
+                   	<%= select( "shop", "country3", country_list(1), :tabindex => 9 ) %>
+                </td>
+            </tr>
+            <% else %>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s10") %>
+                </td>
+                <td colspan="2">
+                 	<%= select( "shop", "country3", country_list(1), :tabindex => 9 ) %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+        <table>
+            <tr>
+                <td style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s5") %>
+                </td>
+                <td>
+                    <%= f.text_field :country3_shipping, :size => 8, :value => number_to_currency(@shop.country3_shipping, :unit => ""), :tabindex => 10 %>
+                </td>
+                <td>
+                    € 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.shipping_presets.s6") %>
+                </td>
+                <td>
+                    <%= f.text_field :country3_shipping_with_another_item, :size => 8, :value => number_to_currency(@shop.country3_shipping_with_another_item, :unit => ""), :tabindex => 11 %>
+                </td>
+                <td>
+                    € 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.shipping_presets.s7") %>
+                </td>
+                <td>
+                    <%= f.text_field :country3_deliverytime, :size => 8, :value => @shop.country3_deliverytime, :tabindex => 12 %>
+                </td>
+                <td>
+                    <%= t("views.shops.shipping_presets.s8") %>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <% if @shop.country4 == "No preset" %>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s11") %>
+                </td>
+                <td colspan="2">
+                   	<%= select( "shop", "country4", country_list(1), :tabindex => 13 ) %>
+                </td>
+            </tr>
+            <% else %>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s11") %>
+                </td>
+                <td colspan="2">
+                    	<%= select( "shop", "country4", country_list(1), :tabindex => 13 ) %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+        <table>
+            <tr>
+                <td style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s5") %>
+                </td>
+                <td>
+                    <%= f.text_field :country4_shipping, :size => 8, :value => number_to_currency(@shop.country4_shipping, :unit => ""), :tabindex => 14 %>
+                </td>
+                <td>
+                    € 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.shipping_presets.s6") %>
+                </td>
+                <td>
+                    <%= f.text_field :country4_shipping_with_another_item, :size => 8, :value => number_to_currency(@shop.country4_shipping_with_another_item, :unit => ""), :tabindex => 15 %>
+                </td>
+                <td>
+                    € 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.shipping_presets.s7") %>
+                </td>
+                <td>
+                    <%= f.text_field :country4_deliverytime, :size => 8, :value => @shop.country4_deliverytime, :tabindex => 16 %>
+                </td>
+                <td>
+                    <%= t("views.shops.shipping_presets.s8") %>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <% if @shop.country5 == "No preset" %>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s12") %>
+                </td>
+                <td colspan="2">
+                   <%= select( "shop", "country5", country_list(1), :tabindex => 17 ) %>
+                </td>
+            </tr>
+            <% else %>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s12") %>
+                </td>
+                <td colspan="2">
+                   <%= select( "shop", "country5", country_list(1), :tabindex => 17 ) %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+        <table>
+            <tr>
+                <td style="width: 150px;">
+                    <%= t("views.shops.shipping_presets.s5") %>
+                </td>
+                <td>
+                    <%= f.text_field :country5_shipping, :size => 8, :value => number_to_currency(@shop.country5_shipping, :unit => ""), :tabindex => 18 %>
+                </td>
+                <td>
+                    € 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.shipping_presets.s6") %>
+                </td>
+                <td>
+                    <%= f.text_field :country5_shipping_with_another_item, :size => 8, :value => number_to_currency(@shop.country5_shipping_with_another_item, :unit => ""), :tabindex => 19 %>
+                </td>
+                <td>
+                    € 
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.shops.shipping_presets.s7") %>
+                </td>
+                <td>
+                    <%= f.text_field :country5_deliverytime, :size => 8, :value => @shop.country5_deliverytime, :tabindex => 20 %>
+                </td>
+                <td>
+                    <%= t("views.shops.shipping_presets.s8") %>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="bold">
+                    <%= t("views.shops.shipping_presets.s13") %>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <%= f.text_area :shipping_comments , :cols => 56, :rows => 5, :value => @shop.shipping_comments, :tabindex => 21 %>
+                </td>
+            </tr>
+        </table>
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+	<div style="float: left; clear: none; margin-top: 10px; margin-left: 10px;">
+        <%= link_to t("views.shops.shipping_presets.s14") , shop_path(@shop) %>
+    </div>
+	 <div style="float: right; clear: none; margin-top: 10px; margin-right: 10px;">
+            <%= f.submit t("views.shops.shipping_presets.s15"), :class => "submit_b" %>
+        </div>
+		    <% end %>
+</div>
+<%= render :partial => "shared/links" %>

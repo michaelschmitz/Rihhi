@@ -1,0 +1,22 @@
+<%= set_focus_to_id("search") %>
+<div class="leftbox">
+<%= render :partial => "shared/mainmenu" %>
+
+</div>
+
+
+<div class="overview">
+		<h2 class="text_green" ><%= t('views.listings.index3.s0')%>: </h2>
+	<div class="right" style="margin-left: 200px;"> <p><a href="" OnClick="$('searchbox').toggle(); return false;"><%= t('views.listings.index3.s1') %></a></p> </div> 
+
+<%= render :partial => "searchbox", :object => @nosearch %>
+
+<p class="align_left">
+    <% if @nosearch != 1 %>
+    <%= t('views.listings.index3.s2') %> <%= @number_of_results %> <%= t('views.listings.index3.s3') %>.
+    <br>
+    <% end %>
+</p>
+<%= render :partial => "searchbox" %>
+</div>
+<%= render :partial => "shared/overview" %>

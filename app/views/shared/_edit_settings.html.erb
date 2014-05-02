@@ -1,0 +1,16 @@
+<div style="height: 200px; width: 190px; margin-left: 20px; margin-top: 20px; display: block; font-stretch: extra-expanded; " class="left">
+
+<ul>
+<li>	<%= link_to t("views.shared.edit_settings.s1"), profile_path %></li>
+		<li class="text_lightgrey"><p><%= image_tag("d1.jpg", :size => "20x20" ) %><span style="vertical-align: 30%; margin-left: 10px;"><%= link_to t("views.shared.edit_settings.s2"), edit_user_path(self.current_user) %></span></p></li>
+		<li class="text_lightgrey"><p><%= image_tag("d1.jpg", :size => "20x20" ) %><span style="vertical-align: 30%; margin-left: 10px;"><%= link_to t("views.shared.edit_settings.s2a"), edit_userpage_path(self.current_user) %></span></p></li>
+
+	<% if self.current_user.is_seller? %>		
+		<li class="text_lightgrey"><p><%= image_tag("d3.jpg", :size => "20x20" ) %><span style="vertical-align: 30%; margin-left: 10px;"><%= link_to t("views.shared.edit_settings.s3"), sellersettings_path %></span></p></li>
+		<li class="text_lightgrey"><p><%= image_tag("d4.jpg", :size => "20x20" ) %><span style="vertical-align: 30%; margin-left: 10px;"><%= link_to t("views.shared.edit_settings.s4"), shopsettings_path %></span></p></li>
+		<li class="text_lightgrey"><p><%= image_tag("d5.jpg", :size => "20x20" ) %><span style="vertical-align: 30%; margin-left: 10px;"><%= link_to t("views.shared.edit_settings.s5"), shippingpresets_path %></span></p></li>
+		<li class="text_lightgrey"><p><%= image_tag("d6.jpg", :size => "20x20" ) %><span style="vertical-align: 30%; margin-left: 10px;"><%= link_to t("views.shared.edit_settings.s6"), paymentoptions_path %></span></p></li>
+	<% end %>
+
+</ul>
+</div>

@@ -1,0 +1,5 @@
+<% if @cart %>
+	<div id="shopping_cart">
+		<%= render :partial => "carts/cart" %>
+	</div>
+<% end %>

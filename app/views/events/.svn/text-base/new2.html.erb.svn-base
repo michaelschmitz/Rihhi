@@ -1,0 +1,305 @@
+<% @onpage = 2 %>
+<%= render :partial => "newevent", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <h2 class="text_green">2 - Genre & Ambience</h2>
+    <ul style="margin-bottom: 10px;">
+        <li>
+            Go into more detail about your event here.
+        </li>
+
+    </ul>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+       <% form_for(:event, :url => new_event3_path(@event.id), :html => { :multipart => false }) do |f| %>
+        
+        <div style="text-align: right; float: right;">
+            <%= image_tag("important.png") %>= required field
+        </div>
+        <table class="align_left">
+            <tr>
+                <td class="bold">
+                    Genre 
+                </td>
+				<td>
+                    Details
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <% @g = ["Unknown", "Crime & Mystery", "Cthulu", "Fantasy", "Horror",  "MiddleAges", "Vampire", "Other", "Shadowrun", "Science Fiction"] %>
+                    <%= f.select("genre", @g, {}, { :style => "width:215px;", :tabindex => 1 } ) %>
+                </td>
+                <td>
+                    <%= f.text_field :genre_description, :size => 30 , :tabindex => 2 %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Rules 
+                </td>
+				<td>
+                    Details
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <% @r = ["Unknown", "Alive",   "DragonSys", "DNZ - DragonSys NewAge", "Drachenfest", "DSA",   "Mythodea", "Own system", "Phoenix",  "REALMS", "Shadowrun", "Starfleet Operations", "Star Wars Live",  "Vinland", "YCWYC / DKWD(D)K"] %>
+                    <%= f.select("rules", @r, {}, { :style => "width:215px;", :tabindex => 3 } ) %>
+                </td>
+                <td>
+                    <%= f.text_field :rules_description, :size => 30, :tabindex => 4 %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Campaign 
+                </td>
+				<td>
+                    Details
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <% @a = ["Unknown", "None", "Badlands", "DSA", "Eastlands", "Middle Earth", "Mythodea", "Southlands", "Other"] %>
+                    <%= f.select("campaign", @a, {}, { :style => "width:215px;", :tabindex => 5 } ) %>
+                </td>
+                <td>
+                    <%= f.text_field :campaign_description, :size => 30, :tabindex => 6 %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    Catering
+                </td>
+				<td>
+                    Details
+                </td>
+            </tr>
+            <tr>
+                <td>
+					<% @c = ["Unknown", "See ticket", "No catering", "All inclusive", "Other", "Partial catering"] %>
+                    <%= f.select("catering", @c, {}, { :style => "width:215px;", :tabindex => 7 } ) %>
+                </td>
+                <td>
+                    <%= f.text_field :catering_description, :size => 30, :tabindex => 8 %>
+                </td>
+            </tr>
+			    <tr>
+                <td class="bold" style="width: 150px;">
+                    Accomodation
+                </td>
+				<td>
+                    Details
+                </td>				
+            </tr>
+			
+				
+			      <tr>
+                <td>
+					<% @a = ["Unknown", "See ticket" , "Camping, bring a tent", "Camping, our tents", "Inside building", "None", "Call us", "Other"] %>
+                    <%= f.select("accomodation", @a, {}, { :style => "width:215px;", :tabindex => 9 } ) %>
+                </td>
+                <td>
+                    <%= f.text_field :accomodation_description, :size => 30, :tabindex => 10 %>
+                </td>
+            </tr>
+        </table>
+        <br>
+        <table class="align_left">
+            <tr class="align_center text_bold">
+                <td style="width: 150px;">
+                </td>
+                <td>
+                </td>
+                <td>
+                    1
+                </td>
+                <td>
+                    2
+                </td>
+                <td>
+                    3
+                </td>
+                <td>
+                    4
+                </td>
+                <td>
+                    5
+                </td>
+                <td>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Ambience 
+                </td>
+                <td>
+                    Celebration
+                </td>
+                <td>
+                    <%= f.radio_button :ambiente,  "1", :tabindex => 11  %>
+                </td>
+                <td>
+                    <%= f.radio_button :ambiente, "2", :tabindex => 12 %>
+                </td>
+                <td>
+                    <%= f.radio_button :ambiente, "3", :checked => "checked", :tabindex => 13 %>
+                </td>
+                <td>
+                    <%= f.radio_button :ambiente,  "4", :tabindex => 14 %>
+                </td>
+                <td>
+                    <%= f.radio_button :ambiente, "5",  :tabindex => 15  %>
+                </td>
+                <td>
+                    Plothunt
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Fights 
+                </td>
+                <td>
+                    Few
+                </td>
+                <td>
+                    <%= f.radio_button :fights, "1", :tabindex => 16 %>
+                </td>
+                <td>
+                    <%= f.radio_button :fights, "2", :tabindex => 17 %>
+                </td>
+                <td>
+                    <%= f.radio_button :fights, "3", :checked => "checked", :tabindex => 18 %>
+                </td>
+                <td>
+                    <%= f.radio_button :fights, "4", :tabindex => 19 %>
+                </td>
+                <td>
+                    <%= f.radio_button :fights, "5", :tabindex => 20 %>
+                </td>
+                <td>
+                    Many
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Battles 
+                </td>
+                <td>
+                    Few
+                </td>
+                <td>
+                    <%= f.radio_button :battles, "1", :tabindex => 21 %>
+                </td>
+                <td>
+                    <%= f.radio_button :battles, "2", :tabindex => 22 %>
+                </td>
+                <td>
+                    <%= f.radio_button :battles, "3", :checked => "checked", :tabindex => 23 %>
+                </td>
+				 <td>
+                    <%= f.radio_button :battles, "4", :tabindex => 24 %>
+                </td>
+                <td>
+                    <%= f.radio_button :battles, "5", :tabindex => 25 %>
+                </td>
+                <td>
+                    Many
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Magic 
+                </td>
+                <td>
+                    Few
+                </td>
+                <td>
+                    <%= f.radio_button :magic, "1", :tabindex => 26 %>
+                </td>
+                <td>
+                    <%= f.radio_button :magic, "2", :tabindex => 27 %>
+                </td>
+                <td>
+                    <%= f.radio_button :magic, "3", :checked => "checked", :tabindex => 28 %>
+                </td>
+                <td>
+                    <%= f.radio_button :magic, "4", :tabindex => 29 %>
+                </td>
+                <td>
+                    <%= f.radio_button :magic, "5", :tabindex => 30  %>
+                </td>
+                <td>
+                    Many
+                </td>
+            </tr>
+            <tr>
+                <td class="bold">
+                    Mysteries 
+                </td>
+                <td>
+                    Few
+                </td>
+                <td>
+                    <%= f.radio_button :mysteries, "1", :tabindex => 31 %>
+                </td>
+                <td>
+                    <%= f.radio_button :mysteries, "2", :tabindex => 32 %>
+                </td>
+                <td>
+                    <%= f.radio_button :mysteries, "3", :checked => "checked", :tabindex => 33 %>
+                </td>
+                <td>
+                    <%= f.radio_button :mysteries, "4", :tabindex => 34 %>
+                </td>
+                <td>
+                    <%= f.radio_button :mysteries, "5", :tabindex => 35 %>
+                </td>
+                <td>
+                    Many
+                </td>
+            </tr>
+        </table>
+        <br>
+        <table class="align_left">
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    Minimum Age 
+                </td>
+                <td>
+                   <% @age = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", ] %>
+                    <%= f.select("minimum_age", @age, {}, { :style => "width:100px;", :tabindex => 36 } ) %>
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    Invitation only? 
+                </td>
+                <td>
+                    <%= f.radio_button :invitation_only, { :value => "yes"}, :tabindex => 37 %>Yes <%= f.radio_button :invitation_only, { :value => "no"}, :checked => "checked",  :tabindex => 38 %>No
+                </td>
+            </tr>
+            <tr>
+                <td class="bold" style="width: 150px;">
+                    Invitation code 
+                </td>
+                <td>
+                    <%= f.text_field :invitation_code, :size => 41, :tabindex => 39 %>
+                </td>
+            </tr>
+	
+			
+        </table>
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+	<div class="left" style="clear: left; margin-top: 30px; margin-left: 10px;">
+        <%= link_to 'Back', new_event_path() %>
+		 </div>
+    <div class="right" style="clear: right; margin-top: 20px;">
+        <%= f.submit "Click to continue", :class => "submit_b" , :tabindex => 41 %>
+    </div>
+    <% end %>
+  
+</div>

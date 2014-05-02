@@ -1,0 +1,27 @@
+        <div class="topmenu_searchbox" style="display: none;">
+                            <% form_tag search_path, :method => 'get' do %>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <select style="vertical-align:middle;" name="type">
+                                            <option value="tag_title">Items: tags, titles</option>
+                                            <option value="tag_title_requests">Requests: tags, titles</option>
+                                            <option value="tag_title_supplies">Supplies: tags, titles</option>
+                                            <option value="seller_usernames">Sellers: usernames</option>
+                                            <option value="tag_title_tickets">Tickets: tags, titles</option>
+                                            <option value="tag_title_all">Everything: tags, titles, descriptions</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <%= text_field_tag :search, params[:search] || I18n.t('layout.topmenu.search') %>
+							                                 
+                                    </td>
+									
+                                    <td>
+                                        <input type="submit" style="color: red;" value=<%= I18n.t('layout.topmenu.go') %>   />
+                                    </td>
+                                </tr>
+                             
+                            </table>
+                            <% end %>
+                        </div>

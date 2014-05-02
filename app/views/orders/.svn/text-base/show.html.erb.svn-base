@@ -1,0 +1,105 @@
+<% @onpage = 5 %>
+<%= render :partial => "neworder", :object => @onpage %><!-- add edit to newlisting, make a second copy-->
+<div class="left" style="width: 600px; margin-left: 0px; padding: 10px 10px 10px 10px;">
+<h2 class="text_green"><%= t("views.orders.show.s1") %></h2>
+
+
+<% total = 0%>
+<p style="text-align: left;"><%= t("views.orders.show.s2") %> <%= @order.seller.user.login %></p>
+<h3 class="text_green"><%= t("views.orders.show.s3") %></h3>
+<table style="text-align: left;">
+	
+	
+<% @order.deliverables.each do |d| %>
+       <td style="width: 100px; padding-left: 5px;">
+	         	     <% if d.listing.pic1.exists? %>
+	              <span class="img-shadow"><%= link_to(image_tag(d.listing.pic1.url(:thumb)), listing_path(d.listing.id)) %></span>
+				  <% else%>
+				 <span class="img-shadow"><%= image_tag("../pic1s/medium/missing.png", :width => "125") %></span>
+				  <% end %>
+	        </td>
+	        <td style="width: 240px;">
+	            <h4><%= link_to (h d.title), listing_path(d.listing.id) %>
+	            <br>
+	            <span class="text_darkgrey" style="font-weight: normal;"><%= t("views.orders.show.s4") %> <%= t(h(d.size)) %>
+	                <br>
+	                <%= t("views.orders.show.s5") %> <%= t(h(d.color)) %>
+	            </span>
+	            </td>
+	            <td style="width: 50px; text-align: right; ">
+	                <%= h d.price.to_s %>€
+					<br>
+	                &nbsp;
+	                <br>
+	                &nbsp;
+	            </td>
+	            <td style="width: 80px; text-align: right;">
+	                <span class="text_darkgrey"><%= t("views.orders.show.s6") %>: </span>
+	                <%= h d.amount %>
+					<br>
+	                &nbsp;
+	                <br>
+	                &nbsp;   
+	            </td>      
+            <td style="width: 100px; text-align: right;">
+              <%=h number_to_currency((d.amount * d.price.to_f), :unit => "") %>€
+                           <br>
+	                &nbsp;
+	                <br>
+	                &nbsp;            
+            </td>
+        </tr>
+	
+    <% total += d.amount * d.price.to_f %>
+    <% end %>
+	
+	    <tr style="text-align: right;">
+            <td colspan="4">
+                <%= t("views.orders.show.s7") %>
+            </td>
+            <td>
+                <%= number_to_currency(@total_cost_of_deliverables, :unit => "") %>€
+            </td>
+        </tr>
+        <tr style="text-align: right;">
+            <td colspan="4">
+                <%= t("views.orders.show.s8") %>
+            </td>
+            <td>
+                + <%= number_to_currency(@total_cost_of_shipping, :unit => "") %>€
+            </td>
+        </tr>
+        <tr class="bold" style="text-align: right;">
+            <td colspan="4">
+                <%= t("views.orders.show.s9") %>
+            </td>
+            <td>
+                <%= number_to_currency(@total_cost, :unit => "") %>€
+            </td>
+        </tr>
+</table>
+	<div style="float: left; clear: none; margin-top: 10px; width: 280px;">
+			<h3 class="text_green"><%= t("views.orders.show.s10") %></h3>
+		 	<ul style="padding-left: 10px;">
+			<li><%= h @order.user_fullname %></li>
+		    <li><%= h @order.user_address %></li>
+			<li><%= h @order.user_areacode %> <%= h @order.user_city %></li>
+			<li><%= t(h(@order.user_country)) %></li>
+			</ul>
+		</div>	
+
+	<div style="float: left; clear: none; margin-top: 10px; margin-left: 40px; width: 280px;">
+			<h3 class="text_green"><%= t("views.orders.show.s11") %></h3>
+			<%= render :partial => @part, :object => @this_order %>
+	</div>
+<hr>
+<p><%= t("views.orders.show.s12") %>.<br></p>
+<p><%= t("views.orders.show.s13") %>.</p>
+<hr>
+<%= link_to t("views.orders.show.s14"), cart_path %><br>
+<br>
+<%= link_to t("views.orders.show.s15"), orders_path %><br>
+<br>
+<%= link_to t("views.orders.show.s16"), site_path %><br>
+</div>
+

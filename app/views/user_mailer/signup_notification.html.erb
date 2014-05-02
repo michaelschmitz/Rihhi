@@ -1,0 +1,10 @@
+<%= t("views.usermailer.signup.s1")%>.
+
+  <%= t("views.usermailer.signup.s2")%>: <%= @user.login %>
+  <%= t("views.usermailer.signup.s3")%>: <%= @user.password %>
+
+<%= t("views.usermailer.signup.s4")%>:
+
+  <%= @url %>
+  
+  <%= render :partial => "shared/imprint" %>

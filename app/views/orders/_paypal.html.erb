@@ -1,0 +1,10 @@
+<p style="margin-top: 15px;">
+               <%= t("views.orders.paypal_all.s5") %> <%= @this_order.seller.user.login %> <%= t("views.orders.paypal_all.s6") %>.
+    </p>
+   
+    <p>
+        <%= t("views.orders.paypal_all.s7") %>: <%= @this_order.seller.shop.paypal_account %>.
+    </p>
+    <p>
+        <a href="https://www.paypal.com/<%= params[:locale] || "en" %>/cgi-bin/webscr?cmd=_login-run" target="_blank"><%= t("views.orders.paypal_all.s8") %></a>.
+    </p>

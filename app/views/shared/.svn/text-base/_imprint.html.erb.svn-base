@@ -1,0 +1,9 @@
+--
+<%= t("views.shared.imprint.s1") %>,
+
+<%= t("views.shared.imprint.s2") %>
+
+
+Rihhi LARPmarket Michael Schmitz
+Rudolf-Blum-Strasse 15, 52146 Würselen, Germany
+VAT-ID: DE254477292 

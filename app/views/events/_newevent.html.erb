@@ -1,0 +1,35 @@
+<div style="height: auto; width: 200px; margin-left: 10px; margin-top: 20px; display: block; font-stretch: extra-expanded; " class="left">
+<ul>
+	<% if @onpage >= 1 %>
+		<li style="width: 300px;"><p><%= image_tag("d1.jpg", :size => "20x20" ) %><span style="vertical-align: 30%; margin-left: 10px;">Title, Date, Location</span></p>
+	<% end %>
+	<% if @onpage >= 2 %>
+		<li ><p><%= image_tag("d2.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;">Genre & Ambience</span></p></li>
+	<% else %>
+		<li class="text_lightgrey"><p><%= image_tag("l2.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;">Genre & Ambience</span></p></li>
+	<% end %>
+	<% if @onpage >= 3 %>
+		<li ><p><%= image_tag("d3.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;">Orga </span></p></li>
+	<% else %>
+		<li class="text_lightgrey"><p><%= image_tag("l3.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;">Orga </span></p></li>
+	<% end %>
+	<% if @onpage >= 4 %>
+		<li><p><%= image_tag("d4.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;" >Status  </span></p></li>
+	<% else %>
+		<li class="text_lightgrey"><p><%= image_tag("l4.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;">Status</span></p></li>
+	<% end %>
+		<% if @onpage >= 5 %>
+		<li ><p><%= image_tag("d5.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;">Payment Info</span></p></li>
+	<% else %>
+		<li class="text_lightgrey"><p><%= image_tag("l5.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;">Payment Info</span></p></li>
+	<% end %>
+
+	
+	<li>&nbsp;</li>
+	<% if @onpage >= 7 %>
+		<li ><p><%= image_tag("dc.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;"> Confirm</span></p></li>	
+	<% else %>
+		<li class="text_lightgrey"><p><%= image_tag("lc.jpg", :size => "20x20") %><span style="vertical-align: 30%; margin-left: 10px;"> Confirm</span></p></li>	
+		<% end %>
+</ul>
+</div>

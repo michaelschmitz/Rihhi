@@ -1,0 +1,23 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  listing_id: 1
+  xxs: MyString
+  xs: MyString
+  s: MyString
+  m: MyString
+  l: MyString
+  xl: MyString
+  xxl: MyString
+  xxxl: MyString
+
+two:
+  listing_id: 1
+  xxs: MyString
+  xs: MyString
+  s: MyString
+  m: MyString
+  l: MyString
+  xl: MyString
+  xxl: MyString
+  xxxl: MyString

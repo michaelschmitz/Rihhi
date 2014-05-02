@@ -1,0 +1,36 @@
+<h1>Listing sizes</h1>
+
+<table>
+  <tr>
+    <th>Listing</th>
+    <th>Xxs</th>
+    <th>Xs</th>
+    <th>S</th>
+    <th>M</th>
+    <th>L</th>
+    <th>Xl</th>
+    <th>Xxl</th>
+    <th>Xxxl</th>
+  </tr>
+
+<% for sizes in @sizes %>
+  <tr>
+    <td><%=h sizes.listing_id %></td>
+    <td><%=h sizes.xxs %></td>
+    <td><%=h sizes.xs %></td>
+    <td><%=h sizes.s %></td>
+    <td><%=h sizes.m %></td>
+    <td><%=h sizes.l %></td>
+    <td><%=h sizes.xl %></td>
+    <td><%=h sizes.xxl %></td>
+    <td><%=h sizes.xxxl %></td>
+    <td><%= link_to 'Show', sizes %></td>
+    <td><%= link_to 'Edit', edit_sizes_path(sizes) %></td>
+    <td><%= link_to 'Destroy', sizes, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New sizes', new_sizes_path %>

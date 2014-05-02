@@ -1,0 +1,28 @@
+<p>
+  <b>Seller:</b>
+  <%=h @movement.seller_id %>
+</p>
+
+<p>
+  <b>Value:</b>
+  <%=h @movement.value %>
+</p>
+
+<p>
+  <b>Reason:</b>
+  <%=h @movement.reason %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%=h @movement.email %>
+</p>
+
+<p>
+  <b>Dispute:</b>
+  <%=h @movement.dispute %>
+</p>
+
+
+<%= link_to 'Edit', edit_movement_path(@movement) %> |
+<%= link_to 'Back', movements_path %>

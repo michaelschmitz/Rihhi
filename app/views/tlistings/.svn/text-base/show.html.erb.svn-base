@@ -1,0 +1,13 @@
+<p>
+  <b>Ticket:</b>
+  <%=h @tlisting.ticket_id %>
+</p>
+
+<p>
+  <b>Listing:</b>
+  <%=h @tlisting.listing_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_tlisting_path(@tlisting) %> |
+<%= link_to 'Back', tlistings_path %>

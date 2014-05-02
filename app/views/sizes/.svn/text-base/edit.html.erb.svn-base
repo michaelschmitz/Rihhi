@@ -1,0 +1,48 @@
+<h1>Editing sizes</h1>
+
+<% form_for(@sizes) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :listing_id %><br />
+    <%= f.text_field :listing_id %>
+  </p>
+  <p>
+    <%= f.label :xxs %><br />
+    <%= f.text_field :xxs %>
+  </p>
+  <p>
+    <%= f.label :xs %><br />
+    <%= f.text_field :xs %>
+  </p>
+  <p>
+    <%= f.label :s %><br />
+    <%= f.text_field :s %>
+  </p>
+  <p>
+    <%= f.label :m %><br />
+    <%= f.text_field :m %>
+  </p>
+  <p>
+    <%= f.label :l %><br />
+    <%= f.text_field :l %>
+  </p>
+  <p>
+    <%= f.label :xl %><br />
+    <%= f.text_field :xl %>
+  </p>
+  <p>
+    <%= f.label :xxl %><br />
+    <%= f.text_field :xxl %>
+  </p>
+  <p>
+    <%= f.label :xxxl %><br />
+    <%= f.text_field :xxxl %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @sizes %> |
+<%= link_to 'Back', sizes_path %>

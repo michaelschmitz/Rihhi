@@ -1,0 +1,55 @@
+8
+
+dir
+242
+https://svn.codespaces.com/rihhi/larp/rihhi/vendor/plugins/paperclip/generators/paperclip
+https://svn.codespaces.com/rihhi/larp
+
+
+
+2010-03-21T15:44:49.398889Z
+121
+blaukatze!
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ce245bec-e5c3-47c4-86f5-a6cae0350485
+
+USAGE
+file
+
+
+
+
+2010-10-18T15:52:48.611000Z
+87bdb625493c29355f210a36b7614cb9
+2010-03-21T15:44:49.398889Z
+121
+blaukatze!
+
+paperclip_generator.rb
+file
+
+
+
+
+2010-10-18T15:52:48.616000Z
+5a302d9eb0d775f407350b5810ae6bd2
+2010-03-21T15:44:49.398889Z
+121
+blaukatze!
+
+templates
+dir
+

@@ -1,0 +1,32 @@
+<div class="menu">
+<h3><%= t("views.shared.mainmenu.s1") %></h3>
+<% @categories = Category.find(:all)%>
+ <ul>
+<% for category in @categories do %>
+	<li><%= link_to t(category.name), overview_path(:category_id => category.id) %> </li>
+		<% if @category != nil%> 
+		<% if @category.id == category.id %>
+		<li><ul style="padding-left: 15px;">
+			<% for subcategory in @subcategories do %>
+				<li>- <%= link_to t(subcategory.name), overview_path(:category_id => category.id, :subcategory_id => subcategory.id)%></li>
+				<% if @subcategory != nil%> 
+				<% if @subcategory.id == subcategory.id %>
+				<li><ul style="padding-left: 15px;">
+					<% for lastcategory in @lastcategories do %>
+					<li><%= link_to t(lastcategory.name), overview_path(:category_id => category.id, :subcategory_id => subcategory.id, :lastcategory_id => lastcategory.id)%></li>
+					<%end%>
+					</ul></li>
+				<%end%>
+				<%end%>
+				<!-- end of lastcat -->
+				
+			<%end%>			
+		</li></ul>
+		<%end%>
+		<%end%>
+<% end %>
+</ul>
+</div>
+
+	
+

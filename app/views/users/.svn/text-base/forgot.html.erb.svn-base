@@ -1,0 +1,18 @@
+<div style="width: 750px; float:left;">
+    <h2 class="text_green"><%= t("views.users.forgot.s1")%></h2>
+    <% form_for :user, :url => resend_info_path do |f| -%>
+    <table class="align_left" style="margin-top: 10px;">
+        <tr>
+            <td class="bold">
+                <%= t("views.users.forgot.s2")%>: 
+            </td>
+            <td>
+                <%= f.text_field :email, :tabindex =>"2" %>
+            </td>
+        </tr>
+		<tr><td></td><td><%= f.submit t("views.users.forgot.s3"), :class => "submit_b" %></td></tr>
+    </table>
+</div>
+
+<% end %>
+</div>

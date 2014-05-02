@@ -1,0 +1,54 @@
+<%= render :partial => "shared/box_right" %>
+<div class="left" style="width: 750px;">
+<h2 class="text_green">Events</h2>
+<div class="left"><p class="align_left"><%= @all_events.length %> events registered. <%= link_to 'Add your event', new_event_path %></p></div>
+<div class="right" style="margin-left: 200px;"> <p><a href="" OnClick="$('searchbox').toggle(); return false;">Show/Hide Search</a></p> </div> 
+</div>
+<%= render :partial => "searchbox", :object => @nosearch %>
+
+<div class="left" style="clear: left;">
+<p class="align_left">
+    <% if @nosearch != 1 %>
+    Your search has <%= @number_of_results %> results.
+    <br>
+    <% end %>
+</p>
+</div>
+ 
+<div class="left">	 
+            <table style="border-spacing: 0px; width: 750px;" class="align_left">
+                <tr style="height: 30px; background-color: #bbb;">
+                    <th style="width: 130px; " >	   </th>
+                    <th style="width: 200px; " >Date   </th>
+                    <th style="width: 200px; " >Event  </th>
+                    <th style="width: 150px; " >Tickets </th>
+                </tr>
+                <% for event in @events %>
+                <% @event = event %>
+                <% @link =  "http://localhost:3000/events/" + event.id.to_s %>
+                <tr class="<%= cycle("tr1", "tr2") -%>" style="height: 60px; width: 750px;" onClick="location.href='<%= @link.to_s -%>'">
+                    <td style="width: 130px;">
+                        <% #Genre Partial %>
+                        <% #Accomodation partial? %>
+                        <%= render :partial => "accomodation", :object => @event %>
+                        <% #Catering Partial %>
+                    </td
+                    <td class=" align_left" style="padding-left: 10px;">
+						<%= h eventdate(event.startdate , event.enddate) %>
+				    </td>
+                    <td class="bold align_left">
+                        <%=h event.title %>
+                    </td>
+                    <td class="bold align_left">
+                        <%=h event.event_status %>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="border-bottom: 1px inset #9A9B9B; padding: 0 0 0 0;" colspan="70">
+                    </td>
+                </tr>
+                <% end %>
+            </table>
+            <%= will_paginate(@events) %>
+			<%= link_to 'Add your event', new_event_path %>
+</div>

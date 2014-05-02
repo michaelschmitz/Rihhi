@@ -1,0 +1,18 @@
+<p>
+  <b>Listing:</b>
+  <%=h @deliverable.listing_id %>
+</p>
+
+<p>
+  <b>Order:</b>
+  <%=h @deliverable.order_id %>
+</p>
+
+<p>
+  <b>Amount:</b>
+  <%=h @deliverable.amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_deliverable_path(@deliverable) %> |
+<%= link_to 'Back', deliverables_path %>

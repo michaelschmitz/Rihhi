@@ -1,0 +1,33 @@
+<%= render :partial => "profiles/adminmenu_settings" %>
+
+<div class="left" style="width: 800px; margin-left: 10px;"> <!-- this is the standard div to follow any kind of "adminmenu"... always 800px wide, 10px margin.-->
+
+<h2 class="text_green"> Settings </h2>
+
+	<div class="left" style="width: 180px; margin-bottom: 20px;">
+	<h3>User settings </h3>
+	<table style="width: 100%" class="align_left background_grey">
+		<tr><td>Your <%= link_to 'User settings', edit_user_path(self.current_user) %> allow you to change your email address and your password.</td></tr>
+	</table>
+	<br>
+	</div>
+<% if @user.is_seller?%>
+	<div class="left" style="width: 180px; margin-bottom: 20px; margin-left: 15px;">
+	<h3>Seller settings </h3>
+	<table style="width: 100%" class="align_left background_grey">
+		<tr><td>Your <%= link_to 'Seller settings', sellersettings_path %> contain your address and prefered billing method for all charges from using Sword.</td></tr>
+	</table>
+	<br>
+	</div>
+	
+		<div class="left" style="width: 180px; margin-bottom: 20px; margin-left: 15px;">
+	<h3>Shop settings </h3>
+	<table style="width: 100%" class="align_left background_grey">
+		<tr><td>Your <%= link_to 'Shop settings', shopsettings_path %> allow you to upload a picture of yourself and add a description to your shop. <br><br>
+		You can also configure pre-sets for shipping and handling to ease the setup of new items.</td></tr>
+	</table>
+	<br>
+	</div>
+<% end %>
+
+</div>

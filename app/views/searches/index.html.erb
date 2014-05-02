@@ -1,0 +1,40 @@
+<h1>Listing searches</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Startdate</th>
+    <th>Enddate</th>
+    <th>Country</th>
+    <th>Orga</th>
+    <th>Min age</th>
+    <th>Genre</th>
+    <th>Accomodation</th>
+    <th>Catering</th>
+    <th>Status</th>
+    <th>Rules</th>
+  </tr>
+
+<% for search in @searches %>
+  <tr>
+    <td><%=h search.title %></td>
+    <td><%=h search.startdate %></td>
+    <td><%=h search.enddate %></td>
+    <td><%=h search.country %></td>
+    <td><%=h search.orga %></td>
+    <td><%=h search.min_age %></td>
+    <td><%=h search.genre %></td>
+    <td><%=h search.accomodation %></td>
+    <td><%=h search.catering %></td>
+    <td><%=h search.status %></td>
+    <td><%=h search.rules %></td>
+    <td><%= link_to 'Show', search %></td>
+    <td><%= link_to 'Edit', edit_search_path(search) %></td>
+    <td><%= link_to 'Destroy', search, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New search', new_search_path %>

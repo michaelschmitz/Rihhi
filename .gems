@@ -1,0 +1,6 @@
+rails -v 2.3.8
+searchlogic -v 2.4.19
+aws-s3 -v 0.6.2
+delocalize
+faker
+populator

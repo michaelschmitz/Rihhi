@@ -1,0 +1,15 @@
+<%= t("views.smailer.changed_pw_sec.s1")%>.
+
+<%= t("views.smailer.changed_pw_sec.s2")%>.
+
+<%= t("views.smailer.changed_pw_sec.s3")%>:
+
+<%= t("views.smailer.changed_pw_sec.s4")%>:		<%= @user.email %>
+
+<%= t("views.smailer.changed_pw_sec.s5")%>:	<%= @user.login %>
+<%= t("views.smailer.changed_pw_sec.s6")%>: 	<%= @user.password %>
+
+<%= t("views.smailer.changed_pw_sec.s7")%>.
+
+<%= render :partial => "shared/imprint" %>
+ 

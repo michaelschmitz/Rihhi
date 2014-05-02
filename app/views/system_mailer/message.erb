@@ -1,0 +1,9 @@
+<%= t("views.smailer.message.s1")%> <%= h @recipient.login %>,
+
+<%= @user.login %> <%= t("views.smailer.message.s2")%>.
+
+----------------------------------------------------
+<%= h @message.message %>
+----------------------------------------------------
+
+<%= render :partial => "shared/imprint" %>

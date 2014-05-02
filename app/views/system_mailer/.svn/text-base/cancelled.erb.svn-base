@@ -1,0 +1,14 @@
+<%= t("views.smailer.cancelled.s1")%> <%= @user.login %>,
+
+<%= t("views.smailer.cancelled.s2")%> <%= @order.id %> <%= t("views.smailer.cancelled.s3")%> <% @seller.user.login %> <%= t("views.smailer.cancelled.s4")%> <% @seller.user.login %>.
+
+----------------------------------------------------
+<%= t("views.smailer.cancelled.s5")%>:
+
+<%= @order.cancel_reason %>
+
+<%= render :partial => "shared/theorder", :locals => { :order => @order, :deliverables => @deliverables } %>
+
+<%= t("views.smailer.cancelled.s6")%>. 
+
+<%= render :partial => "shared/imprint" %>

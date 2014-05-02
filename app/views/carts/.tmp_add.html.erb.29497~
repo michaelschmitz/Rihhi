@@ -1,0 +1,24 @@
+<h1>Editing listing</h1>
+
+<% form_for(@listing, :url => seller_listing_path(@listing.seller, @listing), :html => { :method => :put }) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :price %><br />
+    <%= f.text_field :price %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', seller_listing_path(@listing.seller, @listing) %> |
+<%= link_to 'Back', seller_listings_path(@listing.seller) %>

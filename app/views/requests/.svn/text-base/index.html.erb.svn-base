@@ -1,0 +1,73 @@
+<%= render :partial => "shared/box_right" %>
+<div class="left" style="width: 750px;">
+<h2 class="text_green">Requests</h2>
+<div class="left"><p class="align_left"> <%= @open_requests.length %> open requests registered. (<%= @all_requests.length%> total) <%= link_to 'Add a request', new_request_path %></p> </div> 
+<div class="right" style="margin-left: 200px;"> <p><a href="" OnClick="$('searchbox').toggle(); return false;">Show/Hide Search</a></p> </div>
+</div>
+
+<%= render :partial => "searchbox", :object => @nosearch %>
+<div class="left" style="clear: left;">
+<p class="align_left">
+    <% if @nosearch != 1 %>
+    Your search has <%= @number_of_results %> results.
+    <br>
+    <% end %>
+</p>
+</div>
+
+<div class="left">
+	<table style="width: 750px; border-spacing: 0px">
+       <tr style="background-color: lightgrey; height: 30px;"> 
+		<th style="width: 30px;"></th>
+	   		<th style="width: 180px;">Title</th>
+			<th style="width: 80px;">Ideal Price</th>
+			<th style="width: 80px;">Bids</th>
+	        <th style="width: 100px;">Requested by</th>
+			<th style="width: 100px;">Deadline</th>
+			<th style="width: 100px;">Posted on</th>
+	        
+	   </tr>	
+	   </table>
+
+	<table style="width: 750px; border-spacing: 0px">
+	<% for request in @requests %>
+	
+	  
+	<% @link =  "http://localhost:3000/requests/" + request.id.to_s %>
+      <tr class="<%= cycle("tr1", "tr2") -%>" style="height: 60px;" onClick="location.href='<%= @link.to_s -%>'">
+		<td style="width: 30px;">
+	    <% if request.request_status == "open" %>
+		<%= image_tag("open.png")%>
+		<% else %>
+		<%= image_tag("closed.png")%>
+		<% end  %>
+		</td>
+		<td style="width: 180px;"><%=h request.title %></td>
+	    <td style="width: 80px;"><%=h request.ideal_price %></td>
+	    <td style="width: 80px;"><%=h request.bids.length %></td>		
+		<td style="width: 100px;"><%=h request.user.login %></td>
+	    <td style="width: 100px;"><%=h request.deadline.strftime('%d. %b  %Y') %></td>
+		<td style="width: 100px;"><%=h request.posted_on %></td>
+    </tr>
+	
+	<% end %>
+	</table>
+</div>
+
+	<br />
+	
+<div class="clear_left" style="width: 750px; text-align: center;">
+	<%= will_paginate @requests %>
+</div>
+
+	
+<div class="clear_left" style="width: 750px; text-align: center; margin-top: 10px;">
+
+<% if self.current_user != nil %>
+	<%= link_to 'Add a request', new_request_path %> 
+<% else %>
+	<%= link_to 'New request', new_session_path %>
+
+<% end %>
+</div>
+</div>

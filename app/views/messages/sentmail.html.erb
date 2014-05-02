@@ -1,0 +1,12 @@
+<%= render :partial => "shared/box_right"%>
+<h2 class="text_green"> <%= t('views.messages.sent.s1') %></h2>
+
+<div id="inbox">
+
+<%= render :partial => "sentmail", :object => @messages %>
+
+</div>
+
+<br />
+
+<%= link_to t('views.messages.sent.s2'), new_message_path %>

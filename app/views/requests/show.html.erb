@@ -1,0 +1,312 @@
+<%= render :partial => "shared/box_right", :object => @onpage %>
+<div class="left" style="width: 700px;">
+<div class="left" style="width: 700px;">
+    <div style="width: 700px; float: left;">
+        <p style="font-weight: bold; font-size: large; text-align: left;">
+            <%=h @request.title %>
+        </p>
+    </div>
+    <div class="left">
+        <div class="left" style="text-align: left; width: 650px;">
+            <%=(h @request.description).gsub("\n", "<br />") %>
+        </div>
+        <div style="float:left; margin-top: 30px; width: 650px">
+            <table style="text-align: left; float: left;">
+                <tr>
+                    <td style="font-weight: bold; width: 110px;">
+                        <%= t("views.requests.show.s1")%>: 
+                    </td>
+                    <td style="width: 300px;">
+                        <%= link_to(h(@request.user.login), user_path(@request.user.id)) %> (<%= link_to t("views.requests.show.s2"), {:controller => "messages", :action => "new", :to_id => @request.user.id} %>)
+                    </td>
+                    <td class="bold" style="width: 110px;">
+                        <%= t("views.requests.show.s3")%>: 
+                    </td>
+                    <td class="bold" style="color: green; width: 110px; ">
+                        <%=h @request.quantity %>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.requests.show.s4")%>: 
+                    </td>
+                    <td>
+                        <%=h @request.materials %>
+                    </td>
+                    <td class="bold">
+                        <%= t("views.requests.show.s5")%>: 
+                    </td>
+                    <td class="bold" style="color: green;">
+                        <%=h @request.ideal_price %>€
+                    </td>
+                </tr>
+                <tr>
+                    <td class="bold">
+                        <%= t("views.requests.show.s6")%>: 
+                    </td>
+                    <td>
+                        <%=h @request.tags %>
+                    </td>
+                    <td class="bold">
+                         <%= t("views.requests.show.s7")%>: 
+                    </td>
+                    <td class="bold" style="color: orange;">
+                        <%=h @request.deadline %>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div class="left" style="margin-top: 20px; text-align: left; width: 650px;">
+            <table style="text-align: left; float: left;">
+                <tr>
+                    <% if @request.attachment_file_name? %>
+                    <td style="width: 300px;">
+                        <b><%= t("views.requests.show.s8")%></b>
+                        <%= image_tag @request.attachment.url(:medium) %>
+                    </td>
+                    <td style="width: 110px;">
+                        &nbsp;
+                    </td>
+                    <% end %>
+                    <td>
+                        <table style="text-align: left; float: left; vertical-align: top;">
+                            <tr>
+                                <td style="font-weight: bold; width: 110px;">
+                                    <%= t("views.requests.show.s9")%>:
+                                </td>
+                                <% if self.current_user != nil %>
+                                <% if self.current_user.id == @request.user_id %>
+                                <td style="width: 110px;">
+                                    <%=h @request.full_name %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">
+                                </td>
+                                <td>
+                                    <%=h @request.street %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">
+                                </td>
+                                <td>
+                                    <%=h @request.city %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">
+                                </td>
+                                <td>
+                                    <%=h @request.zip_code %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">
+                                </td>
+                                <% end %>
+                                <% end %>
+                                <td>
+                                    <%=h @request.state %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold;">
+                                </td>
+                                <td>
+                                    <%=h @request.country %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold; color: grey;">
+                                    <%= t("views.requests.show.s10")%>: 
+                                </td>
+                                <td style="color: grey;">
+                                    <%=h @request.posted_on %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="font-weight: bold; color: grey;">
+                                    <%= t("views.requests.show.s11")%>: 
+                                </td>
+                                <td style="color: grey;">
+                                    <%=h @request.expiry_date %>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div style="width: 100%; float: left; margin-top: 10px; margin-bottom: 10px;">
+        <% if self.current_user != nil %>
+        <% if self.current_user.id != @request.user_id and self.current_user.is_seller? %>
+        <%= link_to t("views.requests.show.s13"), new_bid_path(:request_id => @request.id) %> | <% end %>
+        <% if self.current_user.id != @request.user_id and !self.current_user.is_seller? %>
+        <%= link_to t("views.requests.show.s14"), new_seller_path() %>| <% end %>
+        <% else %>
+        <%= link_to t("views.requests.show.s13"), new_session_path() %> | <% end %>
+        <!-- Close the request --><% if self.current_user != nil %>
+        <% if self.current_user.id == @request.user_id %>
+        <% if @request.request_status == "open" %>
+        <%= link_to t("views.requests.show.s15"), close_request_path(:id => @request.id), :confirm => t("views.requests.show.s12"), :method => :put %>| <% else %>
+        <% end %>
+        <% end %>
+        <% end %>
+        <!-- Edit & Overview --><% if self.current_user != nil %>
+        <% if self.current_user.id == @request.user_id %>
+        <% if @request.request_status == "open" %>
+        <%= link_to t("views.requests.show.s16"), edit_request_path(@request) %>| <%= link_to t("views.requests.show.s17"), my_requests_path %>| <%= link_to 'Back to all requests', requests_path() %>
+        <% else %>
+        <%= link_to t("views.requests.show.s18"), closed_requests_path %>
+        <% end %>
+        <% else %>
+        <%= link_to t("views.requests.show.s19"), requests_path() %>
+        <% end %>
+        <% else %>
+        <%= link_to t("views.requests.show.s19"), requests_path() %>
+        <% end %>
+        
+       
+            <% #Flag the item if you are logged in (else link to login) / should be moved to partial %>
+            <% if self.current_user != nil %>
+            <% if self.current_user.id != @request.user_id %>
+			|<span id="flag_as_link"><a href="#" onclick="Effect.SlideDown('slide_up_and_down'); $ ('flag_as_link').hide(); return false;"> <%= t("views.requests.show.s20")%></a></span>
+			 <div>
+            <div id="slide_up_and_down" style="display: none; float: left; margin-left: 200px; width: 340px; height: 335px; padding-left: 10px; text-align: left; -moz-border-radius: 5px; -webkit-border-radius: 5px; border: solid; border-color: red;">
+                <div>
+                    <h2 style="color: red;"><%= t("views.requests.show.flag_as")%>:</h2>
+                    <div style="margin-right: 10px; padding-left: 10px; padding-top: 5px; padding-right: 10px; background-color: #F9F9F7; ">
+                        <% form_for :flaggeds, :url => { :controller => "flaggeds", :action => "create" } do |f| %>
+                        <p class="bold">
+                            <%= t("views.requests.show.s21")%>:
+                        </p>
+                        <%= f.text_area :reason, :value => @reason, :cols=> 36, :rows=> 5 %>
+                        <%= f.hidden_field :flagger_id, :value => self.current_user.id %>
+                        <%= f.hidden_field :user_id, :value => @requester %>
+                        <%= f.hidden_field :listing_id, :value => @request.id %>
+                        <p style="margin-top: 10px; margin-top: 10px; padding-bottom: 10px; text-align: right; margin-right: 50px;">
+                            <%= f.submit "Click to send" %>
+                        </p>
+                    </div>
+                    <a href="#" onclick="Effect.SlideUp('slide_up_and_down'); $('flag_as_link').appear();return false;">
+                        <p style="text-align: center; margin-top: 10px; margin-bottom: 20px; text-decoration: underline; font-size: 12px; color: black;" class="bold">
+                            <%= t("views.requests.show.s22")%>
+						</p>
+                    </a>
+                    <% end %>
+                </div>
+            </div>
+            <% end %>
+            <% else %>
+            
+               | <%= link_to t("views.requests.show.s20"), new_session_url %>
+            
+            <% end %>
+        </div>
+    </div>
+	
+    <%if @request.request_status == "open" %>
+    <div style="float: left; margin-bottom: 10px; font-size: 15px; font-weight: bold;">
+        <%= t("views.requests.show.s23")%><%=h @bids.length %> <%= t("views.requests.show.s24")%>.
+    </div>
+    <% else %>
+    <div style="float: left; margin-bottom: 10px; font-size: 15px; font-weight: bold;">
+        <%= t("views.requests.show.s25")%> <%=h @bids.length %> <%= t("views.requests.show.s24")%>.
+    </div>
+    <% end %>
+	
+	<%if @request.request_status == "open" %>
+    <% for b in @bids %>
+    <div style="float: left; margin-bottom: 10px;">
+        <div class="form_top" style="float: left;">
+        </div>
+        <div class="form_area background_grey" style="float: left;">
+            <div style="float: left; width: 200px; ">
+                <table class="align_left">
+                    <tr>
+                        <td style="font-weight: bold; color: #00CD00; font-size: 20px;">
+                            <%= t("views.requests.show.s26")%> <%=h @bid_id +=1 %>
+                        </td>
+                    </tr>
+      
+                    <tr>
+                        <td>
+                            <%= link_to((h b.seller.user.login), :controller => "shops", :action => "show", :id => b.seller.shop.id) %> <br>
+							(<%= link_to t("views.requests.show.s2"), {:controller => "messages", :action => "new", :to_id => b.seller.user.id} %>)
+                        </td>
+                    </tr>
+					<% if b.attachment_file_name? %>
+                    <tr>
+                        <td style="color: green; font-weight: bold;">
+                          <%= image_tag(b.attachment.url(:thumb))%>
+                        </td>
+                    </tr>
+					<% end %>
+                </table>
+            </div>
+            <div style="float: left; width: 500px;">
+                <table class="align_left" style="padding-top: 5px;">
+                    <tr>
+                        <td colspan="2">
+                            <%=(h b.description).gsub("\n", "<br />") %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="font-weight: bold; width: 200px;">
+                            <%= t("views.requests.show.s27")%>:
+                        </td>
+                        <td style="font-weight: bold;">
+                            <%= t("views.requests.show.s28")%>:
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <%=h b.preparation_time %>
+                        </td>
+                        <td>
+                            <%=h b.final_cost %>€
+                        </td>
+                    </tr>
+					
+					
+				<% if self.current_user != nil %>
+                <% if self.current_user.id == @request.user_id %>
+                    <tr>
+                        <% if b.bid_status == "accepted" %>
+                        <td style="text-align: right;">
+                            <%= link_to t("views.requests.show.s29"), bid_path(:id => b.id) %>
+                        </td>
+                        <td style="text-align: right; color:  #00CD00; font-weight: bold; font-size: larger;">
+                            <%= t("views.requests.show.s30")%>
+                        </td>
+                        <% elsif b.bid_status == "refused" %>
+                        <td colspan="2" style="text-align: right; color: red; font-weight: bold; font-size: larger;">
+                            <%= t("views.requests.show.s31")%>
+                        </td>
+                        <% else %>
+                        <td colspan="2" style="text-align: right;">
+                            <% if @request.request_status == "open" %>
+                            <%= link_to t("views.requests.show.s32"), bid_status_change_path(:id => b.id, :new_status => "accepted"), :method => :put %>|<%= link_to t("views.requests.show.s33"), bid_status_change_path(:id => b.id, :new_status => "refused"),  :method => :post %>
+                            <% else %>
+                            <% end %>
+                        </td>
+                        <% end %>
+                    </tr>
+					  <% end %>
+					    <% end %>
+                </table>
+            </div>
+        </div>
+    </div>
+    <% end %> 
+    <% end %>
+</div>
+</div>

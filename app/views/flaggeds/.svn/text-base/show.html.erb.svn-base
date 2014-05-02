@@ -1,0 +1,53 @@
+<p>
+  <b>Listing:</b>
+  <%=h @flagged.listing_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%=h @flagged.user_id %>
+</p>
+
+<p>
+  <b>Flagger:</b>
+  <%=h @flagged.flagger_id %>
+</p>
+
+<p>
+  <b>Flagger email:</b>
+  <%=h @flagged.flagger_email %>
+</p>
+
+<p>
+  <b>Email sent:</b>
+  <%=h @flagged.email_sent %>
+</p>
+
+<p>
+  <b>Reason:</b>
+  <%=h @flagged.reason %>
+</p>
+
+<p>
+  <b>Deleted:</b>
+  <%=h @flagged.deleted %>
+</p>
+
+<p>
+  <b>Changed:</b>
+  <%=h @flagged.changed %>
+</p>
+
+<p>
+  <b>Closed:</b>
+  <%=h @flagged.closed %>
+</p>
+
+<p>
+  <b>Admin:</b>
+  <%=h @flagged.admin_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_flagged_path(@flagged) %> |
+<%= link_to 'Back', flaggeds_path %>

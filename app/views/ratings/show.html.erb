@@ -1,0 +1,90 @@
+  <div class="left" style="width: 100%; text-align: left; padding-bottom: 5px;">
+<h2 class="text_green"><%= t("views.ratings.show.s1") %> <%= @seller.user.login %></h2>
+
+
+<% if @ratings != nil%>
+	<%= @seller.user.login %> <%= t("views.ratings.show.s2") %> <%= @ratings.length %> <%= t("views.ratings.show.s3") %>. <br>
+	<%= t("views.ratings.show.s4") %> <%= @pos.to_i %> <%= t("views.ratings.show.s5") %> <%= @neg.to_i %> <%= t("views.ratings.show.s6") %>.<br>
+	
+	<% if !@result == "NaN" %>
+	<%= t("views.ratings.show.s7") %><b>
+		<% if @result <= 70 %>
+			<span style="color: red;"><%= number_to_percentage(@result, :precision => 2) %></span>
+		<% elsif @result <= 80 %>
+			<span style="color: orange;"><%= number_to_percentage(@result, :precision => 2) %></span>
+		<% elsif @result <= 90 %>
+			<span style="color: blue;"><%= number_to_percentage(@result, :precision => 2) %></span>
+		<% else %>
+			<span style="color: green;"><%= number_to_percentage(@result, :precision => 2) %></span>
+		<% end %>
+	<% end %>
+	</b>
+
+<% else %>
+<%= t("views.ratings.show.s8") %>.
+<% end %>
+<br>
+</div>
+<% if @ratings.length >= 1 %>
+<table style="text-align: left;">
+
+<tr style="font-weight: bold;">
+	<td style="width: 40px; padding-left: 5px;"><%= t("views.ratings.show.s9") %> </td>
+	<td style="width: 150px; padding-left: 5px;"><%= t("views.ratings.show.s10") %> </td>
+	<td style="width: 40px; padding-left: 5px;"><%= t("views.ratings.show.s11") %> </td>
+	<td style="width: 269px; padding-left: 5px;"><%= t("views.ratings.show.s12") %> </td>
+	<td style="width: 269px; padding-left: 5px;"><%= t("views.ratings.show.s13") %> </td>
+	<td style="width: 150px; padding-left: 5px;"><%= t("views.ratings.show.s14") %> </td>				
+</tr>
+</table>
+
+	<% for rating in @ratings %>
+	
+	<table style="text-align: left;">
+	
+	 <tr class="<%= cycle("tr1_s", "tr2_s") -%>">
+	
+		        
+		        	 <td style="width: 40px; padding: 0px 0px 0px 5px;">
+		                 <%= rating.id %>
+		            </td>
+					<td style="width: 150px; padding-left: 5px;">
+						<%=h rating.user.login %>
+					</td>
+					<td style="width: 40px; padding-left: 5px;">
+						<%=h rating.order_id%>	
+					</td>
+					<td style="width: 269px; padding-left: 5px;">
+						<% if rating.userrating == 1 %>
+						<span style="color: red;"><%= t("views.ratings.show.s15") %>.</span><br>
+						<% else %>
+						<%= t("views.ratings.show.s16") %>.<br>
+						<% end %>
+						<%= h rating.usertext %>
+					</td>
+		   			<td style="width: 269px; padding-left: 5px;">
+						<%= h rating.sellertext %>
+					</td>
+					<td style="width: 150px; padding-left: 5px;">
+						<%=h rating.created_at.strftime('%A, ' '%d ' '%B' ' %Y')%>
+					</td>
+		        </tr>
+		    </table>
+	
+	<% end %>
+<% else  %>
+
+
+	<p style="text-align: left;"> <%= t("views.ratings.show.s20") %>.</p> 
+	<%= will_paginate @ratings%>
+<% end %>
+<br>
+<hr style="margin-top: 10px;">
+<%= link_to t("views.ratings.show.s17"), orders_path %><br>
+<% if logged_in? %>
+	<% if self.current_user.is_seller? %>
+		<%= link_to t("views.ratings.show.s18"), sales_path %><br>
+		<%= link_to t("views.ratings.show.s19"), movements_path %>
+	<% end %>
+<% end %>
+

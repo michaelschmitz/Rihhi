@@ -1,0 +1,251 @@
+<h1>Editing event</h1>
+
+<% form_for(@event, :html => { :multipart => true}) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :subtitle %><br />
+    <%= f.text_field :subtitle %>
+  </p>
+  <p>
+    <%= f.label :startdate %><br />
+    <%= f.date_select :startdate %>
+  </p>
+  <p>
+    <%= f.label :enddate %><br />
+    <%= f.date_select :enddate %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :creator_name %><br />
+    <%= f.text_field :creator_name %>
+  </p>
+  <p>
+    <%= f.label :orga_name %><br />
+    <%= f.text_field :orga_name %>
+  </p>
+  <p>
+    <%= f.label :orga_website %><br />
+    <%= f.text_field :orga_website %>
+  </p>
+  <p>
+    <%= f.label :orga_email %><br />
+    <%= f.text_field :orga_email %>
+  </p>
+  <p>
+    <%= f.label :name_of_contact1 %><br />
+    <%= f.text_field :name_of_contact1 %>
+  </p>
+  <p>
+    <%= f.label :street_of_contact1 %><br />
+    <%= f.text_field :street_of_contact1 %>
+  </p>
+  <p>
+    <%= f.label :area_code_of_contact1 %><br />
+    <%= f.text_field :area_code_of_contact1 %>
+  </p>
+  <p>
+    <%= f.label :city_of_contact1 %><br />
+    <%= f.text_field :city_of_contact1 %>
+  </p>
+  <p>
+    <%= f.label :tel1_of_contact1 %><br />
+    <%= f.text_field :tel1_of_contact1 %>
+  </p>
+  <p>
+    <%= f.label :tel2_of_contact1 %><br />
+    <%= f.text_field :tel2_of_contact1 %>
+  </p>
+  <p>
+    <%= f.label :description_of_contact1_availability %><br />
+    <%= f.text_field :description_of_contact1_availability %>
+  </p>
+  <p>
+    <%= f.label :fax_of_contact1 %><br />
+    <%= f.text_field :fax_of_contact1 %>
+  </p>
+  <p>
+    <%= f.label :email_of_contact1 %><br />
+    <%= f.text_field :email_of_contact1 %>
+  </p>
+  <p>
+    <%= f.label :name_of_contact2 %><br />
+    <%= f.text_field :name_of_contact2 %>
+  </p>
+  <p>
+    <%= f.label :street_of_contact2 %><br />
+    <%= f.text_field :street_of_contact2 %>
+  </p>
+  <p>
+    <%= f.label :area_code_of_contact2 %><br />
+    <%= f.text_field :area_code_of_contact2 %>
+  </p>
+  <p>
+    <%= f.label :city_of_contact2 %><br />
+    <%= f.text_field :city_of_contact2 %>
+  </p>
+  <p>
+    <%= f.label :tel1_of_contact2 %><br />
+    <%= f.text_field :tel1_of_contact2 %>
+  </p>
+  <p>
+    <%= f.label :tel2_of_contact2 %><br />
+    <%= f.text_field :tel2_of_contact2 %>
+  </p>
+  <p>
+    <%= f.label :description_of_contact2_availability %><br />
+    <%= f.text_field :description_of_contact2_availability %>
+  </p>
+  <p>
+    <%= f.label :fax_of_contact2 %><br />
+    <%= f.text_field :fax_of_contact2 %>
+  </p>
+  <p>
+    <%= f.label :email_of_contact2 %><br />
+    <%= f.text_field :email_of_contact2 %>
+  </p>
+  <p>
+    <%= f.label :invitation_only %><br />
+    <%= f.check_box :invitation_only %>
+  </p>
+  <p>
+    <%= f.label :invitation_code %><br />
+    <%= f.text_field :invitation_code %>
+  </p>
+  <p>
+    <%= f.label :location %><br />
+    <%= f.text_field :location %>
+  </p>
+  <p>
+    <%= f.label :street %><br />
+    <%= f.text_field :street %>
+  </p>
+  <p>
+    <%= f.label :area_code %><br />
+    <%= f.text_field :area_code %>
+  </p>
+  <p>
+    <%= f.label :city %><br />
+    <%= f.text_field :city %>
+  </p>
+  <p>
+    <%= f.label :country %><br />
+    <%= f.text_field :country %>
+  </p>
+  <p>
+    <%= f.label :location_description %><br />
+    <%= f.text_field :location_description %>
+  </p>
+  <p>
+    <%= f.label :event_status %><br />
+    <%= f.text_field :event_status %>
+  </p>
+  <p>
+    <%= f.label :genre %><br />
+    <%= f.text_field :genre %>
+  </p>
+  <p>
+    <%= f.label :genre_description %><br />
+    <%= f.text_field :genre_description %>
+  </p>
+  <p>
+    <%= f.label :catering %><br />
+    <%= f.text_field :catering %>
+  </p>
+  <p>
+    <%= f.label :catering_description %><br />
+    <%= f.text_field :catering_description %>
+  </p>
+  <p>
+    <%= f.label :campaign %><br />
+    <%= f.text_field :campaign %>
+  </p>
+  <p>
+    <%= f.label :campaign_description %><br />
+    <%= f.text_field :campaign_description %>
+  </p>
+  <p>
+    <%= f.label :max_sc %><br />
+    <%= f.text_field :max_sc %>
+  </p>
+  <p>
+    <%= f.label :max_nsc %><br />
+    <%= f.text_field :max_nsc %>
+  </p>
+  <p>
+    <%= f.label :available_sc %><br />
+    <%= f.text_field :available_sc %>
+  </p>
+  <p>
+    <%= f.label :available_nsc %><br />
+    <%= f.text_field :available_nsc %>
+  </p>
+  <p>
+    <%= f.label :rules %><br />
+    <%= f.text_field :rules %>
+  </p>
+  <p>
+    <%= f.label :currency %><br />
+    <%= f.text_field :currency %>
+  </p>
+  <p>
+    <%= f.label :minimum_age %><br />
+    <%= f.text_field :minimum_age %>
+  </p>
+  <p>
+    <%= f.label :url_to_invitation %><br />
+    <%= f.text_field :url_to_invitation %>
+  </p>
+  <p>
+    <%= f.label :uploaded_invitation %><br />
+    <%= f.text_field :uploaded_invitation %>
+  </p>
+  <p>
+    <%= f.label :uploaded_image %><br />
+    <%= f.text_field :uploaded_image %>
+  </p>
+  <p>
+    <%= f.label :ambiente %><br />
+    <%= f.text_field :ambiente %>
+  </p>
+  <p>
+    <%= f.label :fights %><br />
+    <%= f.text_field :fights %>
+  </p>
+  <p>
+    <%= f.label :battles %><br />
+    <%= f.text_field :battles %>
+  </p>
+  <p>
+    <%= f.label :magic %><br />
+    <%= f.text_field :magic %>
+  </p>
+  <p>
+    <%= f.label :mysteries %><br />
+    <%= f.text_field :mysteries %>
+  </p>
+  <p>
+    <%= f.label :link_to_forum_discussion %><br />
+    <%= f.text_field :link_to_forum_discussion %>
+  </p>
+  <p>  
+   <%= f.file_field :pic1 %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @event %> |
+<%= link_to 'Back', events_path %>

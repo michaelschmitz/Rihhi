@@ -1,0 +1,53 @@
+K 25
+svn:wc:ra_dav:version-url
+V 55
+/rihhi/larp/!svn/ver/156/rihhi/vendor/plugins/recaptcha
+END
+Rakefile
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/Rakefile
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/LICENSE
+END
+VERSION
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/VERSION
+END
+.gitignore
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/.gitignore
+END
+README.rdoc
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/README.rdoc
+END
+recaptcha.gemspec
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/recaptcha.gemspec
+END
+CHANGELOG
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/CHANGELOG
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/rihhi/larp/!svn/ver/135/rihhi/vendor/plugins/recaptcha/init.rb
+END

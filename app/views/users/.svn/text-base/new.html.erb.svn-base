@@ -1,0 +1,94 @@
+
+<div style="width: 750px; float:left;">
+    <h2 class="text_green"><%= t("views.users.new.s1")%></h2>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+        <div style="text-align: right; float: right; ">
+            <%= image_tag("important.png") %>= <%= t("views.users.new.s2")%>
+        </div>
+        <% form_for :user, :url => users_path do |f| -%>
+        <table class="align_left" style="margin-top: 10px;">
+            <tr>
+                <td class="bold">
+                    <%= t("views.users.new.s3")%>: <%= image_tag("important.png") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.text_field :login, :tabindex => 1 %>
+                </td>
+                
+				
+				 <td>
+                    <% if error_message_on(:user, :login) != "" %>
+                    <%= error_message_on :user, :login %>
+                    <% else %>
+                    <%= t("views.users.new.s4")%>. <% end %>
+					 <%= set_focus_to_id("user_login") %>
+                </td>
+			
+            </tr>
+            <tr>
+                <td class="bold">
+                    <%= t("views.users.new.s5")%>: <%= image_tag("important.png") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.text_field :email, :tabindex =>"2" %>
+                </td>
+                <td>
+                    <% if error_message_on(:user, :email) != "" %>
+                    <%= error_message_on :user, :email %>
+                    <% else %>
+                    <%= t("views.users.new.s6")%>.<% end %>
+                </td>
+            </tr>
+			   <tr>
+                <td class="bold">
+                    <%= t("views.users.new.s9")%>: <%= image_tag("important.png") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.password_field :password, :tabindex =>"2" %>
+                </td>
+                <td>
+                    <% if error_message_on(:user, :password) != "" %>
+                    <%= error_message_on :user, :password %>
+                    <% else %>
+                    <% end %>
+                </td>
+            </tr>
+			   <tr>
+                <td class="bold">
+                    <%= t("views.users.new.s10")%>: <%= image_tag("important.png") %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= f.password_field :password_confirmation, :tabindex =>"2" %>
+                </td>
+            </tr>
+        </table>
+		<br>
+			<script>
+	            var RecaptchaOptions = {
+	                theme: 'blackglass',
+	                lang: '<%= I18n.locale %>',
+					tabindex: 3
+	            };
+	        </script>
+	        <%= error_message_on :user, :capta %>
+	        <% #Error messages can be translated directly in plugins/recaptcha/verify.rb %>
+	        <%= recaptcha_tags %>
+		
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+    <div class="right" style="clear: both; margin-top: 20px;">
+        <%= f.submit t("views.users.new.s7"), :class => "submit_b" %>
+    </div>
+    <% end %>
+</div>

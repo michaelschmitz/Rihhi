@@ -1,0 +1,5 @@
+ <%= @requester.login %> <%= t("views.smailer.friend_r.s1")%>.
+
+<%= t("views.smailer.friend_r.s2")%>.
+
+<%= render :partial => "shared/imprint" %>

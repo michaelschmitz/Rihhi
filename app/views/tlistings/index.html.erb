@@ -1,0 +1,22 @@
+<h1>Listing tlistings</h1>
+
+<table>
+  <tr>
+    <th>Ticket</th>
+    <th>Listing</th>
+  </tr>
+
+<% for tlisting in @tlistings %>
+  <tr>
+    <td><%=h tlisting.ticket_id %></td>
+    <td><%=h tlisting.listing_id %></td>
+    <td><%= link_to 'Show', tlisting %></td>
+    <td><%= link_to 'Edit', edit_tlisting_path(tlisting) %></td>
+    <td><%= link_to 'Destroy', tlisting, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New tlisting', new_tlisting_path %>

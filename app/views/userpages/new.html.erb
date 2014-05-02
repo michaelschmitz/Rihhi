@@ -1,0 +1,191 @@
+<h1>New userpage</h1>
+
+<% form_for(@userpage) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :friends_visible %><br />
+    <%= f.text_field :friends_visible %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :name_p %><br />
+    <%= f.check_box :name_p %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :status_p %><br />
+    <%= f.check_box :status_p %>
+  </p>
+  <p>
+    <%= f.label :real_name %><br />
+    <%= f.text_field :real_name %>
+  </p>
+  <p>
+    <%= f.label :real_name_p %><br />
+    <%= f.check_box :real_name_p %>
+  </p>
+  <p>
+    <%= f.label :homepage %><br />
+    <%= f.text_field :homepage %>
+  </p>
+  <p>
+    <%= f.label :homepage_p %><br />
+    <%= f.check_box :homepage_p %>
+  </p>
+  <p>
+    <%= f.label :region %><br />
+    <%= f.text_field :region %>
+  </p>
+  <p>
+    <%= f.label :region_p %><br />
+    <%= f.check_box :region_p %>
+  </p>
+  <p>
+    <%= f.label :larp_setting %><br />
+    <%= f.text_field :larp_setting %>
+  </p>
+  <p>
+    <%= f.label :larp_setting_p %><br />
+    <%= f.check_box :larp_setting_p %>
+  </p>
+  <p>
+    <%= f.label :larp_philosophy %><br />
+    <%= f.text_field :larp_philosophy %>
+  </p>
+  <p>
+    <%= f.label :larp_philosophy_p %><br />
+    <%= f.check_box :larp_philosophy_p %>
+  </p>
+  <p>
+    <%= f.label :favorite_characters %><br />
+    <%= f.text_area :favorite_characters %>
+  </p>
+  <p>
+    <%= f.label :favorite_characters_p %><br />
+    <%= f.check_box :favorite_characters_p %>
+  </p>
+  <p>
+    <%= f.label :player_group %><br />
+    <%= f.text_field :player_group %>
+  </p>
+  <p>
+    <%= f.label :player_group_p %><br />
+    <%= f.check_box :player_group_p %>
+  </p>
+  <p>
+    <%= f.label :homepage_of_group %><br />
+    <%= f.text_field :homepage_of_group %>
+  </p>
+  <p>
+    <%= f.label :homepage_of_group_p %><br />
+    <%= f.check_box :homepage_of_group_p %>
+  </p>
+  <p>
+    <%= f.label :relationship %><br />
+    <%= f.text_field :relationship %>
+  </p>
+  <p>
+    <%= f.label :relationship_p %><br />
+    <%= f.check_box :relationship_p %>
+  </p>
+  <p>
+    <%= f.label :about_me %><br />
+    <%= f.text_field :about_me %>
+  </p>
+  <p>
+    <%= f.label :about_me_p %><br />
+    <%= f.check_box :about_me_p %>
+  </p>
+  <p>
+    <%= f.label :looking_for %><br />
+    <%= f.text_field :looking_for %>
+  </p>
+  <p>
+    <%= f.label :looking_for_p %><br />
+    <%= f.check_box :looking_for_p %>
+  </p>
+  <p>
+    <%= f.label :contact_me %><br />
+    <%= f.text_field :contact_me %>
+  </p>
+  <p>
+    <%= f.label :contact_me_p %><br />
+    <%= f.check_box :contact_me_p %>
+  </p>
+  <p>
+    <%= f.label :future_cons %><br />
+    <%= f.text_field :future_cons %>
+  </p>
+  <p>
+    <%= f.label :future_const_p %><br />
+    <%= f.check_box :future_const_p %>
+  </p>
+  <p>
+    <%= f.label :last_cons %><br />
+    <%= f.text_area :last_cons %>
+  </p>
+  <p>
+    <%= f.label :last_cons_p %><br />
+    <%= f.check_box :last_cons_p %>
+  </p>
+  <p>
+    <%= f.label :ask_me_about %><br />
+    <%= f.text_field :ask_me_about %>
+  </p>
+  <p>
+    <%= f.label :ask_me_about_p %><br />
+    <%= f.check_box :ask_me_about_p %>
+  </p>
+  <p>
+    <%= f.label :music %><br />
+    <%= f.text_area :music %>
+  </p>
+  <p>
+    <%= f.label :music_p %><br />
+    <%= f.check_box :music_p %>
+  </p>
+  <p>
+    <%= f.label :books %><br />
+    <%= f.text_area :books %>
+  </p>
+  <p>
+    <%= f.label :books_p %><br />
+    <%= f.check_box :books_p %>
+  </p>
+  <p>
+    <%= f.label :movies %><br />
+    <%= f.text_area :movies %>
+  </p>
+  <p>
+    <%= f.label :movies_p %><br />
+    <%= f.check_box :movies_p %>
+  </p>
+  <p>
+    <%= f.label :other_hobbies %><br />
+    <%= f.text_area :other_hobbies %>
+  </p>
+  <p>
+    <%= f.label :other_hobbies_p %><br />
+    <%= f.check_box :other_hobbies_p %>
+  </p>
+  <p>
+    <%= f.label :what_if_ten_days_left %><br />
+    <%= f.text_area :what_if_ten_days_left %>
+  </p>
+  <p>
+    <%= f.label :what_if_p %><br />
+    <%= f.check_box :what_if_p %>
+  </p>
+  <p>
+    <%= f.submit 'Create' %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', userpages_path %>

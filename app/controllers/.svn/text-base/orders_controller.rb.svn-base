@@ -1,0 +1,681 @@
+class OrdersController < ApplicationController
+    before_filter :login_required #  before_filter :login_required, :except => :show
+  # GET /orders
+  # GET /orders.xml
+  def index
+    page = params[:page] || 1        
+    @all_orders = Order.paginate :page => page, :per_page => 20, :conditions => ["user_id = ?", self.current_user.id], :order => 'id DESC'
+    
+    #Define breadcrumbs
+    @l1_link = profile_path
+    @l1_name = t("controllers.orders.s1")    
+    @l2_link = "" 
+    @l2_name = t("controllers.orders.s2")
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @orders }
+    end
+  end
+
+ def index2
+    page = params[:page] || 1        
+    @all_sales =  Order.paginate :page => page, :per_page => 20, :conditions => ["seller_id = ?", self.current_user.seller.id], :order => 'id DESC'
+       
+    #Define breadcrumbs
+    @l1_link = profile_path
+    @l1_name = t("controllers.orders.s3")    
+    @l2_link = "" 
+    @l2_name = t("controllers.orders.s4")
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @orders }
+    end
+  end
+  
+ def index3
+    page = params[:page] || 1        
+    @all_sales =  Order.paginate :page => page, :per_page => 20, :conditions => ["seller_id = ? and (status = ? or status = ?)", self.current_user.seller.id, "closed", "cancelled"], :order => 'id DESC'
+        
+    #Define breadcrumbs
+    @l1_link = profile_path
+    @l1_name =  t("controllers.orders.s3")   
+    @l2_link = "" 
+    @l2_name = t("controllers.orders.s5")
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @orders }
+    end
+  end  
+  
+  def index4
+    page = params[:page] || 1        
+    @all_orders =  Order.paginate :page => page, :per_page => 20, :conditions => ["user_id = ? and status = ?", self.current_user.id, "closed"], :order => 'id DESC'
+        
+    #Define breadcrumbs
+    @l1_link = profile_path
+    @l1_name =  t("controllers.orders.s3")    
+    @l2_link = "" 
+    @l2_name = t("controllers.orders.s6")
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @orders }
+    end
+  end  
+  
+  def sales1_payment_arrived
+    @order = Order.find(params[:id])
+    if !@order.seller_id = self.current_user.seller.id
+      logger.info("XXX Someone faked an url to set this order to status:paid. It was user: " + self.current_user.id )
+      raise e
+    else
+    if params[:do] == "confirm"
+      @order.status = "payment_arrived"
+      @user = User.find(@order.user_id)
+      @seller = Seller.find(@order.seller_id)
+      @seller_user = @seller.user    
+      @deliverables = Deliverable.find(:all, :conditions => ["order_id = ?", @order.id])
+      
+      current_language = session[:locale]
+      I18n.locale = @user.userpage.preferred_language
+      SystemMailer.deliver_sale2(@user, @seller_user, @seller, @order, @deliverables)
+      I18n.locale = current_language
+        
+      flash[:notice_good] = t("controllers.orders.s7") +  @order.id.to_s + "\">" + @order.id.to_s + "</a>."
+    end
+    
+      @order.date_payment_arrived = Date.today
+      @order.save
+      redirect_to sales_path()
+    end
+  end
+  
+  def sales2_shipping_confirmed
+    #called by index, redirected to index (Should be AJAX, takes ages!)
+     @order = Order.find(params[:id])
+    if !@order.seller_id = self.current_user.seller.id
+      logger.info("XXX. Params hacker. Order payment arrived! User: " + self.current_user.id )
+      raise e
+    else
+      @order.status = "shipped"
+      @order.date_shipped = Date.today
+      @user = User.find(@order.user_id)
+      @seller = Seller.find(@order.seller_id)
+      @seller_user = @seller.user    
+      @deliverables = Deliverable.find(:all, :conditions => ["order_id = ?", @order.id])
+      
+      current_language = session[:locale]
+      I18n.locale = @user.userpage.preferred_language
+      SystemMailer.deliver_sale3(@user, @seller_user, @seller, @order, @deliverables)
+      I18n.locale = current_language
+      
+      flash[:notice_good] = t("controllers.orders.s8") +  @order.id.to_s + "\">" + @order.id.to_s + "</a>."
+      @order.save
+      redirect_to sales_path()
+    end
+  end
+  
+  # GET /orders/1
+  # GET /orders/1.xml
+  def show
+    begin       #I catch the failures by using Begin, Rescue, Else, End. Begin marks the start of code that could throw errors.
+      @order = self.current_user.orders.find(:first, :conditions => ["id = ?", params[:id]])
+      @this_order = @order
+      @total_cost_of_deliverables = @order.price_of_all_deliverables
+      @total_cost_of_shipping = @order.cost_of_shipping
+      @total_cost = @total_cost_of_deliverables + @total_cost_of_shipping
+      @seller = @order.seller
+  
+      #Whats the payment method?
+      if @order.payment_chosen == "paypal"
+        @part = "paypal"
+      elsif @order.payment_chosen == "bank"
+        @part = "bank_transfer"
+      elsif @order.payment_chosen == "cheque"
+        @part = "cheque"
+      elsif @order.payment_chosen == "cod"
+        @part = "cod"
+      elsif @order.payment_chosen == "moneyorder"
+        @part = "money_order"
+      end
+    rescue    #Rescue signifies my action, if the code after begin throws an error
+      redirect_to :controller => "site", :action => "index"
+    else      #If there were no errors, I continue with the stuff below
+      respond_to do |format|
+          format.html # show.html.erb
+          format.xml  { render :xml => @order }
+      end
+    end       #I end my begin,rescue, else, here... works like a charm.
+  end
+
+  # GET /orders/new
+  # GET /orders/new.xml
+  # After items have been selected in the cart, this order is compiled
+  def new   
+    #I get the seller ID and will now take all items from this seller!   
+    #Warning - the incoming number is a string!      
+    order = params[:order]
+    @order = Order.new
+    @order.seller_id = order[:seller_id].to_i
+    #Destroy all current "new" orders that involve this user and seller -> obviously, he has started a new one.  
+    @orders_for_destruction_due_to_incompleteness = Order.find( :all, :conditions => ["user_id = ? and seller_id = ? and status = ?", self.current_user.id, @order.seller_id, "incomplete"])
+    @orders_for_destruction_due_to_incompleteness.each do |o|
+      o.destroy
+    end    
+    #Continue filling the new order.
+    @order.user_id = self.current_user.id
+    @order.status = "incomplete"
+    @order.step = "step1"
+    @order.highest_preparation_time = 0 #Will be changed when walking through the deliverables (resave order afterwards.)
+    slrid = @order.seller_id.to_i   
+    if @order.save 
+      #Make a new, empty rating with all required inputs.
+      @rating = Rating.new
+      @rating.order_id = @order.id
+      @rating.user_id = @order.user_id
+      @rating.seller_id = @order.seller_id
+      @rating.userrating = 9
+      @rating.sellerrating = 9
+      @rating.save
+      #New rating created
+      
+      @failure = nil
+        @cart.cart_items.each do |x|
+          if x.listing.seller_id == slrid 
+            y = x.listing 
+            listing = Listing.find(x.listing_id)
+            if listing != nil
+              deliverable = Deliverable.new(params[listing])
+              deliverable.order_id = @order.id
+              deliverable.listing_id = x.listing_id
+              deliverable.amount = x.amount
+              deliverable.size = x.size
+              deliverable.color = x.color
+              
+              #Copying information from the listing.
+              deliverable.title = y.title
+              deliverable.description = y.description
+              deliverable.price = y.price            
+              deliverable.category_id = y.category_id
+              deliverable.subcategory_id = y.subcategory_id
+              deliverable.lastcategory_id = y.lastcategory_id
+              deliverable.material_tag = y.material_tag
+              deliverable.public_tag = y.public_tag
+              deliverable.item_height = y.item_height
+              deliverable.item_width = y.item_width
+              deliverable.item_length = y.item_length
+              deliverable.item_weight = y.item_weight
+              deliverable.safe_for_larp = y.safe_for_larp
+              deliverable.safe_for_reenactment = y.safe_for_reenactment
+              
+              deliverable.preparation_time = y.preparation_time     #Copy this preparation time and save the biggest preparation time as well as shipping time.
+              if deliverable.preparation_time.to_i >= @order.highest_preparation_time
+                @order.highest_preparation_time = deliverable.preparation_time
+              end
+              deliverable.country1 = y.country1
+              deliverable.country2 = y.country2
+              deliverable.country3 = y.country3
+              deliverable.country4 = y.country4
+              deliverable.country5 = y.country5
+              deliverable.country1_shipping = y.country1_shipping
+              deliverable.country2_shipping = y.country2_shipping
+              deliverable.country3_shipping = y.country3_shipping
+              deliverable.country4_shipping = y.country4_shipping
+              deliverable.country5_shipping = y.country5_shipping
+              deliverable.country1_shipping_with_another_item = y.country1_shipping_with_another_item
+              deliverable.country2_shipping_with_another_item = y.country2_shipping_with_another_item
+              deliverable.country3_shipping_with_another_item = y.country3_shipping_with_another_item
+              deliverable.country4_shipping_with_another_item = y.country4_shipping_with_another_item
+              deliverable.country5_shipping_with_another_item = y.country5_shipping_with_another_item
+              deliverable.country1_deliverytime = y.country1_deliverytime
+              deliverable.country2_deliverytime = y.country2_deliverytime
+              deliverable.country3_deliverytime = y.country3_deliverytime
+              deliverable.country4_deliverytime = y.country4_deliverytime
+              deliverable.country5_deliverytime = y.country5_deliverytime 
+              deliverable.save
+                                        
+            else
+              @failure = 1
+              #Error!
+            end
+          end
+        end
+      end
+    #Went through all seller ids in the array and checked out all items.
+
+
+
+    @current_order = Order.find( :first,
+                          :conditions => ["user_id = ? and seller_id = ? and status = ?", self.current_user.id, @order.seller_id, "incomplete"])   
+    @order.save
+    @orders = Order.find(:all, :conditions => ["status = ? and user_id = ? and id != ?", "incomplete", @order.user_id, @current_order.id] )
+    
+    respond_to do |format| 
+      if @failure == nil        
+        format.html #new.html.erb                                                                                                                                                            
+      else
+        flash[:notice] = t("controllers.orders.s9")
+        format.html
+        @orders = Order.find( :all,
+                              :conditions => ["status = ? and user_id = ?", "incomplete", @order.user_id])
+        format.xml  { render :controller => "cart", :action => "show"  }
+      end
+    end
+  end
+
+  #Receives input from new, this page gathers the shipping address and the payment terms
+  #If the user has already had another earlier shipping address, then it is shown here
+  #Result goes to new3
+  def new2
+    @order = Order.find( :first,
+                          :conditions => ["user_id = ? and status = ? and id = ?", self.current_user.id, "incomplete", params[:id]])     
+    begin
+      @lastorder = Order.find(:last, :conditions => ["user_id = ? and id != ?", self.current_user.id, @order.id])
+      if @lastorder != nil
+        @order.user_fullname = @lastorder.user_fullname
+        @order.user_address = @lastorder.user_address
+        @order.user_areacode = @lastorder.user_areacode
+        @order.user_city = @lastorder.user_city
+        @order.user_country = @lastorder.user_country
+        @order.payment_chosen = @lastorder.payment_chosen
+      else
+        @order.payment_chosen = "bank"
+      end
+      
+      
+      
+      @order.step = "step2"
+      a = 0                      
+      price = 0
+      unique_del = 0
+      deliverables = @order.deliverables.find(:all)
+      deliverables.each do |d|  #How many items are there in total to ship? What is the total price for the items?
+        a += d.amount
+        price += d.price.to_f * d.amount.to_i
+        unique_del += 1  
+      end
+      
+      #Check whether a deliverable has a listing with the amount in stock of 0 or even removed, then remove this deliverable
+      deliverables.each do |d|  #How many items are there in total to ship? What is the total price for the items?
+        remove = 0
+        nr_of_rem = 0
+        l = Listing.find(d.listing.id)
+        if l.removed == "1"
+          nr_of_rem += 1
+          remove = 1
+        end
+        if remove == 1
+          d.destroy
+          if unique_del == nr_of_rem
+            #delete total order
+            @order.destroy
+          end
+          
+          raise e
+        end
+      end
+      @a = a
+      @price = price
+      @cost_of_shipping = 0
+    rescue
+      if remove == 1
+        flash[:notice_bad] = t("controllers.orders.s10")
+      else
+       flash[:notice_bad] = t("controllers.orders.s11") 
+      end
+       
+       redirect_to cart_path(1)
+    else
+    end
+  end
+
+  
+  #Input from new2, calculates the shipping rate or removes items from order
+  #Hands over to either show or back to the cart (to change items)  
+  def new3 
+    @order = Order.find( :first,
+                          :conditions => ["user_id = ? and status = ? and id = ?", self.current_user.id, "incomplete", params[:id]])
+    begin
+      @country = params[:order][:user_country]
+      @order.step = "step3"
+      logger.info(@country)
+      #How many items are there in total to ship? What is the total price for the items?
+      a = 0
+      price = 0
+      deliverables = @order.deliverables.find(:all)
+      deliverables.each do |d|  #How many items are there in total to ship? What is the total price for the items?
+        a += d.amount
+        price += d.price.to_f * d.amount.to_i
+      end
+      @a = a  
+      cost = 0
+      @europe = ["country.Austria", "country.Belgium", "country.Bulgaria", "country.Cyprus", "country.Czech Republic", "country.Denmark", "country.Estonia", "country.Finland", "country.France", "country.Germany",
+        "country.Greece", "country.Hungary", "country.Ireland", "country.Italy", "country.Latvia", "country.Lithuania", "country.Luxembourg", "country.Malta", "country.Netherlands",
+        "country.Poland", "country.Portugal", "country.Romania", "country.Slovakia", "country.Slovenia", "country.Spain", "country.Sweden", "country.United Kingdom"]
+      #This array can be filled with item-ids that will not be shipped to the country selected. If the user continues, they will be deleted.
+      @failure = []       
+      #If only a single item      
+      if a == 1
+        logger.info(@country)
+        logger.info("only one item!")
+        deliverables.each do |d|
+          if d.country1 == @country                     #Directly compare the country given with the country set in the listing.
+            cost += (d.country1_shipping * d.amount)
+          elsif d.country2 == @country
+            cost += (d.country2_shipping * d.amount)
+          elsif d.country3 == @country
+            cost += (d.country3_shipping * d.amount)
+          elsif d.country4 == @country
+            cost += (d.country4_shipping * d.amount)
+          elsif d.country5 == @country
+            cost += (d.country5_shipping * d.amount)
+         #If the listing has EU somewhere, check whether the country in the shipping address is also in the EU
+        elsif @europe.include?(@country) and (d.country1 == "country.European_Union" or d.country2 == "country.European_Union" or d.country3 == "country.European_Union" or d.country4 == "country.European_Union" or d.country5 == "country.European_Union")    
+          logger.info("Listing uses EU, Buyer country inside EU.")                   
+          logger.info("Buyers address is in Europe!")
+            if d.country1 == "country.European_Union"
+              cost += (d.country1_shipping_with_another_item * d.amount)
+            elsif d.country2  == "country.European_Union"
+              cost += (d.country2_shipping_with_another_item * d.amount)
+            elsif d.country3  == "country.European_Union"
+              cost += (d.country3_shipping_with_another_item * d.amount)
+            elsif d.country4  == "country.European_Union"
+              cost += (d.country4_shipping_with_another_item * d.amount)
+            elsif d.country5  == "country.European_Union"
+              cost += (d.country5_shipping_with_another_item * d.amount)
+            
+          end             
+          elsif d.country1 == "country.Everywhere"    #Check whether the user ships "Everywhere else" at any position, if not - > No shipping!
+              cost += (d.country1_shipping * d.amount)
+          elsif d.country2 == "country.Everywhere" 
+              cost += (d.country2_shipping * d.amount)
+          elsif d.country3 == "country.Everywhere"  
+              cost += (d.country3_shipping * d.amount)              
+          elsif d.country4 == "country.Everywhere"  
+              cost += (d.country4_shipping * d.amount)            
+          elsif d.country5 == "country.Everywhere" 
+              cost += (d.country5_shipping * d.amount)
+          else                                           #The seller does not ship to your country. User may cancel the whole order or just remove the item.
+            @failure << d.id
+            price = price - (d.amount * d.price)
+            @ultrafail = 1
+        end
+      end
+      
+      #If multiple items
+      else
+       logger.info("multiple items") 
+         deliverables.each do |d|
+           logger.info("Evaluating" + d.title.to_s)
+          logger.info("Cost at run is "+ cost.to_s)
+          if d.country1 == @country                     #Directly compare the country given with the country set in the listing.
+            cost += (d.country1_shipping_with_another_item * d.amount)
+          elsif d.country2 == @country
+            cost += (d.country2_shipping_with_another_item * d.amount)
+          elsif d.country3 == @country
+            cost += (d.country3_shipping_with_another_item * d.amount)
+          elsif d.country4 == @country
+            cost += (d.country4_shipping_with_another_item * d.amount)
+          elsif d.country5 == @country
+            cost += (d.country5_shipping_with_another_item * d.amount)
+          
+          #If the listing has EU somewhere, check whether the country in the shipping address is also in the EU
+          elsif @europe.include?(@country) and (d.country1 == "country.European_Union" or d.country2 == "country.European_Union" or d.country3 == "country.European_Union" or d.country4 == "country.European_Union" or d.country5 == "country.European_Union")    
+            logger.info("Listing uses EU, Buyer country inside EU.")                   
+            logger.info("Buyers address is in Europe!")
+              if d.country1 == "country.European_Union"
+                cost += (d.country1_shipping_with_another_item * d.amount)
+              elsif d.country2  == "country.European_Union"
+                cost += (d.country2_shipping_with_another_item * d.amount)
+              elsif d.country3  == "country.European_Union"
+                cost += (d.country3_shipping_with_another_item * d.amount)
+              elsif d.country4  == "country.European_Union"
+                cost += (d.country4_shipping_with_another_item * d.amount)
+              elsif d.country5  == "country.European_Union"
+                cost += (d.country5_shipping_with_another_item * d.amount)          
+            end        
+          elsif d.country1 == "country.Everywhere"        #Check whether the user ships "Everywhere else" at any position, if not - > No shipping!
+              cost += (d.country1_shipping_with_another_item * d.amount)
+          elsif d.country2 == "country.Everywhere"        
+              cost += (d.country2_shipping_with_another_item * d.amount)
+          elsif d.country3 == "country.Everywhere"         
+              cost += (d.country3_shipping_with_another_item * d.amount) 
+          elsif d.country4 == "country.Everywhere" 
+              cost += (d.country4_shipping_with_another_item * d.amount)           
+          elsif d.country5 == "country.Everywhere" 
+              cost += (d.country5_shipping_with_another_item * d.amount)
+          else                                           #The seller does not ship to your country. User may cancel the whole order or just remove the item.
+            @failure << d.id
+            price = price - (d.amount * d.price)
+            a = a - d.amount
+          end
+          logger.info("Cost at end of run is "+ cost.to_s)
+        end
+      end
+      
+      @order.number_of_deliverables = a            #All amounts added up, subtracted by the amounts of the removed items
+      @order.price_of_all_deliverables = price     #All prices added up, ...
+      @order.cost_of_shipping = cost
+      @order.total_cost_of_order = @order.price_of_all_deliverables + @order.cost_of_shipping
+      
+      #Used in view
+      @total_cost_of_deliverables = @order.price_of_all_deliverables
+      @total_cost_of_shipping = @order.cost_of_shipping
+      @total_cost = @order.total_cost_of_order
+      
+      if a <= 0
+        @ultrafail = 1
+      end
+      
+      if @ultrafail == 1
+        @delete_full_order = 1
+      end
+        
+      #Check whether Cash on Delivery (CoD) has been selected, then status directly to "payment_arrived"
+      if @order.payment_chosen == "cod"
+        @order.status = "payment_arrived"
+      end
+      
+      @shown_failures = []
+      #If items should be removed, then list the ok and the fail items on the new3 page. User can proceed (items will be deleted) or cancel (back to cart)
+      respond_to do |format|
+        if @order.update_attributes(params[:order])
+          if @failure.length >= 1        
+            #Show failures on new3, allow proceed (fails have been killed but are still in cart - simply restart in cart to select different address)
+            @failure.each do |fail|
+              #read key and value from the hash, take the id and remove the deliverable from the order.
+              @fail = Deliverable.find( :first, :conditions => ["id = ? and order_id = ?", fail, @order.id])
+              @shown_failures << @fail
+              @fail.destroy
+             end
+          end
+          if @delete_full_order == 1
+            @order.destroy
+            logger.info ("full order killed -see ya! right to cart again")
+            flash[:notice_bad] = t("controllers.orders.s12") 
+            format.html { redirect_to @cart }
+          end
+          format.html #Show new3
+          format.xml  { head :ok }
+        else
+          #Create a new hash called @order. Insert the order id as the value to the key id.
+           flash[:notice_bad] = t("controllers.orders.s13")                        
+           a = 0                      
+           price = 0
+           deliverables = @order.deliverables.find(:all)
+           deliverables.each do |d|  #How many items are there in total to ship? What is the total price for the items?
+           a += d.amount
+           price += d.price.to_f * d.amount.to_i
+           end
+            @a = a
+            @price = price
+            @cost_of_shipping = 0           
+           logger.info ("rendered new 2")
+          format.html { render :action => "new2"}
+          format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
+        end
+      end
+  rescue
+     flash[:notice_bad] = t("controllers.orders.s11")
+     logger.info ("Rescued and jumped to cart")
+     redirect_to cart_path()
+     
+  else
+  end
+
+  end  
+  
+  #Order is confirmed, input from new3 (id only)
+  def new4
+    @order = Order.find( :first,
+                       :conditions => ["user_id = ? and status = ? and id = ?", self.current_user.id, "incomplete", params[:id]])
+  begin
+    @order.step = "step4"
+    @order.status = "ordered"
+    
+      #Set status to confirmed, call show action
+      #This is basically what the orignial create would do
+      respond_to do |format|
+        if @order.update_attributes(params[:order])
+          # Remove ordered items from the cart    
+          @dels = Deliverable.find( :all, :conditions => ["order_id = ?", @order.id])
+          @cart.cart_items.each do |c|
+            @dels.each do |d|
+              if c.listing_id == d.listing_id
+                 c.destroy
+              end
+            end     
+          end    
+          @user = User.find(@order.user_id)
+          @seller = Seller.find(@order.seller_id)
+          
+          #Send confirmation email to buyer
+          @deliverables = Deliverable.find(:all, :conditions => ["order_id = ?", @order.id])
+          @shop = Shop.find(:first, :conditions => ["seller_id = ?", @seller.id])
+          @seller_user = @seller.user
+          logger.info @seller_user.id.to_s
+          
+          SystemMailer.deliver_ordered(@user, @seller, @order, @deliverables, @shop)
+          
+          current_language = session[:locale]
+          I18n.locale = @seller.user.userpage.preferred_language
+          SystemMailer.deliver_sale(@user, @seller_user, @seller, @order, @deliverables, @shop)
+          I18n.locale = current_language
+          
+          
+          format.html { redirect_to @order}
+          format.xml  { render @order }
+        else
+          flash[:notice_bad] = t("controllers.orders.s14")
+          format.html { render :controller => "carts", :action => "show" }
+        end
+      end
+   rescue
+       flash[:notice_bad] = t("controllers.orders.s15")
+       redirect_to orders_path
+   else
+   end
+  end
+  
+  
+  
+  # GET /orders/1/edit
+  def edit
+    @order = Order.find(params[:id])   
+  end
+
+  # POST /orders
+  # POST /orders.xml
+  #Create is currently not used - everything inside "new"
+  def create
+    @order = Order.new(params[:order])
+  end
+
+  # PUT /orders/1
+  # PUT /orders/1.xml
+  def update
+    @order = Order.find(params[:id])  
+    @order.status = "ordered"
+
+    
+    respond_to do |format|
+      if @order.update_attributes(params[:order])
+        @failures = params[:array]
+        if @failures != nil
+        @failures.each do |key, id|
+          #read key and value from the hash, take the id and remove the deliverable from the order.
+          @fail = Deliverable.find( :first,
+                                    :conditions => ["id = ? and order_id = ?", id, @order.id])
+          @fail.destroy
+        end
+        end
+        flash[:notice] = 'Order was successfully updated.'
+        format.html { redirect_to(@order) }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @order.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  #Set to cancelled
+  def cancel
+  @order = Order.find( :first,
+                       :conditions => ["seller_id = ? and status != ? and id = ?", self.current_user.seller.id, "complete", params[:id]])
+  @order.status = "cancelled"
+  @seller = Seller.find(@order.seller_id)
+  @user = User.find(@order.user_id)
+  @deliverables =  @order.deliverables.find(:all)
+  @order.date_closed = Time.now  
+    respond_to do |format|
+      if @order.update_attributes(params[:order])
+        flash[:notice_good] = t("controllers.orders.s16") +  @order.id.to_s + "\">" + @order.id.to_s + "</a>."
+        format.html { redirect_to sales_path()}
+        format.xml  { render @order }
+        
+        current_language = session[:locale]
+        I18n.locale = @user.userpage.preferred_language
+        SystemMailer.deliver_cancelled(@user, @seller, @order, @deliverables)
+        I18n.locale = current_language
+      else
+        logger.info "Else!"
+        flash[:notice_bad] = t("controllers.orders.s17")
+        format.html { redirect_to sales_path()}
+      end
+    end
+  end
+  
+  #User can remove incomplete orders with a link from his shopping cart / from the "my orders" page
+def remove
+  @order = Order.find( :first,
+                       :conditions => ["user_id = ? and status = ? and id = ?", self.current_user.id, "incomplete", params[:id]])
+begin  
+  respond_to do |format|
+      if @order.destroy
+        flash[:notice_good] = t("controllers.orders.s16") + "/" +  @order.id.to_s + "\">" + @order.id.to_s + "</a>."
+        format.html { redirect_to orders_path()}
+        format.xml  { render @order }
+      else
+        logger.info "Else!"
+        format.html { redirect_to sales_path()}
+      end
+    end
+rescue
+  redirect_to site_path()
+else
+end
+end
+  
+  # DELETE /orders/1
+  # DELETE /orders/1.xml
+  def destroy
+    #Safety catch: only admin can destroy!
+    @order = Order.find(params[:id])
+    
+
+    respond_to do |format|
+      format.html { redirect_to(orders_url) }
+      format.xml  { head :ok }
+    end
+  end
+end

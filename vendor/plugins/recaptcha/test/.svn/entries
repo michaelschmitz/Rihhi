@@ -1,0 +1,52 @@
+8
+
+dir
+242
+https://svn.codespaces.com/rihhi/larp/rihhi/vendor/plugins/recaptcha/test
+https://svn.codespaces.com/rihhi/larp
+
+
+
+2010-04-09T13:00:19.681437Z
+135
+blaukatze!
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ce245bec-e5c3-47c4-86f5-a6cae0350485
+
+recaptcha_test.rb
+file
+
+
+
+
+2010-10-18T15:52:54.115000Z
+69a715650518e7758612561425d81014
+2010-04-09T13:00:19.681437Z
+135
+blaukatze!
+
+verify_recaptcha_test.rb
+file
+
+
+
+
+2010-10-18T15:52:54.111000Z
+0d3b9f11afe561d866758a4b0362ca73
+2010-04-09T13:00:19.681437Z
+135
+blaukatze!
+

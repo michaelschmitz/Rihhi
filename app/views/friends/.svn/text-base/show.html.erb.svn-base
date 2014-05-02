@@ -1,0 +1,31 @@
+<div class="left" style="width: 760px; height: 800px; margin-left: 10px; margin-top: 0px;">
+    <h2 class="text_green" style="margin-left: 10px;"><%= @user.login %><%= t("views.friends.show.s1") %></h2>
+
+	<% if @already == 1 %>
+	    <% if @friends_i_asked.length >= 1 %>
+	    <% @friends_i_asked.each do |f| %>
+			<% @friend = f.friend_id%>
+	    	<%= render :partial => "shared/afriend", :object => @friend %>
+	    <% end %>
+	    <% end %>
+		<% if @friends_who_asked_me.length >= 1 %>
+	    <% @friends_who_asked_me.each do |f| %>
+			<% @friend = f.user_id%>
+			<%= render :partial => "shared/afriend", :object => @friend %>
+	    <% end %>
+	    <% end %>
+	<% else %>
+		<p> <%= @user.login %> <%= t("views.friends.show.s4") %>.</p>
+	<% end %>
+
+
+	
+	<% if (@friends_i_asked.length + @friends_who_asked_me.length) == 0  %>
+	<p style="text-align: left; padding-left: 10px;"><%= t("views.friends.show.s2") %></p>
+	<% end %>
+	
+	<div class="left" style="clear:both; margin-top: 10px;">
+	<p style="text-align: left; padding-left: 10px;"><%= link_to t("views.friends.show.s3"), user_path(@user.id) %></p>
+	</div>
+</div>
+<%= render :partial => "shared/box_right" %>

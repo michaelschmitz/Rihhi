@@ -1,0 +1,99 @@
+
+<% @onpage = 1 %>
+<%= render :partial => "newlisting", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <h2 class="text_green"><%= t('views.listings.new.s1') %></h2>
+	<ul style="margin-bottom: 10px;">
+	<li><%= t('views.listings.new.s2') %></li>
+	<li><%= t('views.listings.new.s3') %></li>
+	</ul>
+    <% form_for(:listing, :url => categories_path(@listing.seller, @listing.id), :html => { :multipart => false }) do |l| %>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+        <div style="text-align: right; float: right;">
+            <%= image_tag("important.png") %> = <%= t('views.listings.new.s4') %>
+        </div>
+        <table class="align_left">
+            <tr>
+                <td class="bold" colspan="5">
+                    <%= t('views.listings.new.s5') %> <%= image_tag("important.png") %><%= error_message_on(:listing, :title) %>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    <%= l.text_field :title, :size => 86 , :tabindex => 1 %><%= set_focus_to_id("listing_title") %>
+                </td>
+            </tr>
+         
+            <tr>
+                <td class="bold" style="width: 130px;" colspan="2">
+                    <%= t('views.listings.new.s6') %> <%= image_tag("important.png") %><%= error_message_on(:listing, :price) %>
+                </td>
+                <td class="bold">
+                    <%= t('views.listings.new.s7') %><%= image_tag("important.png") %><%= error_message_on(:listing, :nr_of_items_in_stock) %>
+                </td>
+               
+				<td class="bold">
+                    <%= t('views.listings.new.s8') %>				
+                </td>
+				
+				<td class="bold">
+                    <%= t('views.listings.new.s14') %>				
+                </td>
+				
+            </tr>
+			
+            <tr>
+                <td style="width: 80px;">
+                    <%= l.text_field :price, :separator => ",", :size => 4, :tabindex => 2 %>
+	
+                </td>
+                <td style="width: 50px;">
+                    €
+                </td>
+                <td style="width: 140px;">
+                    <%= l.text_field :nr_of_items_in_stock, :tabindex => 3,  :size => 4 %>
+                </td>
+            
+				<td style="width: 110px;">
+                    <%= l.select("quality",  {t('views.listings.new.s9') => "1", t('views.listings.new.s10') => "2"}, {}, {:tabindex => 6}) %>
+                </td>
+				
+				<td style="width: 170px;">
+                    <%= l.select("renting",  {t('views.listings.new.s15') => "No", t('views.listings.new.s16') => "Yes"}, {}, {:tabindex => 6}) %>
+                </td>
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td class="bold" colspan="2" style="text-align: left;">
+                    <div class="info">
+                        <%= t('views.listings.new.s11') %> <%= image_tag("important.png") %><%= error_message_on(:listing, :description) %>
+                   
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <%= l.text_area :description , :cols => 66, :rows => 10, :tabindex => 7 %>
+                </td>
+            </tr>
+            <tr>
+            </td>
+        </tr>
+        <tr>
+        </tr>
+        </table>
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+	<div class="left" style="clear: left; margin-top: 20px;">
+	<%= link_to t('views.listings.new.s12'), profile_path() %>
+	  </div>
+	<div class="right" style="clear: right; margin-top: 20px;">
+		<%= l.submit t('views.listings.new.s13'), :class => "submit_b" %>
+    </div>
+    <% end %>
+</div>
+

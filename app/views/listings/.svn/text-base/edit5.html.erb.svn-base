@@ -1,0 +1,163 @@
+<% @onpage = 5 %>
+<%= render :partial => "newlisting_edit", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <h2 class="text_green"><%= t('views.listings.edit5.s1') %></h2>
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey" style="text-align:left; height: 850px;">
+        <% form_for(@listing, :url => update5_url(@listing.seller, @listing), :html => {:multipart => true, :method => :put }) do |f| %>
+        <div id="1" style="width: 300px;  height: 380px; float: left;">
+        <div id="first_image" style="width: 300px;  float: left;">
+            <table style="width: 100%" class="align_left">
+                <tr>
+                    <td class="bold">
+                        <%= t('views.listings.edit5.s2') %>: 
+                    </td>
+                </tr>
+               <% if !@listing.pic1_file_name? %>
+                <tr>
+                    <td style="width: 240px; height: 324px; text-align: center;  border: 1px solid grey;" class="bold">
+                        <p>
+                            <%= t('views.listings.edit5.s3') %>
+                            <br>
+                            <span style="font-weight: normal;"><%= t('views.listings.edit5.s4') %></span>
+                        </p>
+                    </td>
+                </tr>
+                <% else %>
+                <tr>
+                    <td style="width: 200px; height: 200px;">
+                       <%=image_tag(@listing.pic1.url(:thumb))%>
+                    </td>
+                </tr>
+                <% end %>
+             
+                <tr>
+                    <td>
+                        <%= f.file_field :pic1 %>
+                    </td>
+                </tr>
+              
+            </table>
+        </div>
+		</div>
+		 <div id="2" style="width: 300px;  height: 380px; float: left;">
+        <div id="second_image" style="width: 300px; float: left;">
+            <table style="width: 100%" class="align_left">
+                <tr>
+                    <td class="bold">
+                        <%= t('views.listings.edit5.s5') %>: <% if @listing.pic2_file_name? %>
+                        <%= link_to_remote t('views.listings.edit5.s6'), :url => {:controller => "listings", :action => "destroy2",  :listing_id => @listing , :method => :post } %>
+                        <% end %>
+                    </td>
+                </tr>
+                 <% if !@listing.pic2_file_name? %>
+                <tr>
+                    <td style="width: 240px; height: 324px; text-align: center;  border: 1px solid grey;" class="bold">
+                        <p>
+                            <%= t('views.listings.edit5.s7') %>
+                            <br>
+                            <span style="font-weight: normal;"><%= t('views.listings.edit5.s8') %></span>
+                        </p>
+                    </td>
+                </tr>
+                <% else %>
+                <tr>
+                    <td>
+                        <%=image_tag(@listing.pic2.url(:thumb))%>
+                    </td>
+                </tr>
+                <% end %>
+                
+                <tr>
+                    <td>
+                        <%= f.file_field :pic2 %>
+                    </td>
+                </tr>
+             
+            </table>
+        </div>
+		</div>
+		 <div id="3" style="width: 300px;  height: 380px; float: left;">
+        <div id="third_image" style="width: 300px; float: left; margin-top: 10px;">
+            <table style="width: 100%" class="align_left">
+                <tr>
+                    <td class="bold">
+                        <%= t('views.listings.edit5.s9') %>: <% if @listing.pic3_file_name? %>
+                        <%= link_to_remote t('views.listings.edit5.s10'), :url => {:controller => "listings",:action => "destroy3",  :listing_id => @listing , :method => :post } %>
+                        <% end %>
+                    </td>
+                </tr>
+                 <% if !@listing.pic3_file_name? %>
+                <tr>
+                    <td style="width: 240px; height: 320px; text-align: center;  border: 1px solid grey;" class="bold">
+                        <p>
+                            <%= t('views.listings.edit5.s11') %>
+                            <br>
+                            <span style="font-weight: normal;"><%= t('views.listings.edit5.s12') %></span>
+                        </p>
+                    </td>
+                </tr>
+                <% else %>
+                <tr>
+                    <td>
+                        <%=image_tag(@listing.pic3.url(:thumb))%>
+                    </td>
+                </tr>
+                <% end %>
+                
+                <tr>
+                    <td>
+                        <%= f.file_field :pic3 %>
+                    </td>
+                </tr>
+             
+            </table>
+        </div>
+		</div>
+		 <div id="4" style="width: 300px;  height: 380px; float: left;">
+        <div id="fourth_image" style="width: 300px; float: left; margin-top: 10px;">
+            <table style="width: 100%" class="align_left">
+                <tr>
+                    <td class="bold">
+                        <%= t('views.listings.edit5.s13') %>:  <% if @listing.pic4_file_name? %>
+                        <%= link_to_remote t('views.listings.edit5.s14'), :url => {:controller => "listings",:action => "destroy4",  :listing_id => @listing , :method => :post } %>
+                        <% end %>
+                    </td>
+                </tr>
+                 <% if !@listing.pic4_file_name? %>
+                <tr>
+                    <td style="width: 240px; height: 320px; text-align: center;  border: 1px solid grey;" class="bold">
+                        <p>
+                            <%= t('views.listings.edit5.s15') %>
+                            <br>
+                            <span style="font-weight: normal;"><%= t('views.listings.edit5.s16') %></span>
+                        </p>
+                    </td>
+                </tr>
+                <% else %>
+                <tr>
+                    <td>
+                       <%=image_tag(@listing.pic4.url(:thumb))%>
+                    </td>
+                </tr>
+                <% end %>
+          
+                <tr>
+                    <td>
+                        <%= f.file_field :pic4%>
+                    </td>
+                </tr>
+               
+            </table>
+        </div>
+		</div>
+    </div>
+ 
+    <div class="form_top form_bottom">
+    </div>
+    <div class="right" style="clear: both; margin: 20px 20px 20px 20px;">
+        <%= f.submit t('views.listings.edit5.s17'), :id => "submit4", :class => "submit_b" %>
+    </div>
+     <% end %>
+</div>

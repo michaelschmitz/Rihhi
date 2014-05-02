@@ -1,0 +1,24 @@
+<!-- LEFT COLUMN --><%= render :partial => "leftcolumn", :object => @event %>
+<!-- RIGHT COLUMN --><%= render :partial => "rightcolumn", :object => @event %>
+<!-- TICKETS -->
+<div id="tickets" class="align_left" style="margin-top: 10px; float: left; width: 750px;">
+    <h2 class="text_green"><%= t("views.events.show.s1")%></h2>
+    <% if @event.tickets.length == 0 %>
+    <table>
+        <tr>
+            <td>
+                <% form_for(:ticket, :url => { :controller => "tickets", :action => "new"}) do |f| %>
+                <%= f.hidden_field(:event_id, :value => @event.id) %>
+                <%= f.submit "Add a ticket", :class => "submit_b" %>
+                <% end %>
+            </td>
+        </tr>
+    </table>
+    <% end %>
+    <% if @event.minimum_age >= 2 %>
+    <p>
+        <%= t("views.events.show.s2")%> <%=h @event.minimum_age %> <%= t("views.events.show.s3")%>.
+    </p>
+    <% end %>
+    <%= render :partial => "tickets/old_tickets", :object => @tickets %>
+</div>

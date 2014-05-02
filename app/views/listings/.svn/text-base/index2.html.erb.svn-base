@@ -1,0 +1,43 @@
+<%= set_focus_to_id("search") %>
+
+<div class="leftbox">
+	<%= render :partial => "shared/mainmenu" %>
+	
+</div>
+
+<div class="overview">
+	<h2 class="text_green" >
+		<% if @subcategory != nil %>
+			<%= t('views.listings.index2.s1') %>:
+		<% else %>
+			<%= t('views.listings.index2.s2') %>:
+		<% end %>
+		<%= link_to t(@category.name) , overview_path(:category_id => @category.id), {:style => 'color: #00CD00; font-size: 18px; font-weight: bold;'} %>
+
+	<% if @subcategory != nil %>
+		> <%= link_to t(@subcategory.name), overview_path(:category_id => @category.id, :subcategory_id => @subcategory.id), {:style => 'color: #00CD00; font-size: 18px; font-weight: bold;'} %>
+	<% end %>
+	<% if @lastcategory != nil %>
+		> <%= link_to t(@lastcategory.name), overview_path(:category_id => @category.id, :subcategory_id => @subcategory.id, :lastcategory_id => @lastcategory.id), {:style => 'color: #00CD00; font-size: 18px; font-weight: bold;'} %>
+	<% end %>	
+	</h2>
+</div>
+
+<div class="left"><p class="align_left"><%= t('views.listings.index2.s3') %> <%= @all_listings.length %> <%= t('views.listings.index2.s4') %></p></div>
+<div class="right" style="margin-right: 80px;"> <p><a href="" OnClick="$('searchbox').toggle(); return false;"><%= t('views.listings.index2.s5') %></a></p> </div> 
+
+<%= render :partial => "searchbox", :object => @nosearch %>
+
+<div class="left">
+<p class="align_left">
+    <% if @nosearch != 1 %>
+    <%= t('views.listings.index2.s6') %> <%= @number_of_results %> <%= t('views.listings.index2.s7') %>.
+    <br>
+    <% end %>
+</p>
+</div>
+
+
+
+<%= render :partial => "shared/overview" %>
+

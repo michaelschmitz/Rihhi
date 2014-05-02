@@ -1,0 +1,52 @@
+<div class="form_top">
+</div>
+<div class="form_area background_grey">
+   
+        <% for message in @messages %>
+		<table class="align_left">
+        <% if message.read == "Yes" %>
+        	<tr class="text_darkgrey">
+        <% else %>
+			<tr >
+        <% end %>
+                <td style="width: 120px;" class="text_bold">
+                    <%= link_to h(truncate(message.sender_name, :length => 20)), user_path(message.sender_id) %>
+                </td>
+                <td style="width: 390px;" class="text_bold">
+                    <%= link_to h(truncate(message.title, :length => 50)), message %>
+                </td>
+				  <td style="width: 200px;">
+                    
+                </td>
+            </tr>
+            <tr>
+            	<td class="text_darkgrey">                 
+                    <%= message.created_on %>
+                </td>
+                <td class="text_darkgrey">
+                 
+                    <%= link_to h(truncate(message.message, :length => 50)), message %>
+                </td>
+                <td>
+				  
+                    <%= link_to t('views.messages.inbox.s1'), {:action => "new", :to_id => message.sender_id} %>, 
+                    <% if message.read == "Yes" %>
+						<%= link_to_remote t('views.messages.inbox.s2'), :url => {:action => "mark_as_unread", :id => message.id}, :update => "inbox" %>, 
+					<% else %>
+						<%= link_to_remote t('views.messages.inbox.s3'),  :url => {:action => "mark_as_read", :id => message.id}, :update => "inbox" %>, 
+					<% end %>
+					<%= link_to_remote t('views.messages.inbox.s4'),  :url => {:action => "remove", :id => message.id, :method => :delete}, :confirm => (t('views.messages.inbox.s4a')), :update => "inbox" %>
+                 </td>
+            </tr>
+			 </table>
+			 <br>
+            <% end %>
+				 <% if @messages.length == 0 %>
+		 <p> <%=  t('views.messages.inbox.s5') %>. </p>
+		 <% end %>
+           
+        </div>
+		
+	
+        <div class="form_top form_bottom" style="margin-bottom: 10px;">
+        </div>

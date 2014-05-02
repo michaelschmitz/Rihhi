@@ -1,0 +1,4 @@
+
+<h2 class="text_green"><%= t("views.site.help.s1")%></h2>
+<span style="text-align: left;">
+<p><%= t("views.site.help.s2")%>. </p>

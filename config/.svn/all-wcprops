@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 37
+/rihhi/larp/!svn/ver/242/rihhi/config
+END
+environment.rb
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/rihhi/larp/!svn/ver/202/rihhi/config/environment.rb
+END
+database.yml
+K 25
+svn:wc:ra_dav:version-url
+V 50
+/rihhi/larp/!svn/ver/175/rihhi/config/database.yml
+END
+routes.rb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/rihhi/larp/!svn/ver/209/rihhi/config/routes.rb
+END
+svn_ignores
+K 25
+svn:wc:ra_dav:version-url
+V 48
+/rihhi/larp/!svn/ver/28/rihhi/config/svn_ignores
+END
+deploy.rb
+K 25
+svn:wc:ra_dav:version-url
+V 47
+/rihhi/larp/!svn/ver/226/rihhi/config/deploy.rb
+END
+s3.yml
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/rihhi/larp/!svn/ver/173/rihhi/config/s3.yml
+END
+boot.rb
+K 25
+svn:wc:ra_dav:version-url
+V 44
+/rihhi/larp/!svn/ver/83/rihhi/config/boot.rb
+END

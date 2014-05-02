@@ -1,0 +1,26 @@
+<h1>Listing feedbacks</h1>
+
+<table>
+  <tr>
+    <th>Email</th>
+    <th>Feedback</th>
+    <th>Type</th>
+    <th>Page</th>
+  </tr>
+
+<% for feedback in @feedbacks %>
+  <tr>
+    <td><%=h feedback.email %></td>
+    <td><%=h feedback.feedback %></td>
+    <td><%=h feedback.type %></td>
+    <td><%=h feedback.page %></td>
+    <td><%= link_to 'Show', feedback %></td>
+    <td><%= link_to 'Edit', edit_feedback_path(feedback) %></td>
+    <td><%= link_to 'Destroy', feedback, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New feedback', new_feedback_path %>

@@ -1,0 +1,41 @@
+K 25
+svn:wc:ra_dav:version-url
+V 51
+/rihhi/larp/!svn/ver/98/rihhi/branches/initializers
+END
+new_rails_defaults.rb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/rihhi/larp/!svn/ver/98/rihhi/branches/initializers/new_rails_defaults.rb
+END
+inflections.rb
+K 25
+svn:wc:ra_dav:version-url
+V 66
+/rihhi/larp/!svn/ver/98/rihhi/branches/initializers/inflections.rb
+END
+session_store.rb
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/rihhi/larp/!svn/ver/98/rihhi/branches/initializers/session_store.rb
+END
+i18n.rb
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/rihhi/larp/!svn/ver/98/rihhi/branches/initializers/i18n.rb
+END
+backtrace_silencers.rb
+K 25
+svn:wc:ra_dav:version-url
+V 74
+/rihhi/larp/!svn/ver/98/rihhi/branches/initializers/backtrace_silencers.rb
+END
+mime_types.rb
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/rihhi/larp/!svn/ver/98/rihhi/branches/initializers/mime_types.rb
+END

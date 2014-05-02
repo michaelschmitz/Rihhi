@@ -1,0 +1,20 @@
+<div class="left background_grey"  >
+	<table class="align_left">
+		<tr><td class="bold" ><%= t('views.listings.subcategory.s1')%><%= image_tag("important.png")%></td></tr>
+		 <% fields_for :listing do |l|%>
+		<tr><td><%= l.collection_select(:subcategory_id, @subcategory, :id, :name, options = {},
+							html_options = { :size => 10, :style => "width: 150px;"})	%>	
+		<%= error_message_on(:listing, :subcategory_id) %>
+	  
+  		<%= observe_field 	:listing_subcategory_id, 
+								:frequency 	=> 0.2,
+								:before 	=> "Element.show('spinner'); Element.show('loading_spinner')",
+								:complete	=> "Element.hide('spinner'); Element.hide('loading_spinner')",
+								:url		=> { :action => :lastcategory},
+								:with 		=> "'lc=' + encodeURIComponent(value)"
+			%>
+	
+		</td></tr>
+		<%end %>
+	</table>	
+</div>

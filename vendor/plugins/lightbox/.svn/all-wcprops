@@ -1,0 +1,29 @@
+K 25
+svn:wc:ra_dav:version-url
+V 52
+/rihhi/larp/!svn/ver/2/rihhi/vendor/plugins/lightbox
+END
+LICENSE
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/rihhi/larp/!svn/ver/2/rihhi/vendor/plugins/lightbox/LICENSE
+END
+README
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/rihhi/larp/!svn/ver/2/rihhi/vendor/plugins/lightbox/README
+END
+install.rb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/rihhi/larp/!svn/ver/2/rihhi/vendor/plugins/lightbox/install.rb
+END
+init.rb
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/rihhi/larp/!svn/ver/2/rihhi/vendor/plugins/lightbox/init.rb
+END

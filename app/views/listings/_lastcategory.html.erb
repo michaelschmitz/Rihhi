@@ -1,0 +1,10 @@
+	<table class="align_left">
+		<tr><td class="bold" ><%= t('views.listings.lastcategory.s1') %></td></tr>
+		 <% fields_for :listing do |l|%>
+		<tr><td><%= l.collection_select(:lastcategory_id, @lastcategory, :id, :name, options = {},
+							html_options = { :size => 10, :style => "width: 150px;"})	%>	
+		<%= error_message_on(:listing, :lastcategory_id) %>		
+		</td></tr>
+		<%end %>
+	</table>	
+

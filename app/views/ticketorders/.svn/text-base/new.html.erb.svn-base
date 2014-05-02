@@ -1,0 +1,404 @@
+<% @onpage = 1 %>
+<%= render :partial => "newticket", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <h2 class="text_green">Order a ticket</h2>
+    <ul style="margin-bottom: 10px;">
+        <li>
+            You can order tickets for up to 10 people.
+			 
+        </li>
+    </ul>
+	<div style="float: left; clear:left; width: 600px; height: 30px;">
+        <h2 class="text_green">Ticket: <%=h @ticketorder.ticket.name %></h2>
+    </div>
+	
+    <div style="float: left; width: 80px; height: 30px;">
+        <h2 class="text_green">			
+			<% if Date.today <= @ticketorder.ticket.price1_deadline %>
+			<%=h @ticketorder.ticket.price1 %>
+			<% elsif Date.today <= @ticketorder.ticket.price2_deadline %>
+			<%=h @ticketorder.ticket.price2 %>
+			<% elsif Date.today <= @ticketorder.ticket.price3_deadline %>
+			<%=h @ticketorder.ticket.price3 %>
+			<% elsif Date.today <= @ticketorder.ticket.price4_deadline %>
+			<%=h @ticketorder.ticket.price4 %>
+			<% else %>			
+			<%=h @ticketorder.ticket.price5 %>			
+			<% end %>
+
+			 Euro</h2>
+    </div>
+
+	
+    <div class="align_left" style="float: left; clear:left; width: 600px; margin-top: -10px;">
+        <h2 class="text_darkgrey"><%=h @ticketorder.ticket.event.title %></h2>
+    </div>
+
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+
+        <% form_for(:ticketorder, :url => new_ticketorder2_path(@ticketorder), :html => { :multipart => false }) do |f| %>
+        <%= f.error_messages %>
+
+        <table class="align_left">
+            <tr>
+                <td style="width: 150px;" class="bold">
+                    Number of tickets 
+                </td>
+                <td>
+                    <%= f.select(:nr_of_tickets, %w{1 2 3 4 5 6 7 8 9 10},  options = {}, html_options = {:tabindex => 1 }) %>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <table class="align_left">
+            <tr class="bold">
+                <td style="width: 30px;">
+                    # 
+                </td>
+                <td>
+                    First Name
+                </td>
+                <td>
+                    Last Name
+                </td>
+                <td>
+                    Age
+                </td>
+                <td>
+                    Accomodation
+                </td>
+                <td>
+                    Remark
+                </td>
+                <td>
+                    Vegetarian?
+                </td>
+                <td>
+                    Sani?
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= f.text_field :t1_first_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_last_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_age, :size => 2 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_accomodation %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_remark,:size => 12 %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= f.text_field :t1_first_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_last_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_age, :size => 2 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_accomodation %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_remark,:size => 12 %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= f.text_field :t1_first_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_last_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_age, :size => 2 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_accomodation %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_remark,:size => 12 %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= f.text_field :t1_first_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_last_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_age, :size => 2 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_accomodation %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_remark,:size => 12 %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= f.text_field :t1_first_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_last_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_age, :size => 2 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_accomodation %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_remark,:size => 12 %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= f.text_field :t1_first_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_last_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_age, :size => 2 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_accomodation %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_remark,:size => 12 %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= f.text_field :t1_first_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_last_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_age, :size => 2 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_accomodation %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_remark,:size => 12 %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= f.text_field :t1_first_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_last_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_age, :size => 2 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_accomodation %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_remark,:size => 12 %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= f.text_field :t1_first_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_last_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_age, :size => 2 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_accomodation %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_remark,:size => 12 %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= f.text_field :t1_first_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_last_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_age, :size => 2 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_accomodation %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_remark,:size => 12 %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    1
+                </td>
+                <td>
+                    <%= f.text_field :t1_first_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_last_name, :size => 12 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_age, :size => 2 %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_accomodation %>
+                </td>
+                <td>
+                    <%= f.text_field :t1_remark,:size => 12 %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+                <td>
+                    <%= f.check_box :t1_sani %>
+                </td>
+            </tr>
+        </table>
+        <hr>
+        <table class="align_left">
+            <tr>
+                <td style="width: 123px;" class="bold">
+                    Arriving on 
+                </td>
+                <td>
+                    <%= f.date_select :arrival_on %>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="9" class="bold">
+                    Additional remarks
+                </td>
+            </tr>
+            <tr>
+                <td colspan="9">
+                    <%= f.text_area :additional_remarks, :cols => 54, :rows => 3 %>
+                </td>
+            </tr>
+			</table>			
+			<table class="align_left">
+            <tr>
+                <td colspan="9">
+                    <div class="left" style="margin-top: 5px">
+                        <%= f.submit "Continue", :class => "submit_b_neutral", :tabindex => 21 %>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <% end %>
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+</div>
+<%= link_to 'Back', ticket_path(@ticketorder.ticket_id) %>

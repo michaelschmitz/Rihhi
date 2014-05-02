@@ -1,0 +1,25 @@
+<%= t("views.smailer.movement3.s1")%> <%= @draw.balance_now.to_s %> EUR.
+
+<%= t("views.smailer.movement3.s2")%>:
+
+<%= t("views.smailer.movement3.s3")%>:<%= @seller.account_holder_name %>
+<%= t("views.smailer.movement3.s4")%>:<%= @seller.account_number %>
+<%= t("views.smailer.movement3.s5")%>: <%= @seller.bank_identifier %>
+
+<%= t("views.smailer.movement3.s6")%> 
+<%= t("views.smailer.movement3.s7")%>
+
+<%= t("views.smailer.movement3.s8")%> <%= (@draw.balance_now + 9.00).to_s %> EUR <%= t("views.smailer.movement3.s8a")%> 
+
+<%= t("views.smailer.movement3.s9")%>: Michael Schmitz
+<%= t("views.smailer.movement3.s10")%>: Sparkasse Aachen
+<%= t("views.smailer.movement3.s11")%>: 390 50000
+<%= t("views.smailer.movement3.s12")%>:  1070 5235 41
+
+IBAN: DE10390500001070523541
+BIC/SWIFT-Code: AACSDE33XXX
+
+<%= t("views.smailer.movement3.s13")%>: Rihhi K<%= @seller.id %> + <%= @user.login %>
+
+<%= render :partial => "shared/imprint" %>
+ 

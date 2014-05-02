@@ -1,0 +1,107 @@
+<h1>New ticket</h1>
+
+<% form_for(@ticket) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :event_id %><br />
+    <%= f.text_field :event_id %>
+  </p>
+  <p>
+    <%= f.label :seller_id %><br />
+    <%= f.text_field :seller_id %>
+  </p>
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.label :valid_from %><br />
+    <%= f.date_select :valid_from %>
+  </p>
+  <p>
+    <%= f.label :valid_until %><br />
+    <%= f.date_select :valid_until %>
+  </p>
+  <p>
+    <%= f.label :description %><br />
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :price1 %><br />
+    <%= f.text_field :price1 %>
+  </p>
+  <p>
+    <%= f.label :price2 %><br />
+    <%= f.text_field :price2 %>
+  </p>
+  <p>
+    <%= f.label :price3 %><br />
+    <%= f.text_field :price3 %>
+  </p>
+  <p>
+    <%= f.label :price4 %><br />
+    <%= f.text_field :price4 %>
+  </p>
+  <p>
+    <%= f.label :price5 %><br />
+    <%= f.text_field :price5 %>
+  </p>
+  <p>
+    <%= f.label :price1_deadline %><br />
+    <%= f.date_select :price1_deadline %>
+  </p>
+  <p>
+    <%= f.label :price2_deadline %><br />
+    <%= f.date_select :price2_deadline %>
+  </p>
+  <p>
+    <%= f.label :price3_deadline %><br />
+    <%= f.date_select :price3_deadline %>
+  </p>
+  <p>
+    <%= f.label :price4_deadline %><br />
+    <%= f.date_select :price4_deadline %>
+  </p>
+  <p>
+    <%= f.label :price5_deadline %><br />
+    <%= f.date_select :price5_deadline %>
+  </p>
+  <p>
+    <%= f.label :nr_of_tickets_sold %><br />
+    <%= f.text_field :nr_of_tickets_sold %>
+  </p>
+  <p>
+    <%= f.label :has_deal %><br />
+    <%= f.check_box :has_deal %>
+  </p>
+  <p>
+    <%= f.label :deal_pickup_at_event %><br />
+    <%= f.check_box :deal_pickup_at_event %>
+  </p>
+  <p>
+    <%= f.label :is_shipped %><br />
+    <%= f.check_box :is_shipped %>
+  </p>
+  <p>
+    <%= f.label :shipping_cost_domestic %><br />
+    <%= f.text_field :shipping_cost_domestic %>
+  </p>
+  <p>
+    <%= f.label :shipping_cost_abroad %><br />
+    <%= f.text_field :shipping_cost_abroad %>
+  </p>
+  <p>
+    <%= f.label :ticket_available_on_rihhi %><br />
+    <%= f.check_box :ticket_available_on_rihhi %>
+  </p>
+  <p>
+    <%= f.label :ticket_fullservice %><br />
+    <%= f.check_box :ticket_fullservice %>
+  </p>
+  <p>
+    <%= f.submit "Create" %>
+  </p>
+<% end %>
+
+<%= link_to 'Back', tickets_path %>

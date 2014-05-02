@@ -1,0 +1,55 @@
+8
+
+dir
+242
+https://svn.codespaces.com/rihhi/larp/rihhi/vendor/plugins/restful_authentication/generators/authenticated
+https://svn.codespaces.com/rihhi/larp
+
+
+
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+ce245bec-e5c3-47c4-86f5-a6cae0350485
+
+USAGE
+file
+
+
+
+
+2010-10-18T15:52:53.774000Z
+cdb2aed081ecd6e02941a4f298da3e72
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+authenticated_generator.rb
+file
+
+
+
+
+2010-10-18T15:52:53.779000Z
+af3ae21f341cae0ce609b4ff62cd3ad2
+2009-07-24T10:39:22.297952Z
+2
+blaukatze!
+
+templates
+dir
+

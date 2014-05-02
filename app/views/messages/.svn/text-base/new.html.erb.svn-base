@@ -1,0 +1,50 @@
+<%= render :partial => "shared/box_right" %>
+<h2 class="text_green"><%= t('views.messages.new.s1') %></h2>
+<div class="form_top">
+</div>
+<div class="form_area background_grey">
+    <% form_for(@message) do |f| %>
+    <table class="align_left" style="font-weight: bold;">
+        <tr>
+            <td style="width: 150px;">
+                <%= t('views.messages.new.s1a') %>:
+            </td>
+            <td>
+                <%= f.text_field :receiver_name, :size => 47 %><%= error_message_on(:message, :receiver_id) %>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <%= t('views.messages.new.s2') %>:
+            </td>
+            <td>
+                <%= f.text_field :title, :size => 47%><%= error_message_on(:message, :title) %>
+            </td>
+        </tr>
+		<tr>
+            <td>
+                <%= t('views.messages.new.s3') %>:
+            </td>
+            
+        </tr>
+		<tr>
+            <td colspan="2">
+                <%= f.text_area :message, :cols => 56, :rows => 5 %><%= error_message_on(:message, :message) %>
+            </td>            
+        </tr>
+   <tr>
+            <td colspan="2">
+                <%= f.submit t('views.messages.new.s4'), :class => "submit_b_neutral" %>
+            </td>            
+        </tr>
+
+   
+       
+		 </table>
+   
+    <% end %>
+	<br>
+    <%= link_to t('views.messages.new.s5'), messages_path %>
+</div>
+<div class="form_top form_bottom" style="margin-bottom: 10px;">
+</div>

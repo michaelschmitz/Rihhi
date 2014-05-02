@@ -1,0 +1,50 @@
+<% @onpage = 2 %>
+<%= render :partial => "newticket", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <h2 class="text_green">Confirmation</h2>
+    <ul style="margin-bottom: 10px;">
+        <li>
+            Review your order and click "Confirm" if you are happy.
+        </li>
+    </ul>
+	
+<%= @ticketorder.total_price %>
+<div style="width: 750px; float:left;">
+Your Order:
+<table>
+	<tr><td><%= @ticketorder.nr_of_tickets %> Tickets:</td><td><%= @ticketorder.ticket.name %></td></tr>
+	<tr><td> Event </td><td>   <%= @ticketorder.ticket.event.title %>  </td></tr>	
+	<tr><td> From </td><td>   <%=h @ticketorder.ticket.valid_from.strftime('%A, %d. %B,  %Y') %> until <%=h @ticketorder.ticket.valid_until.strftime('%A, %d. %B,  %Y') %> </td></tr>	
+	<tr><td> Arrival </td><td>   <%= @ticketorder.arrival_on %>  </td></tr>
+
+	</table>
+
+<table>
+		<tr><td> Payment </td><td>   <%= @ticketorder.nr_of_tickets %>x  </td><td>   <%= @ticketorder.ticket_price %>  </td><td>   <%= @ticketorder.total_price %>  </td></tr>
+			</table>
+ <% form_for(@ticketorder) do |f| %>
+	<table class="align_left">
+            <tr>
+                <td>
+                    <%= f.check_box :terms_and_conditions %>
+                </td>
+                <td class="bold">
+                    I accept the Terms and Conditions of Rihhi
+                </td>
+            </tr>
+			</table>
+				<table class="align_left">
+            <tr>
+                <td colspan="9">
+                    <div class="left" style="margin-top: 5px">
+                        <%= f.submit "Continue", :class => "submit_b_neutral", :tabindex => 21 %>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <% end %>
+		
+		</div
+<%= link_to 'Edit', edit_ticketorder_path(@ticketorder) %> |
+<%= link_to 'Back', ticketorders_path %>
+</div>

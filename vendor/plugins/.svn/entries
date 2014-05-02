@@ -1,0 +1,52 @@
+8
+
+dir
+242
+https://svn.codespaces.com/rihhi/larp/rihhi/vendor/plugins
+https://svn.codespaces.com/rihhi/larp
+
+
+
+2010-07-15T16:20:45.425068Z
+156
+blaukatze!
+has-props
+
+svn:special svn:externals svn:needs-lock
+svn:externals
+
+
+
+
+
+
+
+
+
+
+ce245bec-e5c3-47c4-86f5-a6cae0350485
+
+attachment_fu
+dir
+
+country_select
+dir
+
+lightbox
+dir
+
+paperclip
+dir
+
+recaptcha
+dir
+
+restful_authentication
+dir
+
+will_paginate
+dir
+
+will_paginate_acts_as_searchable
+dir
+

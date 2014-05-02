@@ -1,0 +1,23 @@
+ <% @tickets = Ticket.find(	:all,
+							:conditions => ["event_id = ?", @event],
+							:order => "position")
+							 %>
+ 			
+     
+            <div class="left" style="width: 750px;">
+               <%= render :partial => "events/new_ticket", :object => @event, :object => @ticket %>
+			    <div style="display:none">
+                    <div class="left" style="width: 750px;">
+                        Show the old tlistings for the deal.
+                    </div>
+                    <div class="left" style="width: 750px;">
+                        Create a new listing for the deal.<%= render :partial => "events/new_tlisting", :object => @event %>
+                    </div>
+                </div>
+            </div>
+			<div class="left" style="width: 750px;">
+			
+               <h2 class="text_green">Available ticket types</h2>
+                <p class="align_left">There are <%= @tickets.length %> ticket types available for this event. </p>
+				<%= render :partial => "events/old_tickets", :object => @tickets %>
+            </div>

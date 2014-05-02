@@ -1,0 +1,303 @@
+<div class="left" style="width: 600px; ">
+    <div style="float: left; clear:left; width: 600px; height: 30px;">
+        <h2 class="text_green"><%=h @event.title %></h2>
+    </div>
+    <div class="align_left" style="float: left; clear:left; width: 600px; margin-top: -10px;">
+        <h2 class="text_darkgrey"><%=h @event.subtitle %></h2>
+    </div>
+    <% if @event.pic1_file_name? %>
+    <div class="align_left" style="display: block; float: left; clear:right; padding-bottom: 10px;">
+        <%= image_tag(@event.pic1.url(:medium)) %>
+    </div>
+    <% end %>
+    <div class="align_left" style="float: left; clear:left; width: 600px; margin-top: 10px;">
+        <table style="width: 100%;">
+            <% if @event.invitation_only == 1 %>
+            <tr>
+                <td class="bold">
+                    <%= t("views.events.show.s4")%> 
+                    <td>
+                    </tr>
+                    <% end %>
+                    <tr>
+                        <td class="bold" style="width: 120px;">
+                            <%= t("views.events.show.s5")%>
+                        </td>
+                        <td>
+                            <%= h eventdate(@event.startdate , @event.enddate) %>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="bold">
+                            <%= t("views.events.show.s6")%>
+                        </td>
+                        <td>
+                            <%=h(@event.area_code) %> <%=h(@event.city) %>, <%=I18n.t(h(@event.country)) %>(<a href="" OnClick="$('googlemapview').toggle(); return false;"> View/Hide Map</a>)
+                        </td>
+                    </tr>
+                </table>
+                </div>
+                <div id="googlemapview" name="googlemapview" class="align_left left" style="margin-top: 5px; display:none;">
+                    <iframe width="540" height="440" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.com/maps?f=q&amp;source=s_q&amp;hl=de&amp;geocode=&amp;q=<%=@event.street%>+<%=@event.area_code%>+<%=@event.city%>,+<%= I18n.t @event.country%>;z=23&amp;iwloc=A&amp;output=embed">
+                    </iframe>
+                    <br/>
+                    <small>
+                        <a href="http://maps.google.com/maps?f=q&amp;source=embed&amp;hl=de&amp;geocode=&amp;q=<%=@event.street%>,+<%=@event.area_code%>+<%=@event.city%>,+<%= I18n.t @event.country%>;" target="_blank" style="text-align:left"><%= t("views.events.show.s7")%></a>
+                    </small>
+                </div>
+                <div class="left" style="float: left; clear: right; width: 540px; margin-top: 10px; ">
+                    <div class="corner_u_left">
+                    </div>
+                    <div class="background_grey" style="width: 520px; height: 10px; float: left; position: relative;">
+                    </div>
+                    <div class="corner_u_right">
+                    </div>
+                    <div class="align_left background_grey" style="float: left; clear:left; width: 520px; padding: 10px 10px 10px 10px;">
+                        <%= (h @event.description).gsub("\n", "<br />") %>
+                    </div>
+                    <div class="corner_l_left">
+                    </div>
+                    <div class="background_grey" style="width: 520px; height: 10px; float: left; position: relative;">
+                    </div>
+                    <div class="corner_l_right">
+                    </div>
+                </div>
+                <div class="align_left" style="float: left; width: 100%; margin-top: 10px;">
+                    <table style="border-bottom: 1px solid #bbb; width: 540px;">
+                        <tr>
+                            <td class="bold" style="width: 120px;">
+                                 <%= t("views.events.show.s8")%>
+                            </td>
+                            <td>
+                                <%=h @event.genre %><%=h @event.genre_description %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bold">
+                                <%= t("views.events.show.s9")%>
+                            </td>
+                            <td>
+                                <%=h @event.rules %><%=h @event.rules_description %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bold">
+                                <%= t("views.events.show.s10")%>
+                            </td>
+                            <td>
+                                <%=h @event.campaign %><%=h @event.campaign_description %>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="bold">
+                                 <%= t("views.events.show.s11")%>
+                            </td>
+                            <td>
+                                <%=h @event.catering %><%=h @event.catering_description %>
+                            </td>
+                        </tr>
+                    </table>
+                    <div class="left" style="border-bottom: 1px solid #bbb;  margin-top: 10px; width: 540px;">
+                        <table>
+                            <tr>
+                                <td class="bold" style="width: 120px;">
+                                    <%= t("views.events.show.s12")%>
+                                </td>
+                                <td style="width: 80px;">
+                                    <%= t("views.events.show.s13")%> 
+                                </td>
+                                <td style="width: 80px;">
+                                    <% @style = "dot" + @event.ambiente.to_s %>
+                                    <div class="dots <%= @style %>">
+                                    </div>
+                                </td>
+                                <td style="width: 80px;">
+                                    <%= t("views.events.show.s14")%> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">
+                                    <%= t("views.events.show.s15")%>
+                                </td>
+                                <td>
+                                    <%= t("views.events.show.s16")%> 
+                                </td>
+                                <td>
+                                    <% @style = "dot" + @event.fights.to_s %>
+                                    <div class="dots <%= @style %>">
+                                    </div>
+                                </td>
+                                <td>
+                                    <%= t("views.events.show.s17")%> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">
+                                    <%= t("views.events.show.s18")%>
+                                </td>
+                                <td>
+                                    <%= t("views.events.show.s16")%> 
+                                </td>
+                                <td>
+                                    <% @style = "dot" + @event.battles.to_s %>
+                                    <div class="dots <%= @style %>">
+                                    </div>
+                                </td>
+                                <td>
+                                    <%= t("views.events.show.s17")%> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">
+                                    <%= t("views.events.show.s19")%>
+                                </td>
+                                <td>
+                                    <%= t("views.events.show.s20")%> 
+                                </td>
+                                <td>
+                                    <% @style = "dot" + @event.magic.to_s %>
+                                    <div class="dots <%= @style %>">
+                                    </div>
+                                </td>
+                                <td>
+                                    <%= t("views.events.show.s21")%>  
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">
+                                    <%= t("views.events.show.s22")%>
+                                </td>
+                                <td>
+                                    <%= t("views.events.show.s16")%> 
+                                </td>
+                                <td>
+                                    <% @style = "dot" + @event.mysteries.to_s %>
+                                    <div class="dots <%= @style %>">
+                                    </div>
+                                </td>
+                                <td>
+                                    <%= t("views.events.show.s17")%> 
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="left" style="border-bottom: 0px solid #bbb;  margin-top: 10px; width: 540px;">
+                        <table>
+                            <tr>
+                                <td class="bold" style="width: 120px;">
+                                    <%= t("views.events.show.s23")%>
+                                </td>
+                                <td>
+                                    <%=h @event.location %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold" style="width: 120px;">
+                                    <%= t("views.events.show.s24")%>
+                                </td>
+                                <td>
+                                    <%=h @event.street %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold" style="width: 120px;">
+                                    <%= t("views.events.show.s25")%>
+                                </td>
+                                <td>
+                                    <%=h @event.area_code %>, <%=h @event.city %>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold" style="width: 120px;">
+                                    <%= t("views.events.show.s26")%>
+                                </td>
+                                <td>
+                                    <%= I18n.t(h(@event.country)) %>
+                                </td>
+                            </tr>
+                            <% if !@event.location_description.blank? %>
+                            <tr>
+                                <td colspan="2" class="bold" style="width: 120px;">
+                                    <%= t("views.events.show.s27")%> 
+                                </td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">
+                                    <div class="left" style="float: left; clear: right; width: 540px; margin-top: 10px; ">
+                                        <div class="corner_u_left">
+                                        </div>
+                                        <div class="background_grey" style="width: 520px; height: 10px; float: left; position: relative;">
+                                        </div>
+                                        <div class="corner_u_right">
+                                        </div>
+                                        <div class="align_left background_grey" style="float: left; clear:left; width: 520px; padding: 10px 10px 10px 10px;">
+                                            <%= (h @event.location_description).gsub("\n", "<br />") %>
+                                        </div>
+                                        <div class="corner_l_left">
+                                        </div>
+                                        <div class="background_grey" style="width: 520px; height: 10px; float: left; position: relative;">
+                                        </div>
+                                        <div class="corner_l_right">
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <% end %>
+                        </table>
+                    </div>
+                    <div class="left" style="  margin-top: 10px; width: 540px;">
+                        <table>
+                            <tr>
+                                <td class="bold" style="width: 120px;">
+                                    <%= t("views.events.show.s28")%>: 
+                                </td>
+                                <td>
+                                    <a href=""><%=h @event.url_to_invitation %></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="bold">
+                                    <%= t("views.events.show.s29")%>: 
+                                </td>
+                                <td>
+                                    <a href=""><%=h @event.link_to_forum_discussion %></a>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+            
+			<div class="left align_left" name="attending" style="margin-top: 30px; border: 1px solid #bbb; height: 130px; width: 540px;">
+	<div class="left" style="width: 540px; padding-top: 5px; padding-left: 5px;"><span class="bold">16 <%= t("views.events.show.s30")%></span> (<a href=""><%= t("views.events.show.s31")%></a>)</div>
+		<!-- Partial for attendance -->
+		<div class="left" style="margin-left: 5px; margin-top: 5px; width: 80px; height: 80px; border: 1px solid grey;">
+		<a href=""><%= image_tag("users/ninja.jpeg", :size => "80x80") %></a>
+		<a href=""><%= truncate(h("Jukihiro_Matsuo"), :length => 12) %></a>
+		</div>
+		
+		<div class="left" style="margin-left: 5px; margin-top: 5px; width: 80px; height: 80px; border: 1px solid grey;">
+		<a href=""><%= image_tag("users/1.jpg", :size => "80x80") %></a>
+		<a href=""><%= truncate(h("KL33t"), :length => 10) %></a>
+		</div>
+		
+		<div class="left" style="margin-left: 5px; margin-top: 5px; width: 80px; height: 80px; border: 1px solid grey;">
+		<a href=""><%= image_tag("users/2.jpg", :size => "80x80") %></a>
+		<a href=""><%= truncate(h("SolensängerX2"), :length => 12) %></a>
+		</div>
+		
+		<div class="left" style="margin-left: 5px; margin-top: 5px; width: 80px; height: 80px; border: 1px solid grey;">
+		<a href=""><%= image_tag("users/3.jpg", :size => "80x80") %></a>
+		<a href=""><%= truncate(h("SporadischDa."), :length => 12) %></a>
+		</div>
+		
+		<div class="left" style="margin-left: 5px; margin-top: 5px; width: 80px; height: 80px; border: 1px solid grey;">
+		<a href=""><%= image_tag("users/4.jpg", :size => "80x80") %></a>
+		<a href=""><%= truncate(h("Felix43."), :length => 12) %></a>
+		</div>
+		
+		<div class="left" style="margin-left: 5px; margin-top: 5px; width: 80px; height: 80px; border: 1px solid grey;">
+		<a href=""><%= image_tag("users/5.jpg", :size => "80x80") %></a>
+		<a href=""><%= truncate(h("Pater_FRVR."), :length => 12) %></a>
+		</div>
+	</div>
+</div>

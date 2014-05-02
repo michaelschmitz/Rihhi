@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 40
+/rihhi/larp/!svn/ver/235/rihhi/lib/tasks
+END
+paperclip_tasks.rake
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/rihhi/larp/!svn/ver/156/rihhi/lib/tasks/paperclip_tasks.rake
+END
+populate.rake
+K 25
+svn:wc:ra_dav:version-url
+V 54
+/rihhi/larp/!svn/ver/235/rihhi/lib/tasks/populate.rake
+END
+recaptcha_tasks.rake
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/rihhi/larp/!svn/ver/156/rihhi/lib/tasks/recaptcha_tasks.rake
+END

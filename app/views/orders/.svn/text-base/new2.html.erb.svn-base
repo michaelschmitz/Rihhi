@@ -1,0 +1,97 @@
+<% @onpage = 3 %>
+<%= render :partial => "neworder", :object => @onpage %>
+<!-- Overall frame-->
+<div class="left" style="width: 750px;">
+	<div  style="width: 750px; margin-left: 0px; padding: 10px 10px 10px 10px;">
+	    <h2 class="text_green"><%= t("views.orders.new2.s1") %></h2>
+	    <ul class="align_left">
+	           <li>
+            <%= t("views.orders.new2.s2") %>.
+        </li>
+        <li>
+            <%= t("views.orders.new2.s3") %>.
+        </li>
+	     
+	    </ul>
+	</div>
+ 
+    <div class="form_top">
+    </div>
+    <div class="form_area background_grey">
+        <div style="text-align: right; float: right; ">
+            <%= image_tag("important.png") %>= <%= t("views.orders.new2.s4") %>
+        </div>
+        <% form_for @order, :url => { :action => "new3", :id => @order.id }, :html => { :method => :put } do |f| %>
+        <h3><%= t("views.orders.new2.s5") %></h3>
+        <table style="width: 100%" class="align_left">
+            <tr>
+                <td style="width: 150px;">
+                    <%= t("views.orders.new2.s6") %>: <%= image_tag("important.png") %>
+                </td>
+                <td>
+                    <%= f.text_field :user_fullname , :size => "3" , :tabindex => 1, :class => "form_field" %><%= error_message_on(:order, :user_fullname) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.orders.new2.s7") %>: <%= image_tag("important.png") %>
+                </td>
+                <td>
+                    <%= f.text_field :user_address, :tabindex => 2, :class => "form_field" %><%= error_message_on(:order, :user_address) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.orders.new2.s8") %>: <%= image_tag("important.png") %>
+                </td>
+                <td>
+                    <%= f.text_field :user_areacode, :tabindex => 3, :class => "form_field" %><%= error_message_on(:order, :user_areacode) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.orders.new2.s9") %>: <%= image_tag("important.png") %>
+                </td>
+                <td>
+                    <%= f.text_field :user_city, :tabindex => 4, :class => "form_field" %><%= error_message_on(:order, :user_city) %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.orders.new2.s10") %>: <%= image_tag("important.png") %>
+                </td>
+                <td>
+                   	<%= select( "order", "user_country", country_list(), :tabindex => 5 ) %><%= error_message_on(:order, :user_country) %>
+                </td>
+            </tr>
+        </table>
+
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+   
+    <div class="form_top" style="margin-top: 10px;">
+    </div>
+    <div class="form_area background_grey" >
+        <h3><%= t("views.orders.new2.s11") %>: <%= image_tag("important.png") %><%= error_message_on(:order, :payment_chosen) %></h3>
+        <table>
+            <tr>
+                <% if @order.seller.shop.allow_paypal == "Yes" %>
+                <td style="width: 20px;"><%= f.radio_button :payment_chosen , "paypal" %></td><td style="width: 90px;"><%= t("views.orders.new2.s12") %></td><% end %>
+                <% if @order.seller.shop.allow_bank_transfer == "Yes" %>
+                <td style="width: 20px;"><%= f.radio_button :payment_chosen , "bank" %></td><td style="width: 90px;"><%= t("views.orders.new2.s13") %></td><% end %>
+                <% if @order.seller.shop.allow_cheque == "Yes" %>
+                <td style="width: 20px;"><%= f.radio_button :payment_chosen , "cheque" %></td><td style="width: 90px;"><%= t("views.orders.new2.s14") %></td><% end %>
+                <% if @order.seller.shop.allow_cash_on_delivery == "Yes" %>
+                <td style="width: 20px;"><%= f.radio_button :payment_chosen , "cod" %></td><td style="width: 110px;"><%= t("views.orders.new2.s15") %> </td><% end %>
+            </tr>            
+        </table>
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+    <div class="right" style="clear: both; margin-top: 20px;">
+        <%= f.submit t("views.orders.new2.s16"), :class => "submit_b" %>
+    </div>
+    <% end %>
+</div>
+<%= link_to t("views.orders.new2.s17"), orders_path %>

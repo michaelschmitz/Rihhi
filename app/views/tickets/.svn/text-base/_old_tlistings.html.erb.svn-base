@@ -1,0 +1,8 @@
+
+  <tr>
+    <td><%=h tlisting.ticket_id %></td>
+    <td><%=h tlisting.listing_id %></td>
+    <td><%= link_to 'Show', tlisting %></td>
+    <td><%= link_to 'Edit', edit_tlisting_path(tlisting) %></td>
+    <td><%= link_to 'Destroy', tlisting, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>

@@ -1,0 +1,296 @@
+<% @onpage = 1 %>
+<%= render :partial => "shared/edit_settings", :object => @onpage %>
+<div style="width: 750px; float:left;">
+    <h2 class="text_green" style="margin-left: 10px;"><%= t("views.userpages.edit.s1")%></h2>
+    <div class="form_top" style="margin-top: 20px;">
+    </div>
+    <div class="form_area background_grey">
+        <% form_for (@userpage, :html => { :multipart => true, :method => :put }) do |f| %>
+        <%= f.error_messages %>
+        <table>
+        	 <tr><td><h3 class="text_green"><%= t("views.userpages.edit.s2")%></h3></td></tr>
+            <tr>
+                <td style="padding-top: 20px;">
+			<% if @userpage.avatar? %>
+	    	<span class="img-shadow"><%= image_tag(@userpage.avatar.url(:medium)) %></span>
+	    <% else %>
+	        <span class="img-shadow"><%= image_tag("missing_user.jpeg", :size => "200x200") %></span>
+	    <% end %>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <%= f.file_field :avatar %>
+                </td>
+            </tr>
+        </table>    
+	    <table>
+            <tr>
+                <td colspan="2">
+                    <h3 class="text_green" style="width: 550px;"><%= t("views.userpages.edit.s3a")%>Preferred Language</h3>
+                </td>              
+            </tr>
+			  <tr>
+                <td style="width: 110px;">
+                    <%= f.select "preferred_language", options_for_select(LANGUAGES, @userpage.preferred_language) %>
+                </td> 
+				<td>
+					
+				</td>             
+            </tr>
+        </table>
+        <table>
+            <tr>
+                <td>
+                    <h3 class="text_green" style="width: 550px;"><%= t("views.userpages.edit.s3")%></h3>
+                </td>
+                <td>
+                    <h3 style="width: 133px;"><%= t("views.userpages.edit.s4")%></h3>
+                </td>
+            </tr>
+        </table>
+        <table style="width: 700px; padding-left: 5px; " class="align_left">
+            <tr>
+                <td style="width: 110px;">
+                    <%= t("views.userpages.edit.s5")%>
+                </td>
+                <td style="width: 460px;">
+                    <%= f.text_area :about_me, :rows=> 4, :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :about_me_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :about_me_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s27")%> 
+                </td>
+                <td>
+                    <%= f.text_area :what_if_ten_days_left, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :what_if_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :what_if_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+	        <tr>
+                <td style="width: 100px;">
+                    <%= t("views.userpages.edit.s8")%>
+                </td>
+                <td>
+                    <%= f.text_field :status %>
+                </td>
+                <td>
+                    <%= f.radio_button :status_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :status_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s9")%>
+                </td>
+                <td>
+                    <%= f.text_field :real_name %>
+                </td>
+                <td>
+                    <%= f.radio_button :real_name_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :real_name_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s10")%>
+                </td>
+                <td>
+                    <%= f.text_field :homepage %>
+                </td>
+                <td>
+                    <%= f.radio_button :homepage_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :homepage_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s11")%> 
+                </td>
+                <td>
+                    <%= f.text_field :region %>
+                </td>
+                <td>
+                    <%= f.radio_button :region_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :region_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s12")%>
+                </td>
+                <td>
+                    <%= f.text_field :larp_philosophy %>
+                </td>
+                <td>
+                    <%= f.radio_button :larp_philosophy_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :larp_philosophy_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s13")%>
+                </td>
+                <td>
+                    <%= f.text_area :larp_setting, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :larp_setting_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :larp_setting_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s14")%>
+                </td>
+                <td>
+                    <%= f.text_area :favorite_characters, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :favorite_characters_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :favorite_characters_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s15")%>
+                </td>
+                <td>
+                    <%= f.text_field :player_group %>
+                </td>
+                <td>
+                    <%= f.radio_button :player_group_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :player_group_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s16")%>
+                </td>
+                <td>
+                    <%= f.text_field :homepage_of_group %>
+                </td>
+                <td>
+                    <%= f.radio_button :homepage_of_group_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :homepage_of_group_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s17")%>
+                </td>
+                <td>
+                    <%= f.text_area :relationship, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :relationship_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :relationship_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s18")%>
+                </td>
+                <td>
+                    <%= f.text_area :looking_for, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :looking_for_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :looking_for_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s19")%>
+                </td>
+                <td>
+                    <%= f.text_area :contact_me, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :contact_me_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :contact_me_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s20")%>
+                </td>
+                <td>
+                    <%= f.text_area :future_cons, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :future_const_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :future_const_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s21")%>
+                </td>
+                <td>
+                    <%= f.text_area :last_cons, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :last_cons_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :last_cons_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s22")%>
+                </td>
+                <td>
+                    <%= f.text_area :ask_me_about, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :ask_me_about_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :ask_me_about_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s23")%>
+                </td>
+                <td>
+                    <%= f.text_area :music, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :music_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :music_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s24")%>
+                </td>
+                <td>
+                    <%= f.text_area :books, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :books_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :books_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s25")%>
+                </td>
+                <td>
+                    <%= f.text_area :movies, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :movies_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :movies_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <%= t("views.userpages.edit.s26")%>
+                </td>
+                <td>
+                    <%= f.text_area :other_hobbies, :rows=> 4 , :cols => 50 %>
+                </td>
+                <td>
+                    <%= f.radio_button :other_hobbies_p, 'Yes', :tabindex => 3 %><%= t("views.userpages.edit.s6")%> <%= f.radio_button :other_hobbies_p, 'No', :tabindex => 4 %><%= t("views.userpages.edit.s7")%>
+                </td>
+            </tr>
+     
+        </table>
+    </div>
+    <div class="form_top form_bottom">
+    </div>
+    <div style="float: left; clear: none; margin-top: 10px; margin-left: 10px;">
+        <%= link_to t("views.userpages.edit.s28"), profile_path() %>
+    </div>
+    <div style="float: right; clear: none; margin-top: 10px; margin-right: 10px;">
+        <%= f.submit t("views.userpages.edit.s29"), :class => "submit_b" %>
+    </div>
+    <% end %>
+</div>

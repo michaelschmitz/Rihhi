@@ -1,0 +1,25 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  listing_id: MyString
+  user_id: MyString
+  flagger_id: MyString
+  flagger_email: MyString
+  email_sent: MyString
+  reason: MyString
+  deleted: MyString
+  changed: MyString
+  closed: MyString
+  admin_id: MyString
+
+two:
+  listing_id: MyString
+  user_id: MyString
+  flagger_id: MyString
+  flagger_email: MyString
+  email_sent: MyString
+  reason: MyString
+  deleted: MyString
+  changed: MyString
+  closed: MyString
+  admin_id: MyString

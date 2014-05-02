@@ -1,0 +1,34 @@
+<h2 class="text_green">All flagged items</h2>
+
+<div style="width: 100%; margin-bottom: 20px;">
+	<p style="text-align: left;"> These items were flagged by users:</p>
+</div> 
+
+<div>
+	<table class="left">
+	  <tr>
+	  	<th style="width: 100px; text-align: center;">Main Image</th>
+	    <th style="width: 100px; text-align: center;">Title</th>
+		<th style="width: 100px; text-align: center;">Price</th>
+		<th style="width: 100px; text-align: center;">Reason</th>
+	  </tr>
+	
+	<% @flaggeds.each do |f| %>
+	<% l = f.listing %>
+	  <tr>
+	  	
+	    <td><%=h l.title %></td>
+	    <td class="text_green"><%=h l.price %> €</td>
+		<td><%=h f.reason %></td>
+		<td style="width: 30px"><%= link_to 'Show', l %></td>
+        <td style="width: 30px"><%= link_to 'Destroy', f, :method => :delete, :confirm => "Absolutely sure to delete this?" %></td>
+	  </tr>
+	<% end %>
+	</table>
+</div>	
+
+<div style="width: 100%; float: left; margin-top: 20px;">
+	<p style="text-align: center;">
+	<%= link_to 'Back to My Account', profile_path %>
+	</p>
+</div> 

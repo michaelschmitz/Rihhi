@@ -1,0 +1,13 @@
+<p>
+  <b>User:</b>
+  <%=h @hearted.user_id %>
+</p>
+
+<p>
+  <b>Listing:</b>
+  <%=h @hearted.listing_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_hearted_path(@hearted) %> |
+<%= link_to 'Back', hearteds_path %>

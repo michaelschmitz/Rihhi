@@ -1,0 +1,20 @@
+<%= render :partial => "shared/box_right" %>
+<div class="left" style="width: 750px;">
+    <h2 class="text_green">Tickets</h2>
+	<div class="left"><p class="align_left">There are <%= @all_tickets.length %> tickets available. <%= link_to "Add a ticket for your event", new_ticket_path() %>    </p></div>
+	<div class="right" style="margin-left: 200px;"> <p><a href="" OnClick="$('searchbox').toggle(); return false;">Show/Hide Search</a></p> </div> 
+</div>	
+<%= render :partial => "searchbox", :object => @nosearch %>
+	
+<div class="left" style="clear: left;">
+<p class="align_left">
+    <% if @nosearch != 1 %>
+    Your search has <%= @number_of_results %> results.
+    <br>
+    <% end %>
+</p>
+</div>
+
+    <%= render :partial => "old_tickets", :object => @tickets %>
+	<%= link_to "Add a ticket for your event", new_ticket_path() %>
+</div>

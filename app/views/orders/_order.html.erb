@@ -1,0 +1,73 @@
+<div class="left" style="width: 410px; margin-top: 5px;">
+   
+        <!-- Contains the order -->
+        <div class="right">
+            <table style="text-align: left; width: 408px;">
+                <tr>
+                    <td colspan="4">
+                        <h3 class="text_green" ><%= t("views.orders.order.s1") %> <%= @order.id %> 
+						<% if self.current_user.login == @order.seller.user.login %>
+						<%= t("views.orders.order.s2") %> <%= @order.user.login %>
+						<% else %>
+						<%= t("views.orders.order.s3") %> <%= @order.seller.user.login %>
+						<% end %>
+						</h3>
+						
+                    </td>
+                </tr>
+                <% @order.deliverables.each do |d| %>
+                <tr>
+                    <td style="width: 30px; text-align: right; ">
+                        <%=h d.amount %>x<br><br><br>
+                    </td>
+                    <td style="width: 150px;">
+                        <%= link_to d.title, listing_path(d.listing.id)  %>
+						<br>
+						<%= t("views.orders.order.s4") %>: <%= t(d.size) %><br>
+						<%= t("views.orders.order.s5") %>: <%= t(d.color) %>
+						
+                    </td>
+                    <td style="width: 50px; text-align: right; ">
+                        <%=h number_to_currency(d.price, :unit => "") %> €<br><br><br>
+                    </td>
+                    <td style="width: 100px; text-align: right; padding-right: 15px;">
+                        <%=h number_to_currency((d.amount * d.price.to_f), :unit => "") %> €<br><br><br>
+                    </td>
+                </tr>
+                <% end %>
+				
+                <tr style="text-align: right;">
+                    <td colspan="3" >
+                        <%= t("views.orders.order.s6") %>
+                    </td>
+                    <td style="padding-right: 15px;">
+                        <%= number_to_currency(@order.price_of_all_deliverables, :unit => "") %> €
+                    </td>
+                </tr>
+                <tr style="text-align: right;">
+                    <td colspan="3">
+                        <%= t("views.orders.order.s7") %>
+                    </td>
+                    <td style="padding-right: 15px;">
+                        + <%= number_to_currency(@order.cost_of_shipping, :unit => "") %> €
+                    </td>
+                </tr>
+				
+                <tr class="bold" style="text-align: right;">
+                    <td colspan="3">
+                        <%= t("views.orders.order.s8") %>
+                    </td>
+                    <td style="padding-right: 15px;">
+                        <%= number_to_currency(@order.total_cost_of_order, :unit => "") %> €
+                    </td>
+                </tr>
+				
+				<tr style="text-align: right;">
+					<td colspan="3"><%= t("views.orders.order.s9") %> </td>
+					<td style="padding-right: 15px;">Rihhi-<%= @order.id %></td>
+				</tr>
+          
+            </table>
+        </div>
+	
+    </div>

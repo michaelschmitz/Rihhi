@@ -1,0 +1,52 @@
+<h1>Editing order</h1>
+
+<% form_for(@order) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :seller_id %><br />
+    <%= f.text_field :seller_id %>
+  </p>
+  <p>
+    <%= f.label :user_id %><br />
+    <%= f.text_field :user_id %>
+  </p>
+  <p>
+    <%= f.label :payment_via %><br />
+    <%= f.text_field :payment_via %>
+  </p>
+  <p>
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </p>
+  <p>
+    <%= f.label :status_payment %><br />
+    <%= f.text_field :status_payment %>
+  </p>
+  <p>
+    <%= f.label :status_shipment %><br />
+    <%= f.text_field :status_shipment %>
+  </p>
+  <p>
+    <%= f.label :status_recieved %><br />
+    <%= f.text_field :status_recieved %>
+  </p>
+  <p>
+    <%= f.label :status_evaluate_seller %><br />
+    <%= f.text_field :status_evaluate_seller %>
+  </p>
+  <p>
+    <%= f.label :status_evaluate_buyer %><br />
+    <%= f.text_field :status_evaluate_buyer %>
+  </p>
+  <p>
+    <%= f.label :status_closed %><br />
+    <%= f.text_field :status_closed %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @order %> |
+<%= link_to 'Back', orders_path %>

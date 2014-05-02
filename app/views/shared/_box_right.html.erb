@@ -1,0 +1,16 @@
+<div style="height: auto; width: 130px; border-left: 1px solid #e8e8e8; margin-left: 10px; margin-top: 20px; display: block; font-stretch: extra-expanded; " class="right">
+    <% @box_items = Listing.find(:all, :limit => 5, :conditions => ["nr_of_items_in_stock >= ? and removed = ? and creation = ?", "0", "0", "completed"], :order => 'id DESC') %>
+    <h3 class="text_green"><%= t("views.shared.box_right.s1") %></h3>
+    <ul>
+        <% @box_items.each do |b| %>
+        <li>
+            <% if b.pic1.exists? %>
+            <span class="img-shadow"><%= link_to image_tag(b.pic1.url(:small)), listing_path(b) %></span>
+            <% else %>
+            <span class="img-shadow"><%= link_to image_tag("../pic1s/medium/missing.png", :size => "100x100"), listing_path(b) %></span>
+            <% end %>
+      
+        </li>
+        <% end %>
+    </ul>
+</div>

@@ -1,0 +1,20 @@
+    <% if @friends_i_asked.length >= 1 or @friends_who_asked_me.length >= 1 %>
+	    <div class="clear_left" style="width: 120px; text-align: center;">
+    	<h3 class="text_green"><%= t("views.users.show.s13") %> (<%= @friends_i_asked.length + @friends_who_asked_me.length %>)</h3>
+	    <% if @friends_i_asked.length >= 1 %>
+	        <% @friends_i_asked.each do |f| %>
+				<% @friend = f.friend_id%>
+	        	<%= render :partial => "shared/afriend", :object => @friend %>
+	        <% end %>
+	    <% end %>
+	    <% if @friends_who_asked_me.length >= 1 %>
+	        <% @friends_who_asked_me.each do |f| %>
+				<% @friend = f.user_id%>
+				<%= render :partial => "shared/afriend", :object => @friend %>
+	        <% end %>
+	    <% end %>
+		</div>
+	 <% end %>
+    <div class="clear_left" style="width: 100px; margin-top: 10px; padding-left: 5px; text-align: left;">
+        <%= link_to t("views.users.show.s14"), friend_path(:id => @user.id) %>
+    </div>

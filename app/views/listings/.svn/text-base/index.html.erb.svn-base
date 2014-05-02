@@ -1,0 +1,69 @@
+<h2 class="text_green"><%= t('views.listings.index.s1') %></h2>
+<% if @listings.length == 0 %>
+	<p style="text-align: left; width: 100%; margin-top: 10px; margin-bottom: 50px;"><%= t('views.listings.index.s2') %></p>
+ 
+<% else %> 
+	<div>
+		<hr>
+	<table class="left" style="text-align: left;">
+	  <tr>
+	  	
+	    <th style="width: 40px; text-align: center;"><%= t('views.listings.index.s3') %></th>
+	    <th style="width: 300px; text-align: center;"><%= t('views.listings.index.s4') %></th>
+		<th style="width: 300px; "><%= t('views.listings.index.s5') %></th>		
+		<th style="width: 300px; text-align: left;"><%= t('views.listings.index.s6') %></th>
+		<th style="width: 100px; text-align: left;"><%= t('views.listings.index.s7') %></th>
+	  </tr>
+	  <tr><td></td></tr>
+	
+	<% @listings.each do |l| %>
+	<tr><td style="text-align: center;"><%= l.id %></td>
+	 <td style="text-align: center;">
+	  <% if l.pic1.exists? %>
+	  	<span class="img-shadow" style="margin-right: 50px; margin-top: 10px;"><%= link_to(image_tag(l.pic1.url(:thumb)), listing_path(l))%></span>
+	  <% else %>			
+		<%= link_to(image_tag("../pic1s/thumb/missing.png"), listing_path(l))%>
+	  <% end %>
+	  </td>
+	  
+	  <td>
+	  	<table>
+	  		
+	    <tr><td class="bold"><%= t('views.listings.index.s8') %>: </td><td><%=h l.title %></td></tr>
+	    <tr><td class="bold"><%= t('views.listings.index.s9') %>: </td><td><%=h number_to_currency(l.price, :unit => "") %> €</td></tr>
+		<tr><td>&nbsp;</td></tr>
+		<tr>
+			<% if l.nr_of_items_in_stock == 0 %>
+				<td class="bold" style="color: red;"><%= t('views.listings.index.s10') %>:</td><td style="color: red;">
+			<% else %>
+				<td class="bold"><%= t('views.listings.index.s10') %>:</td><td>
+			<% end %>
+			<%=h l.nr_of_items_in_stock%> <%= link_to t('views.listings.index4.s17'), title_path(l.seller_id, l.id) %></td></tr>
+		</table>
+		</td>
+		
+	    <td>
+		<ul>
+			
+		<li><%= link_to  t('views.listings.index.s11'), title_path(l.seller_id, l.id) %>  </li>
+		<li><%= link_to  t('views.listings.index.s12'), cat_path(l.seller_id, l.id) %>  </li>
+		<li><%= link_to  t('views.listings.index.s13'), spec_path(l.seller_id, l.id) %>  </li>
+		<li><%= link_to  t('views.listings.index.s14'), ship_path(l.seller_id, l.id) %>  </li>
+		<li><%= link_to  t('views.listings.index.s15'), img_path(l.seller_id, l.id) %>  </li>
+		</ul>
+		</td>
+		
+	    <td><%= link_to t('views.listings.index.s16'), listing_remove_path(:seller_id => l.seller_id, :id => l.id), :confirm => t('views.listings.index.s17'), :method => :post %></td>
+		
+	  </tr>
+	<% end %>
+	</table>
+	<hr>
+	<%= will_paginate @listings %>
+	</div>
+
+
+<% end %>	
+
+<%= render :partial => "shared/links" %>
+

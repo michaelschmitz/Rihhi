@@ -1,0 +1,12 @@
+<div class="leftbox">
+	<%= render :partial => "shared/mainmenu" %>
+	<% if @g_events_enabled == 1%>
+ 	<%= render :partial => "shared/calendar", :object => @number_of_events_total, :object => @number_of_events_today  %>
+	<% end %>
+	<% render :partial => "shared/explore" %>
+</div>
+<div class="overview" style="margin-top: 10px; margin-left: -15px;">
+<%= image_tag("http://s3.amazonaws.com/img.rihhi.com/system/what_" + (session[:locale] || "en") + ".png", :size => "700x40") %>
+</div>
+
+<%= render :partial => "shared/overview" %> 

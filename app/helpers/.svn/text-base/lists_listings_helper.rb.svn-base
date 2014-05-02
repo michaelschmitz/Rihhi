@@ -1,0 +1,2 @@
+module ListsListingsHelper
+end

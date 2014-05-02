@@ -1,0 +1,25 @@
+<!-- The menu for this section -->
+<div class="smallmenu">
+			<h3 id="white_link"><%= link_to 'Overview', profile_path %></h3>
+			<ul>
+				<% if @user.is_seller?%>
+				<li><a href=""> x Items</a></li>
+				<li><a href=""> x Sales</a></li>
+				<% end %>
+				<li><a href=""> x Purchases</a></li>
+				<li><a href=""> x Feedback</a></li>
+				<li><a href=""> x Favorites</a></li>
+				<li><%= link_to 'Settings', settings_path %></li>
+				<ul class="menu_sub">
+					<li><%= link_to 'User settings', edit_user_path(self.current_user) %></li>
+					<% if @user.is_seller?%>
+					<li><%= link_to 'Seller settings', sellersettings_path %></li>
+					<li><%= link_to 'Shop settings', shopsettings_path %></li>
+					<% end %>
+				</ul>
+				<li><a href=""> x Alchemy</a></li>
+				<% if !@user.is_seller? %>
+				<li><%= link_to 'Sell items', new_user_seller_path(self.current_user) %></li>
+				<% end %>
+			</ul>
+</div>

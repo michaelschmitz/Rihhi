@@ -1,0 +1,47 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/rihhi/larp/!svn/ver/234/rihhi/app/views/requests
+END
+new.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 62
+/rihhi/larp/!svn/ver/137/rihhi/app/views/requests/new.html.erb
+END
+my_requests.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/rihhi/larp/!svn/ver/94/rihhi/app/views/requests/my_requests.html.erb
+END
+show.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/rihhi/larp/!svn/ver/234/rihhi/app/views/requests/show.html.erb
+END
+edit.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 63
+/rihhi/larp/!svn/ver/138/rihhi/app/views/requests/edit.html.erb
+END
+_searchbox.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/rihhi/larp/!svn/ver/116/rihhi/app/views/requests/_searchbox.html.erb
+END
+closed_requests.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/rihhi/larp/!svn/ver/94/rihhi/app/views/requests/closed_requests.html.erb
+END
+index.html.erb
+K 25
+svn:wc:ra_dav:version-url
+V 64
+/rihhi/larp/!svn/ver/126/rihhi/app/views/requests/index.html.erb
+END

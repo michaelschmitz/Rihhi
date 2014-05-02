@@ -1,0 +1,19 @@
+<p> <%= t("views.orders.cheque_c.s1") %>.</p>
+<p> <%= t("views.orders.cheque_c.s2") %>: </p>
+    <ul>
+        <li>
+            <%= @this_order.seller.full_name %>
+        </li>
+        <li>
+            <%= @this_order.seller.street %>
+        </li>
+        <li>
+            <%= @this_order.seller.post_code %>
+        </li>
+        <li>
+            <%= @this_order.seller.city %>
+        </li>
+        <li>
+            <%= @this_order.seller.country %>
+        </li>
+    </ul>

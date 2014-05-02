@@ -1,0 +1,35 @@
+
+<% if @nosearch == 0 %>
+<div class="left" style="width: 750px; border: 1px solid #eaeaea; margin-bottom: 10px; display: block;" id="searchbox">
+<% else %>
+<div class="left" style="width: 750px; border: 1px solid #eaeaea; margin-bottom: 10px; display: none;" id="searchbox">
+<% end%>
+
+   <% form_for :search, { :url => { :action => "index" }, :html => { :method => "get"} } do |f| %>
+   <table class="align_left">
+   	<tr>
+   		<td style="width: 100px; padding-left: 10px;" class="bold">Title</td>		<td><%= f.text_field :title, :size => 30, :tabindex => 1 %></td>
+		<td style="width: 100px; padding-left: 10px;" class="bold">Materials</td>		<td><%= f.text_field :material_tags, :size => 30, :tabindex => 1 %></td>
+		
+	</tr>
+	 	<tr>
+   		
+		<td style="width: 100px; padding-left: 10px;" class="bold">Requester</td>		    <td><%= f.text_field :requester, :size => 30, :tabindex => 1 %></td>
+		<td style="width: 100px; padding-left: 10px;" class="bold">Tags</td>		    <td><%= f.text_field :other_tags, :size => 30, :tabindex => 1 %></td>
+		</tr>  
+		 	<tr>
+			<td style="width: 100px; padding-left: 10px;" class="bold">Deadline before</td>		<td><%= f.date_select :deadline %></td>  
+			<td style="width: 100px; padding-left: 10px;" class="bold">Status</td>		<td><%= f.select :request_status, { I18n.t('requests.searchbox.open') => "open", I18n.t('requests.searchbox.closed') => "closed"} %></td></tr>   	<tr>
+	</tr> </tr>
+   </table>
+
+      
+<div class="left" style="margin-left: 10px; margin-bottom: 5px;">
+         <%= submit_tag 'Search', :name => nil %>
+		 
+      </div>
+    <% end %>
+
+
+   
+</div>
